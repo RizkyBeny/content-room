@@ -1,0 +1,41 @@
+{
+  "name": "content-automation",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "flow:studio": "cd ~/flow-mcp && npm run studio",
+    "flow:login": "cd ~/flow-mcp && npm run login",
+    "test:flow": "tsx scripts/test-flow-mcp.ts",
+    "test:hyperframes": "tsx scripts/test-hyperframes.ts",
+    "test:deepseek": "tsx scripts/test-deepseek.ts"
+  },
+  "dependencies": {
+    "cheerio": "^1.0.0",
+    "clsx": "^2.1.1",
+    "dotenv": "^16.4.7",
+    "lucide-react": "^1.16.0",
+    "next": "^15.1.7",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "tailwind-merge": "^3.0.1",
+    "zod": "^3.24.2"
+  },
+  "devDependencies": {
+    "@ffmpeg-installer/ffmpeg": "1.1.0",
+    "@ffprobe-installer/ffprobe": "2.1.2",
+    "@types/node": "^22.13.4",
+    "@types/react": "^19.0.10",
+    "@types/react-dom": "^19.0.4",
+    "autoprefixer": "^10.4.20",
+    "hyperframes": "^0.9.43",
+    "postcss": "^8.5.2",
+    "tailwindcss": "^3.4.17",
+    "tsx": "^4.19.3",
+    "typescript": "^5.7.3"
+  }
+}

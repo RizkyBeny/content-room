@@ -1,0 +1,1076 @@
+<!doctype html>
+<html lang="id" data-resolution="portrait">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=1080, height=1920" />
+  <title>Vox Archival Parallax: Rokok Ilegal & Bea Cukai</title>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.15.0/dist/gsap.min.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Courier+Prime:wght@400;700&family=IBM+Plex+Mono:wght@500;700&family=Inter:wght@400;500;600;700;800;900&family=Montserrat:wght@700;800;900&display=swap" rel="stylesheet">
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    html, body {
+      margin: 0;
+      width: 1080px;
+      height: 1920px;
+      overflow: hidden;
+      background-color: #1A1918;
+      color: #F4EBD9;
+      font-family: 'Inter', sans-serif;
+    }
+    #root {
+      width: 1080px;
+      height: 1920px;
+      position: relative;
+      overflow: hidden;
+    }
+    /* Safe Area (Top 140px, Bottom 180px, Horizontal 64px) */
+    .safe-area {
+      position: absolute;
+      top: 140px;
+      bottom: 180px;
+      left: 64px;
+      right: 64px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      z-index: 10;
+    }
+    .scene-container {
+      position: absolute;
+      inset: 0;
+      width: 1080px;
+      height: 1920px;
+      opacity: 0;
+      visibility: hidden;
+    }
+    .bg-wrapper {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      z-index: 1;
+    }
+    .scene-bg-media {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .scene-bg-graphic {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      background: radial-gradient(circle at 50% 40%, #EFE6D5 0%, #1A1918 85%);
+    }
+    .scrim-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(26,25,24,0.92) 0%, rgba(26,25,24,0.3) 45%, rgba(26,25,24,0.85) 100%);
+      z-index: 2;
+    }
+    .dot-pattern {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 480px;
+      background-image: radial-gradient(circle, rgba(215, 38, 56, 0.08) 3px, transparent 4px);
+      background-size: 36px 36px;
+      z-index: 3;
+    }
+    .top-meta {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+    .bottom-branding {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+    .brand-tag {
+      font-family: 'Inter', sans-serif;
+      font-weight: 800;
+      font-size: 20px;
+      letter-spacing: 0.15em;
+      opacity: 0.8;
+      color: #D72638;
+    }
+    .progress-bar-container {
+      width: 100%;
+      height: 6px;
+      background: rgba(255, 255, 255, 0.2);
+      border-radius: 9999px;
+      overflow: hidden;
+    }
+    .progress-bar-fill {
+      width: 0%;
+      height: 100%;
+      background: #D72638;
+    }
+    .scene-subtext {
+      font-size: 32px;
+      line-height: 1.4;
+      margin-top: 24px;
+      opacity: 0.9;
+    }
+    .metric-container {
+      margin-top: 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .metric-label {
+      font-size: 28px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      opacity: 0.85;
+    }
+    
+    .theme-vox-archival-parallax {
+      background-color: #1A1918;
+      color: #F4EBD9;
+      font-family: 'Inter', sans-serif;
+    }
+
+    /* 35mm Subtle Film Grain Overlay */
+    .film-grain-overlay {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      opacity: 0.06;
+      pointer-events: none;
+      background-image: radial-gradient(#F4EBD9 1px, transparent 1px);
+      background-size: 4px 4px;
+      z-index: 5;
+    }
+
+    /* Top Archival Header */
+    .archival-header {
+      font-family: 'Courier Prime', 'IBM Plex Mono', monospace;
+      font-size: 22px;
+      letter-spacing: 0.16em;
+      color: rgba(244, 235, 217, 0.85);
+      text-transform: uppercase;
+      text-align: center;
+      margin-top: 8px;
+    }
+
+    /* Pagination Hash Marks */
+    .archival-hash-marks {
+      font-family: monospace;
+      font-size: 20px;
+      letter-spacing: 24px;
+      color: rgba(244, 235, 217, 0.6);
+      text-align: center;
+      margin-top: 12px;
+    }
+    .hash-active {
+      color: #D72638;
+      font-weight: 900;
+      text-shadow: 0 0 10px rgba(215, 38, 56, 0.6);
+    }
+
+    /* Headline Zone (Top 35% Negative Space, Center-Aligned) */
+    .vox-headline-container {
+      margin-top: 50px;
+      text-align: center;
+      padding: 0 40px;
+    }
+
+    .vox-kinetic-title {
+      font-family: 'Inter', sans-serif;
+      font-weight: 800;
+      font-size: 64px;
+      line-height: 1.18;
+      letter-spacing: -0.02em;
+      color: #F4EBD9;
+      text-shadow: 0 4px 24px rgba(0, 0, 0, 0.9);
+    }
+
+    /* Bottom Archival Evidence Badge Card (780px x 160px) */
+    .vox-evidence-badge-container {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 24px;
+    }
+
+    .vox-evidence-badge {
+      width: 780px;
+      height: 160px;
+      background: #EFE6D5;
+      border: 1.5px solid #D8C29D;
+      border-radius: 16px;
+      padding: 20px 28px;
+      position: relative;
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.7);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      overflow: hidden;
+    }
+
+    .vox-stamp-mark {
+      position: absolute;
+      right: 24px;
+      top: 50%;
+      transform: translateY(-50%) rotate(-12deg);
+      border: 3px solid #D72638;
+      color: #D72638;
+      font-family: 'Inter', sans-serif;
+      font-weight: 900;
+      font-size: 32px;
+      padding: 6px 18px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      opacity: 0.88;
+      border-radius: 6px;
+      box-shadow: inset 0 0 8px rgba(215, 38, 56, 0.2);
+    }
+
+    .vox-evidence-row1 {
+      font-family: 'Courier Prime', 'IBM Plex Mono', monospace;
+      font-size: 18px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      color: #8C2525;
+      text-transform: uppercase;
+    }
+
+    .vox-evidence-row2 {
+      font-family: 'Inter', sans-serif;
+      font-size: 22px;
+      font-weight: 700;
+      color: #1A1918;
+      line-height: 1.25;
+      max-width: 520px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .vox-evidence-row3 {
+      font-family: 'Courier Prime', 'IBM Plex Mono', monospace;
+      font-size: 14px;
+      letter-spacing: 0.04em;
+      color: #5A524C;
+      text-transform: uppercase;
+    }
+
+    /* Middle Zone Metric Highlight (for data beats without external plate) */
+    .vox-mid-metric {
+      display: inline-flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto;
+      padding: 18px 36px;
+      background: rgba(26, 25, 24, 0.65);
+      border: 1.5px solid rgba(215, 38, 56, 0.35);
+      border-radius: 12px;
+      backdrop-filter: blur(8px);
+      box-shadow: 0 16px 36px rgba(0, 0, 0, 0.6);
+    }
+
+    .vox-mid-metric-val {
+      font-family: 'Inter', sans-serif;
+      font-size: 72px;
+      font-weight: 900;
+      letter-spacing: -0.02em;
+      color: #FFE271;
+      text-shadow: 0 0 24px rgba(255, 226, 113, 0.35);
+      line-height: 1;
+    }
+
+    .vox-mid-metric-lbl {
+      font-family: 'Courier Prime', 'IBM Plex Mono', monospace;
+      font-size: 18px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #D8C29D;
+      margin-top: 8px;
+    }
+  
+  </style>
+</head>
+<body class="theme-vox-archival-parallax">
+  <div
+    id="root"
+    data-composition-id="main"
+    data-start="0"
+    data-duration="25"
+    data-width="1080"
+    data-height="1920"
+  >
+    
+      <section class="scene-container vox-scene" id="scene-s1" data-start="0.00" data-duration="5.00">
+        <div class="bg-wrapper">
+          <img class="scene-bg-media scene-img" src="scene-01.jpeg" alt="scene background" />
+          <div class="scrim-overlay"></div>
+          <div class="film-grain-overlay"></div>
+        </div>
+
+        <div class="safe-area vox-safe-area">
+          <!-- TOP ZONE: Archival Header & Kinetic Headline -->
+          <div class="vox-top-zone">
+            <div class="archival-header">[ DOKUMEN INTELIJEN // BERKAS 01 - HOOK ]</div>
+            <div class="archival-hash-marks"><span class="hash-active">■</span> <span>─</span> <span>─</span> <span>─</span> <span>─</span></div>
+            <div class="vox-headline-container">
+              <h1 class="vox-kinetic-title">Rokok Ilegal Melonjak 80%: Perburuan 1,7 Miliar Batang</h1>
+            </div>
+          </div>
+
+          <!-- MIDDLE ZONE: Handled by visual plate or stat metric callout -->
+          <div class="vox-mid-spacer" style="display: flex; align-items: center; justify-content: center; min-height: 500px;">
+            
+            <div class="vox-mid-metric" id="vox-metric-s1">
+              <span class="vox-mid-metric-val">1,7 MILIAR</span>
+              <span class="vox-mid-metric-lbl">Batang Disita</span>
+            </div>
+          </div>
+
+          <!-- BOTTOM ZONE: Archival Evidence Badge Card -->
+          <div class="vox-evidence-badge-container">
+            <div class="vox-evidence-badge" id="evidence-s1">
+              <div class="vox-stamp-mark" id="stamp-s1">RAHASIA</div>
+              <div class="vox-evidence-row1">BERKAS INVESTIGASI // KMP-BC-2026-01</div>
+              <div class="vox-evidence-row2">17.108 kali operasi penindakan dilakukan hingga Oktober 2026.</div>
+              <div class="vox-evidence-row3">Kemenkeu RI / Ditjen Bea Cukai</div>
+            </div>
+          </div>
+        </div>
+      </section>
+        
+
+      <section class="scene-container vox-scene" id="scene-s2" data-start="5.00" data-duration="5.00">
+        <div class="bg-wrapper">
+          <img class="scene-bg-media scene-img" src="scene-02.jpeg" alt="scene background" />
+          <div class="scrim-overlay"></div>
+          <div class="film-grain-overlay"></div>
+        </div>
+
+        <div class="safe-area vox-safe-area">
+          <!-- TOP ZONE: Archival Header & Kinetic Headline -->
+          <div class="vox-top-zone">
+            <div class="archival-header">[ DOKUMEN INTELIJEN // BERKAS 02 - CONTEXT ]</div>
+            <div class="archival-hash-marks"><span>─</span> <span class="hash-active">■</span> <span>─</span> <span>─</span> <span>─</span></div>
+            <div class="vox-headline-container">
+              <h1 class="vox-kinetic-title">Penerimaan Bea Cukai Capai Rp 267,2 Triliun</h1>
+            </div>
+          </div>
+
+          <!-- MIDDLE ZONE: Handled by visual plate or stat metric callout -->
+          <div class="vox-mid-spacer" style="display: flex; align-items: center; justify-content: center; min-height: 500px;">
+            
+            <div class="vox-mid-metric" id="vox-metric-s2">
+              <span class="vox-mid-metric-val">Rp 267,2 T</span>
+              <span class="vox-mid-metric-lbl">Penerimaan s.d. Okt 2026</span>
+            </div>
+          </div>
+
+          <!-- BOTTOM ZONE: Archival Evidence Badge Card -->
+          <div class="vox-evidence-badge-container">
+            <div class="vox-evidence-badge" id="evidence-s2">
+              <div class="vox-stamp-mark" id="stamp-s2">VERIFIKASI</div>
+              <div class="vox-evidence-row1">BERKAS INVESTIGASI // KMP-BC-2026-02</div>
+              <div class="vox-evidence-row2">Realisasi penerimaan mencapai 83,2% dari target APBN 2026.</div>
+              <div class="vox-evidence-row3">Katalog Data APBN Kita</div>
+            </div>
+          </div>
+        </div>
+      </section>
+        
+
+      <section class="scene-container vox-scene" id="scene-s3" data-start="10.00" data-duration="5.00">
+        <div class="bg-wrapper">
+          <img class="scene-bg-media scene-img" src="scene-03.jpeg" alt="scene background" />
+          <div class="scrim-overlay"></div>
+          <div class="film-grain-overlay"></div>
+        </div>
+
+        <div class="safe-area vox-safe-area">
+          <!-- TOP ZONE: Archival Header & Kinetic Headline -->
+          <div class="vox-top-zone">
+            <div class="archival-header">[ DOKUMEN INTELIJEN // BERKAS 03 - PROBLEM ]</div>
+            <div class="archival-hash-marks"><span>─</span> <span>─</span> <span class="hash-active">■</span> <span>─</span> <span>─</span></div>
+            <div class="vox-headline-container">
+              <h1 class="vox-kinetic-title">Penerimaan Cukai Nyaris Mandek: Hanya Naik 0,9%</h1>
+            </div>
+          </div>
+
+          <!-- MIDDLE ZONE: Handled by visual plate or stat metric callout -->
+          <div class="vox-mid-spacer" style="display: flex; align-items: center; justify-content: center; min-height: 500px;">
+            
+            <div class="vox-mid-metric" id="vox-metric-s3">
+              <span class="vox-mid-metric-val">+0,9%</span>
+              <span class="vox-mid-metric-lbl">Pertumbuhan Cukai</span>
+            </div>
+          </div>
+
+          <!-- BOTTOM ZONE: Archival Evidence Badge Card -->
+          <div class="vox-evidence-badge-container">
+            <div class="vox-evidence-badge" id="evidence-s3">
+              <div class="vox-stamp-mark" id="stamp-s3">DEKLASIFIKASI</div>
+              <div class="vox-evidence-row1">BERKAS INVESTIGASI // KMP-BC-2026-03</div>
+              <div class="vox-evidence-row2">Penerimaan cukai tertahan di angka Rp 180,4 triliun.</div>
+              <div class="vox-evidence-row3">Laporan Pajak & Cukai 2026</div>
+            </div>
+          </div>
+        </div>
+      </section>
+        
+
+      <section class="scene-container vox-scene" id="scene-s4" data-start="15.00" data-duration="5.00">
+        <div class="bg-wrapper">
+          <img class="scene-bg-media scene-img" src="scene-04.jpeg" alt="scene background" />
+          <div class="scrim-overlay"></div>
+          <div class="film-grain-overlay"></div>
+        </div>
+
+        <div class="safe-area vox-safe-area">
+          <!-- TOP ZONE: Archival Header & Kinetic Headline -->
+          <div class="vox-top-zone">
+            <div class="archival-header">[ DOKUMEN INTELIJEN // BERKAS 04 - EVIDENCE ]</div>
+            <div class="archival-hash-marks"><span>─</span> <span>─</span> <span>─</span> <span class="hash-active">■</span> <span>─</span></div>
+            <div class="vox-headline-container">
+              <h1 class="vox-kinetic-title">17.108 Kali Penindakan Rokok Ilegal Tanpa Cukai</h1>
+            </div>
+          </div>
+
+          <!-- MIDDLE ZONE: Handled by visual plate or stat metric callout -->
+          <div class="vox-mid-spacer" style="display: flex; align-items: center; justify-content: center; min-height: 500px;">
+            
+            <div class="vox-mid-metric" id="vox-metric-s4">
+              <span class="vox-mid-metric-val">17.108x</span>
+              <span class="vox-mid-metric-lbl">Giat Operasi Gabungan</span>
+            </div>
+          </div>
+
+          <!-- BOTTOM ZONE: Archival Evidence Badge Card -->
+          <div class="vox-evidence-badge-container">
+            <div class="vox-evidence-badge" id="evidence-s4">
+              <div class="vox-stamp-mark" id="stamp-s4">RAHASIA</div>
+              <div class="vox-evidence-row1">BERKAS INVESTIGASI // KMP-BC-2026-04</div>
+              <div class="vox-evidence-row2">Potensi kerugian negara yang diselamatkan mencapai Rp 2,3 T.</div>
+              <div class="vox-evidence-row3">Satgas Penindakan Bea Cukai</div>
+            </div>
+          </div>
+        </div>
+      </section>
+        
+
+      <section class="scene-container vox-scene" id="scene-s5" data-start="20.00" data-duration="5.00">
+        <div class="bg-wrapper">
+          <img class="scene-bg-media scene-img" src="scene-05.jpeg" alt="scene background" />
+          <div class="scrim-overlay"></div>
+          <div class="film-grain-overlay"></div>
+        </div>
+
+        <div class="safe-area vox-safe-area">
+          <!-- TOP ZONE: Archival Header & Kinetic Headline -->
+          <div class="vox-top-zone">
+            <div class="archival-header">[ DOKUMEN INTELIJEN // BERKAS 05 - RESOLUTION ]</div>
+            <div class="archival-hash-marks"><span>─</span> <span>─</span> <span>─</span> <span>─</span> <span class="hash-active">■</span></div>
+            <div class="vox-headline-container">
+              <h1 class="vox-kinetic-title">Tantangan Kepatuhan Pajak & Ketahanan Fiskal 2026</h1>
+            </div>
+          </div>
+
+          <!-- MIDDLE ZONE: Handled by visual plate or stat metric callout -->
+          <div class="vox-mid-spacer" style="display: flex; align-items: center; justify-content: center; min-height: 500px;">
+            
+            <div class="vox-mid-metric" id="vox-metric-s5">
+              <span class="vox-mid-metric-val">83,2%</span>
+              <span class="vox-mid-metric-lbl">Target APBN Terpenuhi</span>
+            </div>
+          </div>
+
+          <!-- BOTTOM ZONE: Archival Evidence Badge Card -->
+          <div class="vox-evidence-badge-container">
+            <div class="vox-evidence-badge" id="evidence-s5">
+              <div class="vox-stamp-mark" id="stamp-s5">DEKLASIFIKASI</div>
+              <div class="vox-evidence-row1">BERKAS INVESTIGASI // KMP-BC-2026-05</div>
+              <div class="vox-evidence-row2">Analisis komprehensif penerimaan bea cukai & rokok ilegal.</div>
+              <div class="vox-evidence-row3">Kumparan Bisnis Explainer</div>
+            </div>
+          </div>
+        </div>
+      </section>
+        
+  </div>
+
+  
+
+  <script>
+    window.__timelines = window.__timelines || {};
+    const tl = gsap.timeline({ paused: true });
+    window.__timelines["main"] = tl;
+
+    const totalDuration = 25;
+    const isVox = true;
+
+    // Choreography per scene
+    
+    // --- Scene s1 Vox Archival (Beat: hook) ---
+    tl.set("#scene-s1", { autoAlpha: 1 }, 0.00);
+
+    // Headline entrance
+    tl.fromTo("#scene-s1 .vox-kinetic-title", 
+      { y: 30, opacity: 0 }, 
+      { y: 0, opacity: 1, duration: 0.6, ease: "power3.out" }, 
+      0.00
+    );
+
+    // Evidence badge slide-up & stamp punch
+    tl.fromTo("#evidence-s1",
+      { y: 60, opacity: 0 },
+      { y: 0, opacity: 1, duration: 0.45, ease: "back.out(1.2)" },
+      0.15
+    );
+
+    tl.fromTo("#stamp-s1",
+      { scale: 1.35, opacity: 0 },
+      { scale: 1.0, opacity: 0.9, duration: 0.35, ease: "power2.out" },
+      0.35
+    );
+
+    
+    tl.fromTo("#vox-metric-s1",
+      { scale: 0.88, opacity: 0, y: 20 },
+      { scale: 1.0, opacity: 1, y: 0, duration: 0.5, ease: "back.out(1.3)" },
+      0.25
+    );
+    
+
+    // Dynamic Cinematic Camera Movement (Vox 2.5D Parallax)
+    let camFromScale = 1.0;
+    let camToScale = 1.14;
+    let camFromX = 0;
+    let camToX = 0;
+    let camFromY = 0;
+    let camToY = -35;
+    let camEase = "power1.inOut";
+
+    if (idx === 0) {
+      // Scene 1 (Hook): Steady deliberate push-in focusing toward the desk dossier
+      camFromScale = 1.0;
+      camToScale = 1.14;
+      camFromX = 0;
+      camToX = 0;
+      camFromY = 0;
+      camToY = -40;
+      camEase = "power1.inOut";
+    } else if (idx === 1) {
+      // Scene 2 (Context): Lateral drift from right to left across financial ledger
+      camFromScale = 1.05;
+      camToScale = 1.16;
+      camFromX = 40;
+      camToX = -35;
+      camFromY = 10;
+      camToY = -25;
+      camEase = "power1.out";
+    } else if (idx === 2) {
+      // Scene 3 (Problem): Dramatic slow push-in toward excise stagnation charts
+      camFromScale = 1.0;
+      camToScale = 1.15;
+      camFromX = 0;
+      camToX = -20;
+      camFromY = 20;
+      camToY = -30;
+      camEase = "sine.inOut";
+    } else if (idx === 3) {
+      // Scene 4 (Evidence): Tracking pan across coastal patrol boat photos to radio
+      camFromScale = 1.05;
+      camToScale = 1.17;
+      camFromX = -40;
+      camToX = 35;
+      camFromY = 15;
+      camToY = -20;
+      camEase = "power1.inOut";
+    } else {
+      // Scene 5 (Resolution): Majestic slow push-in centered on national budget folio
+      camFromScale = 1.0;
+      camToScale = 1.13;
+      camFromX = 0;
+      camToX = 0;
+      camFromY = 0;
+      camToY = -45;
+      camEase = "power2.out";
+    }
+
+    // 2.5D Camera choreography on background media plate
+    tl.fromTo("#scene-s1 .scene-bg-media",
+      { scale: camFromScale, x: camFromX, y: camFromY },
+      { scale: camToScale, x: camToX, y: camToY, duration: 5.00, ease: camEase },
+      0.00
+    );
+
+    // Foreground subtle counter-drift on evidence badge for multiplane parallax
+    tl.to("#evidence-s1",
+      { y: -15, duration: 5.00, ease: "none" },
+      0.60
+    );
+
+    // Film dissolve transition to next scene
+    
+    tl.to("#scene-s1", 
+      { autoAlpha: 0, duration: 0.35, ease: "power2.inOut" }, 
+      4.65
+    );
+    
+    
+
+    // --- Scene s2 Vox Archival (Beat: context) ---
+    tl.set("#scene-s2", { autoAlpha: 1 }, 5.00);
+
+    // Headline entrance
+    tl.fromTo("#scene-s2 .vox-kinetic-title", 
+      { y: 30, opacity: 0 }, 
+      { y: 0, opacity: 1, duration: 0.6, ease: "power3.out" }, 
+      5.00
+    );
+
+    // Evidence badge slide-up & stamp punch
+    tl.fromTo("#evidence-s2",
+      { y: 60, opacity: 0 },
+      { y: 0, opacity: 1, duration: 0.45, ease: "back.out(1.2)" },
+      5.15
+    );
+
+    tl.fromTo("#stamp-s2",
+      { scale: 1.35, opacity: 0 },
+      { scale: 1.0, opacity: 0.9, duration: 0.35, ease: "power2.out" },
+      5.35
+    );
+
+    
+    tl.fromTo("#vox-metric-s2",
+      { scale: 0.88, opacity: 0, y: 20 },
+      { scale: 1.0, opacity: 1, y: 0, duration: 0.5, ease: "back.out(1.3)" },
+      5.25
+    );
+    
+
+    // Dynamic Cinematic Camera Movement (Vox 2.5D Parallax)
+    let camFromScale = 1.0;
+    let camToScale = 1.14;
+    let camFromX = 0;
+    let camToX = 0;
+    let camFromY = 0;
+    let camToY = -35;
+    let camEase = "power1.inOut";
+
+    if (idx === 0) {
+      // Scene 1 (Hook): Steady deliberate push-in focusing toward the desk dossier
+      camFromScale = 1.0;
+      camToScale = 1.14;
+      camFromX = 0;
+      camToX = 0;
+      camFromY = 0;
+      camToY = -40;
+      camEase = "power1.inOut";
+    } else if (idx === 1) {
+      // Scene 2 (Context): Lateral drift from right to left across financial ledger
+      camFromScale = 1.05;
+      camToScale = 1.16;
+      camFromX = 40;
+      camToX = -35;
+      camFromY = 10;
+      camToY = -25;
+      camEase = "power1.out";
+    } else if (idx === 2) {
+      // Scene 3 (Problem): Dramatic slow push-in toward excise stagnation charts
+      camFromScale = 1.0;
+      camToScale = 1.15;
+      camFromX = 0;
+      camToX = -20;
+      camFromY = 20;
+      camToY = -30;
+      camEase = "sine.inOut";
+    } else if (idx === 3) {
+      // Scene 4 (Evidence): Tracking pan across coastal patrol boat photos to radio
+      camFromScale = 1.05;
+      camToScale = 1.17;
+      camFromX = -40;
+      camToX = 35;
+      camFromY = 15;
+      camToY = -20;
+      camEase = "power1.inOut";
+    } else {
+      // Scene 5 (Resolution): Majestic slow push-in centered on national budget folio
+      camFromScale = 1.0;
+      camToScale = 1.13;
+      camFromX = 0;
+      camToX = 0;
+      camFromY = 0;
+      camToY = -45;
+      camEase = "power2.out";
+    }
+
+    // 2.5D Camera choreography on background media plate
+    tl.fromTo("#scene-s2 .scene-bg-media",
+      { scale: camFromScale, x: camFromX, y: camFromY },
+      { scale: camToScale, x: camToX, y: camToY, duration: 5.00, ease: camEase },
+      5.00
+    );
+
+    // Foreground subtle counter-drift on evidence badge for multiplane parallax
+    tl.to("#evidence-s2",
+      { y: -15, duration: 5.00, ease: "none" },
+      5.60
+    );
+
+    // Film dissolve transition to next scene
+    
+    tl.to("#scene-s2", 
+      { autoAlpha: 0, duration: 0.35, ease: "power2.inOut" }, 
+      9.65
+    );
+    
+    
+
+    // --- Scene s3 Vox Archival (Beat: problem) ---
+    tl.set("#scene-s3", { autoAlpha: 1 }, 10.00);
+
+    // Headline entrance
+    tl.fromTo("#scene-s3 .vox-kinetic-title", 
+      { y: 30, opacity: 0 }, 
+      { y: 0, opacity: 1, duration: 0.6, ease: "power3.out" }, 
+      10.00
+    );
+
+    // Evidence badge slide-up & stamp punch
+    tl.fromTo("#evidence-s3",
+      { y: 60, opacity: 0 },
+      { y: 0, opacity: 1, duration: 0.45, ease: "back.out(1.2)" },
+      10.15
+    );
+
+    tl.fromTo("#stamp-s3",
+      { scale: 1.35, opacity: 0 },
+      { scale: 1.0, opacity: 0.9, duration: 0.35, ease: "power2.out" },
+      10.35
+    );
+
+    
+    tl.fromTo("#vox-metric-s3",
+      { scale: 0.88, opacity: 0, y: 20 },
+      { scale: 1.0, opacity: 1, y: 0, duration: 0.5, ease: "back.out(1.3)" },
+      10.25
+    );
+    
+
+    // Dynamic Cinematic Camera Movement (Vox 2.5D Parallax)
+    let camFromScale = 1.0;
+    let camToScale = 1.14;
+    let camFromX = 0;
+    let camToX = 0;
+    let camFromY = 0;
+    let camToY = -35;
+    let camEase = "power1.inOut";
+
+    if (idx === 0) {
+      // Scene 1 (Hook): Steady deliberate push-in focusing toward the desk dossier
+      camFromScale = 1.0;
+      camToScale = 1.14;
+      camFromX = 0;
+      camToX = 0;
+      camFromY = 0;
+      camToY = -40;
+      camEase = "power1.inOut";
+    } else if (idx === 1) {
+      // Scene 2 (Context): Lateral drift from right to left across financial ledger
+      camFromScale = 1.05;
+      camToScale = 1.16;
+      camFromX = 40;
+      camToX = -35;
+      camFromY = 10;
+      camToY = -25;
+      camEase = "power1.out";
+    } else if (idx === 2) {
+      // Scene 3 (Problem): Dramatic slow push-in toward excise stagnation charts
+      camFromScale = 1.0;
+      camToScale = 1.15;
+      camFromX = 0;
+      camToX = -20;
+      camFromY = 20;
+      camToY = -30;
+      camEase = "sine.inOut";
+    } else if (idx === 3) {
+      // Scene 4 (Evidence): Tracking pan across coastal patrol boat photos to radio
+      camFromScale = 1.05;
+      camToScale = 1.17;
+      camFromX = -40;
+      camToX = 35;
+      camFromY = 15;
+      camToY = -20;
+      camEase = "power1.inOut";
+    } else {
+      // Scene 5 (Resolution): Majestic slow push-in centered on national budget folio
+      camFromScale = 1.0;
+      camToScale = 1.13;
+      camFromX = 0;
+      camToX = 0;
+      camFromY = 0;
+      camToY = -45;
+      camEase = "power2.out";
+    }
+
+    // 2.5D Camera choreography on background media plate
+    tl.fromTo("#scene-s3 .scene-bg-media",
+      { scale: camFromScale, x: camFromX, y: camFromY },
+      { scale: camToScale, x: camToX, y: camToY, duration: 5.00, ease: camEase },
+      10.00
+    );
+
+    // Foreground subtle counter-drift on evidence badge for multiplane parallax
+    tl.to("#evidence-s3",
+      { y: -15, duration: 5.00, ease: "none" },
+      10.60
+    );
+
+    // Film dissolve transition to next scene
+    
+    tl.to("#scene-s3", 
+      { autoAlpha: 0, duration: 0.35, ease: "power2.inOut" }, 
+      14.65
+    );
+    
+    
+
+    // --- Scene s4 Vox Archival (Beat: evidence) ---
+    tl.set("#scene-s4", { autoAlpha: 1 }, 15.00);
+
+    // Headline entrance
+    tl.fromTo("#scene-s4 .vox-kinetic-title", 
+      { y: 30, opacity: 0 }, 
+      { y: 0, opacity: 1, duration: 0.6, ease: "power3.out" }, 
+      15.00
+    );
+
+    // Evidence badge slide-up & stamp punch
+    tl.fromTo("#evidence-s4",
+      { y: 60, opacity: 0 },
+      { y: 0, opacity: 1, duration: 0.45, ease: "back.out(1.2)" },
+      15.15
+    );
+
+    tl.fromTo("#stamp-s4",
+      { scale: 1.35, opacity: 0 },
+      { scale: 1.0, opacity: 0.9, duration: 0.35, ease: "power2.out" },
+      15.35
+    );
+
+    
+    tl.fromTo("#vox-metric-s4",
+      { scale: 0.88, opacity: 0, y: 20 },
+      { scale: 1.0, opacity: 1, y: 0, duration: 0.5, ease: "back.out(1.3)" },
+      15.25
+    );
+    
+
+    // Dynamic Cinematic Camera Movement (Vox 2.5D Parallax)
+    let camFromScale = 1.0;
+    let camToScale = 1.14;
+    let camFromX = 0;
+    let camToX = 0;
+    let camFromY = 0;
+    let camToY = -35;
+    let camEase = "power1.inOut";
+
+    if (idx === 0) {
+      // Scene 1 (Hook): Steady deliberate push-in focusing toward the desk dossier
+      camFromScale = 1.0;
+      camToScale = 1.14;
+      camFromX = 0;
+      camToX = 0;
+      camFromY = 0;
+      camToY = -40;
+      camEase = "power1.inOut";
+    } else if (idx === 1) {
+      // Scene 2 (Context): Lateral drift from right to left across financial ledger
+      camFromScale = 1.05;
+      camToScale = 1.16;
+      camFromX = 40;
+      camToX = -35;
+      camFromY = 10;
+      camToY = -25;
+      camEase = "power1.out";
+    } else if (idx === 2) {
+      // Scene 3 (Problem): Dramatic slow push-in toward excise stagnation charts
+      camFromScale = 1.0;
+      camToScale = 1.15;
+      camFromX = 0;
+      camToX = -20;
+      camFromY = 20;
+      camToY = -30;
+      camEase = "sine.inOut";
+    } else if (idx === 3) {
+      // Scene 4 (Evidence): Tracking pan across coastal patrol boat photos to radio
+      camFromScale = 1.05;
+      camToScale = 1.17;
+      camFromX = -40;
+      camToX = 35;
+      camFromY = 15;
+      camToY = -20;
+      camEase = "power1.inOut";
+    } else {
+      // Scene 5 (Resolution): Majestic slow push-in centered on national budget folio
+      camFromScale = 1.0;
+      camToScale = 1.13;
+      camFromX = 0;
+      camToX = 0;
+      camFromY = 0;
+      camToY = -45;
+      camEase = "power2.out";
+    }
+
+    // 2.5D Camera choreography on background media plate
+    tl.fromTo("#scene-s4 .scene-bg-media",
+      { scale: camFromScale, x: camFromX, y: camFromY },
+      { scale: camToScale, x: camToX, y: camToY, duration: 5.00, ease: camEase },
+      15.00
+    );
+
+    // Foreground subtle counter-drift on evidence badge for multiplane parallax
+    tl.to("#evidence-s4",
+      { y: -15, duration: 5.00, ease: "none" },
+      15.60
+    );
+
+    // Film dissolve transition to next scene
+    
+    tl.to("#scene-s4", 
+      { autoAlpha: 0, duration: 0.35, ease: "power2.inOut" }, 
+      19.65
+    );
+    
+    
+
+    // --- Scene s5 Vox Archival (Beat: resolution) ---
+    tl.set("#scene-s5", { autoAlpha: 1 }, 20.00);
+
+    // Headline entrance
+    tl.fromTo("#scene-s5 .vox-kinetic-title", 
+      { y: 30, opacity: 0 }, 
+      { y: 0, opacity: 1, duration: 0.6, ease: "power3.out" }, 
+      20.00
+    );
+
+    // Evidence badge slide-up & stamp punch
+    tl.fromTo("#evidence-s5",
+      { y: 60, opacity: 0 },
+      { y: 0, opacity: 1, duration: 0.45, ease: "back.out(1.2)" },
+      20.15
+    );
+
+    tl.fromTo("#stamp-s5",
+      { scale: 1.35, opacity: 0 },
+      { scale: 1.0, opacity: 0.9, duration: 0.35, ease: "power2.out" },
+      20.35
+    );
+
+    
+    tl.fromTo("#vox-metric-s5",
+      { scale: 0.88, opacity: 0, y: 20 },
+      { scale: 1.0, opacity: 1, y: 0, duration: 0.5, ease: "back.out(1.3)" },
+      20.25
+    );
+    
+
+    // Dynamic Cinematic Camera Movement (Vox 2.5D Parallax)
+    let camFromScale = 1.0;
+    let camToScale = 1.14;
+    let camFromX = 0;
+    let camToX = 0;
+    let camFromY = 0;
+    let camToY = -35;
+    let camEase = "power1.inOut";
+
+    if (idx === 0) {
+      // Scene 1 (Hook): Steady deliberate push-in focusing toward the desk dossier
+      camFromScale = 1.0;
+      camToScale = 1.14;
+      camFromX = 0;
+      camToX = 0;
+      camFromY = 0;
+      camToY = -40;
+      camEase = "power1.inOut";
+    } else if (idx === 1) {
+      // Scene 2 (Context): Lateral drift from right to left across financial ledger
+      camFromScale = 1.05;
+      camToScale = 1.16;
+      camFromX = 40;
+      camToX = -35;
+      camFromY = 10;
+      camToY = -25;
+      camEase = "power1.out";
+    } else if (idx === 2) {
+      // Scene 3 (Problem): Dramatic slow push-in toward excise stagnation charts
+      camFromScale = 1.0;
+      camToScale = 1.15;
+      camFromX = 0;
+      camToX = -20;
+      camFromY = 20;
+      camToY = -30;
+      camEase = "sine.inOut";
+    } else if (idx === 3) {
+      // Scene 4 (Evidence): Tracking pan across coastal patrol boat photos to radio
+      camFromScale = 1.05;
+      camToScale = 1.17;
+      camFromX = -40;
+      camToX = 35;
+      camFromY = 15;
+      camToY = -20;
+      camEase = "power1.inOut";
+    } else {
+      // Scene 5 (Resolution): Majestic slow push-in centered on national budget folio
+      camFromScale = 1.0;
+      camToScale = 1.13;
+      camFromX = 0;
+      camToX = 0;
+      camFromY = 0;
+      camToY = -45;
+      camEase = "power2.out";
+    }
+
+    // 2.5D Camera choreography on background media plate
+    tl.fromTo("#scene-s5 .scene-bg-media",
+      { scale: camFromScale, x: camFromX, y: camFromY },
+      { scale: camToScale, x: camToX, y: camToY, duration: 5.00, ease: camEase },
+      20.00
+    );
+
+    // Foreground subtle counter-drift on evidence badge for multiplane parallax
+    tl.to("#evidence-s5",
+      { y: -15, duration: 5.00, ease: "none" },
+      20.60
+    );
+
+    // Film dissolve transition to next scene
+    
+    
+
+    // Progress bar across total duration
+    tl.to(".progress-bar-fill", {
+      width: "100%",
+      duration: totalDuration,
+      ease: "none"
+    }, 0);
+
+    tl.seek(0);
+  </script>
+</body>
+</html>

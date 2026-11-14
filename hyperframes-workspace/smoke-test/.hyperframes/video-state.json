@@ -1,0 +1,38 @@
+{
+  "version": 1,
+  "historyId": "782445ba-0a41-42b7-be2a-683bfe6ccd3c",
+  "currentRevision": null,
+  "pendingChanges": false,
+  "files": {
+    "hyperframes.json": {
+      "hash": "12bb941b1e4060ce7418673e6ecf96e5aec4b3032a6640b3842a7f519534b7a2",
+      "content": "/Users/beny/.cache/hyperframes/history/782445ba-0a41-42b7-be2a-683bfe6ccd3c/blobs/12/12bb941b1e4060ce7418673e6ecf96e5aec4b3032a6640b3842a7f519534b7a2"
+    },
+    "index.html": {
+      "hash": "ca9a0763d5297c43b9040f10f64ef6c6d086cb02fe75b9cdb8261b68d60d75d4",
+      "content": "/Users/beny/.cache/hyperframes/history/782445ba-0a41-42b7-be2a-683bfe6ccd3c/blobs/ca/ca9a0763d5297c43b9040f10f64ef6c6d086cb02fe75b9cdb8261b68d60d75d4"
+    }
+  },
+  "revisions": {},
+  "checks": {
+    "latest": null,
+    "revisions": {},
+    "unversioned": []
+  },
+  "snapshots": {
+    "latest": null,
+    "revisions": {},
+    "unversioned": []
+  },
+  "renders": {
+    "latest": {
+      "id": "0e8f4cc6-b72f-4ce7-a45d-490baccd1f1e",
+      "completedAt": 1794630642931,
+      "output": "/Users/beny/Documents/Project-self/Content-automation/public/renders/smoke-test/test-output.mp4",
+      "status": "completed",
+      "revision": null
+    },
+    "retainedRevisions": []
+  },
+  "pendingArtifactCleanup": []
+}

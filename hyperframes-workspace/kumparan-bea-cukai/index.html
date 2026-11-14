@@ -1,0 +1,530 @@
+<!doctype html>
+<html lang="id" data-resolution="portrait">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=1080, height=1920" />
+  <title>Penerimaan Bea Cukai & Rokok Ilegal</title>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.15.0/dist/gsap.min.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Montserrat:wght@700;800;900&display=swap" rel="stylesheet">
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    html, body {
+      margin: 0;
+      width: 1080px;
+      height: 1920px;
+      overflow: hidden;
+      background-color: #0B0D13;
+      color: #FFFFFF;
+      font-family: 'Inter', sans-serif;
+    }
+    #root {
+      width: 1080px;
+      height: 1920px;
+      position: relative;
+      overflow: hidden;
+    }
+    /* Safe Area (Top 160px, Bottom 280px, Horizontal 64px) */
+    .safe-area {
+      position: absolute;
+      top: 160px;
+      bottom: 280px;
+      left: 64px;
+      right: 64px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      z-index: 10;
+    }
+    .scene-container {
+      position: absolute;
+      inset: 0;
+      width: 1080px;
+      height: 1920px;
+      opacity: 0;
+      visibility: hidden;
+    }
+    .bg-wrapper {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      z-index: 1;
+    }
+    .scene-bg-media {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .scene-bg-graphic {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      background: radial-gradient(circle at 50% 30%, rgba(15, 23, 42, 0.75) 0%, #0B0D13 85%);
+    }
+    .scrim-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(11,13,19,0.3) 0%, rgba(11,13,19,0.92) 85%);
+      z-index: 2;
+    }
+    .dot-pattern {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 480px;
+      background-image: radial-gradient(circle, rgba(0, 242, 254, 0.08) 3px, transparent 4px);
+      background-size: 36px 36px;
+      z-index: 3;
+    }
+    .top-meta {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+    .bottom-branding {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+    .brand-tag {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 800;
+      font-size: 20px;
+      letter-spacing: 0.15em;
+      opacity: 0.8;
+      color: #00F2FE;
+    }
+    .progress-bar-container {
+      width: 100%;
+      height: 6px;
+      background: rgba(255, 255, 255, 0.2);
+      border-radius: 9999px;
+      overflow: hidden;
+    }
+    .progress-bar-fill {
+      width: 0%;
+      height: 100%;
+      background: #00F2FE;
+    }
+    .scene-subtext {
+      font-size: 32px;
+      line-height: 1.4;
+      margin-top: 24px;
+      opacity: 0.9;
+    }
+    .metric-container {
+      margin-top: 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .metric-label {
+      font-size: 28px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      opacity: 0.85;
+    }
+    
+    .theme-modern-dark {
+      background-color: #0B0D13;
+      color: #FFFFFF;
+      font-family: 'Inter', sans-serif;
+    }
+    .kicker-badge {
+      background: linear-gradient(135deg, #00F2FE 0%, #4FACFE 100%);
+      color: #0B0D13;
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      border-radius: 8px;
+      padding: 10px 24px;
+      font-size: 28px;
+      display: inline-block;
+      box-shadow: 0 0 20px rgba(0, 242, 254, 0.35);
+    }
+    .scene-card {
+      background: rgba(15, 23, 42, 0.8);
+      backdrop-filter: blur(16px);
+      border: 2px solid rgba(0, 242, 254, 0.25);
+      border-radius: 24px;
+      padding: 36px;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.6);
+    }
+    .kinetic-title {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 900;
+      font-size: 64px;
+      line-height: 1.15;
+      letter-spacing: -0.02em;
+      color: #FFFFFF;
+      text-shadow: 0 4px 20px rgba(0,0,0,0.8);
+    }
+    .metric-value {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 900;
+      font-size: 110px;
+      color: #00F2FE;
+      line-height: 1.0;
+      text-shadow: 0 0 30px rgba(0, 242, 254, 0.5);
+    }
+  
+  </style>
+</head>
+<body class="theme-modern-dark">
+  <div
+    id="root"
+    data-composition-id="main"
+    data-start="0"
+    data-duration="36"
+    data-width="1080"
+    data-height="1920"
+  >
+    
+      <section class="scene-container" id="scene-s1" data-start="0.00" data-duration="7.00">
+        <div class="bg-wrapper">
+          <div class="scene-bg-graphic"></div>
+          <div class="scrim-overlay"></div>
+          <div class="dot-pattern"></div>
+        </div>
+
+        <div class="safe-area">
+          <div class="top-meta">
+            <span class="kicker-badge">PENINDAKAN MELEJIT</span>
+          </div>
+
+          <div class="scene-card">
+            <h1 class="kinetic-title">Penindakan Rokok Ilegal Melonjak 80%!</h1>
+            
+        <div class="metric-container" id="metric-s1">
+          <div class="metric-value">1,7 Miliar</div>
+          <div class="metric-label">Batang Disita</div>
+        </div>
+      
+            <p class="scene-subtext">Hingga Oktober 2026, operasi penindakan rokok ilegal meledak drastis.</p>
+          </div>
+
+          <div class="bottom-branding">
+            <div class="brand-tag">EXPLAINER</div>
+            <div class="progress-bar-container">
+              <div class="progress-bar-fill"></div>
+            </div>
+          </div>
+        </div>
+      </section>
+      
+
+      <section class="scene-container" id="scene-s2" data-start="7.00" data-duration="7.00">
+        <div class="bg-wrapper">
+          <div class="scene-bg-graphic"></div>
+          <div class="scrim-overlay"></div>
+          <div class="dot-pattern"></div>
+        </div>
+
+        <div class="safe-area">
+          <div class="top-meta">
+            <span class="kicker-badge">PENERIMAAN NEGARA</span>
+          </div>
+
+          <div class="scene-card">
+            <h1 class="kinetic-title">Bea Cukai Tumbuh 7,2% Tembus Rp 267,2 T</h1>
+            
+            <p class="scene-subtext">Capaian positif penerimaan negara dibayangi tantangan kepatuhan hukum.</p>
+          </div>
+
+          <div class="bottom-branding">
+            <div class="brand-tag">EXPLAINER</div>
+            <div class="progress-bar-container">
+              <div class="progress-bar-fill"></div>
+            </div>
+          </div>
+        </div>
+      </section>
+      
+
+      <section class="scene-container" id="scene-s3" data-start="14.00" data-duration="8.00">
+        <div class="bg-wrapper">
+          <div class="scene-bg-graphic"></div>
+          <div class="scrim-overlay"></div>
+          <div class="dot-pattern"></div>
+        </div>
+
+        <div class="safe-area">
+          <div class="top-meta">
+            <span class="kicker-badge">FAKTA KEMENKEU</span>
+          </div>
+
+          <div class="scene-card">
+            <h1 class="kinetic-title">17.108 Kali Penindakan Telah Digelar</h1>
+            
+        <div class="metric-container" id="metric-s3">
+          <div class="metric-value">17.108x</div>
+          <div class="metric-label">Operasi Penindakan</div>
+        </div>
+      
+            <p class="scene-subtext">Penerimaan cukai hanya tumbuh 0,9% karena tarif tidak dinaikkan tahun ini.</p>
+          </div>
+
+          <div class="bottom-branding">
+            <div class="brand-tag">EXPLAINER</div>
+            <div class="progress-bar-container">
+              <div class="progress-bar-fill"></div>
+            </div>
+          </div>
+        </div>
+      </section>
+      
+
+      <section class="scene-container" id="scene-s4" data-start="22.00" data-duration="7.00">
+        <div class="bg-wrapper">
+          <div class="scene-bg-graphic"></div>
+          <div class="scrim-overlay"></div>
+          <div class="dot-pattern"></div>
+        </div>
+
+        <div class="safe-area">
+          <div class="top-meta">
+            <span class="kicker-badge">DAMPAK INDUSTRI</span>
+          </div>
+
+          <div class="scene-card">
+            <h1 class="kinetic-title">Pabrik Rokok Legal Tertekan Persaingan</h1>
+            
+            <p class="scene-subtext">Peredaran produk ilegal merugikan produsen taat pajak dan memangkas kas negara.</p>
+          </div>
+
+          <div class="bottom-branding">
+            <div class="brand-tag">EXPLAINER</div>
+            <div class="progress-bar-container">
+              <div class="progress-bar-fill"></div>
+            </div>
+          </div>
+        </div>
+      </section>
+      
+
+      <section class="scene-container" id="scene-s5" data-start="29.00" data-duration="7.00">
+        <div class="bg-wrapper">
+          <div class="scene-bg-graphic"></div>
+          <div class="scrim-overlay"></div>
+          <div class="dot-pattern"></div>
+        </div>
+
+        <div class="safe-area">
+          <div class="top-meta">
+            <span class="kicker-badge">SUARA PUBLIK</span>
+          </div>
+
+          <div class="scene-card">
+            <h1 class="kinetic-title">Bagaimana Solusi Efektif Menurutmu?</h1>
+            
+            <p class="scene-subtext">Tulis pandanganmu di kolom komentar dan bagikan kabar ini!</p>
+          </div>
+
+          <div class="bottom-branding">
+            <div class="brand-tag">EXPLAINER</div>
+            <div class="progress-bar-container">
+              <div class="progress-bar-fill"></div>
+            </div>
+          </div>
+        </div>
+      </section>
+      
+  </div>
+
+  
+
+  <script>
+    window.__timelines = window.__timelines || {};
+    const tl = gsap.timeline({ paused: true });
+    window.__timelines["main"] = tl;
+
+    const totalDuration = 36;
+
+    // Choreography per scene
+    
+    // --- Scene s1 (hook) ---
+    tl.set("#scene-s1", { autoAlpha: 1 }, 0.00);
+
+    tl.fromTo("#scene-s1 .scene-card", 
+      { y: 80, opacity: 0, scale: 0.96 }, 
+      { y: 0, opacity: 1, scale: 1, duration: 0.5, ease: "back.out(1.4)" }, 
+      0.00
+    );
+
+    tl.fromTo("#scene-s1 .kicker-badge", 
+      { scale: 0.8, opacity: 0 }, 
+      { scale: 1, opacity: 1, duration: 0.35, ease: "power2.out" }, 
+      0.00
+    );
+
+    tl.fromTo("#scene-s1 .scene-bg-media",
+      { scale: 1.0 },
+      { scale: 1.08, duration: 7.00, ease: "none" },
+      0.00
+    );
+
+    
+    tl.fromTo("#metric-s1",
+      { scale: 0.85, opacity: 0 },
+      { scale: 1.0, opacity: 1, duration: 0.45, ease: "elastic.out(1, 0.75)" },
+      0.25
+    );
+    
+
+    
+    tl.to("#scene-s1", 
+      { autoAlpha: 0, duration: 0.25, ease: "power2.in" }, 
+      6.75
+    );
+    
+    
+
+    // --- Scene s2 (context) ---
+    tl.set("#scene-s2", { autoAlpha: 1 }, 7.00);
+
+    tl.fromTo("#scene-s2 .scene-card", 
+      { y: 80, opacity: 0, scale: 0.96 }, 
+      { y: 0, opacity: 1, scale: 1, duration: 0.5, ease: "back.out(1.4)" }, 
+      7.00
+    );
+
+    tl.fromTo("#scene-s2 .kicker-badge", 
+      { scale: 0.8, opacity: 0 }, 
+      { scale: 1, opacity: 1, duration: 0.35, ease: "power2.out" }, 
+      7.00
+    );
+
+    tl.fromTo("#scene-s2 .scene-bg-media",
+      { scale: 1.0 },
+      { scale: 1.08, duration: 7.00, ease: "none" },
+      7.00
+    );
+
+    
+
+    
+    tl.to("#scene-s2", 
+      { autoAlpha: 0, duration: 0.25, ease: "power2.in" }, 
+      13.75
+    );
+    
+    
+
+    // --- Scene s3 (data) ---
+    tl.set("#scene-s3", { autoAlpha: 1 }, 14.00);
+
+    tl.fromTo("#scene-s3 .scene-card", 
+      { y: 80, opacity: 0, scale: 0.96 }, 
+      { y: 0, opacity: 1, scale: 1, duration: 0.5, ease: "back.out(1.4)" }, 
+      14.00
+    );
+
+    tl.fromTo("#scene-s3 .kicker-badge", 
+      { scale: 0.8, opacity: 0 }, 
+      { scale: 1, opacity: 1, duration: 0.35, ease: "power2.out" }, 
+      14.00
+    );
+
+    tl.fromTo("#scene-s3 .scene-bg-media",
+      { scale: 1.0 },
+      { scale: 1.08, duration: 8.00, ease: "none" },
+      14.00
+    );
+
+    
+    tl.fromTo("#metric-s3",
+      { scale: 0.85, opacity: 0 },
+      { scale: 1.0, opacity: 1, duration: 0.45, ease: "elastic.out(1, 0.75)" },
+      14.25
+    );
+    
+
+    
+    tl.to("#scene-s3", 
+      { autoAlpha: 0, duration: 0.25, ease: "power2.in" }, 
+      21.75
+    );
+    
+    
+
+    // --- Scene s4 (impact) ---
+    tl.set("#scene-s4", { autoAlpha: 1 }, 22.00);
+
+    tl.fromTo("#scene-s4 .scene-card", 
+      { y: 80, opacity: 0, scale: 0.96 }, 
+      { y: 0, opacity: 1, scale: 1, duration: 0.5, ease: "back.out(1.4)" }, 
+      22.00
+    );
+
+    tl.fromTo("#scene-s4 .kicker-badge", 
+      { scale: 0.8, opacity: 0 }, 
+      { scale: 1, opacity: 1, duration: 0.35, ease: "power2.out" }, 
+      22.00
+    );
+
+    tl.fromTo("#scene-s4 .scene-bg-media",
+      { scale: 1.0 },
+      { scale: 1.08, duration: 7.00, ease: "none" },
+      22.00
+    );
+
+    
+
+    
+    tl.to("#scene-s4", 
+      { autoAlpha: 0, duration: 0.25, ease: "power2.in" }, 
+      28.75
+    );
+    
+    
+
+    // --- Scene s5 (outro) ---
+    tl.set("#scene-s5", { autoAlpha: 1 }, 29.00);
+
+    tl.fromTo("#scene-s5 .scene-card", 
+      { y: 80, opacity: 0, scale: 0.96 }, 
+      { y: 0, opacity: 1, scale: 1, duration: 0.5, ease: "back.out(1.4)" }, 
+      29.00
+    );
+
+    tl.fromTo("#scene-s5 .kicker-badge", 
+      { scale: 0.8, opacity: 0 }, 
+      { scale: 1, opacity: 1, duration: 0.35, ease: "power2.out" }, 
+      29.00
+    );
+
+    tl.fromTo("#scene-s5 .scene-bg-media",
+      { scale: 1.0 },
+      { scale: 1.08, duration: 7.00, ease: "none" },
+      29.00
+    );
+
+    
+
+    
+    
+
+    // Progress bar across total duration
+    tl.to(".progress-bar-fill", {
+      width: "100%",
+      duration: totalDuration,
+      ease: "none"
+    }, 0);
+
+    tl.seek(0);
+  </script>
+</body>
+</html>

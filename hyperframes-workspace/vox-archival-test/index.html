@@ -503,7 +503,7 @@
               <div class="vox-stamp-mark" id="stamp-s5">DEKLASIFIKASI</div>
               <div class="vox-evidence-row1">BERKAS INVESTIGASI // KMP-BC-2026-05</div>
               <div class="vox-evidence-row2">Analisis komprehensif penerimaan bea cukai & rokok ilegal.</div>
-              <div class="vox-evidence-row3">Kumparan Bisnis Explainer</div>
+              <div class="vox-evidence-row3">Arsip Riset & Berita</div>
             </div>
           </div>
         </div>
@@ -554,66 +554,10 @@
     );
     
 
-    // Dynamic Cinematic Camera Movement (Vox 2.5D Parallax)
-    let camFromScale = 1.0;
-    let camToScale = 1.14;
-    let camFromX = 0;
-    let camToX = 0;
-    let camFromY = 0;
-    let camToY = -35;
-    let camEase = "power1.inOut";
-
-    if (idx === 0) {
-      // Scene 1 (Hook): Steady deliberate push-in focusing toward the desk dossier
-      camFromScale = 1.0;
-      camToScale = 1.14;
-      camFromX = 0;
-      camToX = 0;
-      camFromY = 0;
-      camToY = -40;
-      camEase = "power1.inOut";
-    } else if (idx === 1) {
-      // Scene 2 (Context): Lateral drift from right to left across financial ledger
-      camFromScale = 1.05;
-      camToScale = 1.16;
-      camFromX = 40;
-      camToX = -35;
-      camFromY = 10;
-      camToY = -25;
-      camEase = "power1.out";
-    } else if (idx === 2) {
-      // Scene 3 (Problem): Dramatic slow push-in toward excise stagnation charts
-      camFromScale = 1.0;
-      camToScale = 1.15;
-      camFromX = 0;
-      camToX = -20;
-      camFromY = 20;
-      camToY = -30;
-      camEase = "sine.inOut";
-    } else if (idx === 3) {
-      // Scene 4 (Evidence): Tracking pan across coastal patrol boat photos to radio
-      camFromScale = 1.05;
-      camToScale = 1.17;
-      camFromX = -40;
-      camToX = 35;
-      camFromY = 15;
-      camToY = -20;
-      camEase = "power1.inOut";
-    } else {
-      // Scene 5 (Resolution): Majestic slow push-in centered on national budget folio
-      camFromScale = 1.0;
-      camToScale = 1.13;
-      camFromX = 0;
-      camToX = 0;
-      camFromY = 0;
-      camToY = -45;
-      camEase = "power2.out";
-    }
-
     // 2.5D Camera choreography on background media plate
     tl.fromTo("#scene-s1 .scene-bg-media",
-      { scale: camFromScale, x: camFromX, y: camFromY },
-      { scale: camToScale, x: camToX, y: camToY, duration: 5.00, ease: camEase },
+      { scale: 1, x: 0, y: 0 },
+      { scale: 1.14, x: 0, y: -40, duration: 5.00, ease: "power1.inOut" },
       0.00
     );
 
@@ -663,66 +607,10 @@
     );
     
 
-    // Dynamic Cinematic Camera Movement (Vox 2.5D Parallax)
-    let camFromScale = 1.0;
-    let camToScale = 1.14;
-    let camFromX = 0;
-    let camToX = 0;
-    let camFromY = 0;
-    let camToY = -35;
-    let camEase = "power1.inOut";
-
-    if (idx === 0) {
-      // Scene 1 (Hook): Steady deliberate push-in focusing toward the desk dossier
-      camFromScale = 1.0;
-      camToScale = 1.14;
-      camFromX = 0;
-      camToX = 0;
-      camFromY = 0;
-      camToY = -40;
-      camEase = "power1.inOut";
-    } else if (idx === 1) {
-      // Scene 2 (Context): Lateral drift from right to left across financial ledger
-      camFromScale = 1.05;
-      camToScale = 1.16;
-      camFromX = 40;
-      camToX = -35;
-      camFromY = 10;
-      camToY = -25;
-      camEase = "power1.out";
-    } else if (idx === 2) {
-      // Scene 3 (Problem): Dramatic slow push-in toward excise stagnation charts
-      camFromScale = 1.0;
-      camToScale = 1.15;
-      camFromX = 0;
-      camToX = -20;
-      camFromY = 20;
-      camToY = -30;
-      camEase = "sine.inOut";
-    } else if (idx === 3) {
-      // Scene 4 (Evidence): Tracking pan across coastal patrol boat photos to radio
-      camFromScale = 1.05;
-      camToScale = 1.17;
-      camFromX = -40;
-      camToX = 35;
-      camFromY = 15;
-      camToY = -20;
-      camEase = "power1.inOut";
-    } else {
-      // Scene 5 (Resolution): Majestic slow push-in centered on national budget folio
-      camFromScale = 1.0;
-      camToScale = 1.13;
-      camFromX = 0;
-      camToX = 0;
-      camFromY = 0;
-      camToY = -45;
-      camEase = "power2.out";
-    }
-
     // 2.5D Camera choreography on background media plate
     tl.fromTo("#scene-s2 .scene-bg-media",
-      { scale: camFromScale, x: camFromX, y: camFromY },
-      { scale: camToScale, x: camToX, y: camToY, duration: 5.00, ease: camEase },
+      { scale: 1.05, x: 40, y: 10 },
+      { scale: 1.16, x: -35, y: -25, duration: 5.00, ease: "power1.out" },
       5.00
     );
 
@@ -772,66 +660,10 @@
     );
     
 
-    // Dynamic Cinematic Camera Movement (Vox 2.5D Parallax)
-    let camFromScale = 1.0;
-    let camToScale = 1.14;
-    let camFromX = 0;
-    let camToX = 0;
-    let camFromY = 0;
-    let camToY = -35;
-    let camEase = "power1.inOut";
-
-    if (idx === 0) {
-      // Scene 1 (Hook): Steady deliberate push-in focusing toward the desk dossier
-      camFromScale = 1.0;
-      camToScale = 1.14;
-      camFromX = 0;
-      camToX = 0;
-      camFromY = 0;
-      camToY = -40;
-      camEase = "power1.inOut";
-    } else if (idx === 1) {
-      // Scene 2 (Context): Lateral drift from right to left across financial ledger
-      camFromScale = 1.05;
-      camToScale = 1.16;
-      camFromX = 40;
-      camToX = -35;
-      camFromY = 10;
-      camToY = -25;
-      camEase = "power1.out";
-    } else if (idx === 2) {
-      // Scene 3 (Problem): Dramatic slow push-in toward excise stagnation charts
-      camFromScale = 1.0;
-      camToScale = 1.15;
-      camFromX = 0;
-      camToX = -20;
-      camFromY = 20;
-      camToY = -30;
-      camEase = "sine.inOut";
-    } else if (idx === 3) {
-      // Scene 4 (Evidence): Tracking pan across coastal patrol boat photos to radio
-      camFromScale = 1.05;
-      camToScale = 1.17;
-      camFromX = -40;
-      camToX = 35;
-      camFromY = 15;
-      camToY = -20;
-      camEase = "power1.inOut";
-    } else {
-      // Scene 5 (Resolution): Majestic slow push-in centered on national budget folio
-      camFromScale = 1.0;
-      camToScale = 1.13;
-      camFromX = 0;
-      camToX = 0;
-      camFromY = 0;
-      camToY = -45;
-      camEase = "power2.out";
-    }
-
     // 2.5D Camera choreography on background media plate
     tl.fromTo("#scene-s3 .scene-bg-media",
-      { scale: camFromScale, x: camFromX, y: camFromY },
-      { scale: camToScale, x: camToX, y: camToY, duration: 5.00, ease: camEase },
+      { scale: 1, x: 0, y: 20 },
+      { scale: 1.15, x: -20, y: -30, duration: 5.00, ease: "sine.inOut" },
       10.00
     );
 
@@ -881,66 +713,10 @@
     );
     
 
-    // Dynamic Cinematic Camera Movement (Vox 2.5D Parallax)
-    let camFromScale = 1.0;
-    let camToScale = 1.14;
-    let camFromX = 0;
-    let camToX = 0;
-    let camFromY = 0;
-    let camToY = -35;
-    let camEase = "power1.inOut";
-
-    if (idx === 0) {
-      // Scene 1 (Hook): Steady deliberate push-in focusing toward the desk dossier
-      camFromScale = 1.0;
-      camToScale = 1.14;
-      camFromX = 0;
-      camToX = 0;
-      camFromY = 0;
-      camToY = -40;
-      camEase = "power1.inOut";
-    } else if (idx === 1) {
-      // Scene 2 (Context): Lateral drift from right to left across financial ledger
-      camFromScale = 1.05;
-      camToScale = 1.16;
-      camFromX = 40;
-      camToX = -35;
-      camFromY = 10;
-      camToY = -25;
-      camEase = "power1.out";
-    } else if (idx === 2) {
-      // Scene 3 (Problem): Dramatic slow push-in toward excise stagnation charts
-      camFromScale = 1.0;
-      camToScale = 1.15;
-      camFromX = 0;
-      camToX = -20;
-      camFromY = 20;
-      camToY = -30;
-      camEase = "sine.inOut";
-    } else if (idx === 3) {
-      // Scene 4 (Evidence): Tracking pan across coastal patrol boat photos to radio
-      camFromScale = 1.05;
-      camToScale = 1.17;
-      camFromX = -40;
-      camToX = 35;
-      camFromY = 15;
-      camToY = -20;
-      camEase = "power1.inOut";
-    } else {
-      // Scene 5 (Resolution): Majestic slow push-in centered on national budget folio
-      camFromScale = 1.0;
-      camToScale = 1.13;
-      camFromX = 0;
-      camToX = 0;
-      camFromY = 0;
-      camToY = -45;
-      camEase = "power2.out";
-    }
-
     // 2.5D Camera choreography on background media plate
     tl.fromTo("#scene-s4 .scene-bg-media",
-      { scale: camFromScale, x: camFromX, y: camFromY },
-      { scale: camToScale, x: camToX, y: camToY, duration: 5.00, ease: camEase },
+      { scale: 1.05, x: -40, y: 15 },
+      { scale: 1.17, x: 35, y: -20, duration: 5.00, ease: "power1.inOut" },
       15.00
     );
 
@@ -990,66 +766,10 @@
     );
     
 
-    // Dynamic Cinematic Camera Movement (Vox 2.5D Parallax)
-    let camFromScale = 1.0;
-    let camToScale = 1.14;
-    let camFromX = 0;
-    let camToX = 0;
-    let camFromY = 0;
-    let camToY = -35;
-    let camEase = "power1.inOut";
-
-    if (idx === 0) {
-      // Scene 1 (Hook): Steady deliberate push-in focusing toward the desk dossier
-      camFromScale = 1.0;
-      camToScale = 1.14;
-      camFromX = 0;
-      camToX = 0;
-      camFromY = 0;
-      camToY = -40;
-      camEase = "power1.inOut";
-    } else if (idx === 1) {
-      // Scene 2 (Context): Lateral drift from right to left across financial ledger
-      camFromScale = 1.05;
-      camToScale = 1.16;
-      camFromX = 40;
-      camToX = -35;
-      camFromY = 10;
-      camToY = -25;
-      camEase = "power1.out";
-    } else if (idx === 2) {
-      // Scene 3 (Problem): Dramatic slow push-in toward excise stagnation charts
-      camFromScale = 1.0;
-      camToScale = 1.15;
-      camFromX = 0;
-      camToX = -20;
-      camFromY = 20;
-      camToY = -30;
-      camEase = "sine.inOut";
-    } else if (idx === 3) {
-      // Scene 4 (Evidence): Tracking pan across coastal patrol boat photos to radio
-      camFromScale = 1.05;
-      camToScale = 1.17;
-      camFromX = -40;
-      camToX = 35;
-      camFromY = 15;
-      camToY = -20;
-      camEase = "power1.inOut";
-    } else {
-      // Scene 5 (Resolution): Majestic slow push-in centered on national budget folio
-      camFromScale = 1.0;
-      camToScale = 1.13;
-      camFromX = 0;
-      camToX = 0;
-      camFromY = 0;
-      camToY = -45;
-      camEase = "power2.out";
-    }
-
     // 2.5D Camera choreography on background media plate
     tl.fromTo("#scene-s5 .scene-bg-media",
-      { scale: camFromScale, x: camFromX, y: camFromY },
-      { scale: camToScale, x: camToX, y: camToY, duration: 5.00, ease: camEase },
+      { scale: 1, x: 0, y: 0 },
+      { scale: 1.13, x: 0, y: -45, duration: 5.00, ease: "power2.out" },
       20.00
     );
 

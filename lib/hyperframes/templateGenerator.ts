@@ -109,7 +109,7 @@ export function generateHyperframesProject(config: CompositionConfig): {
           scene.evidenceCategory ||
           (scene.documentNumber ? `BERKAS INVESTIGASI // ${scene.documentNumber}` : 'BERKAS INVESTIGASI LAPORAN // 2026');
         const evidenceTitle = scene.evidenceSummary || scene.subtext || scene.headline;
-        const evidenceSource = scene.evidenceSource || 'SUMBER: ARSIP DOKUMEN & RISET KUMPARAN';
+        const evidenceSource = scene.evidenceSource || 'SUMBER: ARSIP DOKUMEN & RISET';
         const stampText = scene.stampType || scene.stampText || 'RAHASIA';
 
         return `

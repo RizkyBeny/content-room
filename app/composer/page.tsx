@@ -110,12 +110,12 @@ export default function ComposerPage() {
         <div className="space-y-2">
           <label className="text-xs font-bold uppercase tracking-wider text-slate-300 flex items-center gap-2">
             <Globe className="w-4 h-4 text-cyan-400" />
-            Tautan Artikel (Kumparan / Media Web)
+            Tautan Artikel Berita / Web
           </label>
           <input
             type="url"
             required
-            placeholder="https://kumparan.com/..."
+            placeholder="https://..."
             value={articleUrl}
             onChange={(e) => setArticleUrl(e.target.value)}
             disabled={isLoading}

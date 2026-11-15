@@ -1,6 +1,6 @@
 # Content Automation: Dynamic 9:16 Video Explainer Studio
 
-Sistem mandiri (*standalone engine*) untuk mengubah artikel berita (Kumparan, portal berita umum, dan web) menjadi video explainer naratif 9:16 berkualitas tinggi secara dinamis.
+Sistem mandiri (*standalone engine*) untuk mengubah artikel berita dan portal web menjadi video explainer naratif 9:16 berkualitas tinggi secara dinamis.
 
 Ditenagai oleh:
 - **Google Flow MCP (`flow-mcp`)**: Menghasilkan Voice Over (Gemini TTS / Kokoro), ekstraksi timestamp ucapan per kata (Whisper), dan aset video B-roll / gambar still (Google Veo & Imagen).
@@ -76,7 +76,7 @@ pnpm flow:studio
 Aplikasi ini dapat diotomatisasikan untuk memantau RSS feed berita dan membuat video explainer secara terjadwal.
 Gunakan perintah slash Antigravity:
 ```text
-/schedule "Setiap hari pukul 08:00 WIB, ambil artikel terpopuler kumparan.com dan jalankan pipeline video explainer di Content-automation"
+/schedule "Setiap hari pukul 08:00 WIB, ambil artikel terpopuler dan jalankan pipeline video explainer di Content-automation"
 ```
 Atau jalankan automation agent worker di `lib/automation/agentWorker.ts`.
 

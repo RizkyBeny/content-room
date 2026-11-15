@@ -42,7 +42,7 @@ export async function extractArticle(url: string): Promise<ExtractedArticle> {
     $('title').text().trim() ||
     'Artikel Tanpa Judul';
 
-  // Clean trailing site name if any (e.g., " | kumparan.com")
+  // Clean trailing site name if any (e.g., " | Media", " - Portal Berita")
   title = title.split(' - ')[0].split(' | ')[0].trim();
 
   // Extract lead image
@@ -52,7 +52,7 @@ export async function extractArticle(url: string): Promise<ExtractedArticle> {
 
   // Extract paragraphs
   const paragraphs: string[] = [];
-  $('article p, div[data-qa-id="story-detail"] p, .story-detail p, main p').each((_, el) => {
+  $('article p, main p, .post-content p, .article-body p, .entry-content p, p').each((_, el) => {
     const text = $(el).text().trim();
     // Exclude boilerplate, short captions, ads
     if (text.length > 30 && !text.toLowerCase().includes('baca juga') && !text.toLowerCase().includes('simak video')) {

@@ -33,6 +33,7 @@ export function resolveStoryboard(
   ];
 
   const isVoxPreset = options?.themePresetId === 'vox-archival-parallax';
+  const isMysteryPreset = options?.themePresetId === 'mystery-true-crime';
 
   // Determine contextual stamp for Vox template
   const fullArticleText = (article.title + ' ' + article.paragraphs.join(' ')).toLowerCase();
@@ -103,6 +104,20 @@ export function resolveStoryboard(
       stampType = defaultStamp;
       evidenceCategory = `BERKAS INVESTIGASI LAPORAN // ${detectedYear}`;
       evidenceSource = `SUMBER: DOKUMEN RESMI & RISET ${article.sourceDomain.toUpperCase()}`;
+    } else if (isMysteryPreset) {
+      // Mystery True Crime: Graphic Novel Neo-Noir with Full-Bleed 9:16 (No empty safe-area)
+      if (idx % 2 === 0) {
+        // Variant A: Symbolic Allegory (Pilar mahkamah, timbangan keadilan, siluet algojo, pintu brankas)
+        variant = 'variant-a';
+        visualIntent = `A cinematic graphic novel neo-noir illustration, vertical 9:16 aspect ratio. Symbolic allegorical crime investigation concept representing: ${sentence.text.slice(0, 70)}. Style: High-contrast neo-noir graphic novel, dynamic heavy contour inking, fine halftone dot pattern, cel-shaded lighting, matte finish. Color palette: Matte charcoal slate (#0D1117), cold desaturated storm gray, antique brass bronze accents (#C59B27), deep dried crimson accents (#8B2635), zero oversaturation. Lighting: Dramatic chiaroscuro with sharp volumetric spotlight casting deep defined shadows. Composition: Full bleed vertical portrait framing with complete visual depth from top to bottom. No artificial blank space, no floating text cards, no watermark.`;
+      } else {
+        // Variant B: Forensic Evidence Desk (Meja investigasi 45° isometrik, smartphone, berkas bukti)
+        variant = 'variant-b';
+        visualIntent = `A cinematic graphic novel neo-noir illustration, vertical 9:16 aspect ratio. Isometric 45-degree angle top-down view of a police forensic evidence desk examining: ${sentence.text.slice(0, 70)}. Objects: Cracked mobile devices, evidence bags, tagged exhibits, forensic dossier folders. Style: High-contrast neo-noir graphic novel, heavy inked line art, halftone dot shading, tactile matte textures. Color palette: Charcoal slate (#0D1117), cold metallic gray, antique dull bronze accents (#C59B27), dried crimson stamps (#8B2635). Lighting: Harsh single desk examination spotlight casting dramatic directional shadows. Composition: Full bleed vertical 9:16 framing. No UI overlays, no digital watermarks.`;
+      }
+
+      evidenceCategory = `KASUS INVESTIGASI KRIMINAL // ${detectedYear}`;
+      evidenceSource = `SUMBER: LAPORAN KEPOLISIAN & BERITA ${article.sourceDomain.toUpperCase()}`;
     }
 
     return {

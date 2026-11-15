@@ -1,0 +1,683 @@
+{
+  "title": "Jejak Sadis 'Twitter Killer' Jepang Dieksekusi Mati",
+  "voice": "Charon",
+  "masterAudio": "/Users/beny/Documents/Project-self/Content-automation/public/renders/twitter-killer-test/twitter-killer-master.mp3",
+  "masterAudioUrl": "/renders/twitter-killer-test/twitter-killer-master.mp3",
+  "totalDurationSec": 59.544,
+  "shotTimings": [
+    {
+      "shot": 1,
+      "startSec": 0,
+      "endSec": 4.25,
+      "durationSec": 4.25,
+      "imagePath": "/renders/twitter-killer-test/shot-01.jpg"
+    },
+    {
+      "shot": 2,
+      "startSec": 4.25,
+      "endSec": 8.51,
+      "durationSec": 4.25,
+      "imagePath": "/renders/twitter-killer-test/shot-02.jpg"
+    },
+    {
+      "shot": 3,
+      "startSec": 8.51,
+      "endSec": 12.76,
+      "durationSec": 4.25,
+      "imagePath": "/renders/twitter-killer-test/shot-03.jpg"
+    },
+    {
+      "shot": 4,
+      "startSec": 12.76,
+      "endSec": 17.01,
+      "durationSec": 4.25,
+      "imagePath": "/renders/twitter-killer-test/shot-04.jpg"
+    },
+    {
+      "shot": 5,
+      "startSec": 17.01,
+      "endSec": 21.27,
+      "durationSec": 4.25,
+      "imagePath": "/renders/twitter-killer-test/shot-05.jpg"
+    },
+    {
+      "shot": 6,
+      "startSec": 21.27,
+      "endSec": 25.52,
+      "durationSec": 4.25,
+      "imagePath": "/renders/twitter-killer-test/shot-06.jpg"
+    },
+    {
+      "shot": 7,
+      "startSec": 25.52,
+      "endSec": 29.77,
+      "durationSec": 4.25,
+      "imagePath": "/renders/twitter-killer-test/shot-07.jpg"
+    },
+    {
+      "shot": 8,
+      "startSec": 29.77,
+      "endSec": 34.03,
+      "durationSec": 4.25,
+      "imagePath": "/renders/twitter-killer-test/shot-08.jpg"
+    },
+    {
+      "shot": 9,
+      "startSec": 34.03,
+      "endSec": 38.28,
+      "durationSec": 4.25,
+      "imagePath": "/renders/twitter-killer-test/shot-09.jpg"
+    },
+    {
+      "shot": 10,
+      "startSec": 38.28,
+      "endSec": 42.53,
+      "durationSec": 4.25,
+      "imagePath": "/renders/twitter-killer-test/shot-10.jpg"
+    },
+    {
+      "shot": 11,
+      "startSec": 42.53,
+      "endSec": 46.78,
+      "durationSec": 4.25,
+      "imagePath": "/renders/twitter-killer-test/shot-11.jpg"
+    },
+    {
+      "shot": 12,
+      "startSec": 46.78,
+      "endSec": 51.04,
+      "durationSec": 4.25,
+      "imagePath": "/renders/twitter-killer-test/shot-12.jpg"
+    },
+    {
+      "shot": 13,
+      "startSec": 51.04,
+      "endSec": 55.29,
+      "durationSec": 4.25,
+      "imagePath": "/renders/twitter-killer-test/shot-13.jpg"
+    },
+    {
+      "shot": 14,
+      "startSec": 55.29,
+      "endSec": 59.54,
+      "durationSec": 4.25,
+      "imagePath": "/renders/twitter-killer-test/shot-14.jpg"
+    }
+  ],
+  "sentenceTimings": [
+    {
+      "id": "s1",
+      "text": "Pemerintah Jepang resmi mengeksekusi mati Takahiro Shiraishi, pembunuh berantai berdarah dingin yang dikenal dunia sebagai Twitter Killer.",
+      "durationSec": 10.040583,
+      "start": 0,
+      "end": 10.040583
+    },
+    {
+      "id": "s2",
+      "text": "Tahun 2017, Shiraishi mengintai media sosial, menargetkan para pengguna yang mengunggah pesan keputusasaan dan berniat mengakhiri hidup.",
+      "durationSec": 9.920583,
+      "start": 10.340583,
+      "end": 20.261166000000003
+    },
+    {
+      "id": "s3",
+      "text": "Dengan dalih ingin menemani mati bersama, sembilan korban usia 15 hingga 26 tahun dipancing ke apartemen sempitnya di Kota Zama.",
+      "durationSec": 9.080583,
+      "start": 20.561166000000004,
+      "end": 29.641749000000004
+    },
+    {
+      "id": "s4",
+      "text": "Di sanalah aksi keji terjadi. Korban dicekik, dirampok, dan dimutilasi demi memuaskan hasrat seksual serta keuntungan finansial semata.",
+      "durationSec": 11.600583,
+      "start": 29.941749000000005,
+      "end": 41.542332
+    },
+    {
+      "id": "s5",
+      "text": "Polisi akhirnya membongkar apartemen horor ini. Tahun 2020, pengadilan Tokyo menjatuhkan vonis hukuman mati tanpa celah pengampunan.",
+      "durationSec": 9.400583,
+      "start": 41.842332,
+      "end": 51.242914999999996
+    },
+    {
+      "id": "s6",
+      "text": "Tiang gantungan kini menutup jejak salah satu kasus kriminal paling kelam dan mengguncang dalam sejarah modern Jepang.",
+      "durationSec": 7.960583,
+      "start": 51.542914999999994,
+      "end": 59.50349799999999
+    }
+  ],
+  "words": [
+    {
+      "word": "Pemerintah",
+      "start": 0,
+      "end": 0.78
+    },
+    {
+      "word": "Jepang",
+      "start": 0.78,
+      "end": 1.26
+    },
+    {
+      "word": "resmi",
+      "start": 1.26,
+      "end": 1.65
+    },
+    {
+      "word": "mengeksekusi",
+      "start": 1.65,
+      "end": 2.59
+    },
+    {
+      "word": "mati",
+      "start": 2.59,
+      "end": 2.9
+    },
+    {
+      "word": "Takahiro",
+      "start": 2.9,
+      "end": 3.53
+    },
+    {
+      "word": "Shiraishi,",
+      "start": 3.53,
+      "end": 4.55
+    },
+    {
+      "word": "pembunuh",
+      "start": 4.55,
+      "end": 5.18
+    },
+    {
+      "word": "berantai",
+      "start": 5.18,
+      "end": 5.8
+    },
+    {
+      "word": "berdarah",
+      "start": 5.8,
+      "end": 6.43
+    },
+    {
+      "word": "dingin",
+      "start": 6.43,
+      "end": 6.9
+    },
+    {
+      "word": "yang",
+      "start": 6.9,
+      "end": 7.22
+    },
+    {
+      "word": "dikenal",
+      "start": 7.22,
+      "end": 7.77
+    },
+    {
+      "word": "dunia",
+      "start": 7.77,
+      "end": 8.16
+    },
+    {
+      "word": "sebagai",
+      "start": 8.16,
+      "end": 8.71
+    },
+    {
+      "word": "Twitter",
+      "start": 8.71,
+      "end": 9.26
+    },
+    {
+      "word": "Killer.",
+      "start": 9.26,
+      "end": 10.04
+    },
+    {
+      "word": "Tahun",
+      "start": 10.34,
+      "end": 10.73
+    },
+    {
+      "word": "2017,",
+      "start": 10.73,
+      "end": 11.34
+    },
+    {
+      "word": "Shiraishi",
+      "start": 11.34,
+      "end": 12.03
+    },
+    {
+      "word": "mengintai",
+      "start": 12.03,
+      "end": 12.72
+    },
+    {
+      "word": "media",
+      "start": 12.72,
+      "end": 13.11
+    },
+    {
+      "word": "sosial,",
+      "start": 13.11,
+      "end": 13.88
+    },
+    {
+      "word": "menargetkan",
+      "start": 13.88,
+      "end": 14.72
+    },
+    {
+      "word": "para",
+      "start": 14.72,
+      "end": 15.03
+    },
+    {
+      "word": "pengguna",
+      "start": 15.03,
+      "end": 15.65
+    },
+    {
+      "word": "yang",
+      "start": 15.65,
+      "end": 15.95
+    },
+    {
+      "word": "mengunggah",
+      "start": 15.95,
+      "end": 16.72
+    },
+    {
+      "word": "pesan",
+      "start": 16.72,
+      "end": 17.11
+    },
+    {
+      "word": "keputusasaan",
+      "start": 17.11,
+      "end": 18.03
+    },
+    {
+      "word": "dan",
+      "start": 18.03,
+      "end": 18.26
+    },
+    {
+      "word": "berniat",
+      "start": 18.26,
+      "end": 18.8
+    },
+    {
+      "word": "mengakhiri",
+      "start": 18.8,
+      "end": 19.57
+    },
+    {
+      "word": "hidup.",
+      "start": 19.57,
+      "end": 20.26
+    },
+    {
+      "word": "Dengan",
+      "start": 20.56,
+      "end": 21.03
+    },
+    {
+      "word": "dalih",
+      "start": 21.03,
+      "end": 21.43
+    },
+    {
+      "word": "ingin",
+      "start": 21.43,
+      "end": 21.82
+    },
+    {
+      "word": "menemani",
+      "start": 21.82,
+      "end": 22.46
+    },
+    {
+      "word": "mati",
+      "start": 22.46,
+      "end": 22.77
+    },
+    {
+      "word": "bersama,",
+      "start": 22.77,
+      "end": 23.64
+    },
+    {
+      "word": "sembilan",
+      "start": 23.64,
+      "end": 24.27
+    },
+    {
+      "word": "korban",
+      "start": 24.27,
+      "end": 24.75
+    },
+    {
+      "word": "usia",
+      "start": 24.75,
+      "end": 25.06
+    },
+    {
+      "word": "15",
+      "start": 25.06,
+      "end": 25.22
+    },
+    {
+      "word": "hingga",
+      "start": 25.22,
+      "end": 25.69
+    },
+    {
+      "word": "26",
+      "start": 25.69,
+      "end": 25.85
+    },
+    {
+      "word": "tahun",
+      "start": 25.85,
+      "end": 26.25
+    },
+    {
+      "word": "dipancing",
+      "start": 26.25,
+      "end": 26.96
+    },
+    {
+      "word": "ke",
+      "start": 26.96,
+      "end": 27.11
+    },
+    {
+      "word": "apartemen",
+      "start": 27.11,
+      "end": 27.83
+    },
+    {
+      "word": "sempitnya",
+      "start": 27.83,
+      "end": 28.54
+    },
+    {
+      "word": "di",
+      "start": 28.54,
+      "end": 28.69
+    },
+    {
+      "word": "Kota",
+      "start": 28.69,
+      "end": 29.01
+    },
+    {
+      "word": "Zama.",
+      "start": 29.01,
+      "end": 29.64
+    },
+    {
+      "word": "Di",
+      "start": 29.94,
+      "end": 30.12
+    },
+    {
+      "word": "sanalah",
+      "start": 30.12,
+      "end": 30.74
+    },
+    {
+      "word": "aksi",
+      "start": 30.74,
+      "end": 31.1
+    },
+    {
+      "word": "keji",
+      "start": 31.1,
+      "end": 31.46
+    },
+    {
+      "word": "terjadi.",
+      "start": 31.46,
+      "end": 32.44
+    },
+    {
+      "word": "Korban",
+      "start": 32.44,
+      "end": 32.98
+    },
+    {
+      "word": "dicekik,",
+      "start": 32.98,
+      "end": 33.96
+    },
+    {
+      "word": "dirampok,",
+      "start": 33.96,
+      "end": 35.03
+    },
+    {
+      "word": "dan",
+      "start": 35.03,
+      "end": 35.3
+    },
+    {
+      "word": "dimutilasi",
+      "start": 35.3,
+      "end": 36.19
+    },
+    {
+      "word": "demi",
+      "start": 36.19,
+      "end": 36.55
+    },
+    {
+      "word": "memuaskan",
+      "start": 36.55,
+      "end": 37.35
+    },
+    {
+      "word": "hasrat",
+      "start": 37.35,
+      "end": 37.88
+    },
+    {
+      "word": "seksual",
+      "start": 37.88,
+      "end": 38.51
+    },
+    {
+      "word": "serta",
+      "start": 38.51,
+      "end": 38.95
+    },
+    {
+      "word": "keuntungan",
+      "start": 38.95,
+      "end": 39.85
+    },
+    {
+      "word": "finansial",
+      "start": 39.85,
+      "end": 40.65
+    },
+    {
+      "word": "semata.",
+      "start": 40.65,
+      "end": 41.54
+    },
+    {
+      "word": "Polisi",
+      "start": 41.84,
+      "end": 42.29
+    },
+    {
+      "word": "akhirnya",
+      "start": 42.29,
+      "end": 42.9
+    },
+    {
+      "word": "membongkar",
+      "start": 42.9,
+      "end": 43.65
+    },
+    {
+      "word": "apartemen",
+      "start": 43.65,
+      "end": 44.32
+    },
+    {
+      "word": "horor",
+      "start": 44.32,
+      "end": 44.7
+    },
+    {
+      "word": "ini.",
+      "start": 44.7,
+      "end": 45.23
+    },
+    {
+      "word": "Tahun",
+      "start": 45.23,
+      "end": 45.6
+    },
+    {
+      "word": "2020,",
+      "start": 45.6,
+      "end": 46.2
+    },
+    {
+      "word": "pengadilan",
+      "start": 46.2,
+      "end": 46.96
+    },
+    {
+      "word": "Tokyo",
+      "start": 46.96,
+      "end": 47.33
+    },
+    {
+      "word": "menjatuhkan",
+      "start": 47.33,
+      "end": 48.16
+    },
+    {
+      "word": "vonis",
+      "start": 48.16,
+      "end": 48.54
+    },
+    {
+      "word": "hukuman",
+      "start": 48.54,
+      "end": 49.06
+    },
+    {
+      "word": "mati",
+      "start": 49.06,
+      "end": 49.36
+    },
+    {
+      "word": "tanpa",
+      "start": 49.36,
+      "end": 49.74
+    },
+    {
+      "word": "celah",
+      "start": 49.74,
+      "end": 50.11
+    },
+    {
+      "word": "pengampunan.",
+      "start": 50.11,
+      "end": 51.24
+    },
+    {
+      "word": "Tiang",
+      "start": 51.54,
+      "end": 51.92
+    },
+    {
+      "word": "gantungan",
+      "start": 51.92,
+      "end": 52.6
+    },
+    {
+      "word": "kini",
+      "start": 52.6,
+      "end": 52.91
+    },
+    {
+      "word": "menutup",
+      "start": 52.91,
+      "end": 53.44
+    },
+    {
+      "word": "jejak",
+      "start": 53.44,
+      "end": 53.82
+    },
+    {
+      "word": "salah",
+      "start": 53.82,
+      "end": 54.2
+    },
+    {
+      "word": "satu",
+      "start": 54.2,
+      "end": 54.5
+    },
+    {
+      "word": "kasus",
+      "start": 54.5,
+      "end": 54.88
+    },
+    {
+      "word": "kriminal",
+      "start": 54.88,
+      "end": 55.49
+    },
+    {
+      "word": "paling",
+      "start": 55.49,
+      "end": 55.94
+    },
+    {
+      "word": "kelam",
+      "start": 55.94,
+      "end": 56.32
+    },
+    {
+      "word": "dan",
+      "start": 56.32,
+      "end": 56.55
+    },
+    {
+      "word": "mengguncang",
+      "start": 56.55,
+      "end": 57.38
+    },
+    {
+      "word": "dalam",
+      "start": 57.38,
+      "end": 57.76
+    },
+    {
+      "word": "sejarah",
+      "start": 57.76,
+      "end": 58.29
+    },
+    {
+      "word": "modern",
+      "start": 58.29,
+      "end": 58.75
+    },
+    {
+      "word": "Jepang.",
+      "start": 58.75,
+      "end": 59.5
+    }
+  ]
+}

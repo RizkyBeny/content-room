@@ -1,4 +1,4 @@
-# PRD: Generate Video Explainer dari Artikel Kumparan
+# PRD: Generate Video Explainer dari Artikel Berita & Web
 
 Content Desk Renew | Feature PRD | Draft v0.2 | Diperbarui 1 November 2026
 
@@ -23,14 +23,14 @@ PRD ini dipisah menjadi **Bagian Bersama** (konteks, scope, user story, pipeline
 | PRD type | Feature (fitur baru di Content Desk) |
 | Author | [NEEDS INPUT] |
 | Target release | [NEEDS INPUT] |
-| Stakeholders | Tim konten Kumparan, Design, FE, BE |
+| Stakeholders | Tim konten editorial, Design, FE, BE |
 | Desain | Figma file `D2DgTOzzD7TelxaPf8mSDf`, halaman "Cluster Bisnis - Video Generate" (node `37:4545`) |
 | Tipe video (scope) | Explainer saja |
 | Referensi craft | `LottieFiles/motion-design-skill`, `kevinbadi/claude-motion-skills` (fork dari `iart-ai/motion-skills`), skill internal `tiktok-motion` (lihat Bagian 10) |
 
 ## 2. Problem Statement
 
-Tim konten perlu mengubah artikel Kumparan menjadi video explainer pendek, tetapi prosesnya manual: menulis narasi, merekam atau mencari voice over, lalu menyusun visual. Tools ini menyederhanakannya menjadi satu alur: tempel link artikel, tinjau script, pilih suara, dengarkan preview, lalu generate video lengkap dengan audio. Artikel Kumparan sangat beragam (berita cepat, data ekonomi, profil, penjelasan kebijakan), sehingga satu pola visual yang sama untuk semua artikel akan terasa monoton dan sering tidak cocok dengan isi. ⚠️ Needs validation: belum ada data baseline waktu produksi manual saat ini.
+Tim konten perlu mengubah artikel berita menjadi video explainer pendek, tetapi prosesnya manual: menulis narasi, merekam atau mencari voice over, lalu menyusun visual. Tools ini menyederhanakannya menjadi satu alur: tempel link artikel, tinjau script, pilih suara, dengarkan preview, lalu generate video lengkap dengan audio. Artikel berita sangat beragam (berita cepat, data ekonomi, profil, penjelasan kebijakan), sehingga satu pola visual yang sama untuk semua artikel akan terasa monoton dan sering tidak cocok dengan isi. ⚠️ Needs validation: belum ada data baseline waktu produksi manual saat ini.
 
 ## 3. Goals
 
@@ -42,7 +42,7 @@ Tim konten perlu mengubah artikel Kumparan menjadi video explainer pendek, tetap
 
 **Non-goals:**
 
-- Link dari media selain Kumparan.
+- Link artikel yang tidak valid atau tidak dapat diakses.
 - Lebih dari satu link per video.
 - Upload gambar, audio, atau video sendiri.
 - Tipe video selain explainer (short/listicle, data brief, affiliate). Kontrak hanya menyiapkan field `videoType`.
@@ -54,7 +54,7 @@ Tim konten perlu mengubah artikel Kumparan menjadi video explainer pendek, tetap
 
 ## 4. User Persona
 
-**Primary: Tim konten / editor video Kumparan (login sebagai Admin)**
+**Primary: Tim konten / editor video (login sebagai Admin)**
 
 - Context: bekerja di Content Desk, membuat video pendek dari artikel yang sudah terbit.
 - Motivation: video explainer cepat, konsisten dengan brand, dan siap publish.
@@ -66,7 +66,7 @@ Tidak ada persona sekunder; tidak ada role lain. Engine video adalah *konsumen s
 
 | ID | User Story | Priority |
 | --- | --- | --- |
-| US-01 | Sebagai tim konten, saya ingin memasukkan satu link artikel Kumparan beserta konteks/intent tambahan agar sistem membuatkan script narasi video yang sesuai arah yang saya mau. | P0 |
+| US-01 | Sebagai tim konten, saya ingin memasukkan satu link artikel berita beserta konteks/intent tambahan agar sistem membuatkan script narasi video yang sesuai arah yang saya mau. | P0 |
 | US-02 | Sebagai tim konten, saya ingin meninjau dan mengedit script agar narasi sesuai keinginan sebelum dijadikan suara. | P0 |
 | US-03 | Sebagai tim konten, saya ingin memilih suara Male atau Female lalu generate voice over agar narasi menjadi audio. | P0 |
 | US-04 | Sebagai tim konten, saya ingin memutar preview audio sebelum lanjut agar tidak membuang proses video dengan audio yang salah. | P0 |
@@ -81,7 +81,7 @@ Tidak ada persona sekunder; tidak ada role lain. Engine video adalah *konsumen s
 **US-01 Input link dan konteks**
 
 - Given halaman composer terbuka, when kolom link kosong, then tombol "Buat konten" nonaktif.
-- Given link bukan `https` atau domainnya bukan `kumparan.com` (termasuk `www.` dan subdomain resmi), when user mengisi, then muncul pesan validasi "Link harus berasal dari kumparan.com" dan tombol tetap nonaktif.
+- Given link bukan `https` atau domain artikel tidak dapat dijangkau, when user mengisi, then muncul pesan validasi "Link artikel tidak valid" dan tombol tetap nonaktif.
 - Given link valid dan brief opsional terisi (maks 500 karakter ⚠️), when user klik "Buat konten", then user pindah ke layar loading "Generating Content ..." dan job script dibuat.
 - Given artikel tidak bisa diambil (404, tidak publik, kosong), when proses gagal, then user melihat error "Artikel tidak dapat diakses" dan bisa kembali mengganti link.
 - Given brief kosong, when job dibuat, then sistem tetap menetapkan angle dari isi artikel dan tidak menampilkan error.
@@ -227,8 +227,8 @@ Contoh ilustratif, angka dan isi bukan fakta:
              "hook_type": "angka-mengejutkan" },
   "direction": { "tone": "serius-jernih",
                  "motion_personality": "<arketipe dari referensi>",
-                 "palette_ref": "kumparan-ds/default",
-                 "type_ref": "kumparan-ds/default",
+                 "palette_ref": "editorial-ds/default",
+                 "type_ref": "editorial-ds/default",
                  "pacing": "medium" },
   "timing": { "audio_duration_ms": 52400, "alignment": "word" },
   "scenes": [
@@ -344,7 +344,7 @@ Setiap versi disimpan untuk audit dan debugging (retensi [NEEDS INPUT], OQ-03).
 | --- | --- | --- | --- |
 | `LottieFiles/motion-design-skill` (MIT) | Prinsip motion design universal: checklist 8 langkah, arketipe motion personality, tabel durasi/easing, koreografi, struktur naratif, prinsip Disney, checklist kualitas, troubleshooting. Berfokus pada UI. | Sumber **aturan craft** di tahap storyboard: pemilihan `motion_personality`, token timing/easing, koreografi urutan elemen, checklist kualitas. | Dirancang untuk UI, bukan video naratif. Perlu adaptasi, terutama untuk ritme mengikuti narasi. |
 | `kevinbadi/claude-motion-skills` (MIT; fork dari `iart-ai/motion-skills`) | Kumpulan pack skill untuk motion graphics/video. Pack `explainer-video-skills` mencakup alur script → storyboard → build scene → sinkronisasi narasi/caption → edit → polish, plus `diagram-animation`. Skill video memakai loop *deliver-and-verify* (render frame, cek, probe MP4) dan render via Remotion atau Manim. | Sumber **alur kerja explainer**, pola animasi diagram/data, dan pola verifikasi yang menjadi dasar tahap `QA_VERIFY`. | Repo `kevinbadi` adalah fork. Rujuk upstream `iart-ai` dan kunci ke commit tertentu. |
-| Skill internal `tiktok-motion` | Pipeline motion graphic 9:16 dari spec JSON, render HTML/CSS frame-per-frame lewat Chromium headless, aturan hook, tempo, dan `pacing_warnings`, memakai palet design system Kumparan. | Preseden internal: katalog tipe scene sebagai kosakata awal, aturan hook/pacing, bukti bahwa render programatik dengan palet Kumparan sudah dipakai. | Pendekatannya memakai tipe scene tetap. Di PRD ini tipe scene diperlakukan sebagai **building block**, bukan template. |
+| Skill internal `tiktok-motion` | Pipeline motion graphic 9:16 dari spec JSON, render HTML/CSS frame-per-frame lewat Chromium headless, aturan hook, tempo, dan `pacing_warnings`, memakai palet design system editorial. | Preseden internal: katalog tipe scene sebagai kosakata awal, aturan hook/pacing, bukti bahwa render programatik dengan palet editorial sudah dipakai. | Pendekatannya memakai tipe scene tetap. Di PRD ini tipe scene diperlakukan sebagai **building block**, bukan template. |
 
 **Cara pakai:** referensi dipakai sebagai *knowledge base* untuk prompt dan validator pipeline (disaring dan dikunci versinya), bukan dijalankan sebagai agent di production. Opsi eksekusi (distilasi ke prompt sendiri vs menjalankan agent dengan skill) diputuskan di tech design (OQ-11).
 
@@ -360,7 +360,7 @@ Dua layar: **Composer** (`/video/new`) dan **Workspace** (`/video/:jobId`). Laya
 
 | ID | Requirement | Story |
 | --- | --- | --- |
-| FE-01 | Composer: textarea brief opsional, input link wajib, tombol "Add link", tombol "Buat konten". Validasi domain `kumparan.com` di sisi klien. | US-01 |
+| FE-01 | Composer: textarea brief opsional, input link wajib, tombol "Add link", tombol "Buat konten". Validasi URL valid https di sisi klien. | US-01 |
 | FE-02 | Layar Loading penuh "Generating Content ..." selama `SCRIPT_GENERATING`, dengan sub-label dari `progress.step` (mis. "Membaca artikel", "Menentukan angle", "Menulis script", "Menyusun storyboard"). | US-01 |
 | FE-03 | Workspace: kartu ringkasan (brief dan pengaturan, read-only) di atas; kolom kiri Script, kolom kanan hasil video. | US-02 |
 | FE-04 | Textarea Script Voice Over editable saat `SCRIPT_READY`, read-only pada status lain; penghitung kata dan estimasi durasi; blokir bila > 60 detik. | US-02 |
@@ -431,7 +431,7 @@ Mock harus mensimulasikan jeda (script ± 3 detik, audio ± 4 detik, video ± 6 
 
 | ID | Requirement | Story |
 | --- | --- | --- |
-| BE-01 | Terima `articleUrl` (wajib) dan `brief` (opsional). Validasi `https` dan host `kumparan.com` di sisi server (allowlist; tolak redirect ke luar domain, cegah SSRF). | US-01 |
+| BE-01 | Terima `articleUrl` (wajib) dan `brief` (opsional). Validasi `https` dan URL di sisi server (cegah SSRF, tolak skema selain https). | US-01 |
 | BE-02 | Ambil dan ekstrak isi artikel menjadi struktur bersumber (judul, paragraf berID, entitas, angka, kutipan) sebagai dasar `source_ref`. | US-01 |
 | BE-03 | **Angle planner:** tetapkan `angle` {nama, rationale, hook_type} dari artikel, brief, dan `videoType`. Brief kosong tetap menghasilkan angle. Catat `warnings` bila brief tidak dapat dipenuhi. | US-01, US-08 |
 | BE-04 | **Script writer:** tulis script dari artikel dan angle, target 45-60 detik, dipecah per kalimat berID. | US-01 |
@@ -498,7 +498,7 @@ Provider LLM dan TTS; engine render (mis. Remotion atau Chromium headless, lihat
 | Lokalisasi | Bahasa | Bahasa Indonesia ⚠️ |
 | Aksesibilitas | Kontrol audio/video | Bisa dioperasikan dengan keyboard, label ARIA pada play/pause |
 
-**Rubrik editorial** ⚠️ (dinilai editor Kumparan pada set evaluasi ±20 artikel dari ≥ 4 kategori): (1) angle sesuai isi dan intent, (2) fakta akurat, (3) narasi jelas dan runtut, (4) visual mendukung narasi dan sesuai brand, (5) tampak tidak seperti template yang sama.
+**Rubrik editorial** ⚠️ (dinilai editor konten pada set evaluasi ±20 artikel dari ≥ 4 kategori): (1) angle sesuai isi dan intent, (2) fakta akurat, (3) narasi jelas dan runtut, (4) visual mendukung narasi dan sesuai brand, (5) tampak tidak seperti template yang sama.
 
 ## 12. Success Metrics
 
@@ -522,9 +522,9 @@ Provider LLM dan TTS; engine render (mis. Remotion atau Chromium headless, lihat
 | Provider TTS (suara Male/Female Bahasa Indonesia) | [NEEDS INPUT] | Pending | Kualitas suara Indonesia perlu diuji |
 | Alignment audio per kata/kalimat | [NEEDS INPUT] | Pending | Dari TTS bila tersedia, atau forced alignment terpisah |
 | Engine render (programatik) | [NEEDS INPUT] | Pending | Menentukan waktu proses dan biaya |
-| Design system Kumparan (token warna, font) | Design | Pending | Sumber token dan akses dari pipeline [NEEDS INPUT] |
+| Design system Editorial (token warna, font) | Design | Pending | Sumber token dan akses dari pipeline [NEEDS INPUT] |
 | Referensi motion skill (LottieFiles, iart-ai) | BE | Pending | Lisensi MIT. Kunci commit; repo kecil dan jarang diperbarui |
-| Akses ambil konten artikel kumparan.com | [NEEDS INPUT] | Pending | Idealnya via API/CMS internal, bukan scraping |
+| Akses ambil konten artikel web | [NEEDS INPUT] | Pending | Idealnya via API/CMS internal, bukan scraping |
 | Hak pakai gambar artikel pada video | Legal / Konten | Pending | Menentukan boleh tidaknya `article-image` (OQ-10) |
 | Sesi login Content Desk | [NEEDS INPUT] | Pending | Untuk auth BE |
 
@@ -576,6 +576,6 @@ Provider LLM dan TTS; engine render (mis. Remotion atau Chromium headless, lihat
 
 ## 16. Catatan Kepercayaan
 
-Bagian yang terisi dari input Anda dan desain Figma: alur, batas 45-60 detik dan maksimum 60 detik, satu link wajib dari Kumparan, satu persona, sistem dinamis yang menentukan angle, script, dan storyboard di belakang layar, engine yang mengikuti storyboard setelah approve, fokus explainer, dan dua repo referensi.
+Bagian yang terisi dari input Anda dan desain Figma: alur, batas 45-60 detik dan maksimum 60 detik, satu link artikel web wajib, satu persona, sistem dinamis yang menentukan angle, script, dan storyboard di belakang layar, engine yang mengikuti storyboard setelah approve, fokus explainer, dan dua repo referensi.
 
 Bagian yang saya asumsikan (⚠️): engine render programatik (bertentangan dengan frasa "AI-generated" di v0.1), storyboard tidak ditampilkan ke user, semantik Regenerate, token timing/easing, daftar FX, ambang validator dan kualitas, angka performa, dan rubrik editorial. Saya membaca README ketiga repo (LottieFiles, `kevinbadi`, dan `iart-ai/explainer-video-skills`), bukan isi tiap file skill. Detail seperti nama arketipe dan tabel easing masih perlu dibaca langsung sebelum tech design. Spesifikasi BE tahap video dan estimasi performanya tetap sementara sampai engine dan vendor diputuskan.

@@ -1,0 +1,131 @@
+{
+  "version": 1,
+  "historyId": "24a93d70-01ff-45aa-ba9d-56bc15d53509",
+  "currentRevision": null,
+  "pendingChanges": false,
+  "files": {
+    "hyperframes.json": {
+      "hash": "12bb941b1e4060ce7418673e6ecf96e5aec4b3032a6640b3842a7f519534b7a2",
+      "content": "/Users/beny/.cache/hyperframes/history/24a93d70-01ff-45aa-ba9d-56bc15d53509/blobs/12/12bb941b1e4060ce7418673e6ecf96e5aec4b3032a6640b3842a7f519534b7a2"
+    },
+    "index.html": {
+      "hash": "39fd685e014a27008757a1190e074c67e16d305906692a2817cab79755b5ae74",
+      "content": "/Users/beny/.cache/hyperframes/history/24a93d70-01ff-45aa-ba9d-56bc15d53509/blobs/39/39fd685e014a27008757a1190e074c67e16d305906692a2817cab79755b5ae74"
+    }
+  },
+  "revisions": {},
+  "checks": {
+    "latest": null,
+    "revisions": {},
+    "unversioned": []
+  },
+  "snapshots": {
+    "latest": {
+      "revision": null,
+      "id": "dcf0565d-77e7-4449-ab13-7e484a130adb-4"
+    },
+    "revisions": {},
+    "unversioned": [
+      {
+        "scope": "full",
+        "id": "dcf0565d-77e7-4449-ab13-7e484a130adb-0",
+        "image": "/Users/beny/Documents/Project-self/Content-automation/public/renders/explainer-bea-cukai/snapshots/frame-00-at-3.5s.png",
+        "time": 3.5,
+        "metadata": {
+          "width": 1080,
+          "height": 1920,
+          "zoomScale": 1,
+          "browserGpuMode": "auto",
+          "warnings": [],
+          "partial": false
+        },
+        "createdAt": 1794631094045,
+        "contentHash": "b5aedc9f5dae4369f81074bf93cfce64eac7dec0ce9618437e6c79b21b386889",
+        "revision": null,
+        "inputFingerprint": "b57704ffdf506c58aa023f6c1370a2adb02dcdacee529e0ee4157375ced189f5",
+        "inputScope": "local-project-files",
+        "attribution": "unversioned"
+      },
+      {
+        "scope": "full",
+        "id": "dcf0565d-77e7-4449-ab13-7e484a130adb-1",
+        "image": "/Users/beny/Documents/Project-self/Content-automation/public/renders/explainer-bea-cukai/snapshots/frame-01-at-10.5s.png",
+        "time": 10.5,
+        "metadata": {
+          "width": 1080,
+          "height": 1920,
+          "zoomScale": 1,
+          "browserGpuMode": "auto",
+          "warnings": [],
+          "partial": false
+        },
+        "createdAt": 1794631094046,
+        "contentHash": "581909eaf244c8a229b5ea4fd99b97ccda0b8f4927b9616f8e9cf2c97763c83b",
+        "revision": null,
+        "inputFingerprint": "b57704ffdf506c58aa023f6c1370a2adb02dcdacee529e0ee4157375ced189f5",
+        "inputScope": "local-project-files",
+        "attribution": "unversioned"
+      },
+      {
+        "scope": "full",
+        "id": "dcf0565d-77e7-4449-ab13-7e484a130adb-2",
+        "image": "/Users/beny/Documents/Project-self/Content-automation/public/renders/explainer-bea-cukai/snapshots/frame-02-at-18s.png",
+        "time": 18,
+        "metadata": {
+          "width": 1080,
+          "height": 1920,
+          "zoomScale": 1,
+          "browserGpuMode": "auto",
+          "warnings": [],
+          "partial": false
+        },
+        "createdAt": 1794631094046,
+        "contentHash": "f8ae49ba2bd9408ef6385f77e57f980e17a9a8cb902a0c56b1ab12b32aab02b0",
+        "revision": null,
+        "inputFingerprint": "b57704ffdf506c58aa023f6c1370a2adb02dcdacee529e0ee4157375ced189f5",
+        "inputScope": "local-project-files",
+        "attribution": "unversioned"
+      },
+      {
+        "scope": "full",
+        "id": "dcf0565d-77e7-4449-ab13-7e484a130adb-3",
+        "image": "/Users/beny/Documents/Project-self/Content-automation/public/renders/explainer-bea-cukai/snapshots/frame-03-at-25.5s.png",
+        "time": 25.5,
+        "metadata": {
+          "width": 1080,
+          "height": 1920,
+          "zoomScale": 1,
+          "browserGpuMode": "auto",
+          "warnings": [],
+          "partial": false
+        },
+        "createdAt": 1794631094046,
+        "contentHash": "b6f940cb0ac2c24800530aa34bd42fd5078894631a12725c73f1116505be5f70",
+        "revision": null,
+        "inputFingerprint": "b57704ffdf506c58aa023f6c1370a2adb02dcdacee529e0ee4157375ced189f5",
+        "inputScope": "local-project-files",
+        "attribution": "unversioned"
+      },
+      {
+        "scope": "full",
+        "id": "dcf0565d-77e7-4449-ab13-7e484a130adb-4",
+        "image": "/Users/beny/Documents/Project-self/Content-automation/public/renders/explainer-bea-cukai/snapshots/frame-04-at-32.5s.png",
+        "time": 32.5,
+        "metadata": {
+          "width": 1080,
+          "height": 1920,
+          "zoomScale": 1,
+          "browserGpuMode": "auto",
+          "warnings": [],
+          "partial": false
+        },
+        "createdAt": 1794631094046,
+        "contentHash": "c81ca6b1bdc3e47c15568ec02f881e35dad448f2b6ad88a46be14ce3fa322fdb",
+        "revision": null,
+        "inputFingerprint": "b57704ffdf506c58aa023f6c1370a2adb02dcdacee529e0ee4157375ced189f5",
+        "inputScope": "local-project-files",
+        "attribution": "unversioned"
+      }
+    ]
+  }
+}

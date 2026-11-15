@@ -1,0 +1,14 @@
+{
+  "$schema": "https://hyperframes.heygen.com/schema/hyperframes.json",
+  "name": "twitter-killer-investigation",
+  "version": "1.0.0",
+  "description": "Graphic Novel Neo-Noir 14-Shot True Crime Investigation (9:16 vertical)",
+  "resolution": {
+    "width": 1080,
+    "height": 1920
+  },
+  "fps": 30,
+  "paths": {
+    "assets": "assets"
+  }
+}

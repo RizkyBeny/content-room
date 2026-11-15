@@ -1,7 +1,7 @@
 {
   "version": 1,
   "historyId": "5053e656-5f50-49da-8a0c-f32fbcfec352",
-  "currentRevision": "5ab38372-eb1c-4963-b417-947ba6889a73",
+  "currentRevision": "fee0bfd5-96da-4814-bd3b-671faf58a08b",
   "pendingChanges": false,
   "files": {
     "hyperframes.json": {
@@ -9,8 +9,8 @@
       "content": "/Users/beny/.cache/hyperframes/history/5053e656-5f50-49da-8a0c-f32fbcfec352/blobs/12/12bb941b1e4060ce7418673e6ecf96e5aec4b3032a6640b3842a7f519534b7a2"
     },
     "index.html": {
-      "hash": "46fd7ddfc6f444e1405b23cad21f0ff0c02a3d11e558aa15155e0f71eb936b5c",
-      "content": "/Users/beny/.cache/hyperframes/history/5053e656-5f50-49da-8a0c-f32fbcfec352/blobs/46/46fd7ddfc6f444e1405b23cad21f0ff0c02a3d11e558aa15155e0f71eb936b5c"
+      "hash": "848494de3521e9261a55e9bc901983855242eee51c4e2f826cc898b9a7c247bf",
+      "content": "/Users/beny/.cache/hyperframes/history/5053e656-5f50-49da-8a0c-f32fbcfec352/blobs/84/848494de3521e9261a55e9bc901983855242eee51c4e2f826cc898b9a7c247bf"
     },
     "scene-01.jpeg": {
       "hash": "bb54cc01d9786aaf623846606ea4734ca263b92b86429159e7562b0fc952e2de",
@@ -111,6 +111,21 @@
         "index.html": {
           "before": "/Users/beny/.cache/hyperframes/history/5053e656-5f50-49da-8a0c-f32fbcfec352/blobs/e6/e63229e00a046fefadbbacba99eb879ab75daec7e686684465326d28009db0a3",
           "after": "/Users/beny/.cache/hyperframes/history/5053e656-5f50-49da-8a0c-f32fbcfec352/blobs/46/46fd7ddfc6f444e1405b23cad21f0ff0c02a3d11e558aa15155e0f71eb936b5c"
+        }
+      }
+    },
+    "fee0bfd5-96da-4814-bd3b-671faf58a08b": {
+      "actor": {
+        "kind": "outside",
+        "name": "Outside"
+      },
+      "label": "Changed outside the app",
+      "startedAt": 1794634023263,
+      "endedAt": 1794634023264,
+      "files": {
+        "index.html": {
+          "before": "/Users/beny/.cache/hyperframes/history/5053e656-5f50-49da-8a0c-f32fbcfec352/blobs/46/46fd7ddfc6f444e1405b23cad21f0ff0c02a3d11e558aa15155e0f71eb936b5c",
+          "after": "/Users/beny/.cache/hyperframes/history/5053e656-5f50-49da-8a0c-f32fbcfec352/blobs/84/848494de3521e9261a55e9bc901983855242eee51c4e2f826cc898b9a7c247bf"
         }
       }
     }
@@ -232,5 +247,18 @@
       ]
     },
     "unversioned": []
-  }
+  },
+  "renders": {
+    "latest": {
+      "id": "8cc51065-6d8e-45d5-8906-f2e043749f7d",
+      "completedAt": 1794634163947,
+      "output": "/Users/beny/Documents/Project-self/Content-automation/public/renders/vox-archival-test/vox-explainer-output.mp4",
+      "status": "completed",
+      "revision": "fee0bfd5-96da-4814-bd3b-671faf58a08b"
+    },
+    "retainedRevisions": [
+      "fee0bfd5-96da-4814-bd3b-671faf58a08b"
+    ]
+  },
+  "pendingArtifactCleanup": []
 }

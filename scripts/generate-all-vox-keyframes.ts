@@ -164,7 +164,7 @@ async function main() {
       metricLabel: 'Target APBN Terpenuhi',
       stampText: 'DEKLASIFIKASI',
       documentNumber: 'KMP-BC-2026-05',
-      evidenceSource: 'Kumparan Bisnis Explainer',
+      evidenceSource: 'Arsip Riset & Berita',
       evidenceSummary: 'Analisis komprehensif penerimaan bea cukai & rokok ilegal.',
       parallaxVariant: 'macro-dossier',
       assetType: 'image',

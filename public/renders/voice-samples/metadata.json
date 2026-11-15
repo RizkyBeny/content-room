@@ -1,0 +1,33 @@
+{
+  "text": "Pemerintah resmi memberlakukan penyesuaian tarif bea cukai untuk barang impor kiriman e-commerce. Kebijakan ini diambil demi melindungi industri UMKM lokal dari serbuan produk murah luar negeri, sekaligus menciptakan iklim persaingan dagang yang lebih adil dan sehat di tanah air.",
+  "results": [
+    {
+      "name": "Puck",
+      "label": "Male - Neutral Documentary",
+      "desc": "Cocok untuk narasi berita tenang & berbobot",
+      "file": "/Users/beny/Documents/Project-self/Content-automation/public/renders/voice-samples/puck.mp3",
+      "duration": 17.376
+    },
+    {
+      "name": "Aoede",
+      "label": "Female - Expressive Storyteller",
+      "desc": "Artikulasi jernih & ramah untuk konten edukasi",
+      "file": "/Users/beny/Documents/Project-self/Content-automation/public/renders/voice-samples/aoede.mp3",
+      "duration": 17.856
+    },
+    {
+      "name": "Charon",
+      "label": "Male - Deep Authority",
+      "desc": "Gaya penyiar berita investigatif & tegas",
+      "file": "/Users/beny/Documents/Project-self/Content-automation/public/renders/voice-samples/charon.mp3",
+      "duration": 18.6
+    },
+    {
+      "name": "Kore",
+      "label": "Female - Firm & Professional",
+      "desc": "Lugaskan fakta penting & formal",
+      "file": "/Users/beny/Documents/Project-self/Content-automation/public/renders/voice-samples/kore.mp3",
+      "duration": 18.336
+    }
+  ]
+}

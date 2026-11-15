@@ -86,6 +86,10 @@ export class FlowMcpClient {
     return data.flow || {};
   }
 
+  async newProject(title: string): Promise<{ id: string; url: string; title: string }> {
+    return this.callTool<{ id: string; url: string; title: string }>('new_project', { title });
+  }
+
   /**
    * Antrekan generasi video / gambar untuk 1 scene atau lebih via flow-mcp generate
    */

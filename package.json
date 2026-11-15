@@ -10,9 +10,12 @@
     "lint": "next lint",
     "flow:studio": "cd ~/flow-mcp && npm run studio",
     "flow:login": "cd ~/flow-mcp && npm run login",
+    "orchestrator": "tsx scripts/start-orchestrator.ts",
+    "generate:flow": "tsx scripts/batch-generate-flow-keyframes.ts",
     "test:flow": "tsx scripts/test-flow-mcp.ts",
     "test:hyperframes": "tsx scripts/test-hyperframes.ts",
-    "test:deepseek": "tsx scripts/test-deepseek.ts"
+    "test:deepseek": "tsx scripts/test-deepseek.ts",
+    "test:voice": "tsx scripts/test-voiceover.ts"
   },
   "dependencies": {
     "cheerio": "^1.0.0",

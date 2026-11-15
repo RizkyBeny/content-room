@@ -237,7 +237,7 @@ export function groupWordsIntoPhrases(words: CaptionWord[], maxWordsPerPhrase: n
  * Generates dramatic noir broadcast audio track with Charon VO + Ducked BGM (-14dB) + Glitch SFX
  */
 export async function produceNoirMasterAudio(
-  textOrSentences: string | string[],
+  textOrSentences: string | string[] | Array<{ text: string; shots: number[] }>,
   outputDir: string,
   totalShots: number = 14
 ): Promise<NoirAudioResult> {
@@ -245,8 +245,16 @@ export async function produceNoirMasterAudio(
   const chunksDir = path.join(outputDir, 'audio-chunks');
   fs.mkdirSync(chunksDir, { recursive: true });
 
-  const sentences = Array.isArray(textOrSentences)
-    ? textOrSentences.map((s) => s.trim()).filter(Boolean)
+  const isStructured =
+    Array.isArray(textOrSentences) &&
+    textOrSentences.length > 0 &&
+    typeof textOrSentences[0] === 'object' &&
+    'shots' in textOrSentences[0];
+
+  const sentences: string[] = isStructured
+    ? (textOrSentences as Array<{ text: string; shots: number[] }>).map((s) => s.text.trim()).filter(Boolean)
+    : Array.isArray(textOrSentences)
+    ? (textOrSentences as string[]).map((s) => s.trim()).filter(Boolean)
     : splitIntoSentences(textOrSentences);
 
   let useFallbackVoice = false;
@@ -374,6 +382,15 @@ export async function produceNoirMasterAudio(
 
   console.log(`[NoirAudioEngine] Clean VO created: ${cleanVoPath} (Duration: ${totalDuration.toFixed(2)}s)`);
 
+  // Calculate sentence start and end offsets based on actual audio duration
+  let currentOffset = 0;
+  const sentenceTimings = sentenceResults.map((s) => {
+    const start = currentOffset;
+    const end = start + s.durationSec;
+    currentOffset = end + 0.3; // silence gap
+    return { ...s, start, end };
+  });
+
   // 3. Generate Forensic Glitch / Whoosh SFX
   const sfxPath = path.join(chunksDir, 'forensic-glitch-sfx.wav');
   execFileSync(ffmpeg, [
@@ -407,25 +424,53 @@ export async function produceNoirMasterAudio(
     }
   }
 
-  // 5. Calculate shot intervals and cut transition timestamps
-  const shotCount = Math.max(12, Math.min(15, totalShots));
-  const shotDuration = totalDuration / shotCount;
+  // 5. Calculate shot intervals and cut transition timestamps (Sentence-to-Shot Semantic Binding)
+  let shotTimings: ShotTiming[] = [];
   const transitionTimes: number[] = [1.3]; // Cut from Hook Shot 00 to Shot 01
 
-  for (let i = 1; i < shotCount; i++) {
-    transitionTimes.push(Number((i * shotDuration).toFixed(2)));
-  }
+  if (isStructured) {
+    const structuredSentences = textOrSentences as Array<{ text: string; shots: number[] }>;
+    structuredSentences.forEach((s, idx) => {
+      const st = sentenceTimings[idx];
+      const assignedShots = s.shots && s.shots.length > 0 ? s.shots : [idx + 1];
+      const perShotDur = st.durationSec / assignedShots.length;
 
-  const shotTimings: ShotTiming[] = Array.from({ length: shotCount }, (_, i) => {
-    const start = i * shotDuration;
-    const end = (i + 1) * shotDuration;
-    return {
-      shot: i + 1,
-      startSec: Number(start.toFixed(2)),
-      endSec: Number(end.toFixed(2)),
-      durationSec: Number(shotDuration.toFixed(2)),
-    };
-  });
+      assignedShots.forEach((shotNum, j) => {
+        const start = Number((st.start + j * perShotDur).toFixed(2));
+        const end = Number((st.start + (j + 1) * perShotDur).toFixed(2));
+        const durationSec = Number((end - start).toFixed(2));
+
+        if (start > 0.1 && !transitionTimes.includes(start)) {
+          transitionTimes.push(start);
+        }
+
+        shotTimings.push({
+          shot: shotNum,
+          startSec: start,
+          endSec: end,
+          durationSec,
+        });
+      });
+    });
+
+    transitionTimes.sort((a, b) => a - b);
+  } else {
+    const shotCount = Math.max(12, Math.min(15, totalShots));
+    const shotDuration = totalDuration / shotCount;
+    for (let i = 1; i < shotCount; i++) {
+      transitionTimes.push(Number((i * shotDuration).toFixed(2)));
+    }
+    shotTimings = Array.from({ length: shotCount }, (_, i) => {
+      const start = i * shotDuration;
+      const end = (i + 1) * shotDuration;
+      return {
+        shot: i + 1,
+        startSec: Number(start.toFixed(2)),
+        endSec: Number(end.toFixed(2)),
+        durationSec: Number(shotDuration.toFixed(2)),
+      };
+    });
+  }
 
   // 6. Multiplex clean VO + BGM (ducked at 20%) + Transition SFX
   console.log(`[NoirAudioEngine] Mixing VO + BGM (20% ducked) + ${transitionTimes.length} Transition SFX...`);
@@ -457,15 +502,7 @@ export async function produceNoirMasterAudio(
 
   console.log(`[NoirAudioEngine] ✅ Mastered audio saved: ${masterAudioPath}`);
 
-  // 7. Calculate sentence and word timings for karaoke captions
-  let currentOffset = 0;
-  const sentenceTimings = sentenceResults.map((s) => {
-    const start = currentOffset;
-    const end = start + s.durationSec;
-    currentOffset = end + 0.3; // silence gap
-    return { ...s, start, end };
-  });
-
+  // 7. Calculate word timings for karaoke captions
   const allWords: CaptionWord[] = [];
   sentenceTimings.forEach((st) => {
     const rawWords = st.text.split(/\s+/).filter(Boolean);

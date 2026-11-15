@@ -920,5 +920,297 @@
       "summaryNote": "Naskah bergaya dongeng kelam (dark fairytale suspense) dengan visual sinkron 100% per klausa kalimat & durasi di bawah 1 menit."
     },
     "finalVideoPath": "/Users/beny/Documents/Project-self/Content-automation/public/renders/noir_1794725807098/noir-explainer-final.mp4"
+  },
+  "test_smoke_1794750062667": {
+    "id": "test_smoke_1794750062667",
+    "articleUrl": "https://news.detik.com/berita/kasus-apartemen-rahasia",
+    "chatId": 99999999,
+    "status": "AWAITING_STAGE1_APPROVAL",
+    "dossier": {
+      "url": "https://news.detik.com/berita/kasus-apartemen-rahasia",
+      "headline": "Misteri 9 Korban di Apartemen Dingin Pinggiran Kota",
+      "source": "news.detik.com",
+      "crimeType": "Pembunuhan Berantai",
+      "location": "Zama, Tokyo",
+      "suspects": [
+        "Takahiro Shiraishi"
+      ],
+      "victims": [
+        "9 Korban Berbagai Wilayah"
+      ],
+      "keyEvidence": [
+        "Kotak Pendingin Putih",
+        "Smartphone Retak",
+        "Catatan Transaksi"
+      ],
+      "chronologySummary": "Penyelidikan orang hilang membawa polisi ke apartemen lantai dua. Di dalamnya ditemukan sembilan kotak pendingin berisi bukti mengerikan.",
+      "hookIdea": "Sembilan nyawa lenyap hanya dalam rentang waktu dua bulan.",
+      "fullBodyText": "Polisi metropolitan awalnya menyelidiki hilangnya seorang wanita muda berusia 23 tahun..."
+    },
+    "script": {
+      "title": "9 KORBAN DALAM KOTAK DINGIN",
+      "subHeadline": "DUA BULAN, SEMBILAN NYAWA",
+      "fullText": "Sebuah dongeng kelam dari apartemen sunyi. Konon, di balik pintu lantai dua, sembilan nyawa lenyap tanpa suara. Satu per satu orang hilang. Jejak mereka terputus di dunia maya. Malam tragis itu, polisi menyusuri apartemen terpencil. Bau dingin menyergap. Di dalam, sembilan kotak pendingin putih berjajar. Smartphone retak dan catatan transaksi jadi saksi. Dunia maya meledak. Histeria dan teori konspirasi menyelimuti kasus ini. Daftar hitam korban misterius terus bertambah. Sembilan nama, sembilan takdir. Pemburu bayangan mengklaim sindikat rahasia di baliknya. Namun fiksi dongeng runtuh. Detektif memecah dongeng. Pelaku nyata bukanlah legenda, melainkan sosok di balik layar. Takahiro Shiraishi, tersangka nyata. Pria di balik pintu dingin itu. Motifnya? Perampokan dan uang tunai. Bukan sekadar dongeng horor. Keluarga korban murka. Bantahan keras mengguncang ruang sidang. Di ruang sidang, fakta berbicara. Shiraishi berhadapan dengan bukti yang tak terbantahkan. Ketukan palu hakim memutus rantai dongeng kelam. Keadilan ditegakkan. Gembok arsip terkunci. Namun sembilan nyawa tetap abadi dalam kotak dingin.",
+      "targetDurationSec": 55,
+      "wordCount": 154,
+      "beats": [
+        {
+          "shot": 0,
+          "startSec": 0,
+          "endSec": 1.5,
+          "narration": "Sebuah dongeng kelam dari apartemen sunyi.",
+          "visualCue": "Headline grafis neo-noir: 9 KORBAN DALAM KOTAK DINGIN",
+          "shotType": "cover"
+        },
+        {
+          "shot": 1,
+          "startSec": 1.5,
+          "endSec": 5.5,
+          "narration": "Konon, di balik pintu lantai dua, sembilan nyawa lenyap tanpa suara.",
+          "visualCue": "Lorong apartemen gelap, pintu kayu tertutup rapat, lampu berkedip",
+          "shotType": "hook"
+        },
+        {
+          "shot": 2,
+          "startSec": 5.5,
+          "endSec": 9.5,
+          "narration": "Satu per satu orang hilang. Jejak mereka terputus di dunia maya.",
+          "visualCue": "Layar ponsel menampilkan pesan terakhir, wajah korban memudar",
+          "shotType": "myth"
+        },
+        {
+          "shot": 3,
+          "startSec": 9.5,
+          "endSec": 13.5,
+          "narration": "Malam tragis itu, polisi menyusuri apartemen terpencil. Bau dingin menyergap.",
+          "visualCue": "Polisi memasuki apartemen, senter menyorot sudut ruangan",
+          "shotType": "tragedy"
+        },
+        {
+          "shot": 4,
+          "startSec": 13.5,
+          "endSec": 17.5,
+          "narration": "Di dalam, sembilan kotak pendingin putih berjajar. Smartphone retak dan catatan transaksi jadi saksi.",
+          "visualCue": "Kotak pendingin putih terbuka, ponsel retak, catatan berserakan",
+          "shotType": "evidence"
+        },
+        {
+          "shot": 5,
+          "startSec": 17.5,
+          "endSec": 21.5,
+          "narration": "Dunia maya meledak. Histeria dan teori konspirasi menyelimuti kasus ini.",
+          "visualCue": "Layar media sosial penuh komentar, berita viral, kerumunan maya",
+          "shotType": "hysteria"
+        },
+        {
+          "shot": 6,
+          "startSec": 21.5,
+          "endSec": 25.5,
+          "narration": "Daftar hitam korban misterius terus bertambah. Sembilan nama, sembilan takdir.",
+          "visualCue": "Papan bukti dengan foto korban, garis merah menghubungkan",
+          "shotType": "list"
+        },
+        {
+          "shot": 7,
+          "startSec": 25.5,
+          "endSec": 29.5,
+          "narration": "Pemburu bayangan mengklaim sindikat rahasia di baliknya. Namun fiksi dongeng runtuh.",
+          "visualCue": "Siluet misterius di balik tirai, bayangan tangan",
+          "shotType": "shadow"
+        },
+        {
+          "shot": 8,
+          "startSec": 29.5,
+          "endSec": 33.5,
+          "narration": "Detektif memecah dongeng. Pelaku nyata bukanlah legenda, melainkan sosok di balik layar.",
+          "visualCue": "Detektif menatap papan bukti, wajah tegang",
+          "shotType": "detective"
+        },
+        {
+          "shot": 9,
+          "startSec": 33.5,
+          "endSec": 37.5,
+          "narration": "Takahiro Shiraishi, tersangka nyata. Pria di balik pintu dingin itu.",
+          "visualCue": "Foto Takahiro Shiraishi, ekspresi datar, latar gelap",
+          "shotType": "suspect"
+        },
+        {
+          "shot": 10,
+          "startSec": 37.5,
+          "endSec": 41.5,
+          "narration": "Motifnya? Perampokan dan uang tunai. Bukan sekadar dongeng horor.",
+          "visualCue": "Uang tunai berserakan, catatan transaksi terlihat jelas",
+          "shotType": "motive"
+        },
+        {
+          "shot": 11,
+          "startSec": 41.5,
+          "endSec": 45.5,
+          "narration": "Keluarga korban murka. Bantahan keras mengguncang ruang sidang.",
+          "visualCue": "Keluarga korban menangis dan berteriak di pengadilan",
+          "shotType": "rebuttal"
+        },
+        {
+          "shot": 12,
+          "startSec": 45.5,
+          "endSec": 49.5,
+          "narration": "Di ruang sidang, fakta berbicara. Shiraishi berhadapan dengan bukti yang tak terbantahkan.",
+          "visualCue": "Ruang sidang, hakim, terdakwa, dan pengacara",
+          "shotType": "court"
+        },
+        {
+          "shot": 13,
+          "startSec": 49.5,
+          "endSec": 53,
+          "narration": "Ketukan palu hakim memutus rantai dongeng kelam. Keadilan ditegakkan.",
+          "visualCue": "Palu hakim menghantam meja, close-up",
+          "shotType": "verdict"
+        },
+        {
+          "shot": 14,
+          "startSec": 53,
+          "endSec": 56,
+          "narration": "Gembok arsip terkunci. Namun sembilan nyawa tetap abadi dalam kotak dingin.",
+          "visualCue": "Arsip kasus terkunci, kotak pendingin putih memudar",
+          "shotType": "ending"
+        }
+      ]
+    },
+    "allKeyframes": [
+      {
+        "shot": 0,
+        "label": "Shot 00: Mandatory High-CTR Cover Image",
+        "isCoreSample": true,
+        "prompt": "A dramatic, high-CTR YouTube Shorts cover and thumbnail illustration, vertical 9:16 aspect ratio (1080x1920), Graphic Novel Neo-Noir style. Visual Scene: A chilling crime scene hook depicting Siluet apartemen lantai dua di bawah langit malam Tokyo yang muram. Di dalam, cahaya chiaroscuro dari lampu jalan menembus jendela, menyorot sembilan kotak pendingin putih tersusun rapi di lantai kayu. Sebuah smartphone retak tergeletak di samping tumpukan catatan transaksi. Bayangan tangan tak terlihat meraih satu kotak, meninggalkan jejak dingin di lantai.. Integrated Bold Typography: Prominent massive distressed headline text: '9 KORBAN DALAM KOTAK DINGIN' rendered in heavy stencil/impact typography in warm broken-white (#E6EDF3) with antique brass bronze accents (#C59B27) and deep drop shadows. Sub-headline ribbon banner: 'DUA BULAN, SEMBILAN NYAWA' in a deep dried crimson red tape (#8B2635) with sharp white lettering. Top warning header banner: '/// POLICE INVESTIGATION DOSSIER ///'. Artistic Style: Dynamic heavy inking, chiaroscuro lighting, gritty halftone screen tone dot pattern, cel-shaded shadows, matte graphic novel finish. Full bleed composition filling the entire 9:16 vertical canvas. No pastel colors, no oversaturation, no cartoonish elements."
+      },
+      {
+        "shot": 1,
+        "label": "Shot 01: Hook Scene Silhouette",
+        "isCoreSample": true,
+        "prompt": "A cinematic graphic novel neo-noir illustration, vertical 9:16 aspect ratio (1080x1920). Subject: An ominous silhouette standing in the shadow of a dim crime scene in Zama, Tokyo, heavy rain on pavement, yellow police tape marked 'KEEP OUT'. Full bleed vertical portrait framing, dramatic chiaroscuro lighting with sharp volumetric spotlight piercing through cold mist, deep shadows, heavy contour inking, fine halftone dot screen tones, matte charcoal slate (#0D1117), cold storm gray, antique dull bronze (#C59B27). No text cards, no watermark."
+      },
+      {
+        "shot": 2,
+        "label": "Shot 02: Police Criminal Mugshot",
+        "isCoreSample": false,
+        "prompt": "A cinematic graphic novel neo-noir illustration, vertical 9:16 aspect ratio (1080x1920). A stark police criminal mugshot sketch of suspect Takahiro Shiraishi, high contrast comic book inking, prisoner identification placard under chin, heavy cross-hatching, harsh interrogation spotlight, stamped with dried crimson red seal 'BERKAS PERKARA'. Full bleed, halftone shading, matte finish."
+      },
+      {
+        "shot": 3,
+        "label": "Shot 03: The Hook Entrance / Digital Footprint",
+        "isCoreSample": false,
+        "prompt": "A cinematic graphic novel neo-noir illustration, vertical 9:16 aspect ratio (1080x1920). A cracked glowing smartphone screen shattered on cold reflective asphalt surface, subtle eerie cyan and dried crimson glow through dark shadows, rain-slicked night pavement, dynamic heavy inking, halftone screen tone texture. Full bleed 9:16."
+      },
+      {
+        "shot": 4,
+        "label": "Shot 04: Forensic Evidence Desk 45°",
+        "isCoreSample": true,
+        "prompt": "A cinematic graphic novel neo-noir illustration, vertical 9:16 aspect ratio (1080x1920). Subject: Isometric 45-degree angle top-down view of a police forensic evidence desk examining Kotak Pendingin Putih, clear plastic evidence bags, red evidence marker tags '01' and '02', tactical grid paper. Forensic items tightly arranged across a matte dark graphite workbench. Dynamic heavy inking, fine halftone dot shading, matte charcoal slate (#0D1117), antique bronze accents (#C59B27), dried crimson red stamps (#8B2635). Harsh desk lamp lighting. Full bleed."
+      },
+      {
+        "shot": 5,
+        "label": "Shot 05: Cyber Crime Investigation Workstation",
+        "isCoreSample": false,
+        "prompt": "A cinematic graphic novel neo-noir illustration, vertical 9:16 aspect ratio (1080x1920). Forensic cyber crime investigation workstation at police headquarters, glowing computer monitors displaying forensic audio waveforms and encrypted communication logs, dark chiaroscuro room, heavy linework, halftone shading. Full bleed."
+      },
+      {
+        "shot": 6,
+        "label": "Shot 06: Tactical Transit Route Map",
+        "isCoreSample": false,
+        "prompt": "A cinematic graphic novel neo-noir illustration, vertical 9:16 aspect ratio (1080x1920). Isometric top-down forensic transit map showing city route lines branching toward Zama, Tokyo, routes traced in red marker ink, dark parchment texture, magnifying glass, tactical surveillance grid. Full bleed."
+      },
+      {
+        "shot": 7,
+        "label": "Shot 07: Isolated Crime Building Exterior",
+        "isCoreSample": false,
+        "prompt": "A cinematic graphic novel neo-noir illustration, vertical 9:16 aspect ratio (1080x1920). Low angle exterior perspective of a quiet secluded suburban building in Zama, Tokyo at 2 AM, single eerie fluorescent light glowing from an upper window, yellow police barrier tape. Gritty graphic novel style, halftone sky, deep shadows. Full bleed."
+      },
+      {
+        "shot": 8,
+        "label": "Shot 08: Dim Hallway Corridor Door",
+        "isCoreSample": false,
+        "prompt": "A cinematic graphic novel neo-noir illustration, vertical 9:16 aspect ratio (1080x1920). Narrow dim hallway corridor inside a quiet building, weathered metal door with room number plate, long menacing shadow stretching out from beneath the door sill, heavy noir inking, dust motes in beam of light. Full bleed."
+      },
+      {
+        "shot": 9,
+        "label": "Shot 09: Chilling Evidence Discovery Climax",
+        "isCoreSample": true,
+        "prompt": "A cinematic graphic novel neo-noir illustration, vertical 9:16 aspect ratio (1080x1920). Forensic crime scene photograph: sealed evidence boxes and heavy tool containers with police barrier tape inside a dim room, yellow forensic evidence tags '03' and '04', intense chiaroscuro contrast, heavy graphic novel inking, deep dried crimson red accents (#8B2635). Full bleed vertical portrait."
+      },
+      {
+        "shot": 10,
+        "label": "Shot 10: Seized Property & Banknotes",
+        "isCoreSample": false,
+        "prompt": "A cinematic graphic novel neo-noir illustration, vertical 9:16 aspect ratio (1080x1920). Clear transparent police evidence bag containing thick stacks of banknotes and confiscated victim identity cards, barcode evidence sticker, resting on dark brushed steel forensic table. Heavy inking, halftone dots. Full bleed."
+      },
+      {
+        "shot": 11,
+        "label": "Shot 11: Confidential Autopsy Dossier",
+        "isCoreSample": false,
+        "prompt": "A cinematic graphic novel neo-noir illustration, vertical 9:16 aspect ratio (1080x1920). Manila autopsy file dossier and police investigation crime report folder spread out, red confidential rubber stamp 'RAHASIA / CONFIDENTIAL', censored monochrome incident documents, antique bronze accents. Full bleed."
+      },
+      {
+        "shot": 12,
+        "label": "Shot 12: Judicial Courtroom Gavel",
+        "isCoreSample": false,
+        "prompt": "A cinematic graphic novel neo-noir illustration, vertical 9:16 aspect ratio (1080x1920). Heavy dark hardwood judicial gavel bound with antique brass bronze bands resting on sound block, official court verdict decree documents, dramatic spotlight casting long shadows, solemn courtroom ambiance. Full bleed."
+      },
+      {
+        "shot": 13,
+        "label": "Shot 13: Monolithic Scales of Justice",
+        "isCoreSample": true,
+        "prompt": "A cinematic graphic novel neo-noir illustration, vertical 9:16 aspect ratio (1080x1920). Neoclassical black iron scales of justice hanging in exact balance under a dramatic volumetric ray of light inside a cathedral-like high court chamber, fine halftone screen tone, timeless justice allegory, deep shadows, matte charcoal slate (#0D1117). Full bleed vertical framing."
+      },
+      {
+        "shot": 14,
+        "label": "Shot 14: Police Archive Vault Case Closed",
+        "isCoreSample": false,
+        "prompt": "A cinematic graphic novel neo-noir illustration, vertical 9:16 aspect ratio (1080x1920). Massive heavy vault steel door of the police archives closing and locked, embossed brass seal, large bold red wax stamp across the seam reading 'BERKAS DITUTUP / CASE CLOSED', dark slate background with fine halftone dots. Full bleed."
+      }
+    ],
+    "sampleKeyframes": [
+      {
+        "shot": 0,
+        "label": "Shot 00: Mandatory High-CTR Cover Image",
+        "isCoreSample": true,
+        "prompt": "A dramatic, high-CTR YouTube Shorts cover and thumbnail illustration, vertical 9:16 aspect ratio (1080x1920), Graphic Novel Neo-Noir style. Visual Scene: A chilling crime scene hook depicting Siluet apartemen lantai dua di bawah langit malam Tokyo yang muram. Di dalam, cahaya chiaroscuro dari lampu jalan menembus jendela, menyorot sembilan kotak pendingin putih tersusun rapi di lantai kayu. Sebuah smartphone retak tergeletak di samping tumpukan catatan transaksi. Bayangan tangan tak terlihat meraih satu kotak, meninggalkan jejak dingin di lantai.. Integrated Bold Typography: Prominent massive distressed headline text: '9 KORBAN DALAM KOTAK DINGIN' rendered in heavy stencil/impact typography in warm broken-white (#E6EDF3) with antique brass bronze accents (#C59B27) and deep drop shadows. Sub-headline ribbon banner: 'DUA BULAN, SEMBILAN NYAWA' in a deep dried crimson red tape (#8B2635) with sharp white lettering. Top warning header banner: '/// POLICE INVESTIGATION DOSSIER ///'. Artistic Style: Dynamic heavy inking, chiaroscuro lighting, gritty halftone screen tone dot pattern, cel-shaded shadows, matte graphic novel finish. Full bleed composition filling the entire 9:16 vertical canvas. No pastel colors, no oversaturation, no cartoonish elements.",
+        "imagePath": "/Users/beny/Documents/Project-self/Content-automation/public/renders/test_smoke_1794750062667/keyframes/cover-shot-00.jpg",
+        "imageUrl": "/renders/test_smoke_1794750062667/keyframes/cover-shot-00.jpg"
+      },
+      {
+        "shot": 1,
+        "label": "Shot 01: Hook Scene Silhouette",
+        "isCoreSample": true,
+        "prompt": "A cinematic graphic novel neo-noir illustration, vertical 9:16 aspect ratio (1080x1920). Subject: An ominous silhouette standing in the shadow of a dim crime scene in Zama, Tokyo, heavy rain on pavement, yellow police tape marked 'KEEP OUT'. Full bleed vertical portrait framing, dramatic chiaroscuro lighting with sharp volumetric spotlight piercing through cold mist, deep shadows, heavy contour inking, fine halftone dot screen tones, matte charcoal slate (#0D1117), cold storm gray, antique dull bronze (#C59B27). No text cards, no watermark.",
+        "imagePath": "/Users/beny/Documents/Project-self/Content-automation/public/renders/test_smoke_1794750062667/keyframes/shot-01.jpg",
+        "imageUrl": "/renders/test_smoke_1794750062667/keyframes/shot-01.jpg"
+      },
+      {
+        "shot": 4,
+        "label": "Shot 04: Forensic Evidence Desk 45°",
+        "isCoreSample": true,
+        "prompt": "A cinematic graphic novel neo-noir illustration, vertical 9:16 aspect ratio (1080x1920). Subject: Isometric 45-degree angle top-down view of a police forensic evidence desk examining Kotak Pendingin Putih, clear plastic evidence bags, red evidence marker tags '01' and '02', tactical grid paper. Forensic items tightly arranged across a matte dark graphite workbench. Dynamic heavy inking, fine halftone dot shading, matte charcoal slate (#0D1117), antique bronze accents (#C59B27), dried crimson red stamps (#8B2635). Harsh desk lamp lighting. Full bleed.",
+        "imagePath": "/Users/beny/Documents/Project-self/Content-automation/public/renders/test_smoke_1794750062667/keyframes/shot-04.jpg",
+        "imageUrl": "/renders/test_smoke_1794750062667/keyframes/shot-04.jpg"
+      },
+      {
+        "shot": 9,
+        "label": "Shot 09: Chilling Evidence Discovery Climax",
+        "isCoreSample": true,
+        "prompt": "A cinematic graphic novel neo-noir illustration, vertical 9:16 aspect ratio (1080x1920). Forensic crime scene photograph: sealed evidence boxes and heavy tool containers with police barrier tape inside a dim room, yellow forensic evidence tags '03' and '04', intense chiaroscuro contrast, heavy graphic novel inking, deep dried crimson red accents (#8B2635). Full bleed vertical portrait.",
+        "imagePath": "/Users/beny/Documents/Project-self/Content-automation/public/renders/test_smoke_1794750062667/keyframes/shot-09.jpg",
+        "imageUrl": "/renders/test_smoke_1794750062667/keyframes/shot-09.jpg"
+      },
+      {
+        "shot": 13,
+        "label": "Shot 13: Monolithic Scales of Justice",
+        "isCoreSample": true,
+        "prompt": "A cinematic graphic novel neo-noir illustration, vertical 9:16 aspect ratio (1080x1920). Neoclassical black iron scales of justice hanging in exact balance under a dramatic volumetric ray of light inside a cathedral-like high court chamber, fine halftone screen tone, timeless justice allegory, deep shadows, matte charcoal slate (#0D1117). Full bleed vertical framing.",
+        "imagePath": "/Users/beny/Documents/Project-self/Content-automation/public/renders/test_smoke_1794750062667/keyframes/shot-13.jpg",
+        "imageUrl": "/renders/test_smoke_1794750062667/keyframes/shot-13.jpg"
+      }
+    ],
+    "createdAt": "2026-11-15T13:41:02.668Z",
+    "updatedAt": "2026-11-15T13:41:10.806Z"
   }
 }

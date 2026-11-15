@@ -76,11 +76,10 @@ export function generateDownloadPage(job: OrchestratorJob): { htmlPath: string; 
       <!-- Shot ${shotNumStr} -->
       <div class="bg-[#12161E] border border-slate-800 rounded-2xl overflow-hidden shadow-lg flex flex-col hover:border-amber-500/40 transition">
         <div class="relative aspect-[9/16] bg-black overflow-hidden group">
-          ${
-            imgSrc
-              ? `<img src="${imgSrc}" alt="Shot ${shotNumStr}" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" loading="lazy" />`
-              : `<div class="w-full h-full flex items-center justify-center text-xs text-slate-500 font-mono">No Image</div>`
-          }
+          ${imgSrc
+        ? `<img src="${imgSrc}" alt="Shot ${shotNumStr}" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" loading="lazy" />`
+        : `<div class="w-full h-full flex items-center justify-center text-xs text-slate-500 font-mono">No Image</div>`
+      }
           <div class="absolute top-3 left-3 px-2.5 py-1 rounded bg-black/80 backdrop-blur border border-slate-700 text-[11px] font-bold text-amber-400">
             Shot ${shotNumStr}
           </div>
@@ -199,11 +198,10 @@ export function generateDownloadPage(job: OrchestratorJob): { htmlPath: string; 
           <div class="p-4 rounded-xl bg-slate-900 border border-slate-800 space-y-2">
             <div class="flex items-center justify-between">
               <span class="font-bold text-white uppercase tracking-wider">Voice Over (Charon - Broadcast Master)</span>
-              ${
-                job.audioPath
-                  ? `<a href="/renders/${job.id}/audio/${path.basename(job.audioPath)}" download="${path.basename(job.audioPath)}" class="text-amber-400 hover:underline text-[11px]">Unduh VO</a>`
-                  : ''
-              }
+              ${job.audioPath
+      ? `<a href="/renders/${job.id}/audio/${path.basename(job.audioPath)}" download="${path.basename(job.audioPath)}" class="text-amber-400 hover:underline text-[11px]">Unduh VO</a>`
+      : ''
+    }
             </div>
             <audio controls class="w-full h-8" preload="auto">
               <source src="/renders/${job.id}/audio/${path.basename(job.audioPath || 'master-audio.mp3')}" type="audio/mpeg">

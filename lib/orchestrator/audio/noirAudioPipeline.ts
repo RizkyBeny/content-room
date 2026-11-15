@@ -253,8 +253,8 @@ export async function produceNoirMasterAudio(
   const sentences: string[] = isStructured
     ? (textOrSentences as Array<{ text: string; shots: number[] }>).map((s) => s.text.trim()).filter(Boolean)
     : Array.isArray(textOrSentences)
-    ? (textOrSentences as string[]).map((s) => s.trim()).filter(Boolean)
-    : splitIntoSentences(textOrSentences);
+      ? (textOrSentences as string[]).map((s) => s.trim()).filter(Boolean)
+      : splitIntoSentences(textOrSentences);
 
   const voiceName = ORCHESTRATOR_CONFIG.voice.preferredVoice || 'Charon';
   console.log(`[NoirAudioEngine] Standard Voiceover: Gemini TTS '${voiceName}' (${sentences.length} sentences)...`);

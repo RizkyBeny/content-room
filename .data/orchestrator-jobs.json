@@ -290,5 +290,39 @@
     ],
     "createdAt": "2026-11-15T04:48:01.269Z",
     "updatedAt": "2026-11-15T04:48:03.823Z"
+  },
+  "noir_1794719302357": {
+    "id": "noir_1794719302357",
+    "articleUrl": "https://www.bbc.com/indonesia/articles/ckg9q0gny1jo.amp",
+    "chatId": 8326898810,
+    "status": "SCRIPTING",
+    "createdAt": "2026-11-15T05:08:22.357Z",
+    "updatedAt": "2026-11-15T05:08:27.870Z",
+    "dossier": {
+      "url": "https://www.bbc.com/indonesia/articles/ckg9q0gny1jo.amp",
+      "headline": "Misteri 10 Ilmuwan Hilang dan Tewas: Antara Fakta Kriminal dan Teori Konspirasi",
+      "source": "bbc.com",
+      "crimeType": "Pembunuhan dan Penghilangan Misterius (dugaan konspirasi)",
+      "location": "Amerika Serikat (Llano, California, dan lokasi lain yang tidak disebutkan)",
+      "suspects": [
+        "Freddy Snyder (pria lokal berusia 29 tahun, tersangka pembunuhan Carl Grillmair)",
+        "Pihak tak dikenal yang diduga terlibat dalam penghilangan atau kematian ilmuwan lain (belum teridentifikasi)"
+      ],
+      "victims": [
+        "Carl Grillmair (67 tahun, ilmuwan, ditembak mati)",
+        "Sedikitnya 10 orang terkait riset sensitif (termasuk asisten administratif, jenderal Angkatan Udara, insinyur, petugas kebersihan) yang hilang atau meninggal"
+      ],
+      "keyEvidence": [
+        "Senjata api (digunakan dalam penembakan Carl Grillmair)",
+        "Kesaksian istri korban, Louise Grillmair",
+        "Dakwaan pembunuhan dan perampokan terhadap Freddy Snyder",
+        "Laporan hilangnya sejumlah individu terkait riset sensitif",
+        "Spekulasi penyelidik amatir di dunia maya",
+        "Pernyataan keluarga korban yang menolak teori konspirasi"
+      ],
+      "chronologySummary": "Carl Grillmair, seorang ilmuwan berusia 67 tahun, ditembak mati di rumahnya di Llano, California, pada Februari. Tersangka Freddy Snyder, pria lokal berusia 29 tahun, telah didakwa atas pembunuhan dan perampokan. Kematian Grillmair kemudian dikaitkan dengan teori konspirasi yang beredar di dunia maya mengenai sedikitnya 10 orang terkait riset sensitif yang meninggal atau menghilang secara misterius. Keluarga korban mengecam spekulasi tersebut sebagai 'menjijikkan' dan menegaskan bahwa fakta kasus sudah jelas.",
+      "hookIdea": "Seorang ilmuwan ditembak mati di rumahnya, namun kematiannya justru memicu teori konspirasi global tentang 10 ilmuwan hilang—keluarga pun murka dan menyebut spekulasi itu 'menjijikkan'.",
+      "fullBodyText": "Sedikitnya 10 orang yang terkait dengan riset sensitif di Amerika Serikat dilaporkan menghilang atau meninggal dunia. Rentetan kejadian ini menarik perhatian para penyelidik amatir di dunia maya dan penyelidik federal AS. Namun bagi keluarga yang berduka, semua spekulasi liar itu disebut \"menjijikkan\".\n\nCarl Grillmair \"akan tertawa\" mendengar teori konspirasi tentang pembunuhannya, kata Louise Grillmair, istri mendiang Carl.\n\n\"Saya pikir itu benar-benar tidak masuk akal. Maksud saya, ada fakta-faktanya, dan itu tersedia,\" sambungnya.\n\nCarl Grillmair yang berusia 67 tahun ditembak hingga meninggal dunia di rumah mereka di Llano, California, pada Februari lalu.\n\nTersangka pembunuh Grillmair, seorang pria setempat berusia 29 tahun bernama Freddy Snyder, telah didakwa atas pembunuhan dan perampokan. Dia dijadwalkan hadir di pengadilan pekan depan untuk sidang pembacaan dakwaan.\n\nMeski kasusnya telah terungkap dan berujung ke pengadilan, nama Grillmair menonjol dalam teori konspirasi tentang kematian dan hilangnya sekitar 10 orang yang memiliki kaitan dengan riset sensitif dan laboratorium rahasia.\n\nMereka sering dikelompokkan sebagai \"ilmuwan hilang\", tetapi daftar tersebut mencakup seorang asisten administratif, seorang jenderal Angkatan Udara, seorang insinyur, dan seorang petugas kebersihan. Bidang mereka beragam, mulai dari riset eksoplanet hingga farmasi.\n\nPara penyelidik amatir di jagat maya menyarankan kasus-kasus itu mungkin saling terkait. Mereka bahkan mendorong Komite Pengawas DPR AS dan FBI untuk mengumumkan penyelidikan—meskipun sudah ada penjelasan sahih serta upaya keluarga untuk meredam histeria.\n\nAkhir dari Paling banyak dibaca\n\nLiputan mendalam BBC News Indonesia langsung di WhatsApp Anda."
+    }
   }
 }

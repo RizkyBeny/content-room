@@ -50,6 +50,22 @@ export class TelegramBotService {
     }
   }
 
+  async sendChatAction(
+    chatId: number | string,
+    action: 'typing' | 'upload_photo' | 'upload_video' | 'record_voice' | 'upload_document' = 'typing'
+  ): Promise<void> {
+    try {
+      await fetch(`${this.baseUrl}/sendChatAction`, {
+        method: 'POST',
+        headers: { 'content-type': 'application/json' },
+        body: JSON.stringify({ chat_id: chatId, action }),
+        signal: AbortSignal.timeout(10000),
+      });
+    } catch {
+      // Ignore chat action failures
+    }
+  }
+
   async sendMessage(
     chatId: number | string,
     text: string,

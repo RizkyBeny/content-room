@@ -6,6 +6,7 @@ const baseDir = path.resolve(process.cwd(), 'public', 'renders', 'twitter-killer
 const masterAudio = path.join(baseDir, 'twitter-killer-master.mp3');
 const backupAudio = path.join(baseDir, 'twitter-killer-master-clean-vo.mp3');
 const sfxPath = path.join(baseDir, 'audio-chunks', 'forensic-glitch-sfx.wav');
+const bgmPath = path.join(baseDir, 'bgm-crime-tension.mp3');
 
 if (!fs.existsSync(backupAudio)) {
   fs.copyFileSync(masterAudio, backupAudio);
@@ -13,7 +14,6 @@ if (!fs.existsSync(backupAudio)) {
 }
 
 console.log('1. Generating forensic glitch / whoosh SFX using FFmpeg...');
-// Synthesize a high-impact cinematic whoosh + digital tape glitch burst (0.28s)
 execFileSync('./bin/ffmpeg', [
   '-y',
   '-f', 'lavfi',
@@ -34,6 +34,18 @@ execFileSync('./bin/ffmpeg', [
 
 console.log(`✅ SFX generated: ${sfxPath}`);
 
+if (!fs.existsSync(bgmPath)) {
+  console.log('\n2. Synthesizing dramatic crime tension BGM bed...');
+  execFileSync('npx', ['tsx', 'scripts/generate-dramatic-bgm.ts']);
+} else {
+  console.log(`\n2. Using rich orchestrated BGM bed: ${bgmPath}`);
+}
+
+// Copy BGM to HyperFrames workspace assets
+const hfBgm = path.resolve(process.cwd(), 'hyperframes-workspace', 'twitter-killer-investigation', 'assets', 'bgm-crime-tension.mp3');
+fs.copyFileSync(bgmPath, hfBgm);
+console.log(`Copied BGM to HyperFrames assets: ${hfBgm}`);
+
 // Transition timestamps (14 transitions)
 const transitionTimes = [
   1.30,   // Cover Hook -> Shot 01
@@ -52,10 +64,10 @@ const transitionTimes = [
   55.29,  // Shot 13 -> Shot 14
 ];
 
-console.log('\n2. Mixing transition SFX into master audio at 14 shot boundaries...');
+console.log('\n3. Mixing Voice Over + Dramatic BGM + 14 Transition SFX into broadcast master...');
 
-// Build complex filter for adelay + amix
-let filterStr = '[0:a]volume=1.0[vo];';
+// [0:a] = clean VO, [1:a] = SFX, [2:a] = BGM
+let filterStr = '[0:a]volume=1.0[vo];[2:a]volume=0.20,afade=t=in:ss=0:d=1.5,afade=t=out:st=57.0:d=2.5[bgm_bed];';
 const delayedInputs: string[] = [];
 
 transitionTimes.forEach((t, i) => {
@@ -64,7 +76,7 @@ transitionTimes.forEach((t, i) => {
   delayedInputs.push(`[sfx_${i}]`);
 });
 
-filterStr += `[vo]${delayedInputs.join('')}amix=inputs=${transitionTimes.length + 1}:dropout_transition=0,loudnorm=I=-16:TP=-1.5:LRA=11[out]`;
+filterStr += `[vo][bgm_bed]${delayedInputs.join('')}amix=inputs=${transitionTimes.length + 2}:dropout_transition=0,loudnorm=I=-16:TP=-1.5:LRA=11[out]`;
 
 const tempMaster = path.join(baseDir, 'temp-master-mixed.mp3');
 
@@ -72,6 +84,7 @@ execFileSync('./bin/ffmpeg', [
   '-y',
   '-i', backupAudio,
   '-i', sfxPath,
+  '-i', bgmPath,
   '-filter_complex', filterStr,
   '-map', '[out]',
   '-c:a', 'libmp3lame',
@@ -81,5 +94,5 @@ execFileSync('./bin/ffmpeg', [
 
 fs.renameSync(tempMaster, masterAudio);
 
-console.log(`\n🎉 New master audio with synchronized transition SFX successfully saved!`);
+console.log(`\n🎉 New master audio with Dramatic BGM + Transition SFX successfully saved!`);
 console.log(`Output: ${masterAudio}`);

@@ -34,6 +34,8 @@ export class ContentOrchestrator {
     console.log(`===============================================================`);
 
     try {
+      await telegramBot.sendChatAction(chatId, 'typing');
+
       // 1. Ekstraksi Kasus
       await telegramBot.sendMessage(
         chatId,
@@ -42,12 +44,14 @@ export class ContentOrchestrator {
         `⏳ <i>[1/3] Menganalisis kronologi perkara & mengekstrak entitas kasus...</i>`
       );
 
+      await telegramBot.sendChatAction(chatId, 'typing');
       const dossier = await extractCrimeCaseDossier(url);
       job.dossier = dossier;
       job.status = 'SCRIPTING';
       saveJob(job);
 
       // 2. Editorial & Scripting
+      await telegramBot.sendChatAction(chatId, 'typing');
       await telegramBot.sendMessage(
         chatId,
         `🔍 <b>[ANALISIS SELESAI: ${escapeHtml(dossier.headline.slice(0, 35))}]</b>\n\n` +
@@ -66,6 +70,7 @@ export class ContentOrchestrator {
       job.status = 'GENERATING_SAMPLES';
       saveJob(job);
 
+      await telegramBot.sendChatAction(chatId, 'upload_photo');
       await telegramBot.sendMessage(
         chatId,
         `📜 <b>[NASKAH SELESAI: ${script.wordCount} KATA | 15 BEATS]</b>\n\n` +

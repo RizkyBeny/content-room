@@ -107,3 +107,12 @@ Invariants: Full bleed composition, no UI overlays, no digital watermarks.
 
 - **Negative Keywords**: `oversaturated colors, pastel palette, bright cartoon, 3d pixar disney render, cute anime, flat vector clipart, watermark, text cards covering artwork, empty artificial blank header`.
 - **Engine Rekomendasi**: Google Flow MCP (`flow.google.com`) dengan opsi `type: 'image'`, `aspect_ratio: '9:16'`, `max_credits: 0` (Unlimited Free Stills).
+
+---
+
+## 7. Arsitektur Audio & Broadcast Mixing
+
+- **Voice Over (VO)**: Level 100% (`volume=1.0`), Karakter suara Charon (berat, otoritatif, dingin).
+- **Background Music (BGM)**: Level **20%** (`volume=0.20`, -14 dB relatif terhadap VO) sebagai *subtle tension bed* agar tidak mengaburkan artikulasi kata naskah. Karakter instrumen: D-Minor 80 BPM (pulsing cello ostinato, haunting high piano Mindhunter, subtle ticking clock, dark string pad).
+- **Transition SFX**: Level 65% (`volume=0.65`) pada setiap timestamp pergantian adegan (14 titik transisi), sinkron dengan efek visual *Noir Forensic Glitch*.
+- **Master Loudness**: Broadcast-normalized `-16 LUFS` (Stereo 48kHz).

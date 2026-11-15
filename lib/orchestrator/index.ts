@@ -6,6 +6,7 @@ import { generateAllKeyframeBlueprints, extractCore5SampleKeyframes } from './ag
 import { assetProducer } from './agents/assetProducer';
 import { compositorNoir } from './agents/compositorNoir';
 import { packagePostingMetadata } from './agents/metadataPackager';
+import { generateDownloadPage } from './agents/webViewer';
 import { telegramBot } from './agents/telegramBot';
 import { saveJob, getJob, getActiveJobForChat } from './state/jobStore';
 import { OrchestratorJob } from './types';
@@ -241,24 +242,32 @@ export class ContentOrchestrator {
   }
 
   /**
-   * Mengirimkan video final 1080x1920 MP4 dan paket metadata ke Telegram
+   * Mengirimkan link web player HTML dan paket metadata ke Telegram
    */
   private async deliverFinalVideoToTelegram(job: OrchestratorJob): Promise<void> {
     const meta = job.metadata!;
-    const videoPath = job.finalVideoPath!;
+    const { localUrl, networkUrl } = generateDownloadPage(job);
 
-    await telegramBot.sendMessage(
-      job.chatId,
-      `🎉 <b>[PRODUKSI SELESAI — VIDEO FINAL SIAP POSTING]</b>\n\n` +
+    const message =
+      `🎉 <b>[PRODUKSI SELESAI — VIDEO FINAL SIAP DIUNDUH & DIPOSTING]</b>\n\n` +
       `📌 <b>Rekomendasi Judul:</b>\n<code>${escapeHtml(meta.seoTitle)}</code>\n\n` +
       `📝 <b>Caption Siap Copy:</b>\n${escapeHtml(meta.caption)}\n\n` +
       `🏷️ <b>Hashtags:</b>\n<code>${escapeHtml(meta.hashtags.join(' '))}</code>\n\n` +
-      `⏳ <i>Sedang mengunggah file video MP4 1080x1920 kualitas penuh ke chat...</i>`
-    );
+      `🌐 <b>Link Pemutar Video & Unduhan MP4 1080x1920:</b>\n` +
+      `• Buka di Ponsel (Wi-Fi): <a href="${networkUrl}">${networkUrl}</a>\n` +
+      `• Buka di Laptop: <a href="${localUrl}">${localUrl}</a>\n\n` +
+      `<i>Klik tombol tautan di bawah untuk langsung membuka pemutar video 9:16 dan mengunduh filenya:</i>`;
 
-    // Kirim Video File
-    const caption = `🎬 ${meta.seoTitle.slice(0, 80)}\n\n${meta.hashtags.slice(0, 5).join(' ')}`;
-    await telegramBot.sendVideo(job.chatId, videoPath, caption);
+    const buttons = [
+      [
+        {
+          text: '🌐 Buka & Unduh Video di Browser',
+          url: networkUrl,
+        },
+      ],
+    ];
+
+    await telegramBot.sendMessage(job.chatId, message, buttons);
   }
 
   /**

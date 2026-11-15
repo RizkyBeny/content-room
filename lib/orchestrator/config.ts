@@ -15,8 +15,9 @@ export const ORCHESTRATOR_CONFIG = {
     port: Number(process.env.FLOW_MCP_PORT || 8787),
   },
   voice: {
-    preferredVoice: process.env.ORCHESTRATOR_VOICE || 'Puck',
+    preferredVoice: process.env.ORCHESTRATOR_VOICE || 'Charon',
     backend: (process.env.ORCHESTRATOR_VOICE_BACKEND || 'gemini') as 'gemini' | 'kokoro',
+    bgmPath: path.resolve(process.cwd(), 'public', 'renders', 'twitter-killer-test', 'bgm-crime-tension.mp3'),
   },
   paths: {
     dataDir: path.resolve(process.cwd(), '.data'),

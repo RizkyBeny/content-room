@@ -4,6 +4,7 @@ import { execFile } from 'node:child_process';
 import { promisify } from 'node:util';
 import { flowClient } from '../../flowMcp/client';
 import { generateAudioAndAlignment, ProcessedAudio } from '../../flowMcp/audioPipeline';
+import { produceNoirMasterAudio } from '../audio/noirAudioPipeline';
 import { KeyframeItem, OrchestratorJob } from '../types';
 import { ORCHESTRATOR_CONFIG } from '../config';
 
@@ -144,7 +145,7 @@ export class AssetProducerAgent {
   }
 
   /**
-   * Mensintesis narasi audio berkarakter Dark Suspense + ekstraksi timestamps Whisper
+   * Mensintesis narasi audio berkarakter True Crime Neo-Noir (Charon + Ducked BGM + Glitch SFX)
    */
   async synthesizeVoiceAndAlign(job: OrchestratorJob): Promise<ProcessedAudio> {
     if (!job.script?.fullText) {
@@ -154,13 +155,20 @@ export class AssetProducerAgent {
     const audioDir = path.join(ORCHESTRATOR_CONFIG.paths.rendersDir, job.id, 'audio');
     fs.mkdirSync(audioDir, { recursive: true });
 
-    console.log(`[AssetProducer] Mensintesis audio suara berat (Puck/Gemini) untuk job ${job.id}...`);
+    console.log(`[AssetProducer] Mensintesis audio True Crime Neo-Noir via Charon + Ducked BGM + SFX untuk job ${job.id}...`);
 
-    return generateAudioAndAlignment(job.script.fullText, {
-      voice: ORCHESTRATOR_CONFIG.voice.preferredVoice,
-      backend: ORCHESTRATOR_CONFIG.voice.backend,
-      outputDir: audioDir,
-    });
+    const result = await produceNoirMasterAudio(
+      job.script.fullText,
+      audioDir,
+      job.script.beats?.length || 14
+    );
+
+    return {
+      audioPath: result.masterAudioPath,
+      durationMs: Math.round(result.totalDurationSec * 1000),
+      words: result.words,
+      text: job.script.fullText,
+    };
   }
 
   /**

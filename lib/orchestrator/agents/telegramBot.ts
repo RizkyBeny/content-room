@@ -4,7 +4,8 @@ import { ORCHESTRATOR_CONFIG } from '../config';
 
 export interface TelegramInlineButton {
   text: string;
-  callback_data: string;
+  callback_data?: string;
+  url?: string;
 }
 
 export interface TelegramUpdate {

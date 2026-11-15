@@ -33,6 +33,12 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 
-# render cache
+# render cache & large media files
 hyperframes-workspace/renders
+*.mp4
+*.webm
+*.mov
+*.wav
+.temp-*
+**/audio-chunks/
 

@@ -3,11 +3,11 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=1080, height=1920" />
-  <title>10 ILMUWAN HILANG</title>
+  <title>DONGENG KELAM 10 ILMUWAN LENYAP - Graphic Noir True Crime</title>
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.15.0/dist/gsap.min.js"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Courier+Prime:wght@400;700&family=IBM+Plex+Mono:wght@500;700&family=Inter:wght@400;500;600;700;800;900&family=Montserrat:wght@700;800;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@700;800;900&family=Montserrat:wght@800;900&display=swap" rel="stylesheet">
   <style>
     * {
       box-sizing: border-box;
@@ -19,9 +19,9 @@
       width: 1080px;
       height: 1920px;
       overflow: hidden;
-      background-color: #0D1117;
+      background-color: #0A0D12;
       color: #E6EDF3;
-      font-family: 'Inter', sans-serif;
+      font-family: "Inter", sans-serif;
     }
     #root {
       width: 1080px;
@@ -29,163 +29,39 @@
       position: relative;
       overflow: hidden;
     }
-    /* Safe Area (Top 140px, Bottom 180px, Horizontal 64px) */
-    .safe-area {
-      position: absolute;
-      top: 140px;
-      bottom: 180px;
-      left: 64px;
-      right: 64px;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      z-index: 10;
-    }
-    .scene-container {
+    .shot-scene {
       position: absolute;
       inset: 0;
       width: 1080px;
       height: 1920px;
       opacity: 0;
       visibility: hidden;
+      z-index: 1;
     }
-    .bg-wrapper {
+    .shot-media-wrapper {
       position: absolute;
       inset: 0;
       width: 100%;
       height: 100%;
       overflow: hidden;
-      z-index: 1;
     }
-    .scene-bg-media {
+    .shot-bg {
       position: absolute;
-      inset: 0;
       width: 100%;
       height: 100%;
       object-fit: cover;
+      object-position: center;
+      transform-origin: center center;
+      will-change: transform;
     }
-    .scene-bg-graphic {
+    /* Atmospheric Film Grain & Vignette Overlay */
+    .vignette-overlay {
       position: absolute;
       inset: 0;
-      width: 100%;
-      height: 100%;
-      background: radial-gradient(circle at 50% 40%, rgba(22, 27, 34, 0.85) 0%, #0D1117 85%);
-    }
-    .scrim-overlay {
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(180deg, rgba(13,17,23,0.6) 0%, rgba(13,17,23,0.05) 45%, rgba(13,17,23,0.8) 100%);
+      background: radial-gradient(circle at 50% 50%, rgba(10, 13, 18, 0) 45%, rgba(10, 13, 18, 0.75) 100%);
+      pointer-events: none;
       z-index: 2;
     }
-    .dot-pattern {
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      height: 480px;
-      background-image: radial-gradient(circle, rgba(197, 155, 39, 0.08) 3px, transparent 4px);
-      background-size: 36px 36px;
-      z-index: 3;
-    }
-    .top-meta {
-      display: flex;
-      align-items: center;
-      gap: 16px;
-    }
-    .bottom-branding {
-      display: flex;
-      flex-direction: column;
-      gap: 16px;
-    }
-    .brand-tag {
-      font-family: 'Montserrat', sans-serif;
-      font-weight: 800;
-      font-size: 20px;
-      letter-spacing: 0.15em;
-      opacity: 0.8;
-      color: #8B2635;
-    }
-    .progress-bar-container {
-      width: 100%;
-      height: 6px;
-      background: rgba(255, 255, 255, 0.2);
-      border-radius: 9999px;
-      overflow: hidden;
-    }
-    .progress-bar-fill {
-      width: 0%;
-      height: 100%;
-      background: #8B2635;
-    }
-    .scene-subtext {
-      font-size: 32px;
-      line-height: 1.4;
-      margin-top: 24px;
-      opacity: 0.9;
-    }
-    .metric-container {
-      margin-top: 24px;
-      display: flex;
-      flex-direction: column;
-      gap: 8px;
-    }
-    .metric-label {
-      font-size: 28px;
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-      opacity: 0.85;
-    }
-    
-    .theme-mystery-true-crime {
-      background-color: #0D1117;
-      color: #E6EDF3;
-      font-family: 'Inter', sans-serif;
-    }
-
-    /* Halftone Screen Tone Grain Effect */
-    .halftone-grain-overlay {
-      position: absolute;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-      opacity: 0.05;
-      pointer-events: none;
-      background-image: radial-gradient(#E6EDF3 1px, transparent 1px);
-      background-size: 5px 5px;
-      z-index: 10;
-    }
-
-    /* Full-Bleed Media Container */
-    .media-container-fullbleed {
-      position: absolute;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-      overflow: hidden;
-      z-index: 1;
-    }
-
-    .media-container-fullbleed img,
-    .media-container-fullbleed video {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-      transform-origin: center center;
-    }
-
-    /* Pure Autocaption Karaoke Bar in Bottom Safe Area */
-    .autocaption-bar {
-      position: absolute;
-      bottom: 300px;
-      left: 60px;
-      right: 60px;
-      text-align: center;
-      z-index: 25;
-      pointer-events: none;
-    }
-
     /* Bottom Dark Scrim for Enhanced Readability */
     .bottom-caption-scrim {
       position: absolute;
@@ -193,13 +69,47 @@
       left: 0;
       right: 0;
       height: 560px;
-      background: linear-gradient(180deg, rgba(13, 17, 23, 0) 0%, rgba(13, 17, 23, 0.55) 45%, rgba(13, 17, 23, 0.92) 100%);
+      background: linear-gradient(180deg, rgba(10, 13, 18, 0) 0%, rgba(10, 13, 18, 0.55) 45%, rgba(10, 13, 18, 0.92) 100%);
       pointer-events: none;
       z-index: 20;
     }
-
+    /* Clean Bottom Safe Area Autocaption Container */
+    #caption-container {
+      position: absolute;
+      bottom: 300px;
+      left: 72px;
+      right: 72px;
+      height: 180px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      z-index: 25;
+      pointer-events: none;
+    }
+    .caption-phrase {
+      position: absolute;
+      width: 100%;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+      opacity: 0;
+      visibility: hidden;
+      font-size: 52px;
+      font-weight: 800;
+      line-height: 1.25;
+      letter-spacing: -0.01em;
+      color: #E6EDF3;
+      text-shadow: 0 4px 18px rgba(0, 0, 0, 0.98), 0 2px 6px rgba(0, 0, 0, 0.95);
+    }
+    .caption-word {
+      display: inline-block;
+      transform-origin: center center;
+    }
     /* Noir Forensic Glitch Overlay */
-    .forensic-glitch-overlay {
+    #forensic-glitch {
       position: absolute;
       inset: 0;
       width: 100%;
@@ -217,985 +127,1252 @@
       mix-blend-mode: screen;
       will-change: opacity, transform, filter;
     }
-
-    .caption-word {
-      display: inline-block;
-      font-family: 'Montserrat', sans-serif;
-      font-weight: 800;
-      font-size: 52px;
-      line-height: 1.3;
-      color: #E6EDF3;
-      margin: 0 8px 10px 8px;
-      text-shadow: 0 4px 18px rgba(0, 0, 0, 0.95), 0 2px 4px rgba(0, 0, 0, 0.8);
-      transition: transform 0.15s ease, color 0.15s ease;
-    }
-
-    .caption-word.active {
-      color: #C59B27;
-      transform: scale(1.08);
-      text-shadow: 0 0 24px rgba(197, 155, 39, 0.75), 0 4px 18px rgba(0, 0, 0, 0.95);
-    }
-
-    /* Cover Image Hook Title Styling */
-    .cover-hook-overlay {
-      position: absolute;
-      inset: 0;
-      z-index: 30;
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-end;
-      padding: 0 60px 220px 60px;
-      background: linear-gradient(180deg, rgba(13,17,23,0.1) 0%, rgba(13,17,23,0.3) 50%, rgba(13,17,23,0.92) 100%);
-    }
-
-    .cover-hook-kicker {
-      font-family: 'Montserrat', sans-serif;
-      font-weight: 800;
-      font-size: 24px;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      color: #8B2635;
-      background: #E6EDF3;
-      padding: 6px 16px;
-      border-radius: 4px;
-      display: inline-block;
-      width: fit-content;
-      margin-bottom: 20px;
-    }
-
-    .cover-hook-title {
-      font-family: 'Montserrat', sans-serif;
-      font-weight: 900;
-      font-size: 64px;
-      line-height: 1.12;
-      text-transform: uppercase;
-      color: #E6EDF3;
-      text-shadow: 0 6px 30px rgba(0, 0, 0, 0.95);
-    }
-
-    .cover-hook-title span {
-      color: #C59B27;
-    }
-
-    .cover-hook-subtitle {
-      font-family: 'Inter', sans-serif;
-      font-weight: 600;
-      font-size: 30px;
-      color: rgba(230, 237, 243, 0.85);
-      margin-top: 16px;
-    }
-  
   </style>
 </head>
-<body class="theme-mystery-true-crime">
-  <div
-    id="root"
-    data-composition-id="main"
-    data-start="0"
-    data-duration="75"
-    data-width="1080"
-    data-height="1920"
-  >
-    
-      <section class="scene-container" id="scene-scene_00" data-start="0.00" data-duration="1.50">
-        <div class="bg-wrapper">
-          <img class="scene-bg-media scene-img" src="shot-00.jpg" alt="scene background" />
-          <div class="scrim-overlay"></div>
-          <div class="dot-pattern"></div>
-        </div>
+<body data-duration="60.024">
+  <div id="root" data-composition-id="main" data-start="0" data-duration="60.024" data-width="1080" data-height="1920">
+    <!-- Shot 00 (Cover Image Hook) -->
+    <div class="shot-scene" id="shot-0" style="z-index: 5;">
+      <div class="shot-media-wrapper">
+        <img src="assets/cover-shot-00.jpg" class="shot-bg" id="bg-0" alt="Shot 00 Cover">
+      </div>
+    </div>
 
-        <div class="safe-area">
-          <div class="top-meta">
-            <span class="kicker-badge">/// INVESTIGATION DOSSIER ///</span>
-          </div>
+    <!-- Shot 01 -->
+    <div class="shot-scene" id="shot-1">
+      <div class="shot-media-wrapper">
+        <img src="assets/shot-01.jpg" class="shot-bg" id="bg-1" alt="Shot 1">
+      </div>
+    </div>
 
-          <div class="scene-card">
-            <h1 class="kinetic-title">Sepuluh ilmuwan lenyap. Satu tewas ditem</h1>
-            
-            <p class="scene-subtext">Sepuluh ilmuwan lenyap. Satu tewas ditembak.</p>
-          </div>
+    <!-- Shot 02 -->
+    <div class="shot-scene" id="shot-2">
+      <div class="shot-media-wrapper">
+        <img src="assets/shot-02.jpg" class="shot-bg" id="bg-2" alt="Shot 2">
+      </div>
+    </div>
 
-          <div class="bottom-branding">
-            <div class="brand-tag">EXPLAINER</div>
-            <div class="progress-bar-container">
-              <div class="progress-bar-fill"></div>
-            </div>
-          </div>
-        </div>
-      </section>
-      
+    <!-- Shot 03 -->
+    <div class="shot-scene" id="shot-3">
+      <div class="shot-media-wrapper">
+        <img src="assets/shot-03.jpg" class="shot-bg" id="bg-3" alt="Shot 3">
+      </div>
+    </div>
 
-      <section class="scene-container" id="scene-scene_01" data-start="1.50" data-duration="4.00">
-        <div class="bg-wrapper">
-          <img class="scene-bg-media scene-img" src="shot-01.jpg" alt="scene background" />
-          <div class="scrim-overlay"></div>
-          <div class="dot-pattern"></div>
-        </div>
+    <!-- Shot 04 -->
+    <div class="shot-scene" id="shot-4">
+      <div class="shot-media-wrapper">
+        <img src="assets/shot-04.jpg" class="shot-bg" id="bg-4" alt="Shot 4">
+      </div>
+    </div>
 
-        <div class="safe-area">
-          <div class="top-meta">
-            <span class="kicker-badge">KASUS PERKARA</span>
-          </div>
+    <!-- Shot 05 -->
+    <div class="shot-scene" id="shot-5">
+      <div class="shot-media-wrapper">
+        <img src="assets/shot-05.jpg" class="shot-bg" id="bg-5" alt="Shot 5">
+      </div>
+    </div>
 
-          <div class="scene-card">
-            <h1 class="kinetic-title">Kematian Carl Grillmair memicu teori kon</h1>
-            
-            <p class="scene-subtext">Kematian Carl Grillmair memicu teori konspirasi global yang mencekam.</p>
-          </div>
+    <!-- Shot 06 -->
+    <div class="shot-scene" id="shot-6">
+      <div class="shot-media-wrapper">
+        <img src="assets/shot-06.jpg" class="shot-bg" id="bg-6" alt="Shot 6">
+      </div>
+    </div>
 
-          <div class="bottom-branding">
-            <div class="brand-tag">EXPLAINER</div>
-            <div class="progress-bar-container">
-              <div class="progress-bar-fill"></div>
-            </div>
-          </div>
-        </div>
-      </section>
-      
+    <!-- Shot 07 -->
+    <div class="shot-scene" id="shot-7">
+      <div class="shot-media-wrapper">
+        <img src="assets/shot-07.jpg" class="shot-bg" id="bg-7" alt="Shot 7">
+      </div>
+    </div>
 
-      <section class="scene-container" id="scene-scene_02" data-start="5.50" data-duration="4.00">
-        <div class="bg-wrapper">
-          <img class="scene-bg-media scene-img" src="shot-02.jpg" alt="scene background" />
-          <div class="scrim-overlay"></div>
-          <div class="dot-pattern"></div>
-        </div>
+    <!-- Shot 08 -->
+    <div class="shot-scene" id="shot-8">
+      <div class="shot-media-wrapper">
+        <img src="assets/shot-08.jpg" class="shot-bg" id="bg-8" alt="Shot 8">
+      </div>
+    </div>
 
-        <div class="safe-area">
-          <div class="top-meta">
-            <span class="kicker-badge">KASUS PERKARA</span>
-          </div>
+    <!-- Shot 09 -->
+    <div class="shot-scene" id="shot-9">
+      <div class="shot-media-wrapper">
+        <img src="assets/shot-09.jpg" class="shot-bg" id="bg-9" alt="Shot 9">
+      </div>
+    </div>
 
-          <div class="scene-card">
-            <h1 class="kinetic-title">Freddy Snyder, pria lokal dua puluh semb</h1>
-            
-            <p class="scene-subtext">Freddy Snyder, pria lokal dua puluh sembilan tahun, dituduh sebagai pembunuhnya.</p>
-          </div>
+    <!-- Shot 10 -->
+    <div class="shot-scene" id="shot-10">
+      <div class="shot-media-wrapper">
+        <img src="assets/shot-10.jpg" class="shot-bg" id="bg-10" alt="Shot 10">
+      </div>
+    </div>
 
-          <div class="bottom-branding">
-            <div class="brand-tag">EXPLAINER</div>
-            <div class="progress-bar-container">
-              <div class="progress-bar-fill"></div>
-            </div>
-          </div>
-        </div>
-      </section>
-      
+    <!-- Shot 11 -->
+    <div class="shot-scene" id="shot-11">
+      <div class="shot-media-wrapper">
+        <img src="assets/shot-11.jpg" class="shot-bg" id="bg-11" alt="Shot 11">
+      </div>
+    </div>
 
-      <section class="scene-container" id="scene-scene_03" data-start="9.50" data-duration="4.00">
-        <div class="bg-wrapper">
-          <img class="scene-bg-media scene-img" src="shot-03.jpg" alt="scene background" />
-          <div class="scrim-overlay"></div>
-          <div class="dot-pattern"></div>
-        </div>
+    <!-- Shot 12 -->
+    <div class="shot-scene" id="shot-12">
+      <div class="shot-media-wrapper">
+        <img src="assets/shot-12.jpg" class="shot-bg" id="bg-12" alt="Shot 12">
+      </div>
+    </div>
 
-        <div class="safe-area">
-          <div class="top-meta">
-            <span class="kicker-badge">KASUS PERKARA</span>
-          </div>
+    <!-- Shot 13 -->
+    <div class="shot-scene" id="shot-13">
+      <div class="shot-media-wrapper">
+        <img src="assets/shot-13.jpg" class="shot-bg" id="bg-13" alt="Shot 13">
+      </div>
+    </div>
 
-          <div class="scene-card">
-            <h1 class="kinetic-title">Februari. Grillmair tewas di rumahnya di</h1>
-            
-            <p class="scene-subtext">Februari. Grillmair tewas di rumahnya di Llano, California. Istri mendengar tembakan.</p>
-          </div>
+    <!-- Shot 14 -->
+    <div class="shot-scene" id="shot-14">
+      <div class="shot-media-wrapper">
+        <img src="assets/shot-14.jpg" class="shot-bg" id="bg-14" alt="Shot 14">
+      </div>
+    </div>
+    <!-- Atmospheric Vignette -->
+    <div class="vignette-overlay"></div>
+    <!-- Bottom Dark Scrim for Caption Readability -->
+    <div class="bottom-caption-scrim"></div>
+    <!-- Noir Forensic Glitch Overlay -->
+    <div id="forensic-glitch"></div>
 
-          <div class="bottom-branding">
-            <div class="brand-tag">EXPLAINER</div>
-            <div class="progress-bar-container">
-              <div class="progress-bar-fill"></div>
-            </div>
-          </div>
-        </div>
-      </section>
-      
-
-      <section class="scene-container" id="scene-scene_04" data-start="13.50" data-duration="4.00">
-        <div class="bg-wrapper">
-          <img class="scene-bg-media scene-img" src="shot-04.jpg" alt="scene background" />
-          <div class="scrim-overlay"></div>
-          <div class="dot-pattern"></div>
-        </div>
-
-        <div class="safe-area">
-          <div class="top-meta">
-            <span class="kicker-badge">KASUS PERKARA</span>
-          </div>
-
-          <div class="scene-card">
-            <h1 class="kinetic-title">Senjata api ditemukan. Sidik jari mengar</h1>
-            
-            <p class="scene-subtext">Senjata api ditemukan. Sidik jari mengarah ke Snyder. Perampokan jadi motif awal.</p>
-          </div>
-
-          <div class="bottom-branding">
-            <div class="brand-tag">EXPLAINER</div>
-            <div class="progress-bar-container">
-              <div class="progress-bar-fill"></div>
-            </div>
-          </div>
-        </div>
-      </section>
-      
-
-      <section class="scene-container" id="scene-scene_05" data-start="17.50" data-duration="4.00">
-        <div class="bg-wrapper">
-          <img class="scene-bg-media scene-img" src="shot-05.jpg" alt="scene background" />
-          <div class="scrim-overlay"></div>
-          <div class="dot-pattern"></div>
-        </div>
-
-        <div class="safe-area">
-          <div class="top-meta">
-            <span class="kicker-badge">KASUS PERKARA</span>
-          </div>
-
-          <div class="scene-card">
-            <h1 class="kinetic-title">Polisi menyelidiki. Namun dunia maya jus</h1>
-            
-            <p class="scene-subtext">Polisi menyelidiki. Namun dunia maya justru sibuk dengan daftar kematian misterius.</p>
-          </div>
-
-          <div class="bottom-branding">
-            <div class="brand-tag">EXPLAINER</div>
-            <div class="progress-bar-container">
-              <div class="progress-bar-fill"></div>
-            </div>
-          </div>
-        </div>
-      </section>
-      
-
-      <section class="scene-container" id="scene-scene_06" data-start="21.50" data-duration="4.00">
-        <div class="bg-wrapper">
-          <img class="scene-bg-media scene-img" src="shot-06.jpg" alt="scene background" />
-          <div class="scrim-overlay"></div>
-          <div class="dot-pattern"></div>
-        </div>
-
-        <div class="safe-area">
-          <div class="top-meta">
-            <span class="kicker-badge">KASUS PERKARA</span>
-          </div>
-
-          <div class="scene-card">
-            <h1 class="kinetic-title">Sepuluh nama terkait riset sensitif. Hil</h1>
-            
-            <p class="scene-subtext">Sepuluh nama terkait riset sensitif. Hilang. Tewas. Tanpa pola jelas.</p>
-          </div>
-
-          <div class="bottom-branding">
-            <div class="brand-tag">EXPLAINER</div>
-            <div class="progress-bar-container">
-              <div class="progress-bar-fill"></div>
-            </div>
-          </div>
-        </div>
-      </section>
-      
-
-      <section class="scene-container" id="scene-scene_07" data-start="25.50" data-duration="4.00">
-        <div class="bg-wrapper">
-          <img class="scene-bg-media scene-img" src="shot-07.jpg" alt="scene background" />
-          <div class="scrim-overlay"></div>
-          <div class="dot-pattern"></div>
-        </div>
-
-        <div class="safe-area">
-          <div class="top-meta">
-            <span class="kicker-badge">KASUS PERKARA</span>
-          </div>
-
-          <div class="scene-card">
-            <h1 class="kinetic-title">Penyelidik amatir mencurigai TKP rahasia</h1>
-            
-            <p class="scene-subtext">Penyelidik amatir mencurigai TKP rahasia. Konspirasi mulai membesar.</p>
-          </div>
-
-          <div class="bottom-branding">
-            <div class="brand-tag">EXPLAINER</div>
-            <div class="progress-bar-container">
-              <div class="progress-bar-fill"></div>
-            </div>
-          </div>
-        </div>
-      </section>
-      
-
-      <section class="scene-container" id="scene-scene_08" data-start="29.50" data-duration="4.00">
-        <div class="bg-wrapper">
-          <img class="scene-bg-media scene-img" src="shot-08.jpg" alt="scene background" />
-          <div class="scrim-overlay"></div>
-          <div class="dot-pattern"></div>
-        </div>
-
-        <div class="safe-area">
-          <div class="top-meta">
-            <span class="kicker-badge">KASUS PERKARA</span>
-          </div>
-
-          <div class="scene-card">
-            <h1 class="kinetic-title">Snyder ditangkap. Dakwaan pembunuhan dan</h1>
-            
-            <p class="scene-subtext">Snyder ditangkap. Dakwaan pembunuhan dan perampokan resmi diajukan.</p>
-          </div>
-
-          <div class="bottom-branding">
-            <div class="brand-tag">EXPLAINER</div>
-            <div class="progress-bar-container">
-              <div class="progress-bar-fill"></div>
-            </div>
-          </div>
-        </div>
-      </section>
-      
-
-      <section class="scene-container" id="scene-scene_09" data-start="33.50" data-duration="4.00">
-        <div class="bg-wrapper">
-          <img class="scene-bg-media scene-img" src="shot-09.jpg" alt="scene background" />
-          <div class="scrim-overlay"></div>
-          <div class="dot-pattern"></div>
-        </div>
-
-        <div class="safe-area">
-          <div class="top-meta">
-            <span class="kicker-badge">KASUS PERKARA</span>
-          </div>
-
-          <div class="scene-card">
-            <h1 class="kinetic-title">Bukti utama: senjata api dan kesaksian L</h1>
-            
-            <p class="scene-subtext">Bukti utama: senjata api dan kesaksian Louise Grillmair yang melihat langsung.</p>
-          </div>
-
-          <div class="bottom-branding">
-            <div class="brand-tag">EXPLAINER</div>
-            <div class="progress-bar-container">
-              <div class="progress-bar-fill"></div>
-            </div>
-          </div>
-        </div>
-      </section>
-      
-
-      <section class="scene-container" id="scene-scene_10" data-start="37.50" data-duration="4.00">
-        <div class="bg-wrapper">
-          <img class="scene-bg-media scene-img" src="shot-10.jpg" alt="scene background" />
-          <div class="scrim-overlay"></div>
-          <div class="dot-pattern"></div>
-        </div>
-
-        <div class="safe-area">
-          <div class="top-meta">
-            <span class="kicker-badge">KASUS PERKARA</span>
-          </div>
-
-          <div class="scene-card">
-            <h1 class="kinetic-title">Namun spekulasi liar terus tumbuh. Uang,</h1>
-            
-            <p class="scene-subtext">Namun spekulasi liar terus tumbuh. Uang, rahasia, dan transaksi gelap.</p>
-          </div>
-
-          <div class="bottom-branding">
-            <div class="brand-tag">EXPLAINER</div>
-            <div class="progress-bar-container">
-              <div class="progress-bar-fill"></div>
-            </div>
-          </div>
-        </div>
-      </section>
-      
-
-      <section class="scene-container" id="scene-scene_11" data-start="41.50" data-duration="4.00">
-        <div class="bg-wrapper">
-          <img class="scene-bg-media scene-img" src="shot-11.jpg" alt="scene background" />
-          <div class="scrim-overlay"></div>
-          <div class="dot-pattern"></div>
-        </div>
-
-        <div class="safe-area">
-          <div class="top-meta">
-            <span class="kicker-badge">KASUS PERKARA</span>
-          </div>
-
-          <div class="scene-card">
-            <h1 class="kinetic-title">Keluarga korban menolak teori konspirasi</h1>
-            
-            <p class="scene-subtext">Keluarga korban menolak teori konspirasi. Mereka menyebutnya menjijikkan.</p>
-          </div>
-
-          <div class="bottom-branding">
-            <div class="brand-tag">EXPLAINER</div>
-            <div class="progress-bar-container">
-              <div class="progress-bar-fill"></div>
-            </div>
-          </div>
-        </div>
-      </section>
-      
-
-      <section class="scene-container" id="scene-scene_12" data-start="45.50" data-duration="4.00">
-        <div class="bg-wrapper">
-          <img class="scene-bg-media scene-img" src="shot-12.jpg" alt="scene background" />
-          <div class="scrim-overlay"></div>
-          <div class="dot-pattern"></div>
-        </div>
-
-        <div class="safe-area">
-          <div class="top-meta">
-            <span class="kicker-badge">KASUS PERKARA</span>
-          </div>
-
-          <div class="scene-card">
-            <h1 class="kinetic-title">Sidang berlangsung. Fakta kriminal berta</h1>
-            
-            <p class="scene-subtext">Sidang berlangsung. Fakta kriminal bertarung dengan narasi konspirasi.</p>
-          </div>
-
-          <div class="bottom-branding">
-            <div class="brand-tag">EXPLAINER</div>
-            <div class="progress-bar-container">
-              <div class="progress-bar-fill"></div>
-            </div>
-          </div>
-        </div>
-      </section>
-      
-
-      <section class="scene-container" id="scene-scene_13" data-start="49.50" data-duration="4.50">
-        <div class="bg-wrapper">
-          <img class="scene-bg-media scene-img" src="shot-13.jpg" alt="scene background" />
-          <div class="scrim-overlay"></div>
-          <div class="dot-pattern"></div>
-        </div>
-
-        <div class="safe-area">
-          <div class="top-meta">
-            <span class="kicker-badge">KASUS PERKARA</span>
-          </div>
-
-          <div class="scene-card">
-            <h1 class="kinetic-title">Vonis menanti. Keadilan bagi Grillmair, </h1>
-            
-            <p class="scene-subtext">Vonis menanti. Keadilan bagi Grillmair, atau misteri yang tetap terbuka?</p>
-          </div>
-
-          <div class="bottom-branding">
-            <div class="brand-tag">EXPLAINER</div>
-            <div class="progress-bar-container">
-              <div class="progress-bar-fill"></div>
-            </div>
-          </div>
-        </div>
-      </section>
-      
-
-      <section class="scene-container" id="scene-scene_14" data-start="54.00" data-duration="5.00">
-        <div class="bg-wrapper">
-          <img class="scene-bg-media scene-img" src="shot-14.jpg" alt="scene background" />
-          <div class="scrim-overlay"></div>
-          <div class="dot-pattern"></div>
-        </div>
-
-        <div class="safe-area">
-          <div class="top-meta">
-            <span class="kicker-badge">KASUS PERKARA</span>
-          </div>
-
-          <div class="scene-card">
-            <h1 class="kinetic-title">Brankas arsip terkunci. Kasus ditutup, t</h1>
-            
-            <p class="scene-subtext">Brankas arsip terkunci. Kasus ditutup, tapi pertanyaan tetap ada.</p>
-          </div>
-
-          <div class="bottom-branding">
-            <div class="brand-tag">EXPLAINER</div>
-            <div class="progress-bar-container">
-              <div class="progress-bar-fill"></div>
-            </div>
-          </div>
-        </div>
-      </section>
-      
+    <!-- Pure Autocaption in Bottom Safe Area -->
+    <div id="caption-container">
+      <div class="caption-phrase" id="phrase-0">
+        <span class="caption-word" id="w-phrase-0-0">Sebuah</span> <span class="caption-word" id="w-phrase-0-1">dongeng</span> <span class="caption-word" id="w-phrase-0-2">kelam</span> <span class="caption-word" id="w-phrase-0-3">dari</span>
+      </div>
+      <div class="caption-phrase" id="phrase-1">
+        <span class="caption-word" id="w-phrase-1-0">padang</span> <span class="caption-word" id="w-phrase-1-1">sunyi</span> <span class="caption-word" id="w-phrase-1-2">California.</span>
+      </div>
+      <div class="caption-phrase" id="phrase-2">
+        <span class="caption-word" id="w-phrase-2-0">Konon,</span>
+      </div>
+      <div class="caption-phrase" id="phrase-3">
+        <span class="caption-word" id="w-phrase-3-0">ada</span> <span class="caption-word" id="w-phrase-3-1">sepuluh</span> <span class="caption-word" id="w-phrase-3-2">periset</span> <span class="caption-word" id="w-phrase-3-3">rahasia</span>
+      </div>
+      <div class="caption-phrase" id="phrase-4">
+        <span class="caption-word" id="w-phrase-4-0">yang</span> <span class="caption-word" id="w-phrase-4-1">lenyap</span> <span class="caption-word" id="w-phrase-4-2">satu</span> <span class="caption-word" id="w-phrase-4-3">demi</span>
+      </div>
+      <div class="caption-phrase" id="phrase-5">
+        <span class="caption-word" id="w-phrase-5-0">satu,</span>
+      </div>
+      <div class="caption-phrase" id="phrase-6">
+        <span class="caption-word" id="w-phrase-6-0">ditelan</span> <span class="caption-word" id="w-phrase-6-1">kabut</span> <span class="caption-word" id="w-phrase-6-2">malam</span> <span class="caption-word" id="w-phrase-6-3">tanpa</span>
+      </div>
+      <div class="caption-phrase" id="phrase-7">
+        <span class="caption-word" id="w-phrase-7-0">jejak.</span>
+      </div>
+      <div class="caption-phrase" id="phrase-8">
+        <span class="caption-word" id="w-phrase-8-0">Kisah</span> <span class="caption-word" id="w-phrase-8-1">bermula</span> <span class="caption-word" id="w-phrase-8-2">saat</span> <span class="caption-word" id="w-phrase-8-3">astronom</span>
+      </div>
+      <div class="caption-phrase" id="phrase-9">
+        <span class="caption-word" id="w-phrase-9-0">ternama,</span>
+      </div>
+      <div class="caption-phrase" id="phrase-10">
+        <span class="caption-word" id="w-phrase-10-0">Carl</span> <span class="caption-word" id="w-phrase-10-1">Grillmair,</span>
+      </div>
+      <div class="caption-phrase" id="phrase-11">
+        <span class="caption-word" id="w-phrase-11-0">roboh</span> <span class="caption-word" id="w-phrase-11-1">bersimbah</span> <span class="caption-word" id="w-phrase-11-2">darah</span> <span class="caption-word" id="w-phrase-11-3">di</span>
+      </div>
+      <div class="caption-phrase" id="phrase-12">
+        <span class="caption-word" id="w-phrase-12-0">beranda</span> <span class="caption-word" id="w-phrase-12-1">rumahnya.</span>
+      </div>
+      <div class="caption-phrase" id="phrase-13">
+        <span class="caption-word" id="w-phrase-13-0">Jagat</span> <span class="caption-word" id="w-phrase-13-1">maya</span> <span class="caption-word" id="w-phrase-13-2">pun</span> <span class="caption-word" id="w-phrase-13-3">membakar</span>
+      </div>
+      <div class="caption-phrase" id="phrase-14">
+        <span class="caption-word" id="w-phrase-14-0">histeria</span> <span class="caption-word" id="w-phrase-14-1">konspirasi,</span>
+      </div>
+      <div class="caption-phrase" id="phrase-15">
+        <span class="caption-word" id="w-phrase-15-0">menuduh</span> <span class="caption-word" id="w-phrase-15-1">sindikat</span> <span class="caption-word" id="w-phrase-15-2">bayangan</span> <span class="caption-word" id="w-phrase-15-3">membungkam</span>
+      </div>
+      <div class="caption-phrase" id="phrase-16">
+        <span class="caption-word" id="w-phrase-16-0">rahasia</span> <span class="caption-word" id="w-phrase-16-1">antariksa.</span>
+      </div>
+      <div class="caption-phrase" id="phrase-17">
+        <span class="caption-word" id="w-phrase-17-0">Namun</span> <span class="caption-word" id="w-phrase-17-1">fiksi</span> <span class="caption-word" id="w-phrase-17-2">dongeng</span> <span class="caption-word" id="w-phrase-17-3">runtuh</span>
+      </div>
+      <div class="caption-phrase" id="phrase-18">
+        <span class="caption-word" id="w-phrase-18-0">di</span> <span class="caption-word" id="w-phrase-18-1">tangan</span> <span class="caption-word" id="w-phrase-18-2">detektif.</span>
+      </div>
+      <div class="caption-phrase" id="phrase-19">
+        <span class="caption-word" id="w-phrase-19-0">Pelakunya</span> <span class="caption-word" id="w-phrase-19-1">nyata:</span>
+      </div>
+      <div class="caption-phrase" id="phrase-20">
+        <span class="caption-word" id="w-phrase-20-0">Freddy</span> <span class="caption-word" id="w-phrase-20-1">Snyder,</span>
+      </div>
+      <div class="caption-phrase" id="phrase-21">
+        <span class="caption-word" id="w-phrase-21-0">pemuda</span> <span class="caption-word" id="w-phrase-21-1">lokal</span> <span class="caption-word" id="w-phrase-21-2">yang</span> <span class="caption-word" id="w-phrase-21-3">merampok</span>
+      </div>
+      <div class="caption-phrase" id="phrase-22">
+        <span class="caption-word" id="w-phrase-22-0">demi</span> <span class="caption-word" id="w-phrase-22-1">uang</span> <span class="caption-word" id="w-phrase-22-2">tunai.</span>
+      </div>
+      <div class="caption-phrase" id="phrase-23">
+        <span class="caption-word" id="w-phrase-23-0">Keluarga</span> <span class="caption-word" id="w-phrase-23-1">korban</span> <span class="caption-word" id="w-phrase-23-2">menolak</span> <span class="caption-word" id="w-phrase-23-3">keras</span>
+      </div>
+      <div class="caption-phrase" id="phrase-24">
+        <span class="caption-word" id="w-phrase-24-0">mitos</span> <span class="caption-word" id="w-phrase-24-1">menjijikkan</span> <span class="caption-word" id="w-phrase-24-2">ini.</span>
+      </div>
+      <div class="caption-phrase" id="phrase-25">
+        <span class="caption-word" id="w-phrase-25-0">Di</span> <span class="caption-word" id="w-phrase-25-1">ruang</span> <span class="caption-word" id="w-phrase-25-2">pengadilan,</span>
+      </div>
+      <div class="caption-phrase" id="phrase-26">
+        <span class="caption-word" id="w-phrase-26-0">palu</span> <span class="caption-word" id="w-phrase-26-1">hakim</span> <span class="caption-word" id="w-phrase-26-2">bersiap</span> <span class="caption-word" id="w-phrase-26-3">menutup</span>
+      </div>
+      <div class="caption-phrase" id="phrase-27">
+        <span class="caption-word" id="w-phrase-27-0">dongeng</span> <span class="caption-word" id="w-phrase-27-1">berdarah</span> <span class="caption-word" id="w-phrase-27-2">selamanya.</span>
+      </div>
+    </div>
   </div>
 
-  <audio id="narration-audio" src="narration-1794720054493-puck.mp3" preload="auto"></audio>
-
   <script>
-    window.__timelines = window.__timelines || {};
+    const totalDuration = 60.024;
     const tl = gsap.timeline({ paused: true });
+    window.__timeline = tl;
+    window.__timelines = window.__timelines || {};
     window.__timelines["main"] = tl;
 
-    const totalDuration = 75;
-    const isVox = false;
+    // --- NOIR FORENSIC GLITCH TRANSITION FUNCTION ---
+    function triggerNoirGlitch(atTime) {
+      const gTl = gsap.timeline();
+      gTl.fromTo("#forensic-glitch",
+        { opacity: 0, x: -14, filter: "drop-shadow(-6px 0 rgba(139,38,53,0.9)) drop-shadow(6px 0 rgba(197,155,39,0.9))" },
+        { opacity: 0.85, x: 12, y: -4, duration: 0.05, ease: "rough" }
+      )
+      .to("#forensic-glitch", { opacity: 0.5, x: -6, y: 3, filter: "drop-shadow(4px 0 rgba(230,237,243,0.8)) drop-shadow(-4px 0 rgba(139,38,53,0.8))", duration: 0.05 })
+      .to("#forensic-glitch", { opacity: 0, x: 0, y: 0, filter: "none", duration: 0.06 });
 
-    // Choreography per scene
-    
-    // --- Scene scene_00 (cover) ---
-    tl.set("#scene-scene_00", { autoAlpha: 1 }, 0.00);
+      tl.add(gTl, Math.max(0, atTime - 0.06));
+    }
 
-    tl.fromTo("#scene-scene_00 .scene-card", 
-      { y: 80, opacity: 0, scale: 0.96 }, 
-      { y: 0, opacity: 1, scale: 1, duration: 0.5, ease: "back.out(1.4)" }, 
-      0.00
+    const glitchTimings = [1.30, 4.29, 8.57, 12.86, 17.15, 21.44, 25.72, 30.01, 34.30, 38.59, 42.87, 47.16, 51.45, 55.74];
+    glitchTimings.forEach((t) => triggerNoirGlitch(t));
+
+    // --- SHOT TRANSITIONS & SMOOTH CAMERA MOVEMENTS ---
+    // Shot 0 (Mandatory Cover Hook: 0s - 1.5s)
+    tl.set("#shot-0", { autoAlpha: 1 }, 0);
+    tl.fromTo("#bg-0",
+      { scale: 1.05 },
+      { scale: 1.0, duration: 1.5, ease: "power2.out" },
+      0
     );
+    tl.to("#shot-0", { autoAlpha: 0, duration: 0.35, ease: "power2.inOut" }, 1.15);
 
-    tl.fromTo("#scene-scene_00 .kicker-badge", 
-      { scale: 0.8, opacity: 0 }, 
-      { scale: 1, opacity: 1, duration: 0.35, ease: "power2.out" }, 
-      0.00
+    // Shot 1 (0s - 4.29s)
+    tl.set("#shot-1", { autoAlpha: 1 }, 0);
+    tl.fromTo("#bg-1",
+      { scale: 1, x: 0, y: 0 },
+      { scale: 1.08, x: 0, y: 0, duration: 4.29, ease: "none" },
+      0
     );
+    tl.to("#shot-1", { autoAlpha: 0, duration: 0.25, ease: "power1.inOut" }, 4.04);
 
-    tl.fromTo("#scene-scene_00 .scene-bg-media",
-      { scale: 1.0 },
-      { scale: 1.08, duration: 1.50, ease: "none" },
-      0.00
+    // Shot 2 (4.29s - 8.57s)
+    tl.set("#shot-2", { autoAlpha: 1 }, 4.29);
+    tl.fromTo("#bg-2",
+      { scale: 1, x: 0, y: 0 },
+      { scale: 1.08, x: 0, y: -25, duration: 4.29, ease: "none" },
+      4.29
     );
+    tl.to("#shot-2", { autoAlpha: 0, duration: 0.25, ease: "power1.inOut" }, 8.32);
 
-    
-
-    
-    tl.to("#scene-scene_00", 
-      { autoAlpha: 0, duration: 0.25, ease: "power2.in" }, 
-      1.25
+    // Shot 3 (8.57s - 12.86s)
+    tl.set("#shot-3", { autoAlpha: 1 }, 8.57);
+    tl.fromTo("#bg-3",
+      { scale: 1.08, x: 0, y: 0 },
+      { scale: 1.01, x: 0, y: 0, duration: 4.29, ease: "none" },
+      8.57
     );
-    
-    
+    tl.to("#shot-3", { autoAlpha: 0, duration: 0.25, ease: "power1.inOut" }, 12.61);
 
-    // --- Scene scene_01 (hook) ---
-    tl.set("#scene-scene_01", { autoAlpha: 1 }, 1.50);
-
-    tl.fromTo("#scene-scene_01 .scene-card", 
-      { y: 80, opacity: 0, scale: 0.96 }, 
-      { y: 0, opacity: 1, scale: 1, duration: 0.5, ease: "back.out(1.4)" }, 
-      1.50
+    // Shot 4 (12.86s - 17.15s)
+    tl.set("#shot-4", { autoAlpha: 1 }, 12.86);
+    tl.fromTo("#bg-4",
+      { scale: 1, x: -15, y: 0 },
+      { scale: 1.08, x: 15, y: -20, duration: 4.29, ease: "none" },
+      12.86
     );
+    tl.to("#shot-4", { autoAlpha: 0, duration: 0.25, ease: "power1.inOut" }, 16.90);
 
-    tl.fromTo("#scene-scene_01 .kicker-badge", 
-      { scale: 0.8, opacity: 0 }, 
-      { scale: 1, opacity: 1, duration: 0.35, ease: "power2.out" }, 
-      1.50
+    // Shot 5 (17.15s - 21.44s)
+    tl.set("#shot-5", { autoAlpha: 1 }, 17.15);
+    tl.fromTo("#bg-5",
+      { scale: 1.04, x: -30, y: 0 },
+      { scale: 1.04, x: 30, y: 0, duration: 4.29, ease: "none" },
+      17.15
     );
+    tl.to("#shot-5", { autoAlpha: 0, duration: 0.25, ease: "power1.inOut" }, 21.19);
 
-    tl.fromTo("#scene-scene_01 .scene-bg-media",
-      { scale: 1.0 },
-      { scale: 1.08, duration: 4.00, ease: "none" },
-      1.50
+    // Shot 6 (21.44s - 25.72s)
+    tl.set("#shot-6", { autoAlpha: 1 }, 21.44);
+    tl.fromTo("#bg-6",
+      { scale: 1.05, x: 0, y: -40 },
+      { scale: 1.05, x: 0, y: 35, duration: 4.29, ease: "none" },
+      21.44
     );
+    tl.to("#shot-6", { autoAlpha: 0, duration: 0.25, ease: "power1.inOut" }, 25.47);
 
-    
-
-    
-    tl.to("#scene-scene_01", 
-      { autoAlpha: 0, duration: 0.25, ease: "power2.in" }, 
-      5.25
+    // Shot 7 (25.72s - 30.01s)
+    tl.set("#shot-7", { autoAlpha: 1 }, 25.72);
+    tl.fromTo("#bg-7",
+      { scale: 1, x: 0, y: 0 },
+      { scale: 1.08, x: 0, y: 0, duration: 4.29, ease: "none" },
+      25.72
     );
-    
-    
+    tl.to("#shot-7", { autoAlpha: 0, duration: 0.25, ease: "power1.inOut" }, 29.76);
 
-    // --- Scene scene_02 (profile) ---
-    tl.set("#scene-scene_02", { autoAlpha: 1 }, 5.50);
-
-    tl.fromTo("#scene-scene_02 .scene-card", 
-      { y: 80, opacity: 0, scale: 0.96 }, 
-      { y: 0, opacity: 1, scale: 1, duration: 0.5, ease: "back.out(1.4)" }, 
-      5.50
+    // Shot 8 (30.01s - 34.3s)
+    tl.set("#shot-8", { autoAlpha: 1 }, 30.01);
+    tl.fromTo("#bg-8",
+      { scale: 1, x: 0, y: 0 },
+      { scale: 1.09, x: 0, y: -30, duration: 4.29, ease: "none" },
+      30.01
     );
+    tl.to("#shot-8", { autoAlpha: 0, duration: 0.25, ease: "power1.inOut" }, 34.05);
 
-    tl.fromTo("#scene-scene_02 .kicker-badge", 
-      { scale: 0.8, opacity: 0 }, 
-      { scale: 1, opacity: 1, duration: 0.35, ease: "power2.out" }, 
-      5.50
+    // Shot 9 (34.3s - 38.59s)
+    tl.set("#shot-9", { autoAlpha: 1 }, 34.3);
+    tl.fromTo("#bg-9",
+      { scale: 1.04, x: -25, y: 0 },
+      { scale: 1.04, x: 25, y: 0, duration: 4.29, ease: "none" },
+      34.3
     );
+    tl.to("#shot-9", { autoAlpha: 0, duration: 0.25, ease: "power1.inOut" }, 38.34);
 
-    tl.fromTo("#scene-scene_02 .scene-bg-media",
-      { scale: 1.0 },
-      { scale: 1.08, duration: 4.00, ease: "none" },
-      5.50
+    // Shot 10 (38.59s - 42.87s)
+    tl.set("#shot-10", { autoAlpha: 1 }, 38.59);
+    tl.fromTo("#bg-10",
+      { scale: 1, x: 0, y: -15 },
+      { scale: 1.08, x: 0, y: 15, duration: 4.29, ease: "none" },
+      38.59
     );
+    tl.to("#shot-10", { autoAlpha: 0, duration: 0.25, ease: "power1.inOut" }, 42.62);
 
-    
-
-    
-    tl.to("#scene-scene_02", 
-      { autoAlpha: 0, duration: 0.25, ease: "power2.in" }, 
-      9.25
+    // Shot 11 (42.87s - 47.16s)
+    tl.set("#shot-11", { autoAlpha: 1 }, 42.87);
+    tl.fromTo("#bg-11",
+      { scale: 1.04, x: 25, y: 0 },
+      { scale: 1.04, x: -25, y: 0, duration: 4.29, ease: "none" },
+      42.87
     );
-    
-    
+    tl.to("#shot-11", { autoAlpha: 0, duration: 0.25, ease: "power1.inOut" }, 46.91);
 
-    // --- Scene scene_03 (entry) ---
-    tl.set("#scene-scene_03", { autoAlpha: 1 }, 9.50);
-
-    tl.fromTo("#scene-scene_03 .scene-card", 
-      { y: 80, opacity: 0, scale: 0.96 }, 
-      { y: 0, opacity: 1, scale: 1, duration: 0.5, ease: "back.out(1.4)" }, 
-      9.50
+    // Shot 12 (47.16s - 51.45s)
+    tl.set("#shot-12", { autoAlpha: 1 }, 47.16);
+    tl.fromTo("#bg-12",
+      { scale: 1, x: 0, y: 0 },
+      { scale: 1.09, x: 0, y: -25, duration: 4.29, ease: "none" },
+      47.16
     );
+    tl.to("#shot-12", { autoAlpha: 0, duration: 0.25, ease: "power1.inOut" }, 51.20);
 
-    tl.fromTo("#scene-scene_03 .kicker-badge", 
-      { scale: 0.8, opacity: 0 }, 
-      { scale: 1, opacity: 1, duration: 0.35, ease: "power2.out" }, 
-      9.50
+    // Shot 13 (51.45s - 55.74s)
+    tl.set("#shot-13", { autoAlpha: 1 }, 51.45);
+    tl.fromTo("#bg-13",
+      { scale: 1, x: 0, y: 0 },
+      { scale: 1.08, x: 0, y: -30, duration: 4.29, ease: "none" },
+      51.45
     );
+    tl.to("#shot-13", { autoAlpha: 0, duration: 0.25, ease: "power1.inOut" }, 55.49);
 
-    tl.fromTo("#scene-scene_03 .scene-bg-media",
-      { scale: 1.0 },
-      { scale: 1.08, duration: 4.00, ease: "none" },
-      9.50
-    );
-
-    
-
-    
-    tl.to("#scene-scene_03", 
-      { autoAlpha: 0, duration: 0.25, ease: "power2.in" }, 
-      13.25
-    );
-    
-    
-
-    // --- Scene scene_04 (forensic) ---
-    tl.set("#scene-scene_04", { autoAlpha: 1 }, 13.50);
-
-    tl.fromTo("#scene-scene_04 .scene-card", 
-      { y: 80, opacity: 0, scale: 0.96 }, 
-      { y: 0, opacity: 1, scale: 1, duration: 0.5, ease: "back.out(1.4)" }, 
-      13.50
-    );
-
-    tl.fromTo("#scene-scene_04 .kicker-badge", 
-      { scale: 0.8, opacity: 0 }, 
-      { scale: 1, opacity: 1, duration: 0.35, ease: "power2.out" }, 
-      13.50
-    );
-
-    tl.fromTo("#scene-scene_04 .scene-bg-media",
-      { scale: 1.0 },
-      { scale: 1.08, duration: 4.00, ease: "none" },
-      13.50
-    );
-
-    
-
-    
-    tl.to("#scene-scene_04", 
-      { autoAlpha: 0, duration: 0.25, ease: "power2.in" }, 
-      17.25
+    // Shot 14 (55.74s - 60.02s)
+    tl.set("#shot-14", { autoAlpha: 1 }, 55.74);
+    tl.fromTo("#bg-14",
+      { scale: 1.06, x: 0, y: 0 },
+      { scale: 1.01, x: 0, y: 0, duration: 4.29, ease: "none" },
+      55.74
     );
     
-    
 
-    // --- Scene scene_05 (investigation) ---
-    tl.set("#scene-scene_05", { autoAlpha: 1 }, 17.50);
+    // --- AUTOCAPTION PHRASE BLOCKS & KARAOKE WORD HIGHLIGHTS ---
 
-    tl.fromTo("#scene-scene_05 .scene-card", 
-      { y: 80, opacity: 0, scale: 0.96 }, 
-      { y: 0, opacity: 1, scale: 1, duration: 0.5, ease: "back.out(1.4)" }, 
-      17.50
+    // Phrase phrase-0 (0s - 2.01s)
+    tl.fromTo("#phrase-0",
+      { autoAlpha: 0, y: 15, filter: "blur(6px)" },
+      { autoAlpha: 1, y: 0, filter: "blur(0px)", duration: 0.25, ease: "power2.out" },
+      0
+    );
+    tl.to("#w-phrase-0-0", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.55,
+      ease: "power1.out"
+    }, 0.00);
+    tl.to("#w-phrase-0-1", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.64,
+      ease: "power1.out"
+    }, 0.55);
+    tl.to("#w-phrase-0-2", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.45,
+      ease: "power1.out"
+    }, 1.19);
+    tl.to("#w-phrase-0-3", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.37,
+      ease: "power1.out"
+    }, 1.64);
+    tl.to("#phrase-0",
+      { autoAlpha: 0, y: -10, filter: "blur(4px)", duration: 0.2, ease: "power1.in" },
+      2.06
     );
 
-    tl.fromTo("#scene-scene_05 .kicker-badge", 
-      { scale: 0.8, opacity: 0 }, 
-      { scale: 1, opacity: 1, duration: 0.35, ease: "power2.out" }, 
-      17.50
+    // Phrase phrase-1 (2.01s - 4.29s)
+    tl.fromTo("#phrase-1",
+      { autoAlpha: 0, y: 15, filter: "blur(6px)" },
+      { autoAlpha: 1, y: 0, filter: "blur(0px)", duration: 0.25, ease: "power2.out" },
+      2.01
+    );
+    tl.to("#w-phrase-1-0", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.55,
+      ease: "power1.out"
+    }, 2.01);
+    tl.to("#w-phrase-1-1", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.45,
+      ease: "power1.out"
+    }, 2.56);
+    tl.to("#w-phrase-1-2", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 1.28,
+      ease: "power1.out"
+    }, 3.01);
+    tl.to("#phrase-1",
+      { autoAlpha: 0, y: -10, filter: "blur(4px)", duration: 0.2, ease: "power1.in" },
+      4.34
     );
 
-    tl.fromTo("#scene-scene_05 .scene-bg-media",
-      { scale: 1.0 },
-      { scale: 1.08, duration: 4.00, ease: "none" },
-      17.50
+    // Phrase phrase-2 (4.59s - 5.38s)
+    tl.fromTo("#phrase-2",
+      { autoAlpha: 0, y: 15, filter: "blur(6px)" },
+      { autoAlpha: 1, y: 0, filter: "blur(0px)", duration: 0.25, ease: "power2.out" },
+      4.59
+    );
+    tl.to("#w-phrase-2-0", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.79,
+      ease: "power1.out"
+    }, 4.59);
+    tl.to("#phrase-2",
+      { autoAlpha: 0, y: -10, filter: "blur(4px)", duration: 0.2, ease: "power1.in" },
+      5.43
     );
 
-    
-
-    
-    tl.to("#scene-scene_05", 
-      { autoAlpha: 0, duration: 0.25, ease: "power2.in" }, 
-      21.25
+    // Phrase phrase-3 (5.38s - 7.48s)
+    tl.fromTo("#phrase-3",
+      { autoAlpha: 0, y: 15, filter: "blur(6px)" },
+      { autoAlpha: 1, y: 0, filter: "blur(0px)", duration: 0.25, ease: "power2.out" },
+      5.38
     );
-    
-    
-
-    // --- Scene scene_06 (map) ---
-    tl.set("#scene-scene_06", { autoAlpha: 1 }, 21.50);
-
-    tl.fromTo("#scene-scene_06 .scene-card", 
-      { y: 80, opacity: 0, scale: 0.96 }, 
-      { y: 0, opacity: 1, scale: 1, duration: 0.5, ease: "back.out(1.4)" }, 
-      21.50
-    );
-
-    tl.fromTo("#scene-scene_06 .kicker-badge", 
-      { scale: 0.8, opacity: 0 }, 
-      { scale: 1, opacity: 1, duration: 0.35, ease: "power2.out" }, 
-      21.50
-    );
-
-    tl.fromTo("#scene-scene_06 .scene-bg-media",
-      { scale: 1.0 },
-      { scale: 1.08, duration: 4.00, ease: "none" },
-      21.50
-    );
-
-    
-
-    
-    tl.to("#scene-scene_06", 
-      { autoAlpha: 0, duration: 0.25, ease: "power2.in" }, 
-      25.25
-    );
-    
-    
-
-    // --- Scene scene_07 (turning_point) ---
-    tl.set("#scene-scene_07", { autoAlpha: 1 }, 25.50);
-
-    tl.fromTo("#scene-scene_07 .scene-card", 
-      { y: 80, opacity: 0, scale: 0.96 }, 
-      { y: 0, opacity: 1, scale: 1, duration: 0.5, ease: "back.out(1.4)" }, 
-      25.50
+    tl.to("#w-phrase-3-0", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.26,
+      ease: "power1.out"
+    }, 5.38);
+    tl.to("#w-phrase-3-1", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.61,
+      ease: "power1.out"
+    }, 5.64);
+    tl.to("#w-phrase-3-2", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.62,
+      ease: "power1.out"
+    }, 6.25);
+    tl.to("#w-phrase-3-3", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.61,
+      ease: "power1.out"
+    }, 6.87);
+    tl.to("#phrase-3",
+      { autoAlpha: 0, y: -10, filter: "blur(4px)", duration: 0.2, ease: "power1.in" },
+      7.53
     );
 
-    tl.fromTo("#scene-scene_07 .kicker-badge", 
-      { scale: 0.8, opacity: 0 }, 
-      { scale: 1, opacity: 1, duration: 0.35, ease: "power2.out" }, 
-      25.50
+    // Phrase phrase-4 (7.48s - 9.06s)
+    tl.fromTo("#phrase-4",
+      { autoAlpha: 0, y: 15, filter: "blur(6px)" },
+      { autoAlpha: 1, y: 0, filter: "blur(0px)", duration: 0.25, ease: "power2.out" },
+      7.48
+    );
+    tl.to("#w-phrase-4-0", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.35,
+      ease: "power1.out"
+    }, 7.48);
+    tl.to("#w-phrase-4-1", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.53,
+      ease: "power1.out"
+    }, 7.83);
+    tl.to("#w-phrase-4-2", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.35,
+      ease: "power1.out"
+    }, 8.36);
+    tl.to("#w-phrase-4-3", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.35,
+      ease: "power1.out"
+    }, 8.71);
+    tl.to("#phrase-4",
+      { autoAlpha: 0, y: -10, filter: "blur(4px)", duration: 0.2, ease: "power1.in" },
+      9.11
     );
 
-    tl.fromTo("#scene-scene_07 .scene-bg-media",
-      { scale: 1.0 },
-      { scale: 1.08, duration: 4.00, ease: "none" },
-      25.50
+    // Phrase phrase-5 (9.06s - 9.76s)
+    tl.fromTo("#phrase-5",
+      { autoAlpha: 0, y: 15, filter: "blur(6px)" },
+      { autoAlpha: 1, y: 0, filter: "blur(0px)", duration: 0.25, ease: "power2.out" },
+      9.06
+    );
+    tl.to("#w-phrase-5-0", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.70,
+      ease: "power1.out"
+    }, 9.06);
+    tl.to("#phrase-5",
+      { autoAlpha: 0, y: -10, filter: "blur(4px)", duration: 0.2, ease: "power1.in" },
+      9.81
     );
 
-    
-
-    
-    tl.to("#scene-scene_07", 
-      { autoAlpha: 0, duration: 0.25, ease: "power2.in" }, 
-      29.25
+    // Phrase phrase-6 (9.76s - 11.68s)
+    tl.fromTo("#phrase-6",
+      { autoAlpha: 0, y: 15, filter: "blur(6px)" },
+      { autoAlpha: 1, y: 0, filter: "blur(0px)", duration: 0.25, ease: "power2.out" },
+      9.76
     );
-    
-    
-
-    // --- Scene scene_08 (arrest) ---
-    tl.set("#scene-scene_08", { autoAlpha: 1 }, 29.50);
-
-    tl.fromTo("#scene-scene_08 .scene-card", 
-      { y: 80, opacity: 0, scale: 0.96 }, 
-      { y: 0, opacity: 1, scale: 1, duration: 0.5, ease: "back.out(1.4)" }, 
-      29.50
-    );
-
-    tl.fromTo("#scene-scene_08 .kicker-badge", 
-      { scale: 0.8, opacity: 0 }, 
-      { scale: 1, opacity: 1, duration: 0.35, ease: "power2.out" }, 
-      29.50
-    );
-
-    tl.fromTo("#scene-scene_08 .scene-bg-media",
-      { scale: 1.0 },
-      { scale: 1.08, duration: 4.00, ease: "none" },
-      29.50
-    );
-
-    
-
-    
-    tl.to("#scene-scene_08", 
-      { autoAlpha: 0, duration: 0.25, ease: "power2.in" }, 
-      33.25
-    );
-    
-    
-
-    // --- Scene scene_09 (evidence) ---
-    tl.set("#scene-scene_09", { autoAlpha: 1 }, 33.50);
-
-    tl.fromTo("#scene-scene_09 .scene-card", 
-      { y: 80, opacity: 0, scale: 0.96 }, 
-      { y: 0, opacity: 1, scale: 1, duration: 0.5, ease: "back.out(1.4)" }, 
-      33.50
+    tl.to("#w-phrase-6-0", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.61,
+      ease: "power1.out"
+    }, 9.76);
+    tl.to("#w-phrase-6-1", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.44,
+      ease: "power1.out"
+    }, 10.37);
+    tl.to("#w-phrase-6-2", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.44,
+      ease: "power1.out"
+    }, 10.81);
+    tl.to("#w-phrase-6-3", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.43,
+      ease: "power1.out"
+    }, 11.25);
+    tl.to("#phrase-6",
+      { autoAlpha: 0, y: -10, filter: "blur(4px)", duration: 0.2, ease: "power1.in" },
+      11.73
     );
 
-    tl.fromTo("#scene-scene_09 .kicker-badge", 
-      { scale: 0.8, opacity: 0 }, 
-      { scale: 1, opacity: 1, duration: 0.35, ease: "power2.out" }, 
-      33.50
+    // Phrase phrase-7 (11.68s - 12.47s)
+    tl.fromTo("#phrase-7",
+      { autoAlpha: 0, y: 15, filter: "blur(6px)" },
+      { autoAlpha: 1, y: 0, filter: "blur(0px)", duration: 0.25, ease: "power2.out" },
+      11.68
+    );
+    tl.to("#w-phrase-7-0", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.79,
+      ease: "power1.out"
+    }, 11.68);
+    tl.to("#phrase-7",
+      { autoAlpha: 0, y: -10, filter: "blur(4px)", duration: 0.2, ease: "power1.in" },
+      12.52
     );
 
-    tl.fromTo("#scene-scene_09 .scene-bg-media",
-      { scale: 1.0 },
-      { scale: 1.08, duration: 4.00, ease: "none" },
-      33.50
+    // Phrase phrase-8 (12.77s - 14.88s)
+    tl.fromTo("#phrase-8",
+      { autoAlpha: 0, y: 15, filter: "blur(6px)" },
+      { autoAlpha: 1, y: 0, filter: "blur(0px)", duration: 0.25, ease: "power2.out" },
+      12.77
+    );
+    tl.to("#w-phrase-8-0", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.44,
+      ease: "power1.out"
+    }, 12.77);
+    tl.to("#w-phrase-8-1", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.62,
+      ease: "power1.out"
+    }, 13.21);
+    tl.to("#w-phrase-8-2", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.35,
+      ease: "power1.out"
+    }, 13.83);
+    tl.to("#w-phrase-8-3", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.70,
+      ease: "power1.out"
+    }, 14.18);
+    tl.to("#phrase-8",
+      { autoAlpha: 0, y: -10, filter: "blur(4px)", duration: 0.2, ease: "power1.in" },
+      14.93
     );
 
-    
+    // Phrase phrase-9 (14.88s - 15.85s)
+    tl.fromTo("#phrase-9",
+      { autoAlpha: 0, y: 15, filter: "blur(6px)" },
+      { autoAlpha: 1, y: 0, filter: "blur(0px)", duration: 0.25, ease: "power2.out" },
+      14.88
+    );
+    tl.to("#w-phrase-9-0", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.97,
+      ease: "power1.out"
+    }, 14.88);
+    tl.to("#phrase-9",
+      { autoAlpha: 0, y: -10, filter: "blur(4px)", duration: 0.2, ease: "power1.in" },
+      15.90
+    );
 
-    
-    tl.to("#scene-scene_09", 
-      { autoAlpha: 0, duration: 0.25, ease: "power2.in" }, 
+    // Phrase phrase-10 (15.85s - 17.34s)
+    tl.fromTo("#phrase-10",
+      { autoAlpha: 0, y: 15, filter: "blur(6px)" },
+      { autoAlpha: 1, y: 0, filter: "blur(0px)", duration: 0.25, ease: "power2.out" },
+      15.85
+    );
+    tl.to("#w-phrase-10-0", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.35,
+      ease: "power1.out"
+    }, 15.85);
+    tl.to("#w-phrase-10-1", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 1.14,
+      ease: "power1.out"
+    }, 16.20);
+    tl.to("#phrase-10",
+      { autoAlpha: 0, y: -10, filter: "blur(4px)", duration: 0.2, ease: "power1.in" },
+      17.39
+    );
+
+    // Phrase phrase-11 (17.34s - 19.18s)
+    tl.fromTo("#phrase-11",
+      { autoAlpha: 0, y: 15, filter: "blur(6px)" },
+      { autoAlpha: 1, y: 0, filter: "blur(0px)", duration: 0.25, ease: "power2.out" },
+      17.34
+    );
+    tl.to("#w-phrase-11-0", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.44,
+      ease: "power1.out"
+    }, 17.34);
+    tl.to("#w-phrase-11-1", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.79,
+      ease: "power1.out"
+    }, 17.78);
+    tl.to("#w-phrase-11-2", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.44,
+      ease: "power1.out"
+    }, 18.57);
+    tl.to("#w-phrase-11-3", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.17,
+      ease: "power1.out"
+    }, 19.01);
+    tl.to("#phrase-11",
+      { autoAlpha: 0, y: -10, filter: "blur(4px)", duration: 0.2, ease: "power1.in" },
+      19.23
+    );
+
+    // Phrase phrase-12 (19.18s - 20.85s)
+    tl.fromTo("#phrase-12",
+      { autoAlpha: 0, y: 15, filter: "blur(6px)" },
+      { autoAlpha: 1, y: 0, filter: "blur(0px)", duration: 0.25, ease: "power2.out" },
+      19.18
+    );
+    tl.to("#w-phrase-12-0", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.62,
+      ease: "power1.out"
+    }, 19.18);
+    tl.to("#w-phrase-12-1", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 1.05,
+      ease: "power1.out"
+    }, 19.80);
+    tl.to("#phrase-12",
+      { autoAlpha: 0, y: -10, filter: "blur(4px)", duration: 0.2, ease: "power1.in" },
+      20.90
+    );
+
+    // Phrase phrase-13 (21.15s - 22.63s)
+    tl.fromTo("#phrase-13",
+      { autoAlpha: 0, y: 15, filter: "blur(6px)" },
+      { autoAlpha: 1, y: 0, filter: "blur(0px)", duration: 0.25, ease: "power2.out" },
+      21.15
+    );
+    tl.to("#w-phrase-13-0", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.37,
+      ease: "power1.out"
+    }, 21.15);
+    tl.to("#w-phrase-13-1", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.29,
+      ease: "power1.out"
+    }, 21.52);
+    tl.to("#w-phrase-13-2", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.23,
+      ease: "power1.out"
+    }, 21.81);
+    tl.to("#w-phrase-13-3", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.59,
+      ease: "power1.out"
+    }, 22.04);
+    tl.to("#phrase-13",
+      { autoAlpha: 0, y: -10, filter: "blur(4px)", duration: 0.2, ease: "power1.in" },
+      22.68
+    );
+
+    // Phrase phrase-14 (22.63s - 24.25s)
+    tl.fromTo("#phrase-14",
+      { autoAlpha: 0, y: 15, filter: "blur(6px)" },
+      { autoAlpha: 1, y: 0, filter: "blur(0px)", duration: 0.25, ease: "power2.out" },
+      22.63
+    );
+    tl.to("#w-phrase-14-0", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.58,
+      ease: "power1.out"
+    }, 22.63);
+    tl.to("#w-phrase-14-1", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 1.04,
+      ease: "power1.out"
+    }, 23.21);
+    tl.to("#phrase-14",
+      { autoAlpha: 0, y: -10, filter: "blur(4px)", duration: 0.2, ease: "power1.in" },
+      24.30
+    );
+
+    // Phrase phrase-15 (24.25s - 26.68s)
+    tl.fromTo("#phrase-15",
+      { autoAlpha: 0, y: 15, filter: "blur(6px)" },
+      { autoAlpha: 1, y: 0, filter: "blur(0px)", duration: 0.25, ease: "power2.out" },
+      24.25
+    );
+    tl.to("#w-phrase-15-0", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.51,
+      ease: "power1.out"
+    }, 24.25);
+    tl.to("#w-phrase-15-1", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.59,
+      ease: "power1.out"
+    }, 24.76);
+    tl.to("#w-phrase-15-2", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.59,
+      ease: "power1.out"
+    }, 25.35);
+    tl.to("#w-phrase-15-3", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.74,
+      ease: "power1.out"
+    }, 25.94);
+    tl.to("#phrase-15",
+      { autoAlpha: 0, y: -10, filter: "blur(4px)", duration: 0.2, ease: "power1.in" },
+      26.73
+    );
+
+    // Phrase phrase-16 (26.68s - 28.15s)
+    tl.fromTo("#phrase-16",
+      { autoAlpha: 0, y: 15, filter: "blur(6px)" },
+      { autoAlpha: 1, y: 0, filter: "blur(0px)", duration: 0.25, ease: "power2.out" },
+      26.68
+    );
+    tl.to("#w-phrase-16-0", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.51,
+      ease: "power1.out"
+    }, 26.68);
+    tl.to("#w-phrase-16-1", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.96,
+      ease: "power1.out"
+    }, 27.19);
+    tl.to("#phrase-16",
+      { autoAlpha: 0, y: -10, filter: "blur(4px)", duration: 0.2, ease: "power1.in" },
+      28.20
+    );
+
+    // Phrase phrase-17 (28.45s - 30.53s)
+    tl.fromTo("#phrase-17",
+      { autoAlpha: 0, y: 15, filter: "blur(6px)" },
+      { autoAlpha: 1, y: 0, filter: "blur(0px)", duration: 0.25, ease: "power2.out" },
+      28.45
+    );
+    tl.to("#w-phrase-17-0", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.45,
+      ease: "power1.out"
+    }, 28.45);
+    tl.to("#w-phrase-17-1", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.45,
+      ease: "power1.out"
+    }, 28.90);
+    tl.to("#w-phrase-17-2", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.64,
+      ease: "power1.out"
+    }, 29.35);
+    tl.to("#w-phrase-17-3", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.54,
+      ease: "power1.out"
+    }, 29.99);
+    tl.to("#phrase-17",
+      { autoAlpha: 0, y: -10, filter: "blur(4px)", duration: 0.2, ease: "power1.in" },
+      30.58
+    );
+
+    // Phrase phrase-18 (30.53s - 32.33s)
+    tl.fromTo("#phrase-18",
+      { autoAlpha: 0, y: 15, filter: "blur(6px)" },
+      { autoAlpha: 1, y: 0, filter: "blur(0px)", duration: 0.25, ease: "power2.out" },
+      30.53
+    );
+    tl.to("#w-phrase-18-0", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.18,
+      ease: "power1.out"
+    }, 30.53);
+    tl.to("#w-phrase-18-1", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.54,
+      ease: "power1.out"
+    }, 30.71);
+    tl.to("#w-phrase-18-2", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 1.08,
+      ease: "power1.out"
+    }, 31.25);
+    tl.to("#phrase-18",
+      { autoAlpha: 0, y: -10, filter: "blur(4px)", duration: 0.2, ease: "power1.in" },
+      32.38
+    );
+
+    // Phrase phrase-19 (32.33s - 33.68s)
+    tl.fromTo("#phrase-19",
+      { autoAlpha: 0, y: 15, filter: "blur(6px)" },
+      { autoAlpha: 1, y: 0, filter: "blur(0px)", duration: 0.25, ease: "power2.out" },
+      32.33
+    );
+    tl.to("#w-phrase-19-0", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.81,
+      ease: "power1.out"
+    }, 32.33);
+    tl.to("#w-phrase-19-1", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.54,
+      ease: "power1.out"
+    }, 33.14);
+    tl.to("#phrase-19",
+      { autoAlpha: 0, y: -10, filter: "blur(4px)", duration: 0.2, ease: "power1.in" },
+      33.73
+    );
+
+    // Phrase phrase-20 (33.68s - 35.13s)
+    tl.fromTo("#phrase-20",
+      { autoAlpha: 0, y: 15, filter: "blur(6px)" },
+      { autoAlpha: 1, y: 0, filter: "blur(0px)", duration: 0.25, ease: "power2.out" },
+      33.68
+    );
+    tl.to("#w-phrase-20-0", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.54,
+      ease: "power1.out"
+    }, 33.68);
+    tl.to("#w-phrase-20-1", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.91,
+      ease: "power1.out"
+    }, 34.22);
+    tl.to("#phrase-20",
+      { autoAlpha: 0, y: -10, filter: "blur(4px)", duration: 0.2, ease: "power1.in" },
+      35.18
+    );
+
+    // Phrase phrase-21 (35.13s - 37.2s)
+    tl.fromTo("#phrase-21",
+      { autoAlpha: 0, y: 15, filter: "blur(6px)" },
+      { autoAlpha: 1, y: 0, filter: "blur(0px)", duration: 0.25, ease: "power2.out" },
+      35.13
+    );
+    tl.to("#w-phrase-21-0", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.54,
+      ease: "power1.out"
+    }, 35.13);
+    tl.to("#w-phrase-21-1", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.45,
+      ease: "power1.out"
+    }, 35.67);
+    tl.to("#w-phrase-21-2", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.36,
+      ease: "power1.out"
+    }, 36.12);
+    tl.to("#w-phrase-21-3", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.72,
+      ease: "power1.out"
+    }, 36.48);
+    tl.to("#phrase-21",
+      { autoAlpha: 0, y: -10, filter: "blur(4px)", duration: 0.2, ease: "power1.in" },
       37.25
     );
-    
-    
 
-    // --- Scene scene_10 (motive) ---
-    tl.set("#scene-scene_10", { autoAlpha: 1 }, 37.50);
-
-    tl.fromTo("#scene-scene_10 .scene-card", 
-      { y: 80, opacity: 0, scale: 0.96 }, 
-      { y: 0, opacity: 1, scale: 1, duration: 0.5, ease: "back.out(1.4)" }, 
-      37.50
+    // Phrase phrase-22 (37.2s - 38.73s)
+    tl.fromTo("#phrase-22",
+      { autoAlpha: 0, y: 15, filter: "blur(6px)" },
+      { autoAlpha: 1, y: 0, filter: "blur(0px)", duration: 0.25, ease: "power2.out" },
+      37.2
+    );
+    tl.to("#w-phrase-22-0", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.36,
+      ease: "power1.out"
+    }, 37.20);
+    tl.to("#w-phrase-22-1", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.36,
+      ease: "power1.out"
+    }, 37.56);
+    tl.to("#w-phrase-22-2", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.81,
+      ease: "power1.out"
+    }, 37.92);
+    tl.to("#phrase-22",
+      { autoAlpha: 0, y: -10, filter: "blur(4px)", duration: 0.2, ease: "power1.in" },
+      38.78
     );
 
-    tl.fromTo("#scene-scene_10 .kicker-badge", 
-      { scale: 0.8, opacity: 0 }, 
-      { scale: 1, opacity: 1, duration: 0.35, ease: "power2.out" }, 
-      37.50
+    // Phrase phrase-23 (39.03s - 40.84s)
+    tl.fromTo("#phrase-23",
+      { autoAlpha: 0, y: 15, filter: "blur(6px)" },
+      { autoAlpha: 1, y: 0, filter: "blur(0px)", duration: 0.25, ease: "power2.out" },
+      39.03
+    );
+    tl.to("#w-phrase-23-0", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.56,
+      ease: "power1.out"
+    }, 39.03);
+    tl.to("#w-phrase-23-1", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.41,
+      ease: "power1.out"
+    }, 39.59);
+    tl.to("#w-phrase-23-2", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.49,
+      ease: "power1.out"
+    }, 40.00);
+    tl.to("#w-phrase-23-3", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.35,
+      ease: "power1.out"
+    }, 40.49);
+    tl.to("#phrase-23",
+      { autoAlpha: 0, y: -10, filter: "blur(4px)", duration: 0.2, ease: "power1.in" },
+      40.89
     );
 
-    tl.fromTo("#scene-scene_10 .scene-bg-media",
-      { scale: 1.0 },
-      { scale: 1.08, duration: 4.00, ease: "none" },
-      37.50
+    // Phrase phrase-24 (40.84s - 42.43s)
+    tl.fromTo("#phrase-24",
+      { autoAlpha: 0, y: 15, filter: "blur(6px)" },
+      { autoAlpha: 1, y: 0, filter: "blur(0px)", duration: 0.25, ease: "power2.out" },
+      40.84
+    );
+    tl.to("#w-phrase-24-0", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.34,
+      ease: "power1.out"
+    }, 40.84);
+    tl.to("#w-phrase-24-1", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.77,
+      ease: "power1.out"
+    }, 41.18);
+    tl.to("#w-phrase-24-2", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.48,
+      ease: "power1.out"
+    }, 41.95);
+    tl.to("#phrase-24",
+      { autoAlpha: 0, y: -10, filter: "blur(4px)", duration: 0.2, ease: "power1.in" },
+      42.48
     );
 
-    
-
-    
-    tl.to("#scene-scene_10", 
-      { autoAlpha: 0, duration: 0.25, ease: "power2.in" }, 
-      41.25
+    // Phrase phrase-25 (42.43s - 43.89s)
+    tl.fromTo("#phrase-25",
+      { autoAlpha: 0, y: 15, filter: "blur(6px)" },
+      { autoAlpha: 1, y: 0, filter: "blur(0px)", duration: 0.25, ease: "power2.out" },
+      42.43
     );
-    
-    
-
-    // --- Scene scene_11 (autopsy) ---
-    tl.set("#scene-scene_11", { autoAlpha: 1 }, 41.50);
-
-    tl.fromTo("#scene-scene_11 .scene-card", 
-      { y: 80, opacity: 0, scale: 0.96 }, 
-      { y: 0, opacity: 1, scale: 1, duration: 0.5, ease: "back.out(1.4)" }, 
-      41.50
-    );
-
-    tl.fromTo("#scene-scene_11 .kicker-badge", 
-      { scale: 0.8, opacity: 0 }, 
-      { scale: 1, opacity: 1, duration: 0.35, ease: "power2.out" }, 
-      41.50
-    );
-
-    tl.fromTo("#scene-scene_11 .scene-bg-media",
-      { scale: 1.0 },
-      { scale: 1.08, duration: 4.00, ease: "none" },
-      41.50
-    );
-
-    
-
-    
-    tl.to("#scene-scene_11", 
-      { autoAlpha: 0, duration: 0.25, ease: "power2.in" }, 
-      45.25
-    );
-    
-    
-
-    // --- Scene scene_12 (court) ---
-    tl.set("#scene-scene_12", { autoAlpha: 1 }, 45.50);
-
-    tl.fromTo("#scene-scene_12 .scene-card", 
-      { y: 80, opacity: 0, scale: 0.96 }, 
-      { y: 0, opacity: 1, scale: 1, duration: 0.5, ease: "back.out(1.4)" }, 
-      45.50
+    tl.to("#w-phrase-25-0", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.14,
+      ease: "power1.out"
+    }, 42.43);
+    tl.to("#w-phrase-25-1", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.35,
+      ease: "power1.out"
+    }, 42.57);
+    tl.to("#w-phrase-25-2", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.97,
+      ease: "power1.out"
+    }, 42.92);
+    tl.to("#phrase-25",
+      { autoAlpha: 0, y: -10, filter: "blur(4px)", duration: 0.2, ease: "power1.in" },
+      43.94
     );
 
-    tl.fromTo("#scene-scene_12 .kicker-badge", 
-      { scale: 0.8, opacity: 0 }, 
-      { scale: 1, opacity: 1, duration: 0.35, ease: "power2.out" }, 
-      45.50
+    // Phrase phrase-26 (43.89s - 45.49s)
+    tl.fromTo("#phrase-26",
+      { autoAlpha: 0, y: 15, filter: "blur(6px)" },
+      { autoAlpha: 1, y: 0, filter: "blur(0px)", duration: 0.25, ease: "power2.out" },
+      43.89
+    );
+    tl.to("#w-phrase-26-0", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.28,
+      ease: "power1.out"
+    }, 43.89);
+    tl.to("#w-phrase-26-1", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.35,
+      ease: "power1.out"
+    }, 44.17);
+    tl.to("#w-phrase-26-2", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.48,
+      ease: "power1.out"
+    }, 44.52);
+    tl.to("#w-phrase-26-3", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.49,
+      ease: "power1.out"
+    }, 45.00);
+    tl.to("#phrase-26",
+      { autoAlpha: 0, y: -10, filter: "blur(4px)", duration: 0.2, ease: "power1.in" },
+      45.54
     );
 
-    tl.fromTo("#scene-scene_12 .scene-bg-media",
-      { scale: 1.0 },
-      { scale: 1.08, duration: 4.00, ease: "none" },
-      45.50
+    // Phrase phrase-27 (45.49s - 47.43s)
+    tl.fromTo("#phrase-27",
+      { autoAlpha: 0, y: 15, filter: "blur(6px)" },
+      { autoAlpha: 1, y: 0, filter: "blur(0px)", duration: 0.25, ease: "power2.out" },
+      45.49
     );
-
-    
-
-    
-    tl.to("#scene-scene_12", 
-      { autoAlpha: 0, duration: 0.25, ease: "power2.in" }, 
-      49.25
+    tl.to("#w-phrase-27-0", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.48,
+      ease: "power1.out"
+    }, 45.49);
+    tl.to("#w-phrase-27-1", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.56,
+      ease: "power1.out"
+    }, 45.97);
+    tl.to("#w-phrase-27-2", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.90,
+      ease: "power1.out"
+    }, 46.53);
+    tl.to("#phrase-27",
+      { autoAlpha: 0, y: -10, filter: "blur(4px)", duration: 0.2, ease: "power1.in" },
+      47.48
     );
-    
-    
-
-    // --- Scene scene_13 (verdict) ---
-    tl.set("#scene-scene_13", { autoAlpha: 1 }, 49.50);
-
-    tl.fromTo("#scene-scene_13 .scene-card", 
-      { y: 80, opacity: 0, scale: 0.96 }, 
-      { y: 0, opacity: 1, scale: 1, duration: 0.5, ease: "back.out(1.4)" }, 
-      49.50
-    );
-
-    tl.fromTo("#scene-scene_13 .kicker-badge", 
-      { scale: 0.8, opacity: 0 }, 
-      { scale: 1, opacity: 1, duration: 0.35, ease: "power2.out" }, 
-      49.50
-    );
-
-    tl.fromTo("#scene-scene_13 .scene-bg-media",
-      { scale: 1.0 },
-      { scale: 1.08, duration: 4.50, ease: "none" },
-      49.50
-    );
-
-    
-
-    
-    tl.to("#scene-scene_13", 
-      { autoAlpha: 0, duration: 0.25, ease: "power2.in" }, 
-      53.75
-    );
-    
-    
-
-    // --- Scene scene_14 (closing) ---
-    tl.set("#scene-scene_14", { autoAlpha: 1 }, 54.00);
-
-    tl.fromTo("#scene-scene_14 .scene-card", 
-      { y: 80, opacity: 0, scale: 0.96 }, 
-      { y: 0, opacity: 1, scale: 1, duration: 0.5, ease: "back.out(1.4)" }, 
-      54.00
-    );
-
-    tl.fromTo("#scene-scene_14 .kicker-badge", 
-      { scale: 0.8, opacity: 0 }, 
-      { scale: 1, opacity: 1, duration: 0.35, ease: "power2.out" }, 
-      54.00
-    );
-
-    tl.fromTo("#scene-scene_14 .scene-bg-media",
-      { scale: 1.0 },
-      { scale: 1.08, duration: 5.00, ease: "none" },
-      54.00
-    );
-
-    
-
-    
-    
-
-    // Progress bar across total duration
-    tl.to(".progress-bar-fill", {
-      width: "100%",
-      duration: totalDuration,
-      ease: "none"
-    }, 0);
 
     tl.seek(0);
   </script>

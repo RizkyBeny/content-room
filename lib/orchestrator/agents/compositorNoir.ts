@@ -2,11 +2,12 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { execFile } from 'node:child_process';
 import { promisify } from 'node:util';
-import { generateHyperframesProject, StoryboardScene } from '../../hyperframes/templateGenerator';
 import { renderHyperframes } from '../../hyperframes/renderEngine';
 import { OrchestratorJob } from '../types';
 import { ORCHESTRATOR_CONFIG } from '../config';
 import { TranscribedWord } from '../../flowMcp/types';
+import { generateNoirHyperframesHtml } from '../video/noirVideoTemplate';
+import { groupWordsIntoPhrases, CaptionWord, ShotTiming } from '../audio/noirAudioPipeline';
 
 const execFileAsync = promisify(execFile);
 
@@ -21,6 +22,7 @@ function resolveFfmpegBin(): { ffmpeg: string; ffprobe: string } {
 export class CompositorNoirAgent {
   /**
    * Mengompilasi dan me-render video explainer 9:16 Neo-Noir menggunakan HyperFrames
+   * Mengikuti standard benchmark: twitter-killer-test
    */
   async composeAndRenderVideo(
     job: OrchestratorJob,
@@ -34,43 +36,70 @@ export class CompositorNoirAgent {
     const tempVideoPath = path.join(finalDir, 'temp-visual.mp4');
     const finalVideoPath = path.join(finalDir, 'noir-explainer-final.mp4');
 
-    const beats = job.script?.beats || [];
+    const totalDurationSec = job.audioDurationSec || 59.5;
     const allKeyframes = job.allKeyframes || [];
 
-    // 1. Susun StoryboardScene untuk HyperFrames template generator
-    const scenes: StoryboardScene[] = beats.map((beat, idx) => {
-      const keyframe = allKeyframes.find((k) => k.shot === beat.shot) || allKeyframes[idx];
+    // Find cover image (Shot 00)
+    let coverImagePath = '';
+    const shot0 = allKeyframes.find((k) => k.shot === 0);
+    if (shot0?.imagePath && fs.existsSync(shot0.imagePath)) {
+      coverImagePath = shot0.imagePath;
+    } else {
+      const fallbackShot0 = path.join(finalDir, 'keyframes', 'shot-00.jpg');
+      if (fs.existsSync(fallbackShot0)) {
+        coverImagePath = fallbackShot0;
+      }
+    }
+
+    // Shots 1 to 14
+    const shotImages: Array<{ shot: number; imagePath: string }> = [];
+    for (let s = 1; s <= 14; s++) {
+      const kf = allKeyframes.find((k) => k.shot === s);
+      const shotNumStr = String(s).padStart(2, '0');
+      let imgPath = kf?.imagePath || '';
+      if (!imgPath || !fs.existsSync(imgPath)) {
+        imgPath = path.join(finalDir, 'keyframes', `shot-${shotNumStr}.jpg`);
+      }
+      shotImages.push({ shot: s, imagePath: imgPath });
+    }
+
+    // Shot Timings (14 shots across totalDurationSec)
+    const shotDuration = totalDurationSec / 14;
+    const shotTimings: ShotTiming[] = Array.from({ length: 14 }, (_, i) => {
+      const start = i * shotDuration;
+      const end = (i + 1) * shotDuration;
       return {
-        id: `scene_${String(beat.shot).padStart(2, '0')}`,
-        beat: beat.shotType,
-        start_ms: Math.round(beat.startSec * 1000),
-        end_ms: Math.round(beat.endSec * 1000),
-        kicker: beat.shot === 0 ? '/// INVESTIGATION DOSSIER ///' : 'KASUS PERKARA',
-        headline: beat.narration.slice(0, 40),
-        subtext: beat.narration,
-        assetType: 'image',
-        assetPath: keyframe?.imagePath,
-        visualIntent: beat.visualCue,
+        shot: i + 1,
+        startSec: Number(start.toFixed(2)),
+        endSec: Number(end.toFixed(2)),
+        durationSec: Number(shotDuration.toFixed(2)),
       };
     });
 
-    const totalDurationMs = Math.round((job.audioDurationSec || 59) * 1000);
+    // Caption Words & Phrases
+    const captionWords: CaptionWord[] = (words || []).map((w) => ({
+      word: w.word,
+      start: w.start_ms / 1000,
+      end: w.end_ms / 1000,
+    }));
 
-    console.log(`[CompositorNoir] Membangun project HyperFrames di ${projectDir}...`);
-    generateHyperframesProject({
+    const phrases = groupWordsIntoPhrases(captionWords, 4);
+
+    console.log(`[CompositorNoir] Menghasilkan template visual benchmark standard di ${projectDir}...`);
+    generateNoirHyperframesHtml({
       jobId: job.id,
-      title: job.script?.title || 'True Crime Neo-Noir Explainer',
-      themePresetId: 'mystery-true-crime',
-      totalDurationMs,
-      audioPath: job.audioPath,
-      scenes,
-      words,
+      title: job.script?.title || 'Graphic Noir True Crime Explainer',
+      totalDurationSec,
+      coverImagePath,
+      shotImages,
+      shotTimings,
+      phrases,
       outputDir: projectDir,
     });
 
     // 2. Render visual timeline dengan HyperFrames (1080x1920 @ 30fps)
-    console.log(`[CompositorNoir] Rendering frame demi frame via Headless Chromium...`);
-    onProgress?.('Rendering visual timeline dengan HyperFrames...');
+    console.log(`[CompositorNoir] Rendering frame demi frame via Headless Chromium (30fps)...`);
+    onProgress?.('Rendering visual timeline dengan HyperFrames (30fps)...');
 
     await renderHyperframes({
       projectDir,
@@ -85,21 +114,16 @@ export class CompositorNoirAgent {
     console.log(`[CompositorNoir] Multiplexing audio master dengan FFmpeg...`);
     onProgress?.('Menggabungkan audio master track dan normalisasi...');
 
-    const { ffmpeg, ffprobe } = resolveFfmpegBin();
+    const { ffmpeg } = resolveFfmpegBin();
 
     if (job.audioPath && fs.existsSync(job.audioPath)) {
       await execFileAsync(ffmpeg, [
         '-y',
-        '-i',
-        tempVideoPath,
-        '-i',
-        job.audioPath,
-        '-c:v',
-        'copy',
-        '-c:a',
-        'aac',
-        '-b:a',
-        '192k',
+        '-i', tempVideoPath,
+        '-i', job.audioPath,
+        '-c:v', 'copy',
+        '-c:a', 'aac',
+        '-b:a', '192k',
         '-shortest',
         finalVideoPath,
       ]);
@@ -108,7 +132,6 @@ export class CompositorNoirAgent {
         fs.unlinkSync(tempVideoPath);
       }
     } else {
-      // Jika tidak ada audio khusus, rename tempVideoPath ke finalVideoPath
       fs.renameSync(tempVideoPath, finalVideoPath);
     }
 

@@ -6,31 +6,30 @@ export async function writeNoirScript(
   dossier: CrimeCaseDossier,
   angle: NoirEditorialAngle
 ): Promise<NoirScript> {
-  const systemPrompt = `Kamu adalah Narator & Lead Scriptwriter dokumenter True Crime Neo-Noir kelas dunia.
-Tugasmu adalah menulis naskah narasi Bahasa Indonesia untuk video vertikal 9:16 berdurasi 55–60 detik (~130–150 kata).
+  const systemPrompt = `Kamu adalah Narator & Lead Storyteller True Crime Neo-Noir kelas dunia.
+Tugasmu adalah menulis naskah narasi Bahasa Indonesia yang SANGAT ENGAGING, dibawakan SEPERTI DONGENG KELAM (Dark Fairytale / Eerie Mystery Storybook) agar penonton terhipnotis dan tidak bosan dari detik pertama hingga akhir.
+
+ATURAN EMAS DURASI & PACING:
+- DURASI TOTAL HARUS DI BAWAH 1 MENIT (Target: 50–55 detik) agar bisa diposting di multichannel (YouTube Shorts, TikTok, IG Reels) tanpa terpotong!
+- Jumlah total kata naskah: WAJIB antara 105 hingga 125 kata (rata-rata 2.1 kata/detik dengan jeda hening dramatis).
+- Jangan menulis kalimat berita datar/kaku. Gunakan pembuka bercerita ("Sebuah dongeng kelam...", "Konon...", "Semua bermula saat...", "Namun fiksi dongeng runtuh...").
 
 STRUKTUR 15 BEATS KANONIK (Shot 00 s/d 14):
 - Shot 00 (0.0s - 1.5s): Hook Cover (Headline visual pembuka)
-- Shot 01 (1.5s - 5.5s): Hook Misteri (Pernyataan mengejutkan yang memancing rasa penasaran)
-- Shot 02 (5.5s - 9.5s): Profil Pelaku / Misteri Korban
-- Shot 03 (9.5s - 13.5s): Pintu Masuk Kasus / Modus Awal
-- Shot 04 (13.5s - 17.5s): Meja Forensik 45° (Barang bukti penting pertama)
-- Shot 05 (17.5s - 21.5s): Penyelidikan Kepolisian / Cyber Forensics
-- Shot 06 (21.5s - 25.5s): Peta Rute / Lokasi Pelarian
-- Shot 07 (25.5s - 29.5s): Titik Balik TKP (Tempat rahasia pelaku)
-- Shot 08 (29.5s - 33.5s): Detik-Detik Penangkapan / Penggerebekan
-- Shot 09 (33.5s - 37.5s): Penemuan Bukti Utama yang Mengerikan
-- Shot 10 (37.5s - 41.5s): Motif / Uang / Transaksi Rahasia
-- Shot 11 (41.5s - 45.5s): Berkas Otopsi / Pengakuan Tersangka
-- Shot 12 (45.5s - 49.5s): Sidang Pengadilan / Palu Hakim
-- Shot 13 (49.5s - 54.0s): Timbangan Keadilan / Vonis Hukuman
-- Shot 14 (54.0s - 59.0s): Brankas Arsip Terkunci / Penutup Kasus / Call to Action
-
-ATURAN PENULISAN:
-- Bahasa Indonesia baku namun mengalir dingin, mencekam, dan ritmis.
-- Total kata narasi naskah antara 125 hingga 145 kata (kecepatan narator rata-rata 2.4 kata/detik).
-- Jangan menulis kata yang terlalu panjang atau berbelit-belit.
-- Visual cue harus jelas dan bernuansa graphic novel neo-noir.
+- Shot 01 (1.5s - 5.5s): Hook Misteri (Pernyataan mengejutkan pembuka dongeng)
+- Shot 02 (5.5s - 9.5s): Mitos / Lenyapnya Korban
+- Shot 03 (9.5s - 13.5s): Malam Tragedi / Penembakan di Tempat Terpencil
+- Shot 04 (13.5s - 17.5s): Barang Bukti di TKP
+- Shot 05 (17.5s - 21.5s): Ledakan Histeria & Konspirasi Dunia Maya
+- Shot 06 (21.5s - 25.5s): Daftar Hitam Korban Misterius
+- Shot 07 (25.5s - 29.5s): Pemburu Bayangan / Klaim Sindikat Rahasia
+- Shot 08 (29.5s - 33.5s): Detektif Memecah Dongeng / Pelaku Nyata
+- Shot 09 (33.5s - 37.5s): Sosok Tersangka Nyata (Freddy Snyder)
+- Shot 10 (37.5s - 41.5s): Motif Nyata / Perampokan & Uang Tunai
+- Shot 11 (41.5s - 45.5s): Bantahan Murka Keluarga Korban
+- Shot 12 (45.5s - 49.5s): Ruang Sidang Pengadilan Berhadapan Fakta
+- Shot 13 (49.5s - 53.0s): Ketukan Palu Hakim & Keadilan
+- Shot 14 (53.0s - 56.0s): Gembok Arsip Terkunci / Penutup Kasus
 
 Format Output WAJIB JSON murni:
 {
@@ -41,8 +40,8 @@ Format Output WAJIB JSON murni:
       "shot": 0,
       "startSec": 0,
       "endSec": 1.5,
-      "narration": "Sembilan nyawa lenyap tanpa jejak.",
-      "visualCue": "Cover headline dramatis: ${angle.mainHeadline}",
+      "narration": "Sebuah dongeng kelam dari padang sunyi.",
+      "visualCue": "Headline grafis neo-noir: ${angle.mainHeadline}",
       "shotType": "cover"
     },
     ... sampai shot 14
@@ -76,7 +75,7 @@ Fakta Mengejutkan: ${dossier.hookIdea}`;
       title: parsed.title || angle.mainHeadline,
       subHeadline: parsed.subHeadline || angle.subHeadline,
       fullText,
-      targetDurationSec: 59,
+      targetDurationSec: 55,
       wordCount,
       beats,
     };

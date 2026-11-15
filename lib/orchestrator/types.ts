@@ -18,7 +18,13 @@ export interface ScriptBeat {
   endSec: number;
   narration: string;
   visualCue: string;
-  shotType: 'cover' | 'hook' | 'perpetrator' | 'context' | 'desk' | 'timeline' | 'climax' | 'justice' | 'archive';
+  shotType: 'cover' | 'hook' | 'perpetrator' | 'context' | 'desk' | 'timeline' | 'climax' | 'justice' | 'archive' | (string & {});
+}
+
+export interface SentenceWithShots {
+  id?: string;
+  text: string;
+  shots: number[];
 }
 
 export interface NoirScript {

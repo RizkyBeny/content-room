@@ -1,7 +1,7 @@
 {
-  "name": "mujianto-serial-killer",
-  "width": 1080,
-  "height": 1920,
-  "fps": 30,
-  "duration": 83.856
+  "$schema": "https://hyperframes.heygen.com/schema/hyperframes.json",
+  "registry": "https://raw.githubusercontent.com/heygen-com/hyperframes/main/registry",
+  "media": {
+    "autoProxy": true
+  }
 }

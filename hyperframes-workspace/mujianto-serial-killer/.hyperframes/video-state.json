@@ -1,7 +1,7 @@
 {
   "version": 1,
   "historyId": "b87ef201-3b2a-48bb-b5ee-02b97f22b68a",
-  "currentRevision": "3871da8d-a869-4c87-866d-61b90d7efd59",
+  "currentRevision": "a3e0d199-5ec5-4db0-b88e-cb1c604de042",
   "pendingChanges": false,
   "files": {
     "assets/cover-shot-00.jpg": {
@@ -45,12 +45,12 @@
       "content": "/Users/beny/.cache/hyperframes/history/b87ef201-3b2a-48bb-b5ee-02b97f22b68a/blobs/fa/fa9060c992fbd9d29206f4364a361455173ef8dcce7c666a4e63fa13086fb3cd"
     },
     "hyperframes.json": {
-      "hash": "685593ed2c2cf132836a57559264d45464539e4653f262490e3960c7f6bc6c8c",
-      "content": "/Users/beny/.cache/hyperframes/history/b87ef201-3b2a-48bb-b5ee-02b97f22b68a/blobs/68/685593ed2c2cf132836a57559264d45464539e4653f262490e3960c7f6bc6c8c"
+      "hash": "12bb941b1e4060ce7418673e6ecf96e5aec4b3032a6640b3842a7f519534b7a2",
+      "content": "/Users/beny/.cache/hyperframes/history/b87ef201-3b2a-48bb-b5ee-02b97f22b68a/blobs/12/12bb941b1e4060ce7418673e6ecf96e5aec4b3032a6640b3842a7f519534b7a2"
     },
     "index.html": {
-      "hash": "50802d09a4024faff217546bf0d1aa04574595a83448e4a5b43ba74597e00e50",
-      "content": "/Users/beny/.cache/hyperframes/history/b87ef201-3b2a-48bb-b5ee-02b97f22b68a/blobs/50/50802d09a4024faff217546bf0d1aa04574595a83448e4a5b43ba74597e00e50"
+      "hash": "49bc924e7e1729134543d8d0d5ba6ce96f1e0687ebfde7d6cfba5184de9d1af7",
+      "content": "/Users/beny/.cache/hyperframes/history/b87ef201-3b2a-48bb-b5ee-02b97f22b68a/blobs/49/49bc924e7e1729134543d8d0d5ba6ce96f1e0687ebfde7d6cfba5184de9d1af7"
     },
     "assets/bgm-crime-tension.mp3": {
       "hash": "4e79da7eb85203680efc8b826a89695f5b1ea8e3392eb67d8cde567d594fd9b9",
@@ -96,6 +96,25 @@
           "after": "/Users/beny/.cache/hyperframes/history/b87ef201-3b2a-48bb-b5ee-02b97f22b68a/blobs/50/50802d09a4024faff217546bf0d1aa04574595a83448e4a5b43ba74597e00e50"
         }
       }
+    },
+    "a3e0d199-5ec5-4db0-b88e-cb1c604de042": {
+      "actor": {
+        "kind": "outside",
+        "name": "Outside"
+      },
+      "label": "Changed outside the app",
+      "startedAt": 1794745172181,
+      "endedAt": 1794745172202,
+      "files": {
+        "hyperframes.json": {
+          "before": "/Users/beny/.cache/hyperframes/history/b87ef201-3b2a-48bb-b5ee-02b97f22b68a/blobs/68/685593ed2c2cf132836a57559264d45464539e4653f262490e3960c7f6bc6c8c",
+          "after": "/Users/beny/.cache/hyperframes/history/b87ef201-3b2a-48bb-b5ee-02b97f22b68a/blobs/12/12bb941b1e4060ce7418673e6ecf96e5aec4b3032a6640b3842a7f519534b7a2"
+        },
+        "index.html": {
+          "before": "/Users/beny/.cache/hyperframes/history/b87ef201-3b2a-48bb-b5ee-02b97f22b68a/blobs/50/50802d09a4024faff217546bf0d1aa04574595a83448e4a5b43ba74597e00e50",
+          "after": "/Users/beny/.cache/hyperframes/history/b87ef201-3b2a-48bb-b5ee-02b97f22b68a/blobs/49/49bc924e7e1729134543d8d0d5ba6ce96f1e0687ebfde7d6cfba5184de9d1af7"
+        }
+      }
     }
   },
   "checks": {
@@ -110,13 +129,14 @@
   },
   "renders": {
     "latest": {
-      "id": "eff058fb-5f17-4151-b7a4-15002e6e6aa2",
-      "completedAt": 1794744928845,
-      "output": "/Users/beny/Documents/Project-self/Content-automation/public/renders/mujianto-serial-killer/temp-visual.mp4",
+      "id": "e8cc6489-a61c-40d7-9252-8387ca9ccde5",
+      "completedAt": 1794745657832,
+      "output": "/Users/beny/Documents/Project-self/Content-automation/public/renders/mujianto-serial-killer/temp-visual-timeline.mp4",
       "status": "completed",
-      "revision": "3871da8d-a869-4c87-866d-61b90d7efd59"
+      "revision": "a3e0d199-5ec5-4db0-b88e-cb1c604de042"
     },
     "retainedRevisions": [
+      "a3e0d199-5ec5-4db0-b88e-cb1c604de042",
       "3871da8d-a869-4c87-866d-61b90d7efd59"
     ]
   },

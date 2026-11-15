@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <title>SERIAL KILLER NGANJUK</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@800;900&family=Plus+Jakarta+Sans:wght@700;800&family=JetBrains+Mono:wght@700&display=swap');
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background: #000;
+      color: #fff;
+      overflow: hidden;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      width: 1080px;
+      height: 1920px;
+    }
+    #stage {
+      position: relative;
+      width: 1080px;
+      height: 1920px;
+      background: #0D1117;
+      overflow: hidden;
+    }
+    .shot-layer {
+      position: absolute;
+      inset: 0;
+      width: 1080px;
+      height: 1920px;
+      overflow: hidden;
+    }
+    .shot-img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transform-origin: center center;
+    }
+    /* Cover Hook Styling */
+    .cover-overlay {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 0 40px;
+      background: radial-gradient(circle at center, rgba(13,17,23,0.3) 0%, rgba(13,17,23,0.85) 100%);
+      z-index: 10;
+    }
+    .cover-badge {
+      display: inline-block;
+      padding: 10px 24px;
+      background: rgba(139,38,53,0.9);
+      border: 2px solid #8B2635;
+      color: #fff;
+      font-size: 24px;
+      font-weight: 800;
+      letter-spacing: 0.15em;
+      border-radius: 999px;
+      margin-bottom: 28px;
+      text-transform: uppercase;
+    }
+    .cover-title {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 84px;
+      font-weight: 900;
+      line-height: 1.05;
+      color: #fff;
+      text-shadow: 0 8px 30px rgba(0,0,0,0.95), 0 2px 8px rgba(0,0,0,0.8);
+      text-transform: uppercase;
+      margin-bottom: 24px;
+    }
+    .cover-title .highlight {
+      color: #C59B27;
+      text-shadow: 0 0 25px rgba(197,155,39,0.7), 0 8px 30px rgba(0,0,0,0.95);
+    }
+    .cover-sub {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 32px;
+      font-weight: 700;
+      color: #E6EDF3;
+      background: rgba(0,0,0,0.8);
+      border: 2px solid #C59B27;
+      padding: 12px 28px;
+      border-radius: 12px;
+      letter-spacing: 0.1em;
+    }
+    /* Bottom Autocaption Scrim & Container */
+    .bottom-caption-scrim {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 560px;
+      background: linear-gradient(to top, rgba(10,13,18,0.95) 0%, rgba(10,13,18,0.75) 55%, rgba(10,13,18,0) 100%);
+      pointer-events: none;
+      z-index: 50;
+    }
+    #caption-container {
+      position: absolute;
+      bottom: 300px;
+      left: 72px;
+      right: 72px;
+      min-height: 140px;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      z-index: 60;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 52px;
+      font-weight: 800;
+      line-height: 1.25;
+      letter-spacing: -0.01em;
+      pointer-events: none;
+    }
+    .word-span {
+      display: inline-block;
+      color: #E6EDF3;
+      text-shadow: 0 4px 18px rgba(0,0,0,0.98), 0 2px 6px rgba(0,0,0,0.95);
+      margin: 0 5px;
+      opacity: 0.35;
+      transform: scale(0.96);
+      transition: color 0.1s ease, opacity 0.1s ease, transform 0.1s ease;
+    }
+    .word-span.active {
+      color: #C59B27;
+      opacity: 1;
+      transform: scale(1.08);
+      text-shadow: 0 0 22px rgba(197,155,39,0.8), 0 4px 18px rgba(0,0,0,0.98);
+    }
+    .word-span.passed {
+      color: #FFFFFF;
+      opacity: 0.95;
+      transform: scale(1.0);
+    }
+    /* Noir Forensic Glitch Overlay */
+    #forensic-glitch {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      z-index: 90;
+      opacity: 0;
+      background: repeating-linear-gradient(0deg, rgba(0,0,0,0.4) 0px, rgba(0,0,0,0.4) 2px, transparent 2px, transparent 4px);
+      filter: drop-shadow(-6px 0 #8B2635) drop-shadow(6px 0 #C59B27);
+    }
+  </style>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+</head>
+<body>
+  <div id="stage" data-composition-id="main">
+    
+    <!-- Shot 00: Mandatory Cover Hook (0.0s - 1.3s) -->
+    <div id="shot-00" class="shot-layer" style="opacity: 1;">
+      <img src="assets/cover-shot-00.jpg" alt="Cover Hook" class="shot-img" />
+      <div class="cover-overlay">
+        <div class="cover-badge">KASUS KRIMINAL PALING MENCEKAM &bull; NGANJUK</div>
+        <div class="cover-title">SERIAL KILLER<br><span class="highlight">NGANJUK</span></div>
+        <div class="cover-sub">TEROR RACUN MAUT 23 KORBAN</div>
+      </div>
+    </div>
+  
+    <div id="shot-01" class="shot-layer" style="opacity: 0;">
+      <img src="assets/shot-01.jpg" alt="Shot 1" class="shot-img" />
+    </div>
+    <div id="shot-02" class="shot-layer" style="opacity: 0;">
+      <img src="assets/shot-02.jpg" alt="Shot 2" class="shot-img" />
+    </div>
+    <div id="shot-03" class="shot-layer" style="opacity: 0;">
+      <img src="assets/shot-03.jpg" alt="Shot 3" class="shot-img" />
+    </div>
+    <div id="shot-04" class="shot-layer" style="opacity: 0;">
+      <img src="assets/shot-04.jpg" alt="Shot 4" class="shot-img" />
+    </div>
+    <div id="shot-05" class="shot-layer" style="opacity: 0;">
+      <img src="assets/shot-05.jpg" alt="Shot 5" class="shot-img" />
+    </div>
+    <div id="shot-06" class="shot-layer" style="opacity: 0;">
+      <img src="assets/shot-06.jpg" alt="Shot 6" class="shot-img" />
+    </div>
+    <div id="shot-07" class="shot-layer" style="opacity: 0;">
+      <img src="assets/shot-07.jpg" alt="Shot 7" class="shot-img" />
+    </div>
+    <div id="shot-08" class="shot-layer" style="opacity: 0;">
+      <img src="assets/shot-08.jpg" alt="Shot 8" class="shot-img" />
+    </div>
+    <div id="shot-09" class="shot-layer" style="opacity: 0;">
+      <img src="assets/shot-09.jpg" alt="Shot 9" class="shot-img" />
+    </div>
+    <div id="shot-10" class="shot-layer" style="opacity: 0;">
+      <img src="assets/shot-10.jpg" alt="Shot 10" class="shot-img" />
+    </div>
+    <div id="shot-11" class="shot-layer" style="opacity: 0;">
+      <img src="assets/shot-11.jpg" alt="Shot 11" class="shot-img" />
+    </div>
+    <div id="shot-12" class="shot-layer" style="opacity: 0;">
+      <img src="assets/shot-12.jpg" alt="Shot 12" class="shot-img" />
+    </div>
+    <div id="shot-13" class="shot-layer" style="opacity: 0;">
+      <img src="assets/shot-13.jpg" alt="Shot 13" class="shot-img" />
+    </div>
+    <div id="shot-14" class="shot-layer" style="opacity: 0;">
+      <img src="assets/shot-14.jpg" alt="Shot 14" class="shot-img" />
+    </div>
+    <div class="bottom-caption-scrim"></div>
+    <div id="caption-container"><span id="cw-0" class="word-span">Awal </span><span id="cw-1" class="word-span">tahun </span><span id="cw-2" class="word-span">2012, </span><span id="cw-3" class="word-span">teror </span><span id="cw-4" class="word-span">mencekam </span><span id="cw-5" class="word-span">mengguncang </span><span id="cw-6" class="word-span">wilayah </span><span id="cw-7" class="word-span">Nganjuk, </span><span id="cw-8" class="word-span">Jawa </span><span id="cw-9" class="word-span">Timur. </span><span id="cw-10" class="word-span">Belasan </span><span id="cw-11" class="word-span">pria </span><span id="cw-12" class="word-span">ditemukan </span><span id="cw-13" class="word-span">terkapar </span><span id="cw-14" class="word-span">tak </span><span id="cw-15" class="word-span">bernyawa </span><span id="cw-16" class="word-span">di </span><span id="cw-17" class="word-span">semak-semak </span><span id="cw-18" class="word-span">dan </span><span id="cw-19" class="word-span">parit </span><span id="cw-20" class="word-span">jalanan. </span><span id="cw-21" class="word-span">Semua </span><span id="cw-22" class="word-span">korban </span><span id="cw-23" class="word-span">kehilangan </span><span id="cw-24" class="word-span">ponsel </span><span id="cw-25" class="word-span">dan </span><span id="cw-26" class="word-span">dompet, </span><span id="cw-27" class="word-span">tanpa </span><span id="cw-28" class="word-span">bekas </span><span id="cw-29" class="word-span">kekerasan </span><span id="cw-30" class="word-span">fisik </span><span id="cw-31" class="word-span">yang </span><span id="cw-32" class="word-span">jelas. </span><span id="cw-33" class="word-span">Polisi </span><span id="cw-34" class="word-span">mengungkap </span><span id="cw-35" class="word-span">pola </span><span id="cw-36" class="word-span">mengerikan: </span><span id="cw-37" class="word-span">para </span><span id="cw-38" class="word-span">korban </span><span id="cw-39" class="word-span">dihabisi </span><span id="cw-40" class="word-span">dengan </span><span id="cw-41" class="word-span">racun </span><span id="cw-42" class="word-span">tikus </span><span id="cw-43" class="word-span">mematikan. </span><span id="cw-44" class="word-span">Pelaku </span><span id="cw-45" class="word-span">menyelinap </span><span id="cw-46" class="word-span">lewat </span><span id="cw-47" class="word-span">kencan </span><span id="cw-48" class="word-span">rahasia, </span><span id="cw-49" class="word-span">menjamu </span><span id="cw-50" class="word-span">mereka </span><span id="cw-51" class="word-span">dengan </span><span id="cw-52" class="word-span">secangkir </span><span id="cw-53" class="word-span">teh </span><span id="cw-54" class="word-span">maut. </span><span id="cw-55" class="word-span">Saat </span><span id="cw-56" class="word-span">korban </span><span id="cw-57" class="word-span">meregang </span><span id="cw-58" class="word-span">nyawa </span><span id="cw-59" class="word-span">akibat </span><span id="cw-60" class="word-span">racun, </span><span id="cw-61" class="word-span">pelaku </span><span id="cw-62" class="word-span">merampas </span><span id="cw-63" class="word-span">harta </span><span id="cw-64" class="word-span">lalu </span><span id="cw-65" class="word-span">kabur. </span><span id="cw-66" class="word-span">Penyelidikan </span><span id="cw-67" class="word-span">sempat </span><span id="cw-68" class="word-span">buntu </span><span id="cw-69" class="word-span">karena </span><span id="cw-70" class="word-span">minimnya </span><span id="cw-71" class="word-span">saksi </span><span id="cw-72" class="word-span">dan </span><span id="cw-73" class="word-span">jejak </span><span id="cw-74" class="word-span">identitas </span><span id="cw-75" class="word-span">pelaku. </span><span id="cw-76" class="word-span">Titik </span><span id="cw-77" class="word-span">balik </span><span id="cw-78" class="word-span">tiba </span><span id="cw-79" class="word-span">ketika </span><span id="cw-80" class="word-span">seorang </span><span id="cw-81" class="word-span">korban </span><span id="cw-82" class="word-span">bernama </span><span id="cw-83" class="word-span">Faiz </span><span id="cw-84" class="word-span">berhasil </span><span id="cw-85" class="word-span">selamat </span><span id="cw-86" class="word-span">dari </span><span id="cw-87" class="word-span">maut. </span><span id="cw-88" class="word-span">Faiz </span><span id="cw-89" class="word-span">curiga </span><span id="cw-90" class="word-span">dengan </span><span id="cw-91" class="word-span">rasa </span><span id="cw-92" class="word-span">pahit </span><span id="cw-93" class="word-span">di </span><span id="cw-94" class="word-span">tegukan </span><span id="cw-95" class="word-span">pertama </span><span id="cw-96" class="word-span">dan </span><span id="cw-97" class="word-span">mengingat </span><span id="cw-98" class="word-span">plat </span><span id="cw-99" class="word-span">nomor </span><span id="cw-100" class="word-span">motor </span><span id="cw-101" class="word-span">penjemputnya. </span><span id="cw-102" class="word-span">Berbekal </span><span id="cw-103" class="word-span">kesaksian </span><span id="cw-104" class="word-span">ini, </span><span id="cw-105" class="word-span">tim </span><span id="cw-106" class="word-span">reskrim </span><span id="cw-107" class="word-span">menyebar </span><span id="cw-108" class="word-span">sketsa </span><span id="cw-109" class="word-span">wajah </span><span id="cw-110" class="word-span">DPO </span><span id="cw-111" class="word-span">ke </span><span id="cw-112" class="word-span">seluruh </span><span id="cw-113" class="word-span">penjuru. </span><span id="cw-114" class="word-span">13 </span><span id="cw-115" class="word-span">Februari </span><span id="cw-116" class="word-span">2012, </span><span id="cw-117" class="word-span">perburuan </span><span id="cw-118" class="word-span">berakhir. </span><span id="cw-119" class="word-span">Mujianto </span><span id="cw-120" class="word-span">diringkus </span><span id="cw-121" class="word-span">di </span><span id="cw-122" class="word-span">rumah </span><span id="cw-123" class="word-span">persembunyiannya. </span><span id="cw-124" class="word-span">Di </span><span id="cw-125" class="word-span">kantor </span><span id="cw-126" class="word-span">polisi, </span><span id="cw-127" class="word-span">pengakuan </span><span id="cw-128" class="word-span">biadabnya </span><span id="cw-129" class="word-span">terbongkar: </span><span id="cw-130" class="word-span">23 </span><span id="cw-131" class="word-span">orang </span><span id="cw-132" class="word-span">telah </span><span id="cw-133" class="word-span">ia </span><span id="cw-134" class="word-span">racun </span><span id="cw-135" class="word-span">demi </span><span id="cw-136" class="word-span">membalas </span><span id="cw-137" class="word-span">cemburu. </span><span id="cw-138" class="word-span">Lima </span><span id="cw-139" class="word-span">korban </span><span id="cw-140" class="word-span">tewas </span><span id="cw-141" class="word-span">seketika, </span><span id="cw-142" class="word-span">sementara </span><span id="cw-143" class="word-span">belasan </span><span id="cw-144" class="word-span">lainnya </span><span id="cw-145" class="word-span">menderita </span><span id="cw-146" class="word-span">trauma </span><span id="cw-147" class="word-span">seumur </span><span id="cw-148" class="word-span">hidup. </span><span id="cw-149" class="word-span">Pengadilan </span><span id="cw-150" class="word-span">Negeri </span><span id="cw-151" class="word-span">Nganjuk </span><span id="cw-152" class="word-span">menjatuhkan </span><span id="cw-153" class="word-span">vonis </span><span id="cw-154" class="word-span">mati, </span><span id="cw-155" class="word-span">mengakhiri </span><span id="cw-156" class="word-span">teror </span><span id="cw-157" class="word-span">sang </span><span id="cw-158" class="word-span">serial </span><span id="cw-159" class="word-span">killer </span><span id="cw-160" class="word-span">Jawa </span><span id="cw-161" class="word-span">Timur. </span></div>
+    <div id="forensic-glitch"></div>
+  </div>
+
+  <script>
+    const tl = gsap.timeline({ paused: true });
+    window.__timelines = { main: tl };
+
+    // Glitch trigger helper
+    function triggerNoirGlitch(time) {
+      tl.to("#forensic-glitch", {
+        opacity: 0.85,
+        duration: 0.06,
+        ease: "power1.inOut",
+        onStart: () => gsap.set("#stage", { filter: "invert(0.12) contrast(1.4)" }),
+      }, time)
+      .to("#forensic-glitch", {
+        opacity: 0,
+        duration: 0.12,
+        ease: "power2.out",
+        onComplete: () => gsap.set("#stage", { filter: "none" }),
+      }, time + 0.06);
+    }
+
+    // Shot 00 (Cover Hook: 0.0s - 1.30s)
+    tl.to("#shot-00 .shot-img", { scale: 1.06, duration: 1.30, ease: "none" }, 0);
+
+    // Transitions & Camera Choreography
+    const shotConfigs = [{"shot":1,"startSec":1.3,"endSec":7.2,"durationSec":5.9,"imageFile":"shot-01.jpg"},{"shot":2,"startSec":7.2,"endSec":13.09,"durationSec":5.9,"imageFile":"shot-02.jpg"},{"shot":3,"startSec":13.09,"endSec":18.99,"durationSec":5.9,"imageFile":"shot-03.jpg"},{"shot":4,"startSec":18.99,"endSec":24.89,"durationSec":5.9,"imageFile":"shot-04.jpg"},{"shot":5,"startSec":24.89,"endSec":30.78,"durationSec":5.9,"imageFile":"shot-05.jpg"},{"shot":6,"startSec":30.78,"endSec":36.68,"durationSec":5.9,"imageFile":"shot-06.jpg"},{"shot":7,"startSec":36.68,"endSec":42.58,"durationSec":5.9,"imageFile":"shot-07.jpg"},{"shot":8,"startSec":42.58,"endSec":48.47,"durationSec":5.9,"imageFile":"shot-08.jpg"},{"shot":9,"startSec":48.47,"endSec":54.37,"durationSec":5.9,"imageFile":"shot-09.jpg"},{"shot":10,"startSec":54.37,"endSec":60.27,"durationSec":5.9,"imageFile":"shot-10.jpg"},{"shot":11,"startSec":60.27,"endSec":66.17,"durationSec":5.9,"imageFile":"shot-11.jpg"},{"shot":12,"startSec":66.17,"endSec":72.06,"durationSec":5.9,"imageFile":"shot-12.jpg"},{"shot":13,"startSec":72.06,"endSec":77.96,"durationSec":5.9,"imageFile":"shot-13.jpg"},{"shot":14,"startSec":77.96,"endSec":83.86,"durationSec":5.9,"imageFile":"shot-14.jpg"}];
+    const transitionTimes = [1.3,7.2,13.09,18.99,24.89,30.78,36.68,42.58,48.47,54.37,60.27,66.17,72.06,77.96];
+
+    // Trigger glitch at each transition
+    transitionTimes.forEach(t => triggerNoirGlitch(t));
+
+    // Cut from Hook to Shot 01 at 1.30s
+    tl.set("#shot-00", { autoAlpha: 0 }, 1.30);
+    tl.set("#shot-01", { autoAlpha: 1 }, 1.30);
+
+    // Choreograph each shot
+    shotConfigs.forEach((st, i) => {
+      const shotId = "#shot-" + String(st.shot).padStart(2, '0');
+      const nextShotId = i < shotConfigs.length - 1 ? "#shot-" + String(shotConfigs[i + 1].shot).padStart(2, '0') : null;
+
+      // Camera motion per shot
+      const motionType = i % 3;
+      if (motionType === 0) {
+        tl.fromTo(shotId + " .shot-img", { scale: 1.0 }, { scale: 1.08, duration: st.durationSec, ease: "none" }, st.startSec);
+      } else if (motionType === 1) {
+        tl.fromTo(shotId + " .shot-img", { scale: 1.06, yPercent: 2 }, { scale: 1.0, yPercent: -2, duration: st.durationSec, ease: "none" }, st.startSec);
+      } else {
+        tl.fromTo(shotId + " .shot-img", { scale: 1.04, xPercent: -2 }, { scale: 1.08, xPercent: 1.5, duration: st.durationSec, ease: "none" }, st.startSec);
+      }
+
+      // Cut to next shot
+      if (nextShotId) {
+        tl.set(shotId, { autoAlpha: 0 }, st.endSec);
+        tl.set(nextShotId, { autoAlpha: 1 }, st.endSec);
+      }
+    });
+
+    // Word Karaoke Synchronisation
+    const words = [{"word":"Awal","start":0,"end":0.28},{"word":"tahun","start":0.28,"end":0.63},{"word":"2012,","start":0.63,"end":1.2},{"word":"teror","start":1.2,"end":1.55},{"word":"mencekam","start":1.55,"end":2.11},{"word":"mengguncang","start":2.11,"end":2.89},{"word":"wilayah","start":2.89,"end":3.38},{"word":"Nganjuk,","start":3.38,"end":4.16},{"word":"Jawa","start":4.16,"end":4.44},{"word":"Timur.","start":4.44,"end":5.08},{"word":"Belasan","start":5.08,"end":5.57},{"word":"pria","start":5.57,"end":5.85},{"word":"ditemukan","start":5.85,"end":6.49},{"word":"terkapar","start":6.49,"end":7.05},{"word":"tak","start":7.05,"end":7.26},{"word":"bernyawa","start":7.26,"end":7.82},{"word":"di","start":7.82,"end":7.97},{"word":"semak-semak","start":7.97,"end":8.74},{"word":"dan","start":8.74,"end":8.95},{"word":"parit","start":8.95,"end":9.31},{"word":"jalanan.","start":9.31,"end":10.08},{"word":"Semua","start":10.38,"end":10.72},{"word":"korban","start":10.72,"end":11.12},{"word":"kehilangan","start":11.12,"end":11.8},{"word":"ponsel","start":11.8,"end":12.2},{"word":"dan","start":12.2,"end":12.41},{"word":"dompet,","start":12.41,"end":13.08},{"word":"tanpa","start":13.08,"end":13.42},{"word":"bekas","start":13.42,"end":13.76},{"word":"kekerasan","start":13.76,"end":14.37},{"word":"fisik","start":14.37,"end":14.7},{"word":"yang","start":14.7,"end":14.97},{"word":"jelas.","start":14.97,"end":15.58},{"word":"Polisi","start":15.88,"end":16.31},{"word":"mengungkap","start":16.31,"end":17.01},{"word":"pola","start":17.01,"end":17.3},{"word":"mengerikan:","start":17.3,"end":18.07},{"word":"para","start":18.07,"end":18.36},{"word":"korban","start":18.36,"end":18.78},{"word":"dihabisi","start":18.78,"end":19.35},{"word":"dengan","start":19.35,"end":19.77},{"word":"racun","start":19.77,"end":20.12},{"word":"tikus","start":20.12,"end":20.48},{"word":"mematikan.","start":20.48,"end":21.4},{"word":"Pelaku","start":21.4,"end":21.82},{"word":"menyelinap","start":21.82,"end":22.53},{"word":"lewat","start":22.53,"end":22.88},{"word":"kencan","start":22.88,"end":23.31},{"word":"rahasia,","start":23.31,"end":24.08},{"word":"menjamu","start":24.08,"end":24.58},{"word":"mereka","start":24.58,"end":25},{"word":"dengan","start":25,"end":25.43},{"word":"secangkir","start":25.43,"end":26.06},{"word":"teh","start":26.06,"end":26.28},{"word":"maut.","start":26.28,"end":26.84},{"word":"Saat","start":27.14,"end":27.43},{"word":"korban","start":27.43,"end":27.86},{"word":"meregang","start":27.86,"end":28.43},{"word":"nyawa","start":28.43,"end":28.78},{"word":"akibat","start":28.78,"end":29.21},{"word":"racun,","start":29.21,"end":29.85},{"word":"pelaku","start":29.85,"end":30.28},{"word":"merampas","start":30.28,"end":30.85},{"word":"harta","start":30.85,"end":31.21},{"word":"lalu","start":31.21,"end":31.5},{"word":"kabur.","start":31.5,"end":32.14},{"word":"Penyelidikan","start":32.14,"end":32.99},{"word":"sempat","start":32.99,"end":33.42},{"word":"buntu","start":33.42,"end":33.78},{"word":"karena","start":33.78,"end":34.21},{"word":"minimnya","start":34.21,"end":34.78},{"word":"saksi","start":34.78,"end":35.14},{"word":"dan","start":35.14,"end":35.35},{"word":"jejak","start":35.35,"end":35.71},{"word":"identitas","start":35.71,"end":36.35},{"word":"pelaku.","start":36.35,"end":37.06},{"word":"Titik","start":37.36,"end":37.74},{"word":"balik","start":37.74,"end":38.11},{"word":"tiba","start":38.11,"end":38.41},{"word":"ketika","start":38.41,"end":38.86},{"word":"seorang","start":38.86,"end":39.39},{"word":"korban","start":39.39,"end":39.84},{"word":"bernama","start":39.84,"end":40.37},{"word":"Faiz","start":40.37,"end":40.67},{"word":"berhasil","start":40.67,"end":41.27},{"word":"selamat","start":41.27,"end":41.8},{"word":"dari","start":41.8,"end":42.1},{"word":"maut.","start":42.1,"end":42.7},{"word":"Faiz","start":42.7,"end":43},{"word":"curiga","start":43,"end":43.45},{"word":"dengan","start":43.45,"end":43.9},{"word":"rasa","start":43.9,"end":44.2},{"word":"pahit","start":44.2,"end":44.58},{"word":"di","start":44.58,"end":44.73},{"word":"tegukan","start":44.73,"end":45.25},{"word":"pertama","start":45.25,"end":45.78},{"word":"dan","start":45.78,"end":46},{"word":"mengingat","start":46,"end":46.68},{"word":"plat","start":46.68,"end":46.98},{"word":"nomor","start":46.98,"end":47.36},{"word":"motor","start":47.36,"end":47.73},{"word":"penjemputnya.","start":47.73,"end":48.93},{"word":"Berbekal","start":48.93,"end":49.53},{"word":"kesaksian","start":49.53,"end":50.21},{"word":"ini,","start":50.21,"end":50.74},{"word":"tim","start":50.74,"end":50.96},{"word":"reskrim","start":50.96,"end":51.49},{"word":"menyebar","start":51.49,"end":52.09},{"word":"sketsa","start":52.09,"end":52.54},{"word":"wajah","start":52.54,"end":52.91},{"word":"DPO","start":52.91,"end":53.14},{"word":"ke","start":53.14,"end":53.29},{"word":"seluruh","start":53.29,"end":53.82},{"word":"penjuru.","start":53.82,"end":54.64},{"word":"13","start":54.94,"end":55.11},{"word":"Februari","start":55.11,"end":55.78},{"word":"2012,","start":55.78,"end":56.46},{"word":"perburuan","start":56.46,"end":57.22},{"word":"berakhir.","start":57.22,"end":58.23},{"word":"Mujianto","start":58.23,"end":58.9},{"word":"diringkus","start":58.9,"end":59.66},{"word":"di","start":59.66,"end":59.83},{"word":"rumah","start":59.83,"end":60.25},{"word":"persembunyiannya.","start":60.25,"end":61.93},{"word":"Di","start":61.93,"end":62.1},{"word":"kantor","start":62.1,"end":62.6},{"word":"polisi,","start":62.6,"end":63.45},{"word":"pengakuan","start":63.45,"end":64.2},{"word":"biadabnya","start":64.2,"end":64.96},{"word":"terbongkar:","start":64.96,"end":65.89},{"word":"23","start":65.89,"end":66.06},{"word":"orang","start":66.06,"end":66.48},{"word":"telah","start":66.48,"end":66.9},{"word":"ia","start":66.9,"end":67.07},{"word":"racun","start":67.07,"end":67.49},{"word":"demi","start":67.49,"end":67.83},{"word":"membalas","start":67.83,"end":68.5},{"word":"cemburu.","start":68.5,"end":69.43},{"word":"Lima","start":69.43,"end":69.76},{"word":"korban","start":69.76,"end":70.27},{"word":"tewas","start":70.27,"end":70.69},{"word":"seketika,","start":70.69,"end":71.7},{"word":"sementara","start":71.7,"end":72.46},{"word":"belasan","start":72.46,"end":73.05},{"word":"lainnya","start":73.05,"end":73.63},{"word":"menderita","start":73.63,"end":74.39},{"word":"trauma","start":74.39,"end":74.9},{"word":"seumur","start":74.9,"end":75.4},{"word":"hidup.","start":75.4,"end":76.16},{"word":"Pengadilan","start":76.16,"end":77},{"word":"Negeri","start":77,"end":77.51},{"word":"Nganjuk","start":77.51,"end":78.1},{"word":"menjatuhkan","start":78.1,"end":79.02},{"word":"vonis","start":79.02,"end":79.44},{"word":"mati,","start":79.44,"end":80.12},{"word":"mengakhiri","start":80.12,"end":80.96},{"word":"teror","start":80.96,"end":81.38},{"word":"sang","start":81.38,"end":81.72},{"word":"serial","start":81.72,"end":82.22},{"word":"killer","start":82.22,"end":82.73},{"word":"Jawa","start":82.73,"end":83.07},{"word":"Timur.","start":83.07,"end":83.82}];
+    words.forEach((w, idx) => {
+      const elId = "#cw-" + idx;
+      // Active state
+      tl.call(() => {
+        document.querySelectorAll('.word-span').forEach((el, j) => {
+          if (j < idx) {
+            el.className = 'word-span passed';
+          } else if (j === idx) {
+            el.className = 'word-span active';
+          } else {
+            el.className = 'word-span';
+          }
+        });
+      }, null, w.start);
+
+      // Passed state at word end
+      tl.call(() => {
+        const el = document.querySelector(elId);
+        if (el) el.className = 'word-span passed';
+      }, null, w.end);
+    });
+  </script>
+</body>
+</html>

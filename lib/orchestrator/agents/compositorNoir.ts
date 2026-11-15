@@ -78,15 +78,15 @@ export class CompositorNoirAgent {
       customShotTimings && customShotTimings.length > 0
         ? customShotTimings
         : Array.from({ length: 14 }, (_, i) => {
-            const start = coverDurationSec + i * shotDuration;
-            const end = i === 13 ? totalDurationSec : coverDurationSec + (i + 1) * shotDuration;
-            return {
-              shot: i + 1,
-              startSec: Number(start.toFixed(2)),
-              endSec: Number(end.toFixed(2)),
-              durationSec: Number((end - start).toFixed(2)),
-            };
-          });
+          const start = coverDurationSec + i * shotDuration;
+          const end = i === 13 ? totalDurationSec : coverDurationSec + (i + 1) * shotDuration;
+          return {
+            shot: i + 1,
+            startSec: Number(start.toFixed(2)),
+            endSec: Number(end.toFixed(2)),
+            durationSec: Number((end - start).toFixed(2)),
+          };
+        });
 
     // Caption Words & Phrases
     const captionWords: CaptionWord[] = (words || []).map((w) => ({

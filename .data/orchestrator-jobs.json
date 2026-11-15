@@ -295,9 +295,9 @@
     "id": "noir_1794719302357",
     "articleUrl": "https://www.bbc.com/indonesia/articles/ckg9q0gny1jo.amp",
     "chatId": 8326898810,
-    "status": "SCRIPTING",
+    "status": "COMPOSING_VIDEO",
     "createdAt": "2026-11-15T05:08:22.357Z",
-    "updatedAt": "2026-11-15T05:08:27.870Z",
+    "updatedAt": "2026-11-15T05:36:45.269Z",
     "dossier": {
       "url": "https://www.bbc.com/indonesia/articles/ckg9q0gny1jo.amp",
       "headline": "Misteri 10 Ilmuwan Hilang dan Tewas: Antara Fakta Kriminal dan Teori Konspirasi",
@@ -323,6 +323,296 @@
       "chronologySummary": "Carl Grillmair, seorang ilmuwan berusia 67 tahun, ditembak mati di rumahnya di Llano, California, pada Februari. Tersangka Freddy Snyder, pria lokal berusia 29 tahun, telah didakwa atas pembunuhan dan perampokan. Kematian Grillmair kemudian dikaitkan dengan teori konspirasi yang beredar di dunia maya mengenai sedikitnya 10 orang terkait riset sensitif yang meninggal atau menghilang secara misterius. Keluarga korban mengecam spekulasi tersebut sebagai 'menjijikkan' dan menegaskan bahwa fakta kasus sudah jelas.",
       "hookIdea": "Seorang ilmuwan ditembak mati di rumahnya, namun kematiannya justru memicu teori konspirasi global tentang 10 ilmuwan hilang—keluarga pun murka dan menyebut spekulasi itu 'menjijikkan'.",
       "fullBodyText": "Sedikitnya 10 orang yang terkait dengan riset sensitif di Amerika Serikat dilaporkan menghilang atau meninggal dunia. Rentetan kejadian ini menarik perhatian para penyelidik amatir di dunia maya dan penyelidik federal AS. Namun bagi keluarga yang berduka, semua spekulasi liar itu disebut \"menjijikkan\".\n\nCarl Grillmair \"akan tertawa\" mendengar teori konspirasi tentang pembunuhannya, kata Louise Grillmair, istri mendiang Carl.\n\n\"Saya pikir itu benar-benar tidak masuk akal. Maksud saya, ada fakta-faktanya, dan itu tersedia,\" sambungnya.\n\nCarl Grillmair yang berusia 67 tahun ditembak hingga meninggal dunia di rumah mereka di Llano, California, pada Februari lalu.\n\nTersangka pembunuh Grillmair, seorang pria setempat berusia 29 tahun bernama Freddy Snyder, telah didakwa atas pembunuhan dan perampokan. Dia dijadwalkan hadir di pengadilan pekan depan untuk sidang pembacaan dakwaan.\n\nMeski kasusnya telah terungkap dan berujung ke pengadilan, nama Grillmair menonjol dalam teori konspirasi tentang kematian dan hilangnya sekitar 10 orang yang memiliki kaitan dengan riset sensitif dan laboratorium rahasia.\n\nMereka sering dikelompokkan sebagai \"ilmuwan hilang\", tetapi daftar tersebut mencakup seorang asisten administratif, seorang jenderal Angkatan Udara, seorang insinyur, dan seorang petugas kebersihan. Bidang mereka beragam, mulai dari riset eksoplanet hingga farmasi.\n\nPara penyelidik amatir di jagat maya menyarankan kasus-kasus itu mungkin saling terkait. Mereka bahkan mendorong Komite Pengawas DPR AS dan FBI untuk mengumumkan penyelidikan—meskipun sudah ada penjelasan sahih serta upaya keluarga untuk meredam histeria.\n\nAkhir dari Paling banyak dibaca\n\nLiputan mendalam BBC News Indonesia langsung di WhatsApp Anda."
-    }
+    },
+    "script": {
+      "title": "10 ILMUWAN HILANG",
+      "subHeadline": "KONSPIRASI DI BALIK TEMBAKAN",
+      "fullText": "Sepuluh ilmuwan lenyap. Satu tewas ditembak. Kematian Carl Grillmair memicu teori konspirasi global yang mencekam. Freddy Snyder, pria lokal dua puluh sembilan tahun, dituduh sebagai pembunuhnya. Februari. Grillmair tewas di rumahnya di Llano, California. Istri mendengar tembakan. Senjata api ditemukan. Sidik jari mengarah ke Snyder. Perampokan jadi motif awal. Polisi menyelidiki. Namun dunia maya justru sibuk dengan daftar kematian misterius. Sepuluh nama terkait riset sensitif. Hilang. Tewas. Tanpa pola jelas. Penyelidik amatir mencurigai TKP rahasia. Konspirasi mulai membesar. Snyder ditangkap. Dakwaan pembunuhan dan perampokan resmi diajukan. Bukti utama: senjata api dan kesaksian Louise Grillmair yang melihat langsung. Namun spekulasi liar terus tumbuh. Uang, rahasia, dan transaksi gelap. Keluarga korban menolak teori konspirasi. Mereka menyebutnya menjijikkan. Sidang berlangsung. Fakta kriminal bertarung dengan narasi konspirasi. Vonis menanti. Keadilan bagi Grillmair, atau misteri yang tetap terbuka? Brankas arsip terkunci. Kasus ditutup, tapi pertanyaan tetap ada.",
+      "targetDurationSec": 59,
+      "wordCount": 142,
+      "beats": [
+        {
+          "shot": 0,
+          "startSec": 0,
+          "endSec": 1.5,
+          "narration": "Sepuluh ilmuwan lenyap. Satu tewas ditembak.",
+          "visualCue": "Headline grafis neo-noir: '10 ILMUWAN HILANG' dengan siluet pria berjas dan garis polisi merah.",
+          "shotType": "cover"
+        },
+        {
+          "shot": 1,
+          "startSec": 1.5,
+          "endSec": 5.5,
+          "narration": "Kematian Carl Grillmair memicu teori konspirasi global yang mencekam.",
+          "visualCue": "Close-up wajah korban dalam bayangan, latar berita koran berserakan.",
+          "shotType": "hook"
+        },
+        {
+          "shot": 2,
+          "startSec": 5.5,
+          "endSec": 9.5,
+          "narration": "Freddy Snyder, pria lokal dua puluh sembilan tahun, dituduh sebagai pembunuhnya.",
+          "visualCue": "Profil tersangka dalam sorotan lampu interogasi, latar gelap.",
+          "shotType": "profile"
+        },
+        {
+          "shot": 3,
+          "startSec": 9.5,
+          "endSec": 13.5,
+          "narration": "Februari. Grillmair tewas di rumahnya di Llano, California. Istri mendengar tembakan.",
+          "visualCue": "Pintu rumah terbuka, bayangan pistol, istri histeris di latar belakang.",
+          "shotType": "entry"
+        },
+        {
+          "shot": 4,
+          "startSec": 13.5,
+          "endSec": 17.5,
+          "narration": "Senjata api ditemukan. Sidik jari mengarah ke Snyder. Perampokan jadi motif awal.",
+          "visualCue": "Meja forensik 45 derajat: pistol, sidik jari, label bukti.",
+          "shotType": "forensic"
+        },
+        {
+          "shot": 5,
+          "startSec": 17.5,
+          "endSec": 21.5,
+          "narration": "Polisi menyelidiki. Namun dunia maya justru sibuk dengan daftar kematian misterius.",
+          "visualCue": "Layar komputer memperlihatkan peta digital dengan titik-titik merah.",
+          "shotType": "investigation"
+        },
+        {
+          "shot": 6,
+          "startSec": 21.5,
+          "endSec": 25.5,
+          "narration": "Sepuluh nama terkait riset sensitif. Hilang. Tewas. Tanpa pola jelas.",
+          "visualCue": "Peta rute dengan garis putus-putus menghubungkan lokasi-lokasi.",
+          "shotType": "map"
+        },
+        {
+          "shot": 7,
+          "startSec": 25.5,
+          "endSec": 29.5,
+          "narration": "Penyelidik amatir mencurigai TKP rahasia. Konspirasi mulai membesar.",
+          "visualCue": "Ruang gelap penuh papan bukti, benang merah menghubungkan foto korban.",
+          "shotType": "turning_point"
+        },
+        {
+          "shot": 8,
+          "startSec": 29.5,
+          "endSec": 33.5,
+          "narration": "Snyder ditangkap. Dakwaan pembunuhan dan perampokan resmi diajukan.",
+          "visualCue": "Penggerebekan malam: lampu sorot, tersangka diborgol.",
+          "shotType": "arrest"
+        },
+        {
+          "shot": 9,
+          "startSec": 33.5,
+          "endSec": 37.5,
+          "narration": "Bukti utama: senjata api dan kesaksian Louise Grillmair yang melihat langsung.",
+          "visualCue": "Close-up senjata dalam plastik bukti, bayangan istri memberi kesaksian.",
+          "shotType": "evidence"
+        },
+        {
+          "shot": 10,
+          "startSec": 37.5,
+          "endSec": 41.5,
+          "narration": "Namun spekulasi liar terus tumbuh. Uang, rahasia, dan transaksi gelap.",
+          "visualCue": "Tumpukan uang dan dokumen rahasia terbakar sebagian.",
+          "shotType": "motive"
+        },
+        {
+          "shot": 11,
+          "startSec": 41.5,
+          "endSec": 45.5,
+          "narration": "Keluarga korban menolak teori konspirasi. Mereka menyebutnya menjijikkan.",
+          "visualCue": "Berkas otopsi dan pernyataan keluarga dengan tinta merah.",
+          "shotType": "autopsy"
+        },
+        {
+          "shot": 12,
+          "startSec": 45.5,
+          "endSec": 49.5,
+          "narration": "Sidang berlangsung. Fakta kriminal bertarung dengan narasi konspirasi.",
+          "visualCue": "Ruang sidang gelap, palu hakim terangkat.",
+          "shotType": "court"
+        },
+        {
+          "shot": 13,
+          "startSec": 49.5,
+          "endSec": 54,
+          "narration": "Vonis menanti. Keadilan bagi Grillmair, atau misteri yang tetap terbuka?",
+          "visualCue": "Timbangan keadilan dengan satu sisi penuh bayangan.",
+          "shotType": "verdict"
+        },
+        {
+          "shot": 14,
+          "startSec": 54,
+          "endSec": 59,
+          "narration": "Brankas arsip terkunci. Kasus ditutup, tapi pertanyaan tetap ada.",
+          "visualCue": "Brankas baja tertutup, logo neo-noir, teks 'ARSIP TERKUNCI'.",
+          "shotType": "closing"
+        }
+      ]
+    },
+    "allKeyframes": [
+      {
+        "shot": 0,
+        "label": "Shot 00: Mandatory High-CTR Cover Image",
+        "isCoreSample": true,
+        "prompt": "A dramatic, high-CTR YouTube Shorts cover and thumbnail illustration, vertical 9:16 aspect ratio (1080x1920), Graphic Novel Neo-Noir style. Visual Scene: A chilling crime scene hook depicting Siluet rumah terpencil di Llano, California, malam berkabut. Di depan pintu, garis kapur putih membentuk tubuh manusia, dikelilingi pita polisi kuning. Di latar belakang, bayangan samar sosok berjas lab dan seragam militer menghilang ke dalam kegelapan, sementara satu sosok pria lokal berdiri di bawah lampu jalan, wajahnya setengah tertutup bayangan. Gaya graphic novel neo-noir, chiaroscuro tajam, dominasi hitam, abu-abu, dan aksen merah darah.. Integrated Bold Typography: Prominent massive distressed headline text: '10 ILMUWAN HILANG' rendered in heavy stencil/impact typography in warm broken-white (#E6EDF3) with antique brass bronze accents (#C59B27) and deep drop shadows. Sub-headline ribbon banner: 'KONSPIRASI DI BALIK TEMBAKAN' in a deep dried crimson red tape (#8B2635) with sharp white lettering. Top warning header banner: '/// POLICE INVESTIGATION DOSSIER ///'. Artistic Style: Dynamic heavy inking, chiaroscuro lighting, gritty halftone screen tone dot pattern, cel-shaded shadows, matte graphic novel finish. Full bleed composition filling the entire 9:16 vertical canvas. No pastel colors, no oversaturation, no cartoonish elements.",
+        "imagePath": "/Users/beny/Documents/Project-self/Content-automation/public/renders/noir_1794719302357/keyframes/shot-00.jpg",
+        "imageUrl": "/renders/noir_1794719302357/keyframes/shot-00.jpg"
+      },
+      {
+        "shot": 1,
+        "label": "Shot 01: Hook Scene Silhouette",
+        "isCoreSample": true,
+        "prompt": "A cinematic graphic novel neo-noir illustration, vertical 9:16 aspect ratio (1080x1920). Subject: An ominous silhouette standing in the shadow of a dim crime scene in Amerika Serikat (Llano, California, dan lokasi lain yang tidak disebutkan), heavy rain on pavement, yellow police tape marked 'KEEP OUT'. Full bleed vertical portrait framing, dramatic chiaroscuro lighting with sharp volumetric spotlight piercing through cold mist, deep shadows, heavy contour inking, fine halftone dot screen tones, matte charcoal slate (#0D1117), cold storm gray, antique dull bronze (#C59B27). No text cards, no watermark.",
+        "imagePath": "/Users/beny/Documents/Project-self/Content-automation/public/renders/noir_1794719302357/keyframes/shot-01.jpg",
+        "imageUrl": "/renders/noir_1794719302357/keyframes/shot-01.jpg"
+      },
+      {
+        "shot": 2,
+        "label": "Shot 02: Police Criminal Mugshot",
+        "isCoreSample": false,
+        "prompt": "A cinematic graphic novel neo-noir illustration, vertical 9:16 aspect ratio (1080x1920). A stark police criminal mugshot sketch of suspect Freddy Snyder (pria lokal berusia 29 tahun, tersangka pembunuhan Carl Grillmair), high contrast comic book inking, prisoner identification placard under chin, heavy cross-hatching, harsh interrogation spotlight, stamped with dried crimson red seal 'BERKAS PERKARA'. Full bleed, halftone shading, matte finish.",
+        "imagePath": "/Users/beny/Documents/Project-self/Content-automation/public/renders/noir_1794719302357/keyframes/shot-02.jpg",
+        "imageUrl": "/renders/noir_1794719302357/keyframes/shot-02.jpg"
+      },
+      {
+        "shot": 3,
+        "label": "Shot 03: The Hook Entrance / Digital Footprint",
+        "isCoreSample": false,
+        "prompt": "A cinematic graphic novel neo-noir illustration, vertical 9:16 aspect ratio (1080x1920). A cracked glowing smartphone screen shattered on cold reflective asphalt surface, subtle eerie cyan and dried crimson glow through dark shadows, rain-slicked night pavement, dynamic heavy inking, halftone screen tone texture. Full bleed 9:16.",
+        "imagePath": "/Users/beny/Documents/Project-self/Content-automation/public/renders/noir_1794719302357/keyframes/shot-03.jpg",
+        "imageUrl": "/renders/noir_1794719302357/keyframes/shot-03.jpg"
+      },
+      {
+        "shot": 4,
+        "label": "Shot 04: Forensic Evidence Desk 45°",
+        "isCoreSample": true,
+        "prompt": "A cinematic graphic novel neo-noir illustration, vertical 9:16 aspect ratio (1080x1920). Subject: Isometric 45-degree angle top-down view of a police forensic evidence desk examining Senjata api (digunakan dalam penembakan Carl Grillmair), clear plastic evidence bags, red evidence marker tags '01' and '02', tactical grid paper. Forensic items tightly arranged across a matte dark graphite workbench. Dynamic heavy inking, fine halftone dot shading, matte charcoal slate (#0D1117), antique bronze accents (#C59B27), dried crimson red stamps (#8B2635). Harsh desk lamp lighting. Full bleed.",
+        "imagePath": "/Users/beny/Documents/Project-self/Content-automation/public/renders/noir_1794719302357/keyframes/shot-04.jpg",
+        "imageUrl": "/renders/noir_1794719302357/keyframes/shot-04.jpg"
+      },
+      {
+        "shot": 5,
+        "label": "Shot 05: Cyber Crime Investigation Workstation",
+        "isCoreSample": false,
+        "prompt": "A cinematic graphic novel neo-noir illustration, vertical 9:16 aspect ratio (1080x1920). Forensic cyber crime investigation workstation at police headquarters, glowing computer monitors displaying forensic audio waveforms and encrypted communication logs, dark chiaroscuro room, heavy linework, halftone shading. Full bleed.",
+        "imagePath": "/Users/beny/Documents/Project-self/Content-automation/public/renders/noir_1794719302357/keyframes/shot-05.jpg",
+        "imageUrl": "/renders/noir_1794719302357/keyframes/shot-05.jpg"
+      },
+      {
+        "shot": 6,
+        "label": "Shot 06: Tactical Transit Route Map",
+        "isCoreSample": false,
+        "prompt": "A cinematic graphic novel neo-noir illustration, vertical 9:16 aspect ratio (1080x1920). Isometric top-down forensic transit map showing city route lines branching toward Amerika Serikat (Llano, California, dan lokasi lain yang tidak disebutkan), routes traced in red marker ink, dark parchment texture, magnifying glass, tactical surveillance grid. Full bleed.",
+        "imagePath": "/Users/beny/Documents/Project-self/Content-automation/public/renders/noir_1794719302357/keyframes/shot-06.jpg",
+        "imageUrl": "/renders/noir_1794719302357/keyframes/shot-06.jpg"
+      },
+      {
+        "shot": 7,
+        "label": "Shot 07: Isolated Crime Building Exterior",
+        "isCoreSample": false,
+        "prompt": "A cinematic graphic novel neo-noir illustration, vertical 9:16 aspect ratio (1080x1920). Low angle exterior perspective of a quiet secluded suburban building in Amerika Serikat (Llano, California, dan lokasi lain yang tidak disebutkan) at 2 AM, single eerie fluorescent light glowing from an upper window, yellow police barrier tape. Gritty graphic novel style, halftone sky, deep shadows. Full bleed.",
+        "imagePath": "/Users/beny/Documents/Project-self/Content-automation/public/renders/noir_1794719302357/keyframes/shot-07.jpg",
+        "imageUrl": "/renders/noir_1794719302357/keyframes/shot-07.jpg"
+      },
+      {
+        "shot": 8,
+        "label": "Shot 08: Dim Hallway Corridor Door",
+        "isCoreSample": false,
+        "prompt": "A cinematic graphic novel neo-noir illustration, vertical 9:16 aspect ratio (1080x1920). Narrow dim hallway corridor inside a quiet building, weathered metal door with room number plate, long menacing shadow stretching out from beneath the door sill, heavy noir inking, dust motes in beam of light. Full bleed.",
+        "imagePath": "/Users/beny/Documents/Project-self/Content-automation/public/renders/noir_1794719302357/keyframes/shot-08.jpg",
+        "imageUrl": "/renders/noir_1794719302357/keyframes/shot-08.jpg"
+      },
+      {
+        "shot": 9,
+        "label": "Shot 09: Chilling Evidence Discovery Climax",
+        "isCoreSample": true,
+        "prompt": "A cinematic graphic novel neo-noir illustration, vertical 9:16 aspect ratio (1080x1920). Forensic crime scene photograph: sealed evidence boxes and heavy tool containers with police barrier tape inside a dim room, yellow forensic evidence tags '03' and '04', intense chiaroscuro contrast, heavy graphic novel inking, deep dried crimson red accents (#8B2635). Full bleed vertical portrait.",
+        "imagePath": "/Users/beny/Documents/Project-self/Content-automation/public/renders/noir_1794719302357/keyframes/shot-09.jpg",
+        "imageUrl": "/renders/noir_1794719302357/keyframes/shot-09.jpg"
+      },
+      {
+        "shot": 10,
+        "label": "Shot 10: Seized Property & Banknotes",
+        "isCoreSample": false,
+        "prompt": "A cinematic graphic novel neo-noir illustration, vertical 9:16 aspect ratio (1080x1920). Clear transparent police evidence bag containing thick stacks of banknotes and confiscated victim identity cards, barcode evidence sticker, resting on dark brushed steel forensic table. Heavy inking, halftone dots. Full bleed.",
+        "imagePath": "/Users/beny/Documents/Project-self/Content-automation/public/renders/noir_1794719302357/keyframes/shot-10.jpg",
+        "imageUrl": "/renders/noir_1794719302357/keyframes/shot-10.jpg"
+      },
+      {
+        "shot": 11,
+        "label": "Shot 11: Confidential Autopsy Dossier",
+        "isCoreSample": false,
+        "prompt": "A cinematic graphic novel neo-noir illustration, vertical 9:16 aspect ratio (1080x1920). Manila autopsy file dossier and police investigation crime report folder spread out, red confidential rubber stamp 'RAHASIA / CONFIDENTIAL', censored monochrome incident documents, antique bronze accents. Full bleed.",
+        "imagePath": "/Users/beny/Documents/Project-self/Content-automation/public/renders/noir_1794719302357/keyframes/shot-11.jpg",
+        "imageUrl": "/renders/noir_1794719302357/keyframes/shot-11.jpg"
+      },
+      {
+        "shot": 12,
+        "label": "Shot 12: Judicial Courtroom Gavel",
+        "isCoreSample": false,
+        "prompt": "A cinematic graphic novel neo-noir illustration, vertical 9:16 aspect ratio (1080x1920). Heavy dark hardwood judicial gavel bound with antique brass bronze bands resting on sound block, official court verdict decree documents, dramatic spotlight casting long shadows, solemn courtroom ambiance. Full bleed.",
+        "imagePath": "/Users/beny/Documents/Project-self/Content-automation/public/renders/noir_1794719302357/keyframes/shot-12.jpg",
+        "imageUrl": "/renders/noir_1794719302357/keyframes/shot-12.jpg"
+      },
+      {
+        "shot": 13,
+        "label": "Shot 13: Monolithic Scales of Justice",
+        "isCoreSample": true,
+        "prompt": "A cinematic graphic novel neo-noir illustration, vertical 9:16 aspect ratio (1080x1920). Neoclassical black iron scales of justice hanging in exact balance under a dramatic volumetric ray of light inside a cathedral-like high court chamber, fine halftone screen tone, timeless justice allegory, deep shadows, matte charcoal slate (#0D1117). Full bleed vertical framing.",
+        "imagePath": "/Users/beny/Documents/Project-self/Content-automation/public/renders/noir_1794719302357/keyframes/shot-13.jpg",
+        "imageUrl": "/renders/noir_1794719302357/keyframes/shot-13.jpg"
+      },
+      {
+        "shot": 14,
+        "label": "Shot 14: Police Archive Vault Case Closed",
+        "isCoreSample": false,
+        "prompt": "A cinematic graphic novel neo-noir illustration, vertical 9:16 aspect ratio (1080x1920). Massive heavy vault steel door of the police archives closing and locked, embossed brass seal, large bold red wax stamp across the seam reading 'BERKAS DITUTUP / CASE CLOSED', dark slate background with fine halftone dots. Full bleed.",
+        "imagePath": "/Users/beny/Documents/Project-self/Content-automation/public/renders/noir_1794719302357/keyframes/shot-14.jpg",
+        "imageUrl": "/renders/noir_1794719302357/keyframes/shot-14.jpg"
+      }
+    ],
+    "sampleKeyframes": [
+      {
+        "shot": 0,
+        "label": "Shot 00: Mandatory High-CTR Cover Image",
+        "imagePath": "/Users/beny/Documents/Project-self/Content-automation/public/renders/noir_1794719302357/keyframes/flow-shot-00.jpg",
+        "imageUrl": "/renders/noir_1794719302357/keyframes/flow-shot-00.jpg",
+        "isCoreSample": true
+      },
+      {
+        "shot": 1,
+        "label": "Shot 01: Hook Scene Silhouette",
+        "imagePath": "/Users/beny/Documents/Project-self/Content-automation/public/renders/noir_1794719302357/keyframes/flow-shot-01.jpg",
+        "imageUrl": "/renders/noir_1794719302357/keyframes/flow-shot-01.jpg",
+        "isCoreSample": true
+      },
+      {
+        "shot": 4,
+        "label": "Shot 04: Forensic Evidence Desk 45°",
+        "imagePath": "/Users/beny/Documents/Project-self/Content-automation/public/renders/noir_1794719302357/keyframes/flow-shot-04.jpg",
+        "imageUrl": "/renders/noir_1794719302357/keyframes/flow-shot-04.jpg",
+        "isCoreSample": true
+      },
+      {
+        "shot": 9,
+        "label": "Shot 09: Chilling Evidence Discovery Climax",
+        "imagePath": "/Users/beny/Documents/Project-self/Content-automation/public/renders/noir_1794719302357/keyframes/flow-shot-09.jpg",
+        "imageUrl": "/renders/noir_1794719302357/keyframes/flow-shot-09.jpg",
+        "isCoreSample": true
+      },
+      {
+        "shot": 13,
+        "label": "Shot 13: Monolithic Scales of Justice",
+        "imagePath": "/Users/beny/Documents/Project-self/Content-automation/public/renders/noir_1794719302357/keyframes/flow-shot-13.jpg",
+        "imageUrl": "/renders/noir_1794719302357/keyframes/flow-shot-13.jpg",
+        "isCoreSample": true
+      }
+    ],
+    "audioPath": "/Users/beny/Documents/Project-self/Content-automation/public/renders/noir_1794719302357/audio/narration-1794720054493-puck.mp3",
+    "audioDurationSec": 75
   }
 }

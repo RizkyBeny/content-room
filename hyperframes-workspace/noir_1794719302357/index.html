@@ -1,0 +1,1203 @@
+<!doctype html>
+<html lang="id" data-resolution="portrait">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=1080, height=1920" />
+  <title>10 ILMUWAN HILANG</title>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.15.0/dist/gsap.min.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Courier+Prime:wght@400;700&family=IBM+Plex+Mono:wght@500;700&family=Inter:wght@400;500;600;700;800;900&family=Montserrat:wght@700;800;900&display=swap" rel="stylesheet">
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    html, body {
+      margin: 0;
+      width: 1080px;
+      height: 1920px;
+      overflow: hidden;
+      background-color: #0D1117;
+      color: #E6EDF3;
+      font-family: 'Inter', sans-serif;
+    }
+    #root {
+      width: 1080px;
+      height: 1920px;
+      position: relative;
+      overflow: hidden;
+    }
+    /* Safe Area (Top 140px, Bottom 180px, Horizontal 64px) */
+    .safe-area {
+      position: absolute;
+      top: 140px;
+      bottom: 180px;
+      left: 64px;
+      right: 64px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      z-index: 10;
+    }
+    .scene-container {
+      position: absolute;
+      inset: 0;
+      width: 1080px;
+      height: 1920px;
+      opacity: 0;
+      visibility: hidden;
+    }
+    .bg-wrapper {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      z-index: 1;
+    }
+    .scene-bg-media {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .scene-bg-graphic {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      background: radial-gradient(circle at 50% 40%, rgba(22, 27, 34, 0.85) 0%, #0D1117 85%);
+    }
+    .scrim-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(13,17,23,0.6) 0%, rgba(13,17,23,0.05) 45%, rgba(13,17,23,0.8) 100%);
+      z-index: 2;
+    }
+    .dot-pattern {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 480px;
+      background-image: radial-gradient(circle, rgba(197, 155, 39, 0.08) 3px, transparent 4px);
+      background-size: 36px 36px;
+      z-index: 3;
+    }
+    .top-meta {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+    .bottom-branding {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+    .brand-tag {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 800;
+      font-size: 20px;
+      letter-spacing: 0.15em;
+      opacity: 0.8;
+      color: #8B2635;
+    }
+    .progress-bar-container {
+      width: 100%;
+      height: 6px;
+      background: rgba(255, 255, 255, 0.2);
+      border-radius: 9999px;
+      overflow: hidden;
+    }
+    .progress-bar-fill {
+      width: 0%;
+      height: 100%;
+      background: #8B2635;
+    }
+    .scene-subtext {
+      font-size: 32px;
+      line-height: 1.4;
+      margin-top: 24px;
+      opacity: 0.9;
+    }
+    .metric-container {
+      margin-top: 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .metric-label {
+      font-size: 28px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      opacity: 0.85;
+    }
+    
+    .theme-mystery-true-crime {
+      background-color: #0D1117;
+      color: #E6EDF3;
+      font-family: 'Inter', sans-serif;
+    }
+
+    /* Halftone Screen Tone Grain Effect */
+    .halftone-grain-overlay {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      opacity: 0.05;
+      pointer-events: none;
+      background-image: radial-gradient(#E6EDF3 1px, transparent 1px);
+      background-size: 5px 5px;
+      z-index: 10;
+    }
+
+    /* Full-Bleed Media Container */
+    .media-container-fullbleed {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      z-index: 1;
+    }
+
+    .media-container-fullbleed img,
+    .media-container-fullbleed video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transform-origin: center center;
+    }
+
+    /* Pure Autocaption Karaoke Bar in Bottom Safe Area */
+    .autocaption-bar {
+      position: absolute;
+      bottom: 300px;
+      left: 60px;
+      right: 60px;
+      text-align: center;
+      z-index: 25;
+      pointer-events: none;
+    }
+
+    /* Bottom Dark Scrim for Enhanced Readability */
+    .bottom-caption-scrim {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 560px;
+      background: linear-gradient(180deg, rgba(13, 17, 23, 0) 0%, rgba(13, 17, 23, 0.55) 45%, rgba(13, 17, 23, 0.92) 100%);
+      pointer-events: none;
+      z-index: 20;
+    }
+
+    /* Noir Forensic Glitch Overlay */
+    .forensic-glitch-overlay {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      opacity: 0;
+      z-index: 30;
+      background: repeating-linear-gradient(
+        0deg,
+        rgba(230, 237, 243, 0.09) 0px,
+        rgba(230, 237, 243, 0.09) 2px,
+        transparent 2px,
+        transparent 5px
+      );
+      mix-blend-mode: screen;
+      will-change: opacity, transform, filter;
+    }
+
+    .caption-word {
+      display: inline-block;
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 800;
+      font-size: 52px;
+      line-height: 1.3;
+      color: #E6EDF3;
+      margin: 0 8px 10px 8px;
+      text-shadow: 0 4px 18px rgba(0, 0, 0, 0.95), 0 2px 4px rgba(0, 0, 0, 0.8);
+      transition: transform 0.15s ease, color 0.15s ease;
+    }
+
+    .caption-word.active {
+      color: #C59B27;
+      transform: scale(1.08);
+      text-shadow: 0 0 24px rgba(197, 155, 39, 0.75), 0 4px 18px rgba(0, 0, 0, 0.95);
+    }
+
+    /* Cover Image Hook Title Styling */
+    .cover-hook-overlay {
+      position: absolute;
+      inset: 0;
+      z-index: 30;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 0 60px 220px 60px;
+      background: linear-gradient(180deg, rgba(13,17,23,0.1) 0%, rgba(13,17,23,0.3) 50%, rgba(13,17,23,0.92) 100%);
+    }
+
+    .cover-hook-kicker {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 800;
+      font-size: 24px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: #8B2635;
+      background: #E6EDF3;
+      padding: 6px 16px;
+      border-radius: 4px;
+      display: inline-block;
+      width: fit-content;
+      margin-bottom: 20px;
+    }
+
+    .cover-hook-title {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 900;
+      font-size: 64px;
+      line-height: 1.12;
+      text-transform: uppercase;
+      color: #E6EDF3;
+      text-shadow: 0 6px 30px rgba(0, 0, 0, 0.95);
+    }
+
+    .cover-hook-title span {
+      color: #C59B27;
+    }
+
+    .cover-hook-subtitle {
+      font-family: 'Inter', sans-serif;
+      font-weight: 600;
+      font-size: 30px;
+      color: rgba(230, 237, 243, 0.85);
+      margin-top: 16px;
+    }
+  
+  </style>
+</head>
+<body class="theme-mystery-true-crime">
+  <div
+    id="root"
+    data-composition-id="main"
+    data-start="0"
+    data-duration="75"
+    data-width="1080"
+    data-height="1920"
+  >
+    
+      <section class="scene-container" id="scene-scene_00" data-start="0.00" data-duration="1.50">
+        <div class="bg-wrapper">
+          <img class="scene-bg-media scene-img" src="shot-00.jpg" alt="scene background" />
+          <div class="scrim-overlay"></div>
+          <div class="dot-pattern"></div>
+        </div>
+
+        <div class="safe-area">
+          <div class="top-meta">
+            <span class="kicker-badge">/// INVESTIGATION DOSSIER ///</span>
+          </div>
+
+          <div class="scene-card">
+            <h1 class="kinetic-title">Sepuluh ilmuwan lenyap. Satu tewas ditem</h1>
+            
+            <p class="scene-subtext">Sepuluh ilmuwan lenyap. Satu tewas ditembak.</p>
+          </div>
+
+          <div class="bottom-branding">
+            <div class="brand-tag">EXPLAINER</div>
+            <div class="progress-bar-container">
+              <div class="progress-bar-fill"></div>
+            </div>
+          </div>
+        </div>
+      </section>
+      
+
+      <section class="scene-container" id="scene-scene_01" data-start="1.50" data-duration="4.00">
+        <div class="bg-wrapper">
+          <img class="scene-bg-media scene-img" src="shot-01.jpg" alt="scene background" />
+          <div class="scrim-overlay"></div>
+          <div class="dot-pattern"></div>
+        </div>
+
+        <div class="safe-area">
+          <div class="top-meta">
+            <span class="kicker-badge">KASUS PERKARA</span>
+          </div>
+
+          <div class="scene-card">
+            <h1 class="kinetic-title">Kematian Carl Grillmair memicu teori kon</h1>
+            
+            <p class="scene-subtext">Kematian Carl Grillmair memicu teori konspirasi global yang mencekam.</p>
+          </div>
+
+          <div class="bottom-branding">
+            <div class="brand-tag">EXPLAINER</div>
+            <div class="progress-bar-container">
+              <div class="progress-bar-fill"></div>
+            </div>
+          </div>
+        </div>
+      </section>
+      
+
+      <section class="scene-container" id="scene-scene_02" data-start="5.50" data-duration="4.00">
+        <div class="bg-wrapper">
+          <img class="scene-bg-media scene-img" src="shot-02.jpg" alt="scene background" />
+          <div class="scrim-overlay"></div>
+          <div class="dot-pattern"></div>
+        </div>
+
+        <div class="safe-area">
+          <div class="top-meta">
+            <span class="kicker-badge">KASUS PERKARA</span>
+          </div>
+
+          <div class="scene-card">
+            <h1 class="kinetic-title">Freddy Snyder, pria lokal dua puluh semb</h1>
+            
+            <p class="scene-subtext">Freddy Snyder, pria lokal dua puluh sembilan tahun, dituduh sebagai pembunuhnya.</p>
+          </div>
+
+          <div class="bottom-branding">
+            <div class="brand-tag">EXPLAINER</div>
+            <div class="progress-bar-container">
+              <div class="progress-bar-fill"></div>
+            </div>
+          </div>
+        </div>
+      </section>
+      
+
+      <section class="scene-container" id="scene-scene_03" data-start="9.50" data-duration="4.00">
+        <div class="bg-wrapper">
+          <img class="scene-bg-media scene-img" src="shot-03.jpg" alt="scene background" />
+          <div class="scrim-overlay"></div>
+          <div class="dot-pattern"></div>
+        </div>
+
+        <div class="safe-area">
+          <div class="top-meta">
+            <span class="kicker-badge">KASUS PERKARA</span>
+          </div>
+
+          <div class="scene-card">
+            <h1 class="kinetic-title">Februari. Grillmair tewas di rumahnya di</h1>
+            
+            <p class="scene-subtext">Februari. Grillmair tewas di rumahnya di Llano, California. Istri mendengar tembakan.</p>
+          </div>
+
+          <div class="bottom-branding">
+            <div class="brand-tag">EXPLAINER</div>
+            <div class="progress-bar-container">
+              <div class="progress-bar-fill"></div>
+            </div>
+          </div>
+        </div>
+      </section>
+      
+
+      <section class="scene-container" id="scene-scene_04" data-start="13.50" data-duration="4.00">
+        <div class="bg-wrapper">
+          <img class="scene-bg-media scene-img" src="shot-04.jpg" alt="scene background" />
+          <div class="scrim-overlay"></div>
+          <div class="dot-pattern"></div>
+        </div>
+
+        <div class="safe-area">
+          <div class="top-meta">
+            <span class="kicker-badge">KASUS PERKARA</span>
+          </div>
+
+          <div class="scene-card">
+            <h1 class="kinetic-title">Senjata api ditemukan. Sidik jari mengar</h1>
+            
+            <p class="scene-subtext">Senjata api ditemukan. Sidik jari mengarah ke Snyder. Perampokan jadi motif awal.</p>
+          </div>
+
+          <div class="bottom-branding">
+            <div class="brand-tag">EXPLAINER</div>
+            <div class="progress-bar-container">
+              <div class="progress-bar-fill"></div>
+            </div>
+          </div>
+        </div>
+      </section>
+      
+
+      <section class="scene-container" id="scene-scene_05" data-start="17.50" data-duration="4.00">
+        <div class="bg-wrapper">
+          <img class="scene-bg-media scene-img" src="shot-05.jpg" alt="scene background" />
+          <div class="scrim-overlay"></div>
+          <div class="dot-pattern"></div>
+        </div>
+
+        <div class="safe-area">
+          <div class="top-meta">
+            <span class="kicker-badge">KASUS PERKARA</span>
+          </div>
+
+          <div class="scene-card">
+            <h1 class="kinetic-title">Polisi menyelidiki. Namun dunia maya jus</h1>
+            
+            <p class="scene-subtext">Polisi menyelidiki. Namun dunia maya justru sibuk dengan daftar kematian misterius.</p>
+          </div>
+
+          <div class="bottom-branding">
+            <div class="brand-tag">EXPLAINER</div>
+            <div class="progress-bar-container">
+              <div class="progress-bar-fill"></div>
+            </div>
+          </div>
+        </div>
+      </section>
+      
+
+      <section class="scene-container" id="scene-scene_06" data-start="21.50" data-duration="4.00">
+        <div class="bg-wrapper">
+          <img class="scene-bg-media scene-img" src="shot-06.jpg" alt="scene background" />
+          <div class="scrim-overlay"></div>
+          <div class="dot-pattern"></div>
+        </div>
+
+        <div class="safe-area">
+          <div class="top-meta">
+            <span class="kicker-badge">KASUS PERKARA</span>
+          </div>
+
+          <div class="scene-card">
+            <h1 class="kinetic-title">Sepuluh nama terkait riset sensitif. Hil</h1>
+            
+            <p class="scene-subtext">Sepuluh nama terkait riset sensitif. Hilang. Tewas. Tanpa pola jelas.</p>
+          </div>
+
+          <div class="bottom-branding">
+            <div class="brand-tag">EXPLAINER</div>
+            <div class="progress-bar-container">
+              <div class="progress-bar-fill"></div>
+            </div>
+          </div>
+        </div>
+      </section>
+      
+
+      <section class="scene-container" id="scene-scene_07" data-start="25.50" data-duration="4.00">
+        <div class="bg-wrapper">
+          <img class="scene-bg-media scene-img" src="shot-07.jpg" alt="scene background" />
+          <div class="scrim-overlay"></div>
+          <div class="dot-pattern"></div>
+        </div>
+
+        <div class="safe-area">
+          <div class="top-meta">
+            <span class="kicker-badge">KASUS PERKARA</span>
+          </div>
+
+          <div class="scene-card">
+            <h1 class="kinetic-title">Penyelidik amatir mencurigai TKP rahasia</h1>
+            
+            <p class="scene-subtext">Penyelidik amatir mencurigai TKP rahasia. Konspirasi mulai membesar.</p>
+          </div>
+
+          <div class="bottom-branding">
+            <div class="brand-tag">EXPLAINER</div>
+            <div class="progress-bar-container">
+              <div class="progress-bar-fill"></div>
+            </div>
+          </div>
+        </div>
+      </section>
+      
+
+      <section class="scene-container" id="scene-scene_08" data-start="29.50" data-duration="4.00">
+        <div class="bg-wrapper">
+          <img class="scene-bg-media scene-img" src="shot-08.jpg" alt="scene background" />
+          <div class="scrim-overlay"></div>
+          <div class="dot-pattern"></div>
+        </div>
+
+        <div class="safe-area">
+          <div class="top-meta">
+            <span class="kicker-badge">KASUS PERKARA</span>
+          </div>
+
+          <div class="scene-card">
+            <h1 class="kinetic-title">Snyder ditangkap. Dakwaan pembunuhan dan</h1>
+            
+            <p class="scene-subtext">Snyder ditangkap. Dakwaan pembunuhan dan perampokan resmi diajukan.</p>
+          </div>
+
+          <div class="bottom-branding">
+            <div class="brand-tag">EXPLAINER</div>
+            <div class="progress-bar-container">
+              <div class="progress-bar-fill"></div>
+            </div>
+          </div>
+        </div>
+      </section>
+      
+
+      <section class="scene-container" id="scene-scene_09" data-start="33.50" data-duration="4.00">
+        <div class="bg-wrapper">
+          <img class="scene-bg-media scene-img" src="shot-09.jpg" alt="scene background" />
+          <div class="scrim-overlay"></div>
+          <div class="dot-pattern"></div>
+        </div>
+
+        <div class="safe-area">
+          <div class="top-meta">
+            <span class="kicker-badge">KASUS PERKARA</span>
+          </div>
+
+          <div class="scene-card">
+            <h1 class="kinetic-title">Bukti utama: senjata api dan kesaksian L</h1>
+            
+            <p class="scene-subtext">Bukti utama: senjata api dan kesaksian Louise Grillmair yang melihat langsung.</p>
+          </div>
+
+          <div class="bottom-branding">
+            <div class="brand-tag">EXPLAINER</div>
+            <div class="progress-bar-container">
+              <div class="progress-bar-fill"></div>
+            </div>
+          </div>
+        </div>
+      </section>
+      
+
+      <section class="scene-container" id="scene-scene_10" data-start="37.50" data-duration="4.00">
+        <div class="bg-wrapper">
+          <img class="scene-bg-media scene-img" src="shot-10.jpg" alt="scene background" />
+          <div class="scrim-overlay"></div>
+          <div class="dot-pattern"></div>
+        </div>
+
+        <div class="safe-area">
+          <div class="top-meta">
+            <span class="kicker-badge">KASUS PERKARA</span>
+          </div>
+
+          <div class="scene-card">
+            <h1 class="kinetic-title">Namun spekulasi liar terus tumbuh. Uang,</h1>
+            
+            <p class="scene-subtext">Namun spekulasi liar terus tumbuh. Uang, rahasia, dan transaksi gelap.</p>
+          </div>
+
+          <div class="bottom-branding">
+            <div class="brand-tag">EXPLAINER</div>
+            <div class="progress-bar-container">
+              <div class="progress-bar-fill"></div>
+            </div>
+          </div>
+        </div>
+      </section>
+      
+
+      <section class="scene-container" id="scene-scene_11" data-start="41.50" data-duration="4.00">
+        <div class="bg-wrapper">
+          <img class="scene-bg-media scene-img" src="shot-11.jpg" alt="scene background" />
+          <div class="scrim-overlay"></div>
+          <div class="dot-pattern"></div>
+        </div>
+
+        <div class="safe-area">
+          <div class="top-meta">
+            <span class="kicker-badge">KASUS PERKARA</span>
+          </div>
+
+          <div class="scene-card">
+            <h1 class="kinetic-title">Keluarga korban menolak teori konspirasi</h1>
+            
+            <p class="scene-subtext">Keluarga korban menolak teori konspirasi. Mereka menyebutnya menjijikkan.</p>
+          </div>
+
+          <div class="bottom-branding">
+            <div class="brand-tag">EXPLAINER</div>
+            <div class="progress-bar-container">
+              <div class="progress-bar-fill"></div>
+            </div>
+          </div>
+        </div>
+      </section>
+      
+
+      <section class="scene-container" id="scene-scene_12" data-start="45.50" data-duration="4.00">
+        <div class="bg-wrapper">
+          <img class="scene-bg-media scene-img" src="shot-12.jpg" alt="scene background" />
+          <div class="scrim-overlay"></div>
+          <div class="dot-pattern"></div>
+        </div>
+
+        <div class="safe-area">
+          <div class="top-meta">
+            <span class="kicker-badge">KASUS PERKARA</span>
+          </div>
+
+          <div class="scene-card">
+            <h1 class="kinetic-title">Sidang berlangsung. Fakta kriminal berta</h1>
+            
+            <p class="scene-subtext">Sidang berlangsung. Fakta kriminal bertarung dengan narasi konspirasi.</p>
+          </div>
+
+          <div class="bottom-branding">
+            <div class="brand-tag">EXPLAINER</div>
+            <div class="progress-bar-container">
+              <div class="progress-bar-fill"></div>
+            </div>
+          </div>
+        </div>
+      </section>
+      
+
+      <section class="scene-container" id="scene-scene_13" data-start="49.50" data-duration="4.50">
+        <div class="bg-wrapper">
+          <img class="scene-bg-media scene-img" src="shot-13.jpg" alt="scene background" />
+          <div class="scrim-overlay"></div>
+          <div class="dot-pattern"></div>
+        </div>
+
+        <div class="safe-area">
+          <div class="top-meta">
+            <span class="kicker-badge">KASUS PERKARA</span>
+          </div>
+
+          <div class="scene-card">
+            <h1 class="kinetic-title">Vonis menanti. Keadilan bagi Grillmair, </h1>
+            
+            <p class="scene-subtext">Vonis menanti. Keadilan bagi Grillmair, atau misteri yang tetap terbuka?</p>
+          </div>
+
+          <div class="bottom-branding">
+            <div class="brand-tag">EXPLAINER</div>
+            <div class="progress-bar-container">
+              <div class="progress-bar-fill"></div>
+            </div>
+          </div>
+        </div>
+      </section>
+      
+
+      <section class="scene-container" id="scene-scene_14" data-start="54.00" data-duration="5.00">
+        <div class="bg-wrapper">
+          <img class="scene-bg-media scene-img" src="shot-14.jpg" alt="scene background" />
+          <div class="scrim-overlay"></div>
+          <div class="dot-pattern"></div>
+        </div>
+
+        <div class="safe-area">
+          <div class="top-meta">
+            <span class="kicker-badge">KASUS PERKARA</span>
+          </div>
+
+          <div class="scene-card">
+            <h1 class="kinetic-title">Brankas arsip terkunci. Kasus ditutup, t</h1>
+            
+            <p class="scene-subtext">Brankas arsip terkunci. Kasus ditutup, tapi pertanyaan tetap ada.</p>
+          </div>
+
+          <div class="bottom-branding">
+            <div class="brand-tag">EXPLAINER</div>
+            <div class="progress-bar-container">
+              <div class="progress-bar-fill"></div>
+            </div>
+          </div>
+        </div>
+      </section>
+      
+  </div>
+
+  <audio id="narration-audio" src="narration-1794720054493-puck.mp3" preload="auto"></audio>
+
+  <script>
+    window.__timelines = window.__timelines || {};
+    const tl = gsap.timeline({ paused: true });
+    window.__timelines["main"] = tl;
+
+    const totalDuration = 75;
+    const isVox = false;
+
+    // Choreography per scene
+    
+    // --- Scene scene_00 (cover) ---
+    tl.set("#scene-scene_00", { autoAlpha: 1 }, 0.00);
+
+    tl.fromTo("#scene-scene_00 .scene-card", 
+      { y: 80, opacity: 0, scale: 0.96 }, 
+      { y: 0, opacity: 1, scale: 1, duration: 0.5, ease: "back.out(1.4)" }, 
+      0.00
+    );
+
+    tl.fromTo("#scene-scene_00 .kicker-badge", 
+      { scale: 0.8, opacity: 0 }, 
+      { scale: 1, opacity: 1, duration: 0.35, ease: "power2.out" }, 
+      0.00
+    );
+
+    tl.fromTo("#scene-scene_00 .scene-bg-media",
+      { scale: 1.0 },
+      { scale: 1.08, duration: 1.50, ease: "none" },
+      0.00
+    );
+
+    
+
+    
+    tl.to("#scene-scene_00", 
+      { autoAlpha: 0, duration: 0.25, ease: "power2.in" }, 
+      1.25
+    );
+    
+    
+
+    // --- Scene scene_01 (hook) ---
+    tl.set("#scene-scene_01", { autoAlpha: 1 }, 1.50);
+
+    tl.fromTo("#scene-scene_01 .scene-card", 
+      { y: 80, opacity: 0, scale: 0.96 }, 
+      { y: 0, opacity: 1, scale: 1, duration: 0.5, ease: "back.out(1.4)" }, 
+      1.50
+    );
+
+    tl.fromTo("#scene-scene_01 .kicker-badge", 
+      { scale: 0.8, opacity: 0 }, 
+      { scale: 1, opacity: 1, duration: 0.35, ease: "power2.out" }, 
+      1.50
+    );
+
+    tl.fromTo("#scene-scene_01 .scene-bg-media",
+      { scale: 1.0 },
+      { scale: 1.08, duration: 4.00, ease: "none" },
+      1.50
+    );
+
+    
+
+    
+    tl.to("#scene-scene_01", 
+      { autoAlpha: 0, duration: 0.25, ease: "power2.in" }, 
+      5.25
+    );
+    
+    
+
+    // --- Scene scene_02 (profile) ---
+    tl.set("#scene-scene_02", { autoAlpha: 1 }, 5.50);
+
+    tl.fromTo("#scene-scene_02 .scene-card", 
+      { y: 80, opacity: 0, scale: 0.96 }, 
+      { y: 0, opacity: 1, scale: 1, duration: 0.5, ease: "back.out(1.4)" }, 
+      5.50
+    );
+
+    tl.fromTo("#scene-scene_02 .kicker-badge", 
+      { scale: 0.8, opacity: 0 }, 
+      { scale: 1, opacity: 1, duration: 0.35, ease: "power2.out" }, 
+      5.50
+    );
+
+    tl.fromTo("#scene-scene_02 .scene-bg-media",
+      { scale: 1.0 },
+      { scale: 1.08, duration: 4.00, ease: "none" },
+      5.50
+    );
+
+    
+
+    
+    tl.to("#scene-scene_02", 
+      { autoAlpha: 0, duration: 0.25, ease: "power2.in" }, 
+      9.25
+    );
+    
+    
+
+    // --- Scene scene_03 (entry) ---
+    tl.set("#scene-scene_03", { autoAlpha: 1 }, 9.50);
+
+    tl.fromTo("#scene-scene_03 .scene-card", 
+      { y: 80, opacity: 0, scale: 0.96 }, 
+      { y: 0, opacity: 1, scale: 1, duration: 0.5, ease: "back.out(1.4)" }, 
+      9.50
+    );
+
+    tl.fromTo("#scene-scene_03 .kicker-badge", 
+      { scale: 0.8, opacity: 0 }, 
+      { scale: 1, opacity: 1, duration: 0.35, ease: "power2.out" }, 
+      9.50
+    );
+
+    tl.fromTo("#scene-scene_03 .scene-bg-media",
+      { scale: 1.0 },
+      { scale: 1.08, duration: 4.00, ease: "none" },
+      9.50
+    );
+
+    
+
+    
+    tl.to("#scene-scene_03", 
+      { autoAlpha: 0, duration: 0.25, ease: "power2.in" }, 
+      13.25
+    );
+    
+    
+
+    // --- Scene scene_04 (forensic) ---
+    tl.set("#scene-scene_04", { autoAlpha: 1 }, 13.50);
+
+    tl.fromTo("#scene-scene_04 .scene-card", 
+      { y: 80, opacity: 0, scale: 0.96 }, 
+      { y: 0, opacity: 1, scale: 1, duration: 0.5, ease: "back.out(1.4)" }, 
+      13.50
+    );
+
+    tl.fromTo("#scene-scene_04 .kicker-badge", 
+      { scale: 0.8, opacity: 0 }, 
+      { scale: 1, opacity: 1, duration: 0.35, ease: "power2.out" }, 
+      13.50
+    );
+
+    tl.fromTo("#scene-scene_04 .scene-bg-media",
+      { scale: 1.0 },
+      { scale: 1.08, duration: 4.00, ease: "none" },
+      13.50
+    );
+
+    
+
+    
+    tl.to("#scene-scene_04", 
+      { autoAlpha: 0, duration: 0.25, ease: "power2.in" }, 
+      17.25
+    );
+    
+    
+
+    // --- Scene scene_05 (investigation) ---
+    tl.set("#scene-scene_05", { autoAlpha: 1 }, 17.50);
+
+    tl.fromTo("#scene-scene_05 .scene-card", 
+      { y: 80, opacity: 0, scale: 0.96 }, 
+      { y: 0, opacity: 1, scale: 1, duration: 0.5, ease: "back.out(1.4)" }, 
+      17.50
+    );
+
+    tl.fromTo("#scene-scene_05 .kicker-badge", 
+      { scale: 0.8, opacity: 0 }, 
+      { scale: 1, opacity: 1, duration: 0.35, ease: "power2.out" }, 
+      17.50
+    );
+
+    tl.fromTo("#scene-scene_05 .scene-bg-media",
+      { scale: 1.0 },
+      { scale: 1.08, duration: 4.00, ease: "none" },
+      17.50
+    );
+
+    
+
+    
+    tl.to("#scene-scene_05", 
+      { autoAlpha: 0, duration: 0.25, ease: "power2.in" }, 
+      21.25
+    );
+    
+    
+
+    // --- Scene scene_06 (map) ---
+    tl.set("#scene-scene_06", { autoAlpha: 1 }, 21.50);
+
+    tl.fromTo("#scene-scene_06 .scene-card", 
+      { y: 80, opacity: 0, scale: 0.96 }, 
+      { y: 0, opacity: 1, scale: 1, duration: 0.5, ease: "back.out(1.4)" }, 
+      21.50
+    );
+
+    tl.fromTo("#scene-scene_06 .kicker-badge", 
+      { scale: 0.8, opacity: 0 }, 
+      { scale: 1, opacity: 1, duration: 0.35, ease: "power2.out" }, 
+      21.50
+    );
+
+    tl.fromTo("#scene-scene_06 .scene-bg-media",
+      { scale: 1.0 },
+      { scale: 1.08, duration: 4.00, ease: "none" },
+      21.50
+    );
+
+    
+
+    
+    tl.to("#scene-scene_06", 
+      { autoAlpha: 0, duration: 0.25, ease: "power2.in" }, 
+      25.25
+    );
+    
+    
+
+    // --- Scene scene_07 (turning_point) ---
+    tl.set("#scene-scene_07", { autoAlpha: 1 }, 25.50);
+
+    tl.fromTo("#scene-scene_07 .scene-card", 
+      { y: 80, opacity: 0, scale: 0.96 }, 
+      { y: 0, opacity: 1, scale: 1, duration: 0.5, ease: "back.out(1.4)" }, 
+      25.50
+    );
+
+    tl.fromTo("#scene-scene_07 .kicker-badge", 
+      { scale: 0.8, opacity: 0 }, 
+      { scale: 1, opacity: 1, duration: 0.35, ease: "power2.out" }, 
+      25.50
+    );
+
+    tl.fromTo("#scene-scene_07 .scene-bg-media",
+      { scale: 1.0 },
+      { scale: 1.08, duration: 4.00, ease: "none" },
+      25.50
+    );
+
+    
+
+    
+    tl.to("#scene-scene_07", 
+      { autoAlpha: 0, duration: 0.25, ease: "power2.in" }, 
+      29.25
+    );
+    
+    
+
+    // --- Scene scene_08 (arrest) ---
+    tl.set("#scene-scene_08", { autoAlpha: 1 }, 29.50);
+
+    tl.fromTo("#scene-scene_08 .scene-card", 
+      { y: 80, opacity: 0, scale: 0.96 }, 
+      { y: 0, opacity: 1, scale: 1, duration: 0.5, ease: "back.out(1.4)" }, 
+      29.50
+    );
+
+    tl.fromTo("#scene-scene_08 .kicker-badge", 
+      { scale: 0.8, opacity: 0 }, 
+      { scale: 1, opacity: 1, duration: 0.35, ease: "power2.out" }, 
+      29.50
+    );
+
+    tl.fromTo("#scene-scene_08 .scene-bg-media",
+      { scale: 1.0 },
+      { scale: 1.08, duration: 4.00, ease: "none" },
+      29.50
+    );
+
+    
+
+    
+    tl.to("#scene-scene_08", 
+      { autoAlpha: 0, duration: 0.25, ease: "power2.in" }, 
+      33.25
+    );
+    
+    
+
+    // --- Scene scene_09 (evidence) ---
+    tl.set("#scene-scene_09", { autoAlpha: 1 }, 33.50);
+
+    tl.fromTo("#scene-scene_09 .scene-card", 
+      { y: 80, opacity: 0, scale: 0.96 }, 
+      { y: 0, opacity: 1, scale: 1, duration: 0.5, ease: "back.out(1.4)" }, 
+      33.50
+    );
+
+    tl.fromTo("#scene-scene_09 .kicker-badge", 
+      { scale: 0.8, opacity: 0 }, 
+      { scale: 1, opacity: 1, duration: 0.35, ease: "power2.out" }, 
+      33.50
+    );
+
+    tl.fromTo("#scene-scene_09 .scene-bg-media",
+      { scale: 1.0 },
+      { scale: 1.08, duration: 4.00, ease: "none" },
+      33.50
+    );
+
+    
+
+    
+    tl.to("#scene-scene_09", 
+      { autoAlpha: 0, duration: 0.25, ease: "power2.in" }, 
+      37.25
+    );
+    
+    
+
+    // --- Scene scene_10 (motive) ---
+    tl.set("#scene-scene_10", { autoAlpha: 1 }, 37.50);
+
+    tl.fromTo("#scene-scene_10 .scene-card", 
+      { y: 80, opacity: 0, scale: 0.96 }, 
+      { y: 0, opacity: 1, scale: 1, duration: 0.5, ease: "back.out(1.4)" }, 
+      37.50
+    );
+
+    tl.fromTo("#scene-scene_10 .kicker-badge", 
+      { scale: 0.8, opacity: 0 }, 
+      { scale: 1, opacity: 1, duration: 0.35, ease: "power2.out" }, 
+      37.50
+    );
+
+    tl.fromTo("#scene-scene_10 .scene-bg-media",
+      { scale: 1.0 },
+      { scale: 1.08, duration: 4.00, ease: "none" },
+      37.50
+    );
+
+    
+
+    
+    tl.to("#scene-scene_10", 
+      { autoAlpha: 0, duration: 0.25, ease: "power2.in" }, 
+      41.25
+    );
+    
+    
+
+    // --- Scene scene_11 (autopsy) ---
+    tl.set("#scene-scene_11", { autoAlpha: 1 }, 41.50);
+
+    tl.fromTo("#scene-scene_11 .scene-card", 
+      { y: 80, opacity: 0, scale: 0.96 }, 
+      { y: 0, opacity: 1, scale: 1, duration: 0.5, ease: "back.out(1.4)" }, 
+      41.50
+    );
+
+    tl.fromTo("#scene-scene_11 .kicker-badge", 
+      { scale: 0.8, opacity: 0 }, 
+      { scale: 1, opacity: 1, duration: 0.35, ease: "power2.out" }, 
+      41.50
+    );
+
+    tl.fromTo("#scene-scene_11 .scene-bg-media",
+      { scale: 1.0 },
+      { scale: 1.08, duration: 4.00, ease: "none" },
+      41.50
+    );
+
+    
+
+    
+    tl.to("#scene-scene_11", 
+      { autoAlpha: 0, duration: 0.25, ease: "power2.in" }, 
+      45.25
+    );
+    
+    
+
+    // --- Scene scene_12 (court) ---
+    tl.set("#scene-scene_12", { autoAlpha: 1 }, 45.50);
+
+    tl.fromTo("#scene-scene_12 .scene-card", 
+      { y: 80, opacity: 0, scale: 0.96 }, 
+      { y: 0, opacity: 1, scale: 1, duration: 0.5, ease: "back.out(1.4)" }, 
+      45.50
+    );
+
+    tl.fromTo("#scene-scene_12 .kicker-badge", 
+      { scale: 0.8, opacity: 0 }, 
+      { scale: 1, opacity: 1, duration: 0.35, ease: "power2.out" }, 
+      45.50
+    );
+
+    tl.fromTo("#scene-scene_12 .scene-bg-media",
+      { scale: 1.0 },
+      { scale: 1.08, duration: 4.00, ease: "none" },
+      45.50
+    );
+
+    
+
+    
+    tl.to("#scene-scene_12", 
+      { autoAlpha: 0, duration: 0.25, ease: "power2.in" }, 
+      49.25
+    );
+    
+    
+
+    // --- Scene scene_13 (verdict) ---
+    tl.set("#scene-scene_13", { autoAlpha: 1 }, 49.50);
+
+    tl.fromTo("#scene-scene_13 .scene-card", 
+      { y: 80, opacity: 0, scale: 0.96 }, 
+      { y: 0, opacity: 1, scale: 1, duration: 0.5, ease: "back.out(1.4)" }, 
+      49.50
+    );
+
+    tl.fromTo("#scene-scene_13 .kicker-badge", 
+      { scale: 0.8, opacity: 0 }, 
+      { scale: 1, opacity: 1, duration: 0.35, ease: "power2.out" }, 
+      49.50
+    );
+
+    tl.fromTo("#scene-scene_13 .scene-bg-media",
+      { scale: 1.0 },
+      { scale: 1.08, duration: 4.50, ease: "none" },
+      49.50
+    );
+
+    
+
+    
+    tl.to("#scene-scene_13", 
+      { autoAlpha: 0, duration: 0.25, ease: "power2.in" }, 
+      53.75
+    );
+    
+    
+
+    // --- Scene scene_14 (closing) ---
+    tl.set("#scene-scene_14", { autoAlpha: 1 }, 54.00);
+
+    tl.fromTo("#scene-scene_14 .scene-card", 
+      { y: 80, opacity: 0, scale: 0.96 }, 
+      { y: 0, opacity: 1, scale: 1, duration: 0.5, ease: "back.out(1.4)" }, 
+      54.00
+    );
+
+    tl.fromTo("#scene-scene_14 .kicker-badge", 
+      { scale: 0.8, opacity: 0 }, 
+      { scale: 1, opacity: 1, duration: 0.35, ease: "power2.out" }, 
+      54.00
+    );
+
+    tl.fromTo("#scene-scene_14 .scene-bg-media",
+      { scale: 1.0 },
+      { scale: 1.08, duration: 5.00, ease: "none" },
+      54.00
+    );
+
+    
+
+    
+    
+
+    // Progress bar across total duration
+    tl.to(".progress-bar-fill", {
+      width: "100%",
+      duration: totalDuration,
+      ease: "none"
+    }, 0);
+
+    tl.seek(0);
+  </script>
+</body>
+</html>

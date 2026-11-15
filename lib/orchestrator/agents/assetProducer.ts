@@ -31,7 +31,7 @@ export class AssetProducerAgent {
 
     for (const item of samples) {
       const shotNumStr = String(item.shot).padStart(2, '0');
-      const filename = `shot-${shotNumStr}.jpg`;
+      const filename = item.shot === 0 ? 'cover-shot-00.jpg' : `shot-${shotNumStr}.jpg`;
       const outPath = path.join(jobDir, filename);
 
       if (health.ok && !options.skipFlow) {
@@ -95,7 +95,7 @@ export class AssetProducerAgent {
 
     for (const item of all) {
       const shotNumStr = String(item.shot).padStart(2, '0');
-      const filename = `shot-${shotNumStr}.jpg`;
+      const filename = item.shot === 0 ? 'cover-shot-00.jpg' : `shot-${shotNumStr}.jpg`;
       const outPath = path.join(jobDir, filename);
 
       // Jika file sudah dibuat di tahap sample, gunakan kembali

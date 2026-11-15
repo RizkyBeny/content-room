@@ -461,7 +461,7 @@ export async function produceNoirMasterAudio(
   const phrases = groupWordsIntoPhrases(allWords, 4);
 
   const transcribedWords: TranscribedWord[] = allWords.map((w) => ({
-    word: w.word.replace(/[^\w\s-]/gi, ''),
+    word: w.word.trim(),
     start_ms: Math.round(w.start * 1000),
     end_ms: Math.round(w.end * 1000),
   }));

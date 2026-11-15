@@ -46,9 +46,15 @@ export class CompositorNoirAgent {
     if (shot0?.imagePath && fs.existsSync(shot0.imagePath)) {
       coverImagePath = shot0.imagePath;
     } else {
-      const fallbackShot0 = path.join(finalDir, 'keyframes', 'shot-00.jpg');
-      if (fs.existsSync(fallbackShot0)) {
-        coverImagePath = fallbackShot0;
+      const candidates = [
+        path.join(finalDir, 'keyframes', 'cover-shot-00.jpg'),
+        path.join(finalDir, 'keyframes', 'shot-00.jpg'),
+      ];
+      for (const cand of candidates) {
+        if (fs.existsSync(cand)) {
+          coverImagePath = cand;
+          break;
+        }
       }
     }
 
@@ -64,19 +70,21 @@ export class CompositorNoirAgent {
       shotImages.push({ shot: s, imagePath: imgPath });
     }
 
-    // Shot Timings (Sentence-to-Shot Semantic Binding if provided, else fallback to 14 uniform shots)
+    // Shot Timings: Reserve 0.0s - 1.3s for Shot 00 Mandatory Cover Hook, then distribute remaining duration to 14 shots
+    const coverDurationSec = 1.3;
+    const remainingDurationSec = Math.max(10, totalDurationSec - coverDurationSec);
+    const shotDuration = remainingDurationSec / 14;
     const shotTimings: ShotTiming[] =
       customShotTimings && customShotTimings.length > 0
         ? customShotTimings
         : Array.from({ length: 14 }, (_, i) => {
-            const shotDuration = totalDurationSec / 14;
-            const start = i * shotDuration;
-            const end = (i + 1) * shotDuration;
+            const start = coverDurationSec + i * shotDuration;
+            const end = i === 13 ? totalDurationSec : coverDurationSec + (i + 1) * shotDuration;
             return {
               shot: i + 1,
               startSec: Number(start.toFixed(2)),
               endSec: Number(end.toFixed(2)),
-              durationSec: Number(shotDuration.toFixed(2)),
+              durationSec: Number((end - start).toFixed(2)),
             };
           });
 

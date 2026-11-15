@@ -181,7 +181,7 @@ export function generateDownloadPage(job: OrchestratorJob): { htmlPath: string; 
                 <span class="w-2 h-2 rounded-full bg-amber-400 animate-ping"></span>
                 Audio Khusus BGM (Ducked 20%)
               </span>
-              <a href="/renders/twitter-killer-test/bgm-crime-tension.mp3" download="bgm-crime-tension.mp3"
+              <a href="/renders/${job.id}/audio/bgm-crime-tension.mp3" download="bgm-crime-tension.mp3"
                 class="px-2.5 py-1 rounded bg-amber-500/20 hover:bg-amber-500/30 text-amber-300 text-[11px] font-bold transition">
                 Unduh MP3
               </a>
@@ -190,7 +190,7 @@ export function generateDownloadPage(job: OrchestratorJob): { htmlPath: string; 
               Dengarkan langsung track instrumen BGM tension (Cello pulse, piano eerie Mindhunter, ticking clock, dark pad D-minor):
             </p>
             <audio controls class="w-full h-8" preload="auto">
-              <source src="/renders/twitter-killer-test/bgm-crime-tension.mp3" type="audio/mpeg">
+              <source src="/renders/${job.id}/audio/bgm-crime-tension.mp3" type="audio/mpeg">
               Browser tidak mendukung audio.
             </audio>
           </div>

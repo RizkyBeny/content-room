@@ -4,7 +4,7 @@ import { produceNoirMasterAudio } from '../lib/orchestrator/audio/noirAudioPipel
 import { compositorNoir } from '../lib/orchestrator/agents/compositorNoir';
 import { generateDownloadPage } from '../lib/orchestrator/agents/webViewer';
 import { telegramBot } from '../lib/orchestrator/agents/telegramBot';
-import { saveJob, loadJob } from '../lib/orchestrator/state/jobStore';
+import { saveJob, getJob } from '../lib/orchestrator/state/jobStore';
 import { escapeHtml } from '../lib/orchestrator/utils';
 import { OrchestratorJob, NoirScript, ScriptBeat, KeyframeItem } from '../lib/orchestrator/types';
 
@@ -263,9 +263,9 @@ async function main() {
     `🎬 <b>[VIDEO TERSINKRONISASI 100% — BENCHMARK STANDARD]</b>\n\n` +
     `📖 <b>Konsep:</b> <i>Dark Fairytale Storytelling (Durasi: ${job.audioDurationSec}s &lt; 1 Menit)</i>\n` +
     `✨ <b>Sinkronisasi:</b> <i>Setiap pergantian gambar bertepatan tepat dengan kata/klausa yang diucapkan narator.</i>\n\n` +
-    `📌 <b>Judul:</b>\n<code>${escapeHtml(job.metadata.seoTitle)}</code>\n\n` +
-    `📝 <b>Caption Siap Copy:</b>\n${escapeHtml(job.metadata.caption)}\n\n` +
-    `🏷️ <b>Hashtags:</b>\n<code>${escapeHtml(job.metadata.hashtags.join(' '))}</code>\n\n` +
+    `📌 <b>Judul:</b>\n<code>${escapeHtml(job.metadata?.seoTitle || '')}</code>\n\n` +
+    `📝 <b>Caption Siap Copy:</b>\n${escapeHtml(job.metadata?.caption || '')}\n\n` +
+    `🏷️ <b>Hashtags:</b>\n<code>${escapeHtml(job.metadata?.hashtags?.join(' ') || '')}</code>\n\n` +
     `🌐 <b>Link Review Storyboard & Pemutar Video:</b>\n` +
     `• Buka di Ponsel: <a href="${networkUrl}">${networkUrl}</a>\n` +
     `• Buka di Laptop: <a href="${localUrl}">${localUrl}</a>\n\n` +

@@ -27,7 +27,8 @@ export class CompositorNoirAgent {
   async composeAndRenderVideo(
     job: OrchestratorJob,
     words: TranscribedWord[],
-    onProgress?: (progressText: string) => void
+    onProgress?: (progressText: string) => void,
+    customShotTimings?: ShotTiming[]
   ): Promise<string> {
     const projectDir = path.join(ORCHESTRATOR_CONFIG.paths.workspaceDir, job.id);
     const finalDir = path.join(ORCHESTRATOR_CONFIG.paths.rendersDir, job.id);
@@ -63,18 +64,21 @@ export class CompositorNoirAgent {
       shotImages.push({ shot: s, imagePath: imgPath });
     }
 
-    // Shot Timings (14 shots across totalDurationSec)
-    const shotDuration = totalDurationSec / 14;
-    const shotTimings: ShotTiming[] = Array.from({ length: 14 }, (_, i) => {
-      const start = i * shotDuration;
-      const end = (i + 1) * shotDuration;
-      return {
-        shot: i + 1,
-        startSec: Number(start.toFixed(2)),
-        endSec: Number(end.toFixed(2)),
-        durationSec: Number(shotDuration.toFixed(2)),
-      };
-    });
+    // Shot Timings (Sentence-to-Shot Semantic Binding if provided, else fallback to 14 uniform shots)
+    const shotTimings: ShotTiming[] =
+      customShotTimings && customShotTimings.length > 0
+        ? customShotTimings
+        : Array.from({ length: 14 }, (_, i) => {
+            const shotDuration = totalDurationSec / 14;
+            const start = i * shotDuration;
+            const end = (i + 1) * shotDuration;
+            return {
+              shot: i + 1,
+              startSec: Number(start.toFixed(2)),
+              endSec: Number(end.toFixed(2)),
+              durationSec: Number(shotDuration.toFixed(2)),
+            };
+          });
 
     // Caption Words & Phrases
     const captionWords: CaptionWord[] = (words || []).map((w) => ({

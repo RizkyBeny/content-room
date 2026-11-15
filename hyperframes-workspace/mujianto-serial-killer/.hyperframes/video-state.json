@@ -1,12 +1,12 @@
 {
   "version": 1,
   "historyId": "b87ef201-3b2a-48bb-b5ee-02b97f22b68a",
-  "currentRevision": null,
+  "currentRevision": "3871da8d-a869-4c87-866d-61b90d7efd59",
   "pendingChanges": false,
   "files": {
     "assets/cover-shot-00.jpg": {
-      "hash": "5673fb32be709f3a531b186ec2682c3a6c7460a2b80f3ae84ca1b5c7067e3042",
-      "content": "/Users/beny/.cache/hyperframes/history/b87ef201-3b2a-48bb-b5ee-02b97f22b68a/blobs/56/5673fb32be709f3a531b186ec2682c3a6c7460a2b80f3ae84ca1b5c7067e3042"
+      "hash": "79bbd535b6e307498f0757bbd5a747fd226345f491113970b8eeb3ffc2228ea1",
+      "content": "/Users/beny/.cache/hyperframes/history/b87ef201-3b2a-48bb-b5ee-02b97f22b68a/blobs/79/79bbd535b6e307498f0757bbd5a747fd226345f491113970b8eeb3ffc2228ea1"
     },
     "assets/shot-01.jpg": {
       "hash": "807cbae20a2e7eaee63ca7baa4f791023268963238856e40b6d542582b232f5e",
@@ -49,8 +49,8 @@
       "content": "/Users/beny/.cache/hyperframes/history/b87ef201-3b2a-48bb-b5ee-02b97f22b68a/blobs/68/685593ed2c2cf132836a57559264d45464539e4653f262490e3960c7f6bc6c8c"
     },
     "index.html": {
-      "hash": "a3206c726c3dd10d33313a68fe6ca69b925fc8f1871cf632e15aafa4e72ca55e",
-      "content": "/Users/beny/.cache/hyperframes/history/b87ef201-3b2a-48bb-b5ee-02b97f22b68a/blobs/a3/a3206c726c3dd10d33313a68fe6ca69b925fc8f1871cf632e15aafa4e72ca55e"
+      "hash": "50802d09a4024faff217546bf0d1aa04574595a83448e4a5b43ba74597e00e50",
+      "content": "/Users/beny/.cache/hyperframes/history/b87ef201-3b2a-48bb-b5ee-02b97f22b68a/blobs/50/50802d09a4024faff217546bf0d1aa04574595a83448e4a5b43ba74597e00e50"
     },
     "assets/bgm-crime-tension.mp3": {
       "hash": "4e79da7eb85203680efc8b826a89695f5b1ea8e3392eb67d8cde567d594fd9b9",
@@ -77,7 +77,27 @@
       "content": "/Users/beny/.cache/hyperframes/history/b87ef201-3b2a-48bb-b5ee-02b97f22b68a/blobs/f1/f1b85c6954b1b0cacd88ddccaf2ea27da7f608e378bb3f7283f53d9e6597217c"
     }
   },
-  "revisions": {},
+  "revisions": {
+    "3871da8d-a869-4c87-866d-61b90d7efd59": {
+      "actor": {
+        "kind": "outside",
+        "name": "Outside"
+      },
+      "label": "Changed outside the app",
+      "startedAt": 1794744418535,
+      "endedAt": 1794744418551,
+      "files": {
+        "assets/cover-shot-00.jpg": {
+          "before": "/Users/beny/.cache/hyperframes/history/b87ef201-3b2a-48bb-b5ee-02b97f22b68a/blobs/56/5673fb32be709f3a531b186ec2682c3a6c7460a2b80f3ae84ca1b5c7067e3042",
+          "after": "/Users/beny/.cache/hyperframes/history/b87ef201-3b2a-48bb-b5ee-02b97f22b68a/blobs/79/79bbd535b6e307498f0757bbd5a747fd226345f491113970b8eeb3ffc2228ea1"
+        },
+        "index.html": {
+          "before": "/Users/beny/.cache/hyperframes/history/b87ef201-3b2a-48bb-b5ee-02b97f22b68a/blobs/a3/a3206c726c3dd10d33313a68fe6ca69b925fc8f1871cf632e15aafa4e72ca55e",
+          "after": "/Users/beny/.cache/hyperframes/history/b87ef201-3b2a-48bb-b5ee-02b97f22b68a/blobs/50/50802d09a4024faff217546bf0d1aa04574595a83448e4a5b43ba74597e00e50"
+        }
+      }
+    }
+  },
   "checks": {
     "latest": null,
     "revisions": {},
@@ -90,13 +110,15 @@
   },
   "renders": {
     "latest": {
-      "id": "a3175f24-da81-43bb-b9e1-3c26e8199a32",
-      "completedAt": 1794743966530,
+      "id": "eff058fb-5f17-4151-b7a4-15002e6e6aa2",
+      "completedAt": 1794744928845,
       "output": "/Users/beny/Documents/Project-self/Content-automation/public/renders/mujianto-serial-killer/temp-visual.mp4",
       "status": "completed",
-      "revision": null
+      "revision": "3871da8d-a869-4c87-866d-61b90d7efd59"
     },
-    "retainedRevisions": []
+    "retainedRevisions": [
+      "3871da8d-a869-4c87-866d-61b90d7efd59"
+    ]
   },
   "pendingArtifactCleanup": []
 }

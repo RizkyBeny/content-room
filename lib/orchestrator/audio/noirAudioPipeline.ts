@@ -96,10 +96,10 @@ async function synthesizeSentenceChunk(
   if (!key) throw new Error('GEMINI_API_KEY missing in environment (.env.local)');
 
   const candidateModels = [
+    'gemini-2.5-flash-preview-tts',
+    'gemini-3.8-flash-lite-tts',
     'gemini-3.8-flash-tts',
     'gemini-3.1-flash-tts-preview',
-    'gemini-3.8-flash-lite-tts',
-    'gemini-2.5-flash-preview-tts',
   ];
 
   let audioBase64: string | undefined;
@@ -107,11 +107,10 @@ async function synthesizeSentenceChunk(
 
   for (const model of candidateModels) {
     try {
-      const res = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent`, {
+      const res = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent?key=${key}`, {
         method: 'POST',
         headers: {
           'content-type': 'application/json',
-          'x-goog-api-key': key,
         },
         body: JSON.stringify({
           contents: [{ parts: [{ text }] }],
@@ -142,6 +141,9 @@ async function synthesizeSentenceChunk(
     }
   }
 
+  const { ffmpeg, ffprobe } = resolveFfmpegBin();
+  const wavPath = path.join(outputDir, `sentence-${index}.wav`);
+
   if (!audioBase64) {
     console.warn(`[NoirAudioEngine] Gemini TTS quota/error encountered. Falling back to edge-tts (id-ID-ArdiNeural)...`);
     const tempMp3 = path.join(outputDir, `sentence-${index}-temp.mp3`);
@@ -156,7 +158,6 @@ async function synthesizeSentenceChunk(
       '--write-media', tempMp3,
     ]);
 
-    const { ffmpeg } = resolveFfmpegBin();
     execFileSync(ffmpeg, [
       '-y',
       '-i', tempMp3,
@@ -172,8 +173,6 @@ async function synthesizeSentenceChunk(
   } else {
     const pcmPath = path.join(outputDir, `sentence-${index}.pcm`);
     fs.writeFileSync(pcmPath, Buffer.from(audioBase64, 'base64'));
-
-    const { ffmpeg } = resolveFfmpegBin();
 
     execFileSync(ffmpeg, [
       '-y',
@@ -257,79 +256,15 @@ export async function produceNoirMasterAudio(
     ? (textOrSentences as string[]).map((s) => s.trim()).filter(Boolean)
     : splitIntoSentences(textOrSentences);
 
-  let useFallbackVoice = false;
-  try {
-    const key = process.env.GEMINI_API_KEY;
-    if (!key) {
-      useFallbackVoice = true;
-    } else {
-      const testRes = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-tts:generateContent`, {
-        method: 'POST',
-        headers: { 'content-type': 'application/json', 'x-goog-api-key': key },
-        body: JSON.stringify({
-          contents: [{ parts: [{ text: 'test' }] }],
-          generationConfig: { responseModalities: ['AUDIO'] },
-        }),
-      });
-      if (testRes.status === 429 || !testRes.ok) {
-        useFallbackVoice = true;
-      }
-    }
-  } catch {
-    useFallbackVoice = true;
-  }
-
-  if (useFallbackVoice) {
-    console.log(`[NoirAudioEngine] Gemini TTS quota exhausted (429). Using edge-tts (id-ID-ArdiNeural) for all ${sentences.length} sentences for consistent Indonesian storytelling.`);
-  } else {
-    console.log(`[NoirAudioEngine] Synthesizing ${sentences.length} sentence chunks using voice Charon...`);
-  }
+  const voiceName = ORCHESTRATOR_CONFIG.voice.preferredVoice || 'Charon';
+  console.log(`[NoirAudioEngine] Standard Voiceover: Gemini TTS '${voiceName}' (${sentences.length} sentences)...`);
 
   const sentenceResults: Array<{ id: string; text: string; wavPath: string; durationSec: number }> = [];
 
   for (let i = 0; i < sentences.length; i++) {
     const sText = sentences[i];
-    console.log(`[NoirAudioEngine] (${i + 1}/${sentences.length}) "${sText.slice(0, 45)}..."`);
-
-    let res: { wavPath: string; durationSec: number };
-    if (useFallbackVoice) {
-      const tempMp3 = path.join(chunksDir, `sentence-${i}-temp.mp3`);
-      const wavPath = path.join(chunksDir, `sentence-${i}.wav`);
-      const edgeTtsBin = fs.existsSync('/Users/beny/Library/Python/3.9/bin/edge-tts')
-        ? '/Users/beny/Library/Python/3.9/bin/edge-tts'
-        : 'edge-tts';
-
-      execFileSync(edgeTtsBin, [
-        '--voice', 'id-ID-ArdiNeural',
-        '--rate=-4%',
-        '--text', sText,
-        '--write-media', tempMp3,
-      ]);
-
-      execFileSync(ffmpeg, [
-        '-y',
-        '-i', tempMp3,
-        '-af', 'highpass=f=80,loudnorm=I=-16:TP=-1.5:LRA=11',
-        '-ar', '48000',
-        '-ac', '2',
-        wavPath,
-      ]);
-
-      if (fs.existsSync(tempMp3)) {
-        fs.unlinkSync(tempMp3);
-      }
-
-      const durStr = execFileSync(ffprobe, [
-        '-v', 'error',
-        '-show_entries', 'format=duration',
-        '-of', 'csv=p=0',
-        wavPath,
-      ], { encoding: 'utf8' }).trim();
-
-      res = { wavPath, durationSec: parseFloat(durStr) || 4.0 };
-    } else {
-      res = await synthesizeSentenceChunk(sText, i, chunksDir, ORCHESTRATOR_CONFIG.voice.preferredVoice);
-    }
+    console.log(`[NoirAudioEngine] (${i + 1}/${sentences.length}) [${voiceName}] "${sText.slice(0, 45)}..."`);
+    const res = await synthesizeSentenceChunk(sText, i, chunksDir, voiceName);
 
     sentenceResults.push({
       id: `s${i + 1}`,

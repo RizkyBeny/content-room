@@ -628,239 +628,231 @@
     "chatId": "8326898810",
     "articleUrl": "https://www.bbc.com/indonesia/articles/ckg9q0gny1jo.amp",
     "status": "COMPLETED",
-    "createdAt": "2026-11-15T07:21:40.439Z",
-    "updatedAt": "2026-11-15T07:26:32.550Z",
+    "createdAt": "2026-11-15T11:55:32.171Z",
+    "updatedAt": "2026-11-15T12:05:05.175Z",
     "script": {
       "title": "DONGENG KELAM 10 ILMUWAN LENYAP",
       "subHeadline": "MISTERI PEMBUNUHAN ASTRONOM & HISPERIA DUNIA MAYA",
       "fullText": "Sebuah dongeng kelam dari padang sunyi California. Konon, ada sepuluh periset rahasia yang lenyap satu demi satu, ditelan kabut malam tanpa jejak. Kisah bermula saat astronom ternama, Carl Grillmair, roboh bersimbah darah di beranda rumahnya. Jagat maya pun membakar histeria konspirasi, menuduh sindikat bayangan membungkam rahasia antariksa. Namun fiksi dongeng runtuh di tangan detektif. Pelakunya nyata: Freddy Snyder, pemuda lokal yang merampok demi uang tunai. Keluarga korban menolak keras mitos menjijikkan ini. Di ruang pengadilan, palu hakim bersiap menutup dongeng berdarah selamanya.",
-      "targetDurationSec": 50,
+      "targetDurationSec": 44,
       "wordCount": 82,
       "beats": [
         {
-          "shot": 0,
-          "startSec": 0,
-          "endSec": 1.5,
-          "narration": "Sebuah dongeng kelam dari padang sunyi California.",
-          "visualCue": "A dramatic high-CTR YouTube Shorts vertical 9:16 cover illustration (1080x1920), Graphic Novel Neo-Noir style. An ominous telescope observatory silhouette in the desolate Llano California desert under a starry night sky, yellow police caution tape across foreground, heavy black contour inking, chiaroscuro lighting, deep charcoal and antique brass bronze accents. Full bleed, fine halftone screen tone.",
-          "shotType": "cover"
-        },
-        {
           "shot": 1,
-          "startSec": 1.5,
-          "endSec": 5.5,
-          "narration": "Konon, ada sepuluh periset rahasia yang lenyap satu demi satu...",
-          "visualCue": "Graphic novel neo-noir cinematic vertical illustration 9:16 (1080x1920). Silhouette of research scientists walking into dense nocturnal fog under a lone flickering sodium streetlamp, dramatic chiaroscuro, long ominous shadows, cold desaturated slate gray and antique bronze glow, comic book ink textures. Full bleed.",
-          "shotType": "hook"
+          "startSec": 0,
+          "endSec": 3.65,
+          "narration": "Rumah Padang Gurun (Padang Sunyi California)",
+          "visualCue": "Graphic novel neo-noir cinematic vertical illustration 9:16 (1080x1920). Isolated wooden ranch house in the dark desert plains of Llano California at 2 AM, one single window emitting an eerie amber glow, barren desert shrubs, dramatic chiaroscuro night sky with stars, heavy comic inking. Full bleed.",
+          "shotType": "fairytale-noir"
         },
         {
           "shot": 2,
-          "startSec": 5.5,
-          "endSec": 9.5,
-          "narration": "...ditelan kabut malam tanpa jejak.",
-          "visualCue": "Graphic novel neo-noir cinematic vertical illustration 9:16 (1080x1920). Dark wooden board covered in classified research documents and missing person photos stamped with distressed crimson red crosses, pushpins with red connecting threads, magnifying glass, high contrast chiaroscuro. Full bleed.",
-          "shotType": "mystery"
+          "startSec": 3.95,
+          "endSec": 7.58,
+          "narration": "Ilmuwan Masuk Kabut (Sepuluh Periset Lenyap)",
+          "visualCue": "Graphic novel neo-noir cinematic vertical illustration 9:16 (1080x1920). Silhouette of research scientists walking into dense nocturnal fog under a lone flickering sodium streetlamp, dramatic chiaroscuro, long ominous shadows, cold desaturated slate gray and antique bronze glow, comic book ink textures. Full bleed.",
+          "shotType": "fairytale-noir"
         },
         {
           "shot": 3,
-          "startSec": 9.5,
-          "endSec": 13.5,
-          "narration": "Kisah bermula saat astronom ternama, Carl Grillmair...",
-          "visualCue": "Graphic novel neo-noir cinematic vertical illustration 9:16 (1080x1920). Isolated wooden ranch house in the dark desert plains of Llano California at 2 AM, one single window emitting an eerie amber glow, barren desert shrubs, dramatic chiaroscuro night sky with stars, heavy comic inking. Full bleed.",
-          "shotType": "crime-scene"
+          "startSec": 7.58,
+          "endSec": 11.2,
+          "narration": "Papan Arsip Misteri (Hilang Tanpa Jejak)",
+          "visualCue": "Graphic novel neo-noir cinematic vertical illustration 9:16 (1080x1920). Dark wooden board covered in classified research documents and missing person photos stamped with distressed crimson red crosses, pushpins with red connecting threads, magnifying glass, high contrast chiaroscuro. Full bleed.",
+          "shotType": "fairytale-noir"
         },
         {
           "shot": 4,
-          "startSec": 13.5,
-          "endSec": 17.5,
-          "narration": "...roboh bersimbah darah di beranda rumahnya.",
-          "visualCue": "Graphic novel neo-noir cinematic vertical illustration 9:16 (1080x1920). Close-up low angle of wooden house porch steps, yellow forensic evidence marker beside gleaming spent brass bullet casings on weathered floorboards, harsh flashlight beam, deep noir shadows. Full bleed.",
-          "shotType": "evidence"
+          "startSec": 11.5,
+          "endSec": 14.63,
+          "narration": "Sosok Astronom (Carl Grillmair di Teleskop)",
+          "visualCue": "Graphic novel neo-noir cinematic vertical illustration 9:16 (1080x1920). Mysterious silhouette of an astronomer observing a massive astronomical radio telescope dish pointed into deep space under dark nebula clouds, cold cyan and antique bronze highlights. Full bleed.",
+          "shotType": "fairytale-noir"
         },
         {
           "shot": 5,
-          "startSec": 17.5,
-          "endSec": 21.5,
-          "narration": "Jagat maya pun membakar histeria konspirasi...",
-          "visualCue": "Graphic novel neo-noir cinematic vertical illustration 9:16 (1080x1920). Gloomy room illuminated only by vintage CRT monitors glowing with red glowing internet conspiracy forum diagrams and digital waveforms, half-empty coffee mug, forensic computer terminal chiaroscuro. Full bleed.",
-          "shotType": "digital-frenzy"
+          "startSec": 14.63,
+          "endSec": 17.75,
+          "narration": "Beranda TKP (Roboh Bersimbah Darah)",
+          "visualCue": "Graphic novel neo-noir cinematic vertical illustration 9:16 (1080x1920). Close-up low angle of wooden house porch steps, yellow forensic evidence marker beside gleaming spent brass bullet casings on weathered floorboards, harsh flashlight beam, deep noir shadows. Full bleed.",
+          "shotType": "fairytale-noir"
         },
         {
           "shot": 6,
-          "startSec": 21.5,
-          "endSec": 25.5,
-          "narration": "...menuduh sindikat bayangan membungkam rahasia antariksa.",
-          "visualCue": "Graphic novel neo-noir cinematic vertical illustration 9:16 (1080x1920). Mysterious silhouette of a trench-coated figure observing a massive astronomical radio telescope dish pointed into deep space under dark nebula clouds, cold cyan and antique bronze highlights. Full bleed.",
-          "shotType": "syndicate"
+          "startSec": 18.05,
+          "endSec": 20.8,
+          "narration": "Histeria Netizen (Layar CRT Konspirasi)",
+          "visualCue": "Graphic novel neo-noir cinematic vertical illustration 9:16 (1080x1920). Gloomy room illuminated only by vintage CRT monitors glowing with red glowing internet conspiracy forum diagrams and digital waveforms, half-empty coffee mug, forensic computer terminal chiaroscuro. Full bleed.",
+          "shotType": "fairytale-noir"
         },
         {
           "shot": 7,
-          "startSec": 25.5,
-          "endSec": 29.5,
-          "narration": "Daftar nama terlarang pun tersebar luas tanpa kendali.",
+          "startSec": 20.8,
+          "endSec": 23.55,
+          "narration": "Meja Forensik 45° (Sindikat Bayangan)",
           "visualCue": "Graphic novel neo-noir cinematic vertical illustration 9:16 (1080x1920). Isometric 45-degree angle view of a brushed steel police investigation desk, classified manila dossier folders marked 'CONFIDENTIAL', autopsy paperwork, antique bronze seal stamp, chiaroscuro side lighting. Full bleed.",
-          "shotType": "the-list"
+          "shotType": "fairytale-noir"
         },
         {
           "shot": 8,
-          "startSec": 29.5,
-          "endSec": 33.5,
-          "narration": "Namun fiksi dongeng runtuh di tangan detektif.",
+          "startSec": 23.55,
+          "endSec": 26.3,
+          "narration": "Mesin Tik Arsip (Membungkam Rahasia Antariksa)",
           "visualCue": "Graphic novel neo-noir cinematic vertical illustration 9:16 (1080x1920). Aged vintage typewriter with paper rolled in, typing a list of names under harsh desk lamp beam, bold red rubber ink stamp reading 'RESTRICTED', gritty halftone screen tone, deep shadows. Full bleed.",
-          "shotType": "investigation"
+          "shotType": "fairytale-noir"
         },
         {
           "shot": 9,
-          "startSec": 33.5,
-          "endSec": 37.5,
-          "narration": "Pelakunya nyata: Freddy Snyder, pemuda lokal...",
+          "startSec": 26.6,
+          "endSec": 29.51,
+          "narration": "Patroli Detektif (Fiksi Runtuh di Tangan Polisi)",
           "visualCue": "Graphic novel neo-noir cinematic vertical illustration 9:16 (1080x1920). Flashing blue and red emergency light reflections on wet pavement, shadowy silhouette of police detectives approaching with flashlights drawn, atmospheric rain mist, comic ink chiaroscuro. Full bleed.",
-          "shotType": "suspect"
+          "shotType": "fairytale-noir"
         },
         {
           "shot": 10,
-          "startSec": 37.5,
-          "endSec": 41.5,
-          "narration": "...yang merampok demi uang tunai.",
+          "startSec": 29.51,
+          "endSec": 32.42,
+          "narration": "Mugshot Tersangka (Freddy Snyder Pemuda Lokal)",
           "visualCue": "Graphic novel neo-noir cinematic vertical illustration 9:16 (1080x1920). Stark criminal mugshot sketch of a young 29-year-old male suspect under harsh interrogation spotlight, identification placard under chin, heavy cross-hatching, high contrast shadows, comic book ink art. Full bleed.",
-          "shotType": "motive"
+          "shotType": "fairytale-noir"
         },
         {
           "shot": 11,
-          "startSec": 41.5,
-          "endSec": 45.5,
-          "narration": "Keluarga korban menolak keras mitos menjijikkan ini.",
+          "startSec": 32.42,
+          "endSec": 35.33,
+          "narration": "Bukti Uang & Senjata (Motif Rampok Uang Tunai)",
           "visualCue": "Graphic novel neo-noir cinematic vertical illustration 9:16 (1080x1920). Transparent forensic evidence plastic bag containing worn US dollar banknotes and a black steel revolver pistol on a dark metal table, barcode tags, chiaroscuro sidelight. Full bleed.",
-          "shotType": "grief-reality"
+          "shotType": "fairytale-noir"
         },
         {
           "shot": 12,
-          "startSec": 45.5,
-          "endSec": 49.5,
-          "narration": "Di ruang pengadilan...",
+          "startSec": 35.63,
+          "endSec": 38.5,
+          "narration": "Keluarga Korban (Menolak Keras Mitos)",
           "visualCue": "Graphic novel neo-noir cinematic vertical illustration 9:16 (1080x1920). Black and white graphic novel portrait of an elderly widow speaking firmly into vintage press microphones, expression of solemn grief and fierce dignity, dramatic sidelight, halftone texture. Full bleed.",
-          "shotType": "courtroom"
+          "shotType": "fairytale-noir"
         },
         {
           "shot": 13,
-          "startSec": 49.5,
-          "endSec": 52.5,
-          "narration": "...palu hakim bersiap menutup dongeng berdarah selamanya.",
+          "startSec": 38.5,
+          "endSec": 41.37,
+          "narration": "Palu Keadilan (Ruang Sidang Pengadilan)",
           "visualCue": "Graphic novel neo-noir cinematic vertical illustration 9:16 (1080x1920). Heavy dark mahogany judicial gavel raised in mid-air above sound block, neoclassical court chamber with bronze scales of justice in background, volumetric rays of light through high windows. Full bleed.",
-          "shotType": "justice"
+          "shotType": "fairytale-noir"
         },
         {
           "shot": 14,
-          "startSec": 52.5,
-          "endSec": 55,
-          "narration": "Keadilan ditegakkan. Dongeng kelam telah usai.",
+          "startSec": 41.37,
+          "endSec": 44.24,
+          "narration": "Brankas Terkunci (Dongeng Berdarah Ditutup)",
           "visualCue": "Graphic novel neo-noir cinematic vertical illustration 9:16 (1080x1920). Massive heavy steel vault door of the criminal archive locking shut, heavy bolts, large bold crimson wax stamp across the seam reading 'KASUS DITUTUP / CASE CLOSED', dark slate background with fine halftone dots. Full bleed.",
-          "shotType": "vault-closed"
+          "shotType": "fairytale-noir"
         }
       ]
     },
     "allKeyframes": [
       {
         "shot": 0,
-        "label": "Cover Hook",
+        "label": "Cover Hook (Mandatori 0s - 1.3s)",
         "prompt": "A dramatic high-CTR YouTube Shorts vertical 9:16 cover illustration (1080x1920), Graphic Novel Neo-Noir style. An ominous telescope observatory silhouette in the desolate Llano California desert under a starry night sky, yellow police caution tape across foreground, heavy black contour inking, chiaroscuro lighting, deep charcoal and antique brass bronze accents. Full bleed, fine halftone screen tone.",
         "imagePath": "/Users/beny/Documents/Project-self/Content-automation/public/renders/noir_1794725807098/keyframes/shot-00.jpg",
         "imageUrl": "/renders/noir_1794725807098/keyframes/shot-00.jpg"
       },
       {
         "shot": 1,
-        "label": "Hook Misteri",
-        "prompt": "Graphic novel neo-noir cinematic vertical illustration 9:16 (1080x1920). Silhouette of research scientists walking into dense nocturnal fog under a lone flickering sodium streetlamp, dramatic chiaroscuro, long ominous shadows, cold desaturated slate gray and antique bronze glow, comic book ink textures. Full bleed.",
+        "label": "Rumah Padang Gurun (Padang Sunyi California)",
+        "prompt": "Graphic novel neo-noir cinematic vertical illustration 9:16 (1080x1920). Isolated wooden ranch house in the dark desert plains of Llano California at 2 AM, one single window emitting an eerie amber glow, barren desert shrubs, dramatic chiaroscuro night sky with stars, heavy comic inking. Full bleed.",
         "imagePath": "/Users/beny/Documents/Project-self/Content-automation/public/renders/noir_1794725807098/keyframes/shot-01.jpg",
         "imageUrl": "/renders/noir_1794725807098/keyframes/shot-01.jpg"
       },
       {
         "shot": 2,
-        "label": "Arsip Misteri",
-        "prompt": "Graphic novel neo-noir cinematic vertical illustration 9:16 (1080x1920). Dark wooden board covered in classified research documents and missing person photos stamped with distressed crimson red crosses, pushpins with red connecting threads, magnifying glass, high contrast chiaroscuro. Full bleed.",
+        "label": "Ilmuwan Masuk Kabut (Sepuluh Periset Lenyap)",
+        "prompt": "Graphic novel neo-noir cinematic vertical illustration 9:16 (1080x1920). Silhouette of research scientists walking into dense nocturnal fog under a lone flickering sodium streetlamp, dramatic chiaroscuro, long ominous shadows, cold desaturated slate gray and antique bronze glow, comic book ink textures. Full bleed.",
         "imagePath": "/Users/beny/Documents/Project-self/Content-automation/public/renders/noir_1794725807098/keyframes/shot-02.jpg",
         "imageUrl": "/renders/noir_1794725807098/keyframes/shot-02.jpg"
       },
       {
         "shot": 3,
-        "label": "Rumah Padang Gurun",
-        "prompt": "Graphic novel neo-noir cinematic vertical illustration 9:16 (1080x1920). Isolated wooden ranch house in the dark desert plains of Llano California at 2 AM, one single window emitting an eerie amber glow, barren desert shrubs, dramatic chiaroscuro night sky with stars, heavy comic inking. Full bleed.",
+        "label": "Papan Arsip Misteri (Hilang Tanpa Jejak)",
+        "prompt": "Graphic novel neo-noir cinematic vertical illustration 9:16 (1080x1920). Dark wooden board covered in classified research documents and missing person photos stamped with distressed crimson red crosses, pushpins with red connecting threads, magnifying glass, high contrast chiaroscuro. Full bleed.",
         "imagePath": "/Users/beny/Documents/Project-self/Content-automation/public/renders/noir_1794725807098/keyframes/shot-03.jpg",
         "imageUrl": "/renders/noir_1794725807098/keyframes/shot-03.jpg"
       },
       {
         "shot": 4,
-        "label": "Beranda TKP",
-        "prompt": "Graphic novel neo-noir cinematic vertical illustration 9:16 (1080x1920). Close-up low angle of wooden house porch steps, yellow forensic evidence marker beside gleaming spent brass bullet casings on weathered floorboards, harsh flashlight beam, deep noir shadows. Full bleed.",
+        "label": "Sosok Astronom (Carl Grillmair di Teleskop)",
+        "prompt": "Graphic novel neo-noir cinematic vertical illustration 9:16 (1080x1920). Mysterious silhouette of an astronomer observing a massive astronomical radio telescope dish pointed into deep space under dark nebula clouds, cold cyan and antique bronze highlights. Full bleed.",
         "imagePath": "/Users/beny/Documents/Project-self/Content-automation/public/renders/noir_1794725807098/keyframes/shot-04.jpg",
         "imageUrl": "/renders/noir_1794725807098/keyframes/shot-04.jpg"
       },
       {
         "shot": 5,
-        "label": "Histeria Jagat Maya",
-        "prompt": "Graphic novel neo-noir cinematic vertical illustration 9:16 (1080x1920). Gloomy room illuminated only by vintage CRT monitors glowing with red glowing internet conspiracy forum diagrams and digital waveforms, half-empty coffee mug, forensic computer terminal chiaroscuro. Full bleed.",
+        "label": "Beranda TKP (Roboh Bersimbah Darah)",
+        "prompt": "Graphic novel neo-noir cinematic vertical illustration 9:16 (1080x1920). Close-up low angle of wooden house porch steps, yellow forensic evidence marker beside gleaming spent brass bullet casings on weathered floorboards, harsh flashlight beam, deep noir shadows. Full bleed.",
         "imagePath": "/Users/beny/Documents/Project-self/Content-automation/public/renders/noir_1794725807098/keyframes/shot-05.jpg",
         "imageUrl": "/renders/noir_1794725807098/keyframes/shot-05.jpg"
       },
       {
         "shot": 6,
-        "label": "Sindikat Bayangan",
-        "prompt": "Graphic novel neo-noir cinematic vertical illustration 9:16 (1080x1920). Mysterious silhouette of a trench-coated figure observing a massive astronomical radio telescope dish pointed into deep space under dark nebula clouds, cold cyan and antique bronze highlights. Full bleed.",
+        "label": "Histeria Netizen (Layar CRT Konspirasi)",
+        "prompt": "Graphic novel neo-noir cinematic vertical illustration 9:16 (1080x1920). Gloomy room illuminated only by vintage CRT monitors glowing with red glowing internet conspiracy forum diagrams and digital waveforms, half-empty coffee mug, forensic computer terminal chiaroscuro. Full bleed.",
         "imagePath": "/Users/beny/Documents/Project-self/Content-automation/public/renders/noir_1794725807098/keyframes/shot-06.jpg",
         "imageUrl": "/renders/noir_1794725807098/keyframes/shot-06.jpg"
       },
       {
         "shot": 7,
-        "label": "Meja Forensik 45°",
+        "label": "Meja Forensik 45° (Sindikat Bayangan)",
         "prompt": "Graphic novel neo-noir cinematic vertical illustration 9:16 (1080x1920). Isometric 45-degree angle view of a brushed steel police investigation desk, classified manila dossier folders marked 'CONFIDENTIAL', autopsy paperwork, antique bronze seal stamp, chiaroscuro side lighting. Full bleed.",
         "imagePath": "/Users/beny/Documents/Project-self/Content-automation/public/renders/noir_1794725807098/keyframes/shot-07.jpg",
         "imageUrl": "/renders/noir_1794725807098/keyframes/shot-07.jpg"
       },
       {
         "shot": 8,
-        "label": "Daftar Kematian",
+        "label": "Mesin Tik Arsip (Membungkam Rahasia Antariksa)",
         "prompt": "Graphic novel neo-noir cinematic vertical illustration 9:16 (1080x1920). Aged vintage typewriter with paper rolled in, typing a list of names under harsh desk lamp beam, bold red rubber ink stamp reading 'RESTRICTED', gritty halftone screen tone, deep shadows. Full bleed.",
         "imagePath": "/Users/beny/Documents/Project-self/Content-automation/public/renders/noir_1794725807098/keyframes/shot-08.jpg",
         "imageUrl": "/renders/noir_1794725807098/keyframes/shot-08.jpg"
       },
       {
         "shot": 9,
-        "label": "Patroli Polisi",
+        "label": "Patroli Detektif (Fiksi Runtuh di Tangan Polisi)",
         "prompt": "Graphic novel neo-noir cinematic vertical illustration 9:16 (1080x1920). Flashing blue and red emergency light reflections on wet pavement, shadowy silhouette of police detectives approaching with flashlights drawn, atmospheric rain mist, comic ink chiaroscuro. Full bleed.",
         "imagePath": "/Users/beny/Documents/Project-self/Content-automation/public/renders/noir_1794725807098/keyframes/shot-09.jpg",
         "imageUrl": "/renders/noir_1794725807098/keyframes/shot-09.jpg"
       },
       {
         "shot": 10,
-        "label": "Mugshot Tersangka",
+        "label": "Mugshot Tersangka (Freddy Snyder Pemuda Lokal)",
         "prompt": "Graphic novel neo-noir cinematic vertical illustration 9:16 (1080x1920). Stark criminal mugshot sketch of a young 29-year-old male suspect under harsh interrogation spotlight, identification placard under chin, heavy cross-hatching, high contrast shadows, comic book ink art. Full bleed.",
         "imagePath": "/Users/beny/Documents/Project-self/Content-automation/public/renders/noir_1794725807098/keyframes/shot-10.jpg",
         "imageUrl": "/renders/noir_1794725807098/keyframes/shot-10.jpg"
       },
       {
         "shot": 11,
-        "label": "Bukti Uang & Senjata",
+        "label": "Bukti Uang & Senjata (Motif Rampok Uang Tunai)",
         "prompt": "Graphic novel neo-noir cinematic vertical illustration 9:16 (1080x1920). Transparent forensic evidence plastic bag containing worn US dollar banknotes and a black steel revolver pistol on a dark metal table, barcode tags, chiaroscuro sidelight. Full bleed.",
         "imagePath": "/Users/beny/Documents/Project-self/Content-automation/public/renders/noir_1794725807098/keyframes/shot-11.jpg",
         "imageUrl": "/renders/noir_1794725807098/keyframes/shot-11.jpg"
       },
       {
         "shot": 12,
-        "label": "Keluarga Korban",
+        "label": "Keluarga Korban (Menolak Keras Mitos)",
         "prompt": "Graphic novel neo-noir cinematic vertical illustration 9:16 (1080x1920). Black and white graphic novel portrait of an elderly widow speaking firmly into vintage press microphones, expression of solemn grief and fierce dignity, dramatic sidelight, halftone texture. Full bleed.",
         "imagePath": "/Users/beny/Documents/Project-self/Content-automation/public/renders/noir_1794725807098/keyframes/shot-12.jpg",
         "imageUrl": "/renders/noir_1794725807098/keyframes/shot-12.jpg"
       },
       {
         "shot": 13,
-        "label": "Palu Keadilan",
+        "label": "Palu Keadilan (Ruang Sidang Pengadilan)",
         "prompt": "Graphic novel neo-noir cinematic vertical illustration 9:16 (1080x1920). Heavy dark mahogany judicial gavel raised in mid-air above sound block, neoclassical court chamber with bronze scales of justice in background, volumetric rays of light through high windows. Full bleed.",
         "imagePath": "/Users/beny/Documents/Project-self/Content-automation/public/renders/noir_1794725807098/keyframes/shot-13.jpg",
         "imageUrl": "/renders/noir_1794725807098/keyframes/shot-13.jpg"
       },
       {
         "shot": 14,
-        "label": "Brankas Terkunci",
+        "label": "Brankas Terkunci (Dongeng Berdarah Ditutup)",
         "prompt": "Graphic novel neo-noir cinematic vertical illustration 9:16 (1080x1920). Massive heavy steel vault door of the criminal archive locking shut, heavy bolts, large bold crimson wax stamp across the seam reading 'KASUS DITUTUP / CASE CLOSED', dark slate background with fine halftone dots. Full bleed.",
         "imagePath": "/Users/beny/Documents/Project-self/Content-automation/public/renders/noir_1794725807098/keyframes/shot-14.jpg",
         "imageUrl": "/renders/noir_1794725807098/keyframes/shot-14.jpg"
@@ -869,43 +861,42 @@
     "sampleKeyframes": [
       {
         "shot": 0,
-        "label": "Cover Hook",
+        "label": "Cover Hook (Mandatori 0s - 1.3s)",
         "prompt": "A dramatic high-CTR YouTube Shorts vertical 9:16 cover illustration (1080x1920), Graphic Novel Neo-Noir style. An ominous telescope observatory silhouette in the desolate Llano California desert under a starry night sky, yellow police caution tape across foreground, heavy black contour inking, chiaroscuro lighting, deep charcoal and antique brass bronze accents. Full bleed, fine halftone screen tone.",
         "imagePath": "/Users/beny/Documents/Project-self/Content-automation/public/renders/noir_1794725807098/keyframes/shot-00.jpg",
         "imageUrl": "/renders/noir_1794725807098/keyframes/shot-00.jpg"
       },
       {
         "shot": 1,
-        "label": "Hook Misteri",
-        "prompt": "Graphic novel neo-noir cinematic vertical illustration 9:16 (1080x1920). Silhouette of research scientists walking into dense nocturnal fog under a lone flickering sodium streetlamp, dramatic chiaroscuro, long ominous shadows, cold desaturated slate gray and antique bronze glow, comic book ink textures. Full bleed.",
+        "label": "Rumah Padang Gurun (Padang Sunyi California)",
+        "prompt": "Graphic novel neo-noir cinematic vertical illustration 9:16 (1080x1920). Isolated wooden ranch house in the dark desert plains of Llano California at 2 AM, one single window emitting an eerie amber glow, barren desert shrubs, dramatic chiaroscuro night sky with stars, heavy comic inking. Full bleed.",
         "imagePath": "/Users/beny/Documents/Project-self/Content-automation/public/renders/noir_1794725807098/keyframes/shot-01.jpg",
         "imageUrl": "/renders/noir_1794725807098/keyframes/shot-01.jpg"
       },
       {
         "shot": 2,
-        "label": "Arsip Misteri",
-        "prompt": "Graphic novel neo-noir cinematic vertical illustration 9:16 (1080x1920). Dark wooden board covered in classified research documents and missing person photos stamped with distressed crimson red crosses, pushpins with red connecting threads, magnifying glass, high contrast chiaroscuro. Full bleed.",
+        "label": "Ilmuwan Masuk Kabut (Sepuluh Periset Lenyap)",
+        "prompt": "Graphic novel neo-noir cinematic vertical illustration 9:16 (1080x1920). Silhouette of research scientists walking into dense nocturnal fog under a lone flickering sodium streetlamp, dramatic chiaroscuro, long ominous shadows, cold desaturated slate gray and antique bronze glow, comic book ink textures. Full bleed.",
         "imagePath": "/Users/beny/Documents/Project-self/Content-automation/public/renders/noir_1794725807098/keyframes/shot-02.jpg",
         "imageUrl": "/renders/noir_1794725807098/keyframes/shot-02.jpg"
       },
       {
         "shot": 3,
-        "label": "Rumah Padang Gurun",
-        "prompt": "Graphic novel neo-noir cinematic vertical illustration 9:16 (1080x1920). Isolated wooden ranch house in the dark desert plains of Llano California at 2 AM, one single window emitting an eerie amber glow, barren desert shrubs, dramatic chiaroscuro night sky with stars, heavy comic inking. Full bleed.",
+        "label": "Papan Arsip Misteri (Hilang Tanpa Jejak)",
+        "prompt": "Graphic novel neo-noir cinematic vertical illustration 9:16 (1080x1920). Dark wooden board covered in classified research documents and missing person photos stamped with distressed crimson red crosses, pushpins with red connecting threads, magnifying glass, high contrast chiaroscuro. Full bleed.",
         "imagePath": "/Users/beny/Documents/Project-self/Content-automation/public/renders/noir_1794725807098/keyframes/shot-03.jpg",
         "imageUrl": "/renders/noir_1794725807098/keyframes/shot-03.jpg"
       },
       {
         "shot": 4,
-        "label": "Beranda TKP",
-        "prompt": "Graphic novel neo-noir cinematic vertical illustration 9:16 (1080x1920). Close-up low angle of wooden house porch steps, yellow forensic evidence marker beside gleaming spent brass bullet casings on weathered floorboards, harsh flashlight beam, deep noir shadows. Full bleed.",
+        "label": "Sosok Astronom (Carl Grillmair di Teleskop)",
+        "prompt": "Graphic novel neo-noir cinematic vertical illustration 9:16 (1080x1920). Mysterious silhouette of an astronomer observing a massive astronomical radio telescope dish pointed into deep space under dark nebula clouds, cold cyan and antique bronze highlights. Full bleed.",
         "imagePath": "/Users/beny/Documents/Project-self/Content-automation/public/renders/noir_1794725807098/keyframes/shot-04.jpg",
         "imageUrl": "/renders/noir_1794725807098/keyframes/shot-04.jpg"
       }
     ],
     "audioPath": "/Users/beny/Documents/Project-self/Content-automation/public/renders/noir_1794725807098/audio/master-audio.mp3",
-    "audioDurationSec": 42.6,
-    "finalVideoPath": "/Users/beny/Documents/Project-self/Content-automation/public/renders/noir_1794725807098/noir-explainer-final.mp4",
+    "audioDurationSec": 44.3,
     "metadata": {
       "seoTitle": "Dongeng Kelam 10 Ilmuwan Lenyap: Mitos Internet vs Fakta Kriminal",
       "caption": "Sebuah dongeng kelam dari padang sunyi California. Konon, sepuluh periset rahasia lenyap ditelan malam, membakar histeria konspirasi antariksa saat astronom Carl Grillmair tewas di rumahnya. Namun dongeng fiksi itu runtuh di tangan polisi saat pelaku nyata, Freddy Snyder, tertangkap merampok demi uang tunai.\n\nSaksikan bagaimana fakta pengadilan membongkar mitos internet!\n\n#TrueCrime #KasusKriminal #MisteriIlmuwan #CarlGrillmair #NeoNoir #Investigasi #EksplanasiKriminal #FaktaHukum #KriminalDunia #Shorts",
@@ -926,7 +917,8 @@
         "#Reels",
         "#TikTok"
       ],
-      "summaryNote": "Naskah bergaya dongeng kelam (dark fairytale suspense) dengan durasi di bawah 1 menit siap multichannel posting."
-    }
+      "summaryNote": "Naskah bergaya dongeng kelam (dark fairytale suspense) dengan visual sinkron 100% per klausa kalimat & durasi di bawah 1 menit."
+    },
+    "finalVideoPath": "/Users/beny/Documents/Project-self/Content-automation/public/renders/noir_1794725807098/noir-explainer-final.mp4"
   }
 }

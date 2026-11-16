@@ -35,10 +35,13 @@ next-env.d.ts
 
 # render cache & large media files
 hyperframes-workspace/renders
+hyperframes-workspace/*/assets/
 *.mp4
 *.webm
 *.mov
 *.wav
+*.pcm
+*.mp3
 .temp-*
 **/audio-chunks/
 

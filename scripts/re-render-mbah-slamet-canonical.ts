@@ -26,147 +26,134 @@ function resolveFfmpegBin(): { ffmpeg: string; ffprobe: string } {
 
 const { ffmpeg, ffprobe } = resolveFfmpegBin();
 
-// Strict Charon voice synthesis using gemini-3.8-flash-tts only (matching Mujianto 100%)
-async function synthesizeCharonChunk(text: string, idx: number): Promise<{ wavPath: string; durationSec: number }> {
-  const key = process.env.GEMINI_API_KEY;
-  if (!key) throw new Error('GEMINI_API_KEY missing in .env.local');
-
-  const pcmPath = path.join(AUDIO_DIR, `sentence-${idx}.pcm`);
-  const wavPath = path.join(AUDIO_DIR, `sentence-${idx}.wav`);
-
-  console.log(`[VO] Mensintesis segmen ${idx} dengan Charon (gemini-3.1-flash-tts-preview)...`);
-
-  let audioData: string | undefined;
-  for (let attempt = 1; attempt <= 3; attempt++) {
-    const res = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-tts-preview:generateContent?key=${key}`, {
-      method: 'POST',
-      headers: { 'content-type': 'application/json' },
-      body: JSON.stringify({
-        contents: [{ parts: [{ text }] }],
-        generationConfig: {
-          responseModalities: ['AUDIO'],
-          speechConfig: {
-            voiceConfig: {
-              prebuiltVoiceConfig: { voiceName: 'Charon' },
-            },
-          },
-        },
-      }),
-    });
-
-    if (res.status === 429) {
-      console.warn(`[VO] Rate limit 429 per-minute pada segmen ${idx}. Menunggu 25 detik (percobaan ${attempt}/3)...`);
-      await new Promise((r) => setTimeout(r, 25000));
-      continue;
-    }
-
-    if (!res.ok) {
-      const errText = await res.text().catch(() => '');
-      throw new Error(`TTS API failed (${res.status}): ${errText}`);
-    }
-
-    const data = (await res.json()) as any;
-    const part = data.candidates?.[0]?.content?.parts?.find((p: any) => p.inlineData?.data);
-    if (part?.inlineData?.data) {
-      audioData = part.inlineData.data;
-      break;
-    }
-  }
-
-  if (!audioData) {
-    throw new Error(`Failed to synthesize sentence ${idx} after retries`);
-  }
-
-  fs.writeFileSync(pcmPath, Buffer.from(audioData, 'base64'));
-
-  execFileSync(ffmpeg, [
-    '-y',
-    '-f', 's16le',
-    '-ar', '24000',
-    '-ac', '1',
-    '-i', pcmPath,
-    '-af', 'highpass=f=80,loudnorm=I=-16:TP=-1.5:LRA=11',
-    '-ar', '48000',
-    '-ac', '2',
-    wavPath,
-  ]);
-
-  if (fs.existsSync(pcmPath)) fs.unlinkSync(pcmPath);
-
-  const durStr = execFileSync(ffprobe, [
-    '-v', 'error',
-    '-show_entries', 'format=duration',
-    '-of', 'default=noprint_wrappers=1:nokey=1',
-    wavPath,
-  ]).toString().trim();
-
-  // Small delay to prevent 3 RPM rate limit on free tier
-  await new Promise((r) => setTimeout(r, 8000));
-
-  return { wavPath, durationSec: parseFloat(durStr) || 2.0 };
-}
-
 async function main() {
   console.log('========================================================================');
-  console.log('  🕶️  RE-RENDER CANONICAL: SERIAL KILLER MBAH SLAMET (FLOW IMAGES + CHARON VO)');
+  console.log('  🕶️  EXPANDED & DEEPENED NARRATIVE: SERIAL KILLER MBAH SLAMET');
+  console.log('      (14 Shots 1:1 with 14 Sentences • Deep Unified Persona VO)');
   console.log('========================================================================\n');
 
-  // 1. Sentences breakdown (identical structure & pacing to Mujianto)
+  // 14 Deep, evocative sentences matching 14 Flow MCP Shots 1:1
   const SENTENCES = [
     {
       id: 's1',
-      text: 'Awal April 2023, lereng dingin perbukitan Desa Balun, Banjarnegara, gempar oleh temuan kuburan massal paling mengerikan di Jawa Tengah.',
-      shots: [1, 2],
+      shot: 1,
+      text: 'Awal April 2023, ketenangan lereng Desa Balun di Banjarnegara seketika runtuh oleh temuan kuburan massal paling mengerikan dalam sejarah kriminal Jawa Tengah.',
     },
     {
       id: 's2',
-      text: 'Mbah Slamet, seorang dukun penipu berkedok pengganda uang, menjanjikan setoran puluhan juta bisa berlipat ganda menjadi miliaran rupiah.',
-      shots: [3, 4],
+      shot: 2,
+      text: 'Sosok di balik kekejaman ini adalah Slamet Tohari alias Mbah Slamet, seorang pria paruh baya yang bertahun-tahun hidup di balik topeng kesalehan.',
     },
     {
       id: 's3',
-      text: 'Namun ketika korban mulai menagih janji dan mendesak uangnya kembali, sang dukun merencanakan eksekusi berdarah di tengah perkebunan petang hari.',
-      shots: [5, 6],
+      shot: 3,
+      text: 'Mbah Slamet mengklaim dirinya dukun sakti berilmu gaib tinggi, yang mampu menggandakan uang puluhan juta rupiah menjadi lima miliar secara instan.',
     },
     {
       id: 's4',
-      text: 'Korban diajak melakukan ritual gaib, lalu disuguhi minuman yang diam-diam telah dicampur racun potasium sianida dosis mematikan.',
-      shots: [7, 8],
+      shot: 4,
+      text: 'Tergiur iming-iming kekayaan instan yang dipromosikan perantaranya lewat media sosial, para korban dari berbagai kota berbondong-bondong menyerahkan seluruh tabungan hidup mereka.',
     },
     {
       id: 's5',
-      text: 'Titik terang tiba saat korban terakhir bernama Paryanto sempat mengirimkan lokasi dan pesan terakhir ke anaknya sebelum tewas diracun.',
-      shots: [9, 10],
+      shot: 5,
+      text: 'Namun ketika waktu yang dijanjikan tiba dan para korban mendesak uangnya dikembalikan, sang dukun mulai merancang skenario eksekusi berdarah dingin.',
     },
     {
       id: 's6',
-      text: 'Polisi membongkar 12 liang kubur di bukit kematian, dan di Pengadilan Negeri Banjarnegara, Jaksa resmi menuntut Mbah Slamet dengan hukuman mati.',
-      shots: [11, 12, 13, 14],
+      shot: 6,
+      text: 'Dengan dalih mengambil uang gaib pada malam hari, para korban dipancing datang sendirian menempuh perjalanan ratusan kilometer menuju lereng sunyi Banjarnegara.',
+    },
+    {
+      id: 's7',
+      shot: 7,
+      text: 'Di tengah dinginnya perkebunan sepi, sang dukun menyuguhkan minuman ritual yang diam-diam telah dicampur serbuk potasium sianida mematikan.',
+    },
+    {
+      id: 's8',
+      shot: 8,
+      text: 'Reaksi racun potas bekerja luar biasa cepat; hanya dalam hitungan lima menit, para korban meregang nyawa dalam kejang hebat tanpa sempat berteriak minta tolong.',
+    },
+    {
+      id: 's9',
+      shot: 9,
+      text: 'Teror bukit kematian ini akhirnya terbongkar berkat firasat korban terakhir bernama Paryanto, yang sempat mengirim pesan suara dan titik lokasi GPS ke anaknya.',
+    },
+    {
+      id: 's10',
+      shot: 10,
+      text: "Pesan pilu berbunyi 'Takut ayah mati, jika tidak ada kabar bawa polisi ke sini' menjadi kunci bagi Tim Reskrim untuk mendobrak kediaman sang dukun.",
+    },
+    {
+      id: 's11',
+      shot: 11,
+      text: 'Saat diseret ke perbukitan, Mbah Slamet bahkan sempat lupa titik liang kubur saking banyaknya korban yang telah ia bantai dan tumpuk di bukit sayur tersebut.',
+    },
+    {
+      id: 's12',
+      shot: 12,
+      text: 'Total dua belas liang kubur dibongkar, mengungkap fakta mengerikan bahwa seluruh korban tewas diracun demi merampas sisa uang di dompet mereka.',
+    },
+    {
+      id: 's13',
+      shot: 13,
+      text: 'Di hadapan Majelis Hakim Pengadilan Negeri Banjarnegara, Jaksa Penuntut Umum menuntut Slamet Tohari dengan tuntutan maksimal hukuman mati tanpa ampun.',
+    },
+    {
+      id: 's14',
+      shot: 14,
+      text: 'Palu pengadilan akhirnya diketuk tegas menjatuhkan vonis mati, mengakhiri riwayat kelam salah satu serial killer paling berdarah dalam sejarah modern Indonesia.',
     },
   ];
 
-  // 1. Synthesize consistent Charon VO
-  console.log('1. Mensintesis Voice Over konsisten (Charon - gemini-3.8-flash-tts)...');
-  const sentenceTimings: Array<{ id: string; text: string; wavPath: string; durationSec: number; start: number; end: number }> = [];
-  let currentCursor = 0.0;
+  // 1. Process 14 Sentences Audio Timings
+  console.log('1. Memproses 14 Kalimat Voice Over Konsisten & Timing...');
+  const sentenceTimings: Array<{ id: string; shot: number; text: string; wavPath: string; durationSec: number; start: number; end: number }> = [];
+
+  // Cover hook: 0.0s to 1.3s is reserved strictly for Shot 00 (no caption, full graphic novel hook)
+  let currentCursor = 1.30;
 
   for (let i = 0; i < SENTENCES.length; i++) {
     const s = SENTENCES[i];
-    const res = await synthesizeCharonChunk(s.text, i + 1);
+    const wavPath = path.join(AUDIO_DIR, `sentence-${i + 1}.wav`);
+    if (!fs.existsSync(wavPath)) {
+      throw new Error(`File audio tidak ditemukan: ${wavPath}`);
+    }
+
+    const durStr = execFileSync(ffprobe, [
+      '-v', 'error',
+      '-show_entries', 'format=duration',
+      '-of', 'default=noprint_wrappers=1:nokey=1',
+      wavPath,
+    ]).toString().trim();
+    const durationSec = parseFloat(durStr) || 3.0;
+
     const start = Number(currentCursor.toFixed(2));
-    const end = Number((currentCursor + res.durationSec).toFixed(2));
+    const end = Number((currentCursor + durationSec).toFixed(2));
     sentenceTimings.push({
       id: s.id,
+      shot: s.shot,
       text: s.text,
-      wavPath: res.wavPath,
-      durationSec: res.durationSec,
+      wavPath,
+      durationSec,
       start,
       end,
     });
-    currentCursor = end + 0.30; // 300ms dramatic silence gap (identical to Mujianto)
+    console.log(`   [Kalimat ${i + 1}/14] (${durationSec.toFixed(2)}s) -> Timing: ${start}s - ${end}s`);
+    currentCursor = end + 0.30; // 300ms dramatic silence gap between sentences
   }
 
-  // Concat VO
+  // Prepend 1.30s silence for the cover hook
+  const coverSilenceWav = path.join(AUDIO_DIR, 'cover-silence.wav');
+  execFileSync(ffmpeg, [
+    '-y',
+    '-f', 'lavfi',
+    '-i', 'anullsrc=r=48000:cl=stereo',
+    '-t', '1.30',
+    coverSilenceWav,
+  ]);
+
+  // Inter-sentence silence
   const silenceWav = path.join(AUDIO_DIR, 'silence.wav');
   execFileSync(ffmpeg, [
     '-y',
@@ -177,7 +164,7 @@ async function main() {
   ]);
 
   const concatListTxt = path.join(AUDIO_DIR, 'concat_vo.txt');
-  let concatLines = '';
+  let concatLines = `file '${coverSilenceWav}'\n`;
   sentenceTimings.forEach((st) => {
     concatLines += `file '${st.wavPath}'\n`;
     concatLines += `file '${silenceWav}'\n`;
@@ -195,44 +182,41 @@ async function main() {
     cleanVoPath,
   ]);
 
-  const totalDuration = Number(currentCursor.toFixed(2));
-  console.log(`✅ Voice Over Selesai: ${totalDuration}s di ${cleanVoPath}`);
+  const totalDuration = Number((currentCursor + 0.5).toFixed(2));
+  console.log(`\n✅ Voice Over Selesai: Total Durasi ${totalDuration}s di ${cleanVoPath}`);
 
-  // 2. Transition Timings & Shot Timings
+  // 2. Transition Timings & Shot Timings (1:1 with sentences)
   const transitionTimes: number[] = [1.3]; // Cut dari Shot 00 ke Shot 01
   const shotTimings: Array<{ shot: number; startSec: number; endSec: number; durationSec: number; imageFile: string }> = [];
 
-  SENTENCES.forEach((s, idx) => {
-    const st = sentenceTimings[idx];
-    const assignedShots = s.shots;
-    const perShotDur = st.durationSec / assignedShots.length;
+  sentenceTimings.forEach((st, idx) => {
+    const isLast = idx === sentenceTimings.length - 1;
+    const start = st.start;
+    // Stretch the shot to include the 0.3s silence gap for seamless transition to next shot
+    const end = isLast ? totalDuration : Number((st.end + 0.30).toFixed(2));
+    const durationSec = Number((end - start).toFixed(2));
 
-    assignedShots.forEach((shotNum, j) => {
-      const start = Number((st.start + j * perShotDur).toFixed(2));
-      const end = Number((st.start + (j + 1) * perShotDur).toFixed(2));
-      const durationSec = Number((end - start).toFixed(2));
+    if (start > 0.1 && !transitionTimes.includes(start)) {
+      transitionTimes.push(start);
+    }
 
-      if (start > 0.1 && !transitionTimes.includes(start)) {
-        transitionTimes.push(start);
-      }
-
-      shotTimings.push({
-        shot: shotNum,
-        startSec: start,
-        endSec: end,
-        durationSec,
-        imageFile: `shot-${String(shotNum).padStart(2, '0')}.jpg`,
-      });
+    shotTimings.push({
+      shot: st.shot,
+      startSec: start,
+      endSec: end,
+      durationSec,
+      imageFile: `shot-${String(st.shot).padStart(2, '0')}.jpg`,
     });
   });
 
   transitionTimes.sort((a, b) => a - b);
 
-  // 3. Mixing Master Audio (VO + BGM ducked 20% + 14x SFX Glitch)
-  console.log('\n2. Mixing Audio Master (Charon VO + BGM 20% + SFX Glitch)...');
+  // 3. Mixing Master Audio (VO + Looped BGM ducked 20% + 14x SFX Glitch)
+  console.log('\n2. Mixing Audio Master (Charon VO + Looped BGM 20% + 14x SFX Glitch)...');
   const sfxPath = path.join(AUDIO_DIR, 'glitch-whoosh.wav');
   const localBgm = path.join(AUDIO_DIR, 'bgm-crime-tension.mp3');
   const bgmFadeOutStart = Math.max(0, totalDuration - 2.5);
+
   let filterStr = `[0:a]volume=1.0[vo];[2:a]volume=0.20,afade=t=in:ss=0:d=1.5,afade=t=out:st=${bgmFadeOutStart.toFixed(1)}:d=2.5[bgm_bed];`;
   const delayedInputs: string[] = [];
 
@@ -249,16 +233,18 @@ async function main() {
     '-y',
     '-i', cleanVoPath,
     '-i', sfxPath,
+    '-stream_loop', '-1',
     '-i', localBgm,
     '-filter_complex', filterStr,
     '-map', '[out]',
+    '-t', `${totalDuration.toFixed(2)}`,
     '-c:a', 'libmp3lame',
     '-b:a', '192k',
     masterAudioPath,
   ]);
   console.log(`✅ Master Audio Tersimpan: ${masterAudioPath}`);
 
-  // 4. Calculate word timings for karaoke captions
+  // 4. Calculate word timings for discrete karaoke captions
   console.log('\n3. Menghitung Word Timings & Discrete Phrases (Maks 4 kata)...');
   const allWords: CaptionWord[] = [];
   sentenceTimings.forEach((st) => {
@@ -285,7 +271,7 @@ async function main() {
 
   // Save storyboard data
   const storyboardData = {
-    title: 'SERIAL KILLER BANJARNEGARA - 12 Korban Dukun Mbah Slamet',
+    title: 'SERIAL KILLER BANJARNEGARA - 12 Korban Dukun Mbah Slamet (Expanded Master)',
     totalDurationSec: totalDuration,
     transitionTimes,
     shotTimings,
@@ -363,8 +349,8 @@ async function main() {
   const snapshots = [
     { sec: '0.8', name: 'preview-01s-hook.jpg' },
     { sec: '5.0', name: 'preview-05s-shot1.jpg' },
-    { sec: '20.0', name: 'preview-20s-shot4.jpg' },
-    { sec: '45.0', name: 'preview-45s-shot9.jpg' },
+    { sec: '30.0', name: 'preview-20s-shot4.jpg' },
+    { sec: '70.0', name: 'preview-45s-shot9.jpg' },
   ];
 
   for (const s of snapshots) {
@@ -380,8 +366,214 @@ async function main() {
     console.log(`   Snapshot tersimpan: ${outImg}`);
   }
 
+  // 9. Update Portal HTML with Deepened Story & Distribution Kit
+  console.log('\n9. Memperbarui Review Portal & Social Media Distribution Kit...');
+  const portalHtml = `<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SERIAL KILLER BANJARNEGARA: 12 Nyawa Ditelan Bukit Kematian | Review Portal</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&family=Montserrat:wght@800;900&display=swap" rel="stylesheet">
+  <style>
+    body { font-family: 'Inter', sans-serif; background-color: #0A0D12; color: #E6EDF3; }
+    .gold-accent { color: #C59B27; }
+    .crimson-accent { color: #8B2635; }
+  </style>
+</head>
+<body class="p-6 md:p-12">
+  <div class="max-w-6xl mx-auto space-y-10">
+    
+    <!-- Header -->
+    <header class="border-b border-slate-800 pb-6 flex flex-col md:flex-row md:items-center justify-between gap-4">
+      <div>
+        <div class="flex items-center gap-3">
+          <span class="px-3 py-1 bg-red-950/80 border border-red-800 text-red-400 text-xs font-black tracking-widest rounded-full uppercase">Crime Noir Master</span>
+          <span class="text-xs text-slate-400 font-mono">1080x1920 (9:16) • ${totalDuration.toFixed(1)}s • 30fps</span>
+        </div>
+        <h1 class="text-3xl md:text-4xl font-black mt-2 tracking-tight text-white">SERIAL KILLER BANJARNEGARA: 12 NYAWA DITELAN BUKIT KEMATIAN</h1>
+        <p class="text-slate-400 text-sm mt-1">Studi Kasus Pembunuhan Berantai Dukun Pengganda Uang Mbah Slamet (Slamet Tohari) • Detikcom Archive</p>
+      </div>
+      <div class="flex items-center gap-3">
+        <a href="mbah-slamet-final.mp4" download class="px-5 py-2.5 bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold rounded-xl transition text-sm flex items-center gap-2 shadow-lg shadow-amber-500/20">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
+          Download Video MP4
+        </a>
+      </div>
+    </header>
+
+    <!-- Main Content Grid -->
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-10">
+      
+      <!-- Video Player Column (5 cols) -->
+      <div class="lg:col-span-5 flex flex-col items-center">
+        <div class="w-full max-w-[380px] bg-slate-950 p-2 rounded-3xl border border-slate-800 shadow-2xl relative overflow-hidden">
+          <video id="player" controls playsinline class="w-full rounded-2xl aspect-[9/16] object-cover bg-black" poster="preview-01s-hook.jpg">
+            <source src="mbah-slamet-final.mp4?v=${Date.now()}" type="video/mp4">
+            Browser Anda tidak mendukung tag video.
+          </video>
+        </div>
+        <div class="mt-4 text-xs text-slate-500 font-mono text-center">
+          Format: H.264 / AAC • 1080x1920 • 30fps • Subtitle Kata-per-Kata
+        </div>
+      </div>
+
+      <!-- Info & Social Distribution Kit Column (7 cols) -->
+      <div class="lg:col-span-7 space-y-8">
+        
+        <!-- Storyboard Structure & Visual Verification -->
+        <div class="bg-slate-900/60 border border-slate-800 rounded-2xl p-6 space-y-4">
+          <h2 class="text-lg font-bold text-white flex items-center gap-2">
+            <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
+            Struktur Cerita & Arsitektur Video
+          </h2>
+          <div class="grid grid-cols-2 md:grid-cols-4 gap-3 text-xs">
+            <div class="p-3 bg-black/40 rounded-xl border border-slate-800/80">
+              <span class="text-slate-400 block">Total Durasi</span>
+              <span class="text-white font-bold text-sm">${totalDuration.toFixed(1)}s</span>
+            </div>
+            <div class="p-3 bg-black/40 rounded-xl border border-slate-800/80">
+              <span class="text-slate-400 block">Visual Assets</span>
+              <span class="text-amber-400 font-bold text-sm">15 Flow MCP</span>
+            </div>
+            <div class="p-3 bg-black/40 rounded-xl border border-slate-800/80">
+              <span class="text-slate-400 block">Voice Over</span>
+              <span class="text-emerald-400 font-bold text-sm">Charon (Unified)</span>
+            </div>
+            <div class="p-3 bg-black/40 rounded-xl border border-slate-800/80">
+              <span class="text-slate-400 block">Subtitles</span>
+              <span class="text-white font-bold text-sm">${phrases.length} Frasa Karaoke</span>
+            </div>
+          </div>
+          <div class="space-y-2 text-xs text-slate-300 leading-relaxed">
+            <p><strong class="text-amber-400">Babak 1 (0-15s):</strong> Teror lereng kubis Desa Balun & terungkapnya sosok tersangka Mbah Slamet.</p>
+            <p><strong class="text-amber-400">Babak 2 (15-45s):</strong> Modus ritual penggandaan 5 miliar, promosi medsos, & pancingan perjalanan jauh.</p>
+            <p><strong class="text-amber-400">Babak 3 (45-65s):</strong> Eksekusi racun potasium sianida dalam cangkir ritual di tengah kebun sunyi.</p>
+            <p><strong class="text-amber-400">Babak 4 (65-90s):</strong> Firasat pesan WA Paryanto ("Takut ayah mati"), penggerebekan, & 12 liang lahat dibongkar.</p>
+            <p><strong class="text-amber-400">Babak 5 (90s+):</strong> Tuntutan pidana mati & palu vonis mati Majelis Hakim PN Banjarnegara.</p>
+          </div>
+        </div>
+
+        <!-- Snapshots Grid -->
+        <div class="space-y-3">
+          <h3 class="text-sm font-bold text-slate-300 uppercase tracking-wider">Verifikasi Visual & Captions</h3>
+          <div class="grid grid-cols-4 gap-3">
+            <div class="space-y-1">
+              <img src="preview-01s-hook.jpg" class="rounded-xl border border-slate-800 aspect-[9/16] object-cover w-full">
+              <span class="text-[10px] text-slate-400 block text-center font-mono">0.8s Cover Hook</span>
+            </div>
+            <div class="space-y-1">
+              <img src="preview-05s-shot1.jpg" class="rounded-xl border border-slate-800 aspect-[9/16] object-cover w-full">
+              <span class="text-[10px] text-slate-400 block text-center font-mono">5.0s Desa Balun</span>
+            </div>
+            <div class="space-y-1">
+              <img src="preview-20s-shot4.jpg" class="rounded-xl border border-slate-800 aspect-[9/16] object-cover w-full">
+              <span class="text-[10px] text-slate-400 block text-center font-mono">30.0s Barbut Forensik</span>
+            </div>
+            <div class="space-y-1">
+              <img src="preview-45s-shot9.jpg" class="rounded-xl border border-slate-800 aspect-[9/16] object-cover w-full">
+              <span class="text-[10px] text-slate-400 block text-center font-mono">70.0s Chat Paryanto</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- SOCIAL MEDIA DISTRIBUTION KIT -->
+        <div class="bg-slate-900 border border-slate-800 rounded-2xl p-6 space-y-6">
+          <div class="flex items-center justify-between">
+            <h2 class="text-lg font-bold text-white flex items-center gap-2">
+              <svg class="w-5 h-5 text-amber-400" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14h2v2h-2zm0-10h2v8h-2z"/></svg>
+              Social Media Distribution Kit
+            </h2>
+            <span class="text-xs text-slate-400 font-mono">Ready to Publish</span>
+          </div>
+
+          <!-- YouTube Shorts Tab -->
+          <div class="space-y-3 border-t border-slate-800/80 pt-4">
+            <div class="flex items-center justify-between">
+              <span class="text-xs font-bold text-red-400 uppercase tracking-wider flex items-center gap-1.5">
+                <span class="w-2 h-2 rounded-full bg-red-500"></span> YouTube Shorts
+              </span>
+              <button onclick="copyToClipboard('yt-desc', this)" class="px-3 py-1 bg-slate-800 hover:bg-slate-700 text-xs font-semibold text-slate-200 rounded-lg transition">Salin Copy</button>
+            </div>
+            <div class="text-xs text-slate-400 font-mono">Judul: <strong class="text-white">SERIAL KILLER BANJARNEGARA: 12 Korban Dukun Pengganda Uang Mbah Slamet Dituntut Hukuman Mati</strong></div>
+            <pre id="yt-desc" class="p-4 rounded-xl bg-black/60 border border-slate-800 text-xs text-slate-300 font-sans leading-relaxed whitespace-pre-wrap">Di lereng perbukitan Desa Balun, Wanayasa, Banjarnegara, terbongkar kasus pembunuhan berantai paling menggemparkan di Jawa Tengah.
+
+Slamet Tohari alias Mbah Slamet, dukun pengganda uang yang membantai 12 korbannya menggunakan racun potasium sianida di tengah perkebunan dingin.
+
+Firasat dan pesan terakhir Paryanto ke anaknya: "Takut ayah mati. Kalau ayah nggak ada kabar, bawa polisi ke sini" menjadi kunci terbongkarnya bukit kematian.
+
+Simak kronologi lengkap investigasi dan vonis mati sang serial killer.
+
+#MbahSlamet #SerialKiller #TrueCrimeIndonesia #Banjarnegara #Detikcom #KasusKriminal #Investigasi #HukumDanKriminal</pre>
+          </div>
+
+          <!-- TikTok Tab -->
+          <div class="space-y-3 border-t border-slate-800/80 pt-4">
+            <div class="flex items-center justify-between">
+              <span class="text-xs font-bold text-cyan-400 uppercase tracking-wider flex items-center gap-1.5">
+                <span class="w-2 h-2 rounded-full bg-cyan-400"></span> TikTok
+              </span>
+              <button onclick="copyToClipboard('tiktok-desc', this)" class="px-3 py-1 bg-slate-800 hover:bg-slate-700 text-xs font-semibold text-slate-200 rounded-lg transition">Salin Copy</button>
+            </div>
+            <pre id="tiktok-desc" class="p-4 rounded-xl bg-black/60 border border-slate-800 text-xs text-slate-300 font-sans leading-relaxed whitespace-pre-wrap">12 nyawa ditelan bukit kematian Banjarnegara... 😱 Firasat pesan WA korban terakhir: "Takut ayah mati, bawa polisi ke sini" berhasil membongkar kedok dukun maut Mbah Slamet!
+
+Semua korban diracun potas di kebun kubis saat menagih uang gaib. Jaksa dan Hakim jatuhkan vonis mati tanpa ampun! ⚖️
+
+#truecrime #mbahslamet #kasusviral #misteri #kriminal #banjarnegara #kisahnyata #hukumanmati</pre>
+          </div>
+
+          <!-- Instagram Reels Tab -->
+          <div class="space-y-3 border-t border-slate-800/80 pt-4">
+            <div class="flex items-center justify-between">
+              <span class="text-xs font-bold text-pink-400 uppercase tracking-wider flex items-center gap-1.5">
+                <span class="w-2 h-2 rounded-full bg-pink-400"></span> Instagram Reels
+              </span>
+              <button onclick="copyToClipboard('ig-desc', this)" class="px-3 py-1 bg-slate-800 hover:bg-slate-700 text-xs font-semibold text-slate-200 rounded-lg transition">Salin Copy</button>
+            </div>
+            <pre id="ig-desc" class="p-4 rounded-xl bg-black/60 border border-slate-800 text-xs text-slate-300 font-sans leading-relaxed whitespace-pre-wrap">Kisah Nyata: Serial Killer Mbah Slamet Banjarnegara.
+
+Di balik dinginnya perbukitan Desa Balun, tersembunyi liang kubur belasan korban penipuan berkedok dukun sakti pengganda uang.
+
+Para korban disuguhi teh potasium sianida dosis tinggi, lalu dikubur di lereng bukit saat meregang nyawa. Pengadilan Negeri Banjarnegara resmi menjatuhkan vonis mati atas pembunuhan berencana paling keji ini.
+
+Source: Detikcom Arsip Investigasi Kriminal.
+.
+.
+#TrueCrime #KasusKriminal #MbahSlamet #Banjarnegara #Detikcom #Investigasi #HukumMati #Storytelling #ViralIndonesia</pre>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+  <script>
+    function copyToClipboard(id, btn) {
+      const text = document.getElementById(id).innerText;
+      navigator.clipboard.writeText(text).then(() => {
+        const originalText = btn.innerText;
+        btn.innerText = 'Tersalin!';
+        btn.classList.add('bg-emerald-700', 'text-white');
+        setTimeout(() => {
+          btn.innerText = originalText;
+          btn.classList.remove('bg-emerald-700', 'text-white');
+        }, 2000);
+      });
+    }
+  </script>
+</body>
+</html>`;
+
+  fs.writeFileSync(path.join(PUBLIC_DIR, 'index.html'), portalHtml, 'utf8');
+
   console.log('\n========================================================================');
-  console.log('🎉 RE-RENDER DENGAN GOOGLE FLOW IMAGES & CHARON VO SELESAI!');
+  console.log('🎉 RE-RENDER EXPANDED MASTER SERIAL KILLER SELESAI!');
   console.log(`👉 Buka Review Portal: http://localhost:3000/renders/${PROJECT_ID}/index.html`);
   console.log('========================================================================\n');
 }

@@ -1,7 +1,7 @@
 {
   "version": 1,
   "historyId": "30b2df54-bd84-446b-9b6c-dff62a7d6902",
-  "currentRevision": "c99b057e-7b43-4a4e-bb85-b182b7a3c8bc",
+  "currentRevision": "7de25967-eaa8-43c0-a8a7-4e8d89c61fc3",
   "pendingChanges": false,
   "files": {
     "assets/cover-shot-00.jpg": {
@@ -69,8 +69,8 @@
       "content": "/Users/beny/.cache/hyperframes/history/30b2df54-bd84-446b-9b6c-dff62a7d6902/blobs/12/12bb941b1e4060ce7418673e6ecf96e5aec4b3032a6640b3842a7f519534b7a2"
     },
     "index.html": {
-      "hash": "9e792aa27db10c4479b8cdcf2c193718024f6a8df7b3f4e31ab371ce02703ab3",
-      "content": "/Users/beny/.cache/hyperframes/history/30b2df54-bd84-446b-9b6c-dff62a7d6902/blobs/9e/9e792aa27db10c4479b8cdcf2c193718024f6a8df7b3f4e31ab371ce02703ab3"
+      "hash": "61e6a28a81740ccf906c537add9b87269db819186039e3d169d5f99a60313b15",
+      "content": "/Users/beny/.cache/hyperframes/history/30b2df54-bd84-446b-9b6c-dff62a7d6902/blobs/61/61e6a28a81740ccf906c537add9b87269db819186039e3d169d5f99a60313b15"
     }
   },
   "revisions": {
@@ -148,6 +148,21 @@
           "after": "/Users/beny/.cache/hyperframes/history/30b2df54-bd84-446b-9b6c-dff62a7d6902/blobs/9e/9e792aa27db10c4479b8cdcf2c193718024f6a8df7b3f4e31ab371ce02703ab3"
         }
       }
+    },
+    "7de25967-eaa8-43c0-a8a7-4e8d89c61fc3": {
+      "actor": {
+        "kind": "outside",
+        "name": "Outside"
+      },
+      "label": "Changed outside the app",
+      "startedAt": 1794791261757,
+      "endedAt": 1794791261758,
+      "files": {
+        "index.html": {
+          "before": "/Users/beny/.cache/hyperframes/history/30b2df54-bd84-446b-9b6c-dff62a7d6902/blobs/9e/9e792aa27db10c4479b8cdcf2c193718024f6a8df7b3f4e31ab371ce02703ab3",
+          "after": "/Users/beny/.cache/hyperframes/history/30b2df54-bd84-446b-9b6c-dff62a7d6902/blobs/61/61e6a28a81740ccf906c537add9b87269db819186039e3d169d5f99a60313b15"
+        }
+      }
     }
   },
   "checks": {
@@ -162,13 +177,14 @@
   },
   "renders": {
     "latest": {
-      "id": "37471c55-a4c4-4352-acda-a8a4c1631e33",
-      "completedAt": 1794790610969,
+      "id": "7425ae09-d9fd-4e89-aae8-dd5e634c874f",
+      "completedAt": 1794791905379,
       "output": "/Users/beny/Documents/Project-self/Content-automation/public/renders/mbah-slamet-banjarnegara/temp-visual-timeline.mp4",
       "status": "completed",
-      "revision": "c99b057e-7b43-4a4e-bb85-b182b7a3c8bc"
+      "revision": "7de25967-eaa8-43c0-a8a7-4e8d89c61fc3"
     },
     "retainedRevisions": [
+      "7de25967-eaa8-43c0-a8a7-4e8d89c61fc3",
       "c99b057e-7b43-4a4e-bb85-b182b7a3c8bc"
     ]
   },

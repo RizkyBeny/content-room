@@ -1,12 +1,12 @@
 {
   "version": 1,
   "historyId": "30b2df54-bd84-446b-9b6c-dff62a7d6902",
-  "currentRevision": "7de25967-eaa8-43c0-a8a7-4e8d89c61fc3",
+  "currentRevision": "64863b44-853d-4ae3-9856-04b69076a12d",
   "pendingChanges": false,
   "files": {
     "assets/cover-shot-00.jpg": {
-      "hash": "5a891cdd0ff433e9f21238be61d55420e82b240bf265cfcd4770f8128113493d",
-      "content": "/Users/beny/.cache/hyperframes/history/30b2df54-bd84-446b-9b6c-dff62a7d6902/blobs/5a/5a891cdd0ff433e9f21238be61d55420e82b240bf265cfcd4770f8128113493d"
+      "hash": "c1b0a2c22a5579f84889485e72388ccbf6cd8c9128ae6c8bfeebfaa7c56e3df5",
+      "content": "/Users/beny/.cache/hyperframes/history/30b2df54-bd84-446b-9b6c-dff62a7d6902/blobs/c1/c1b0a2c22a5579f84889485e72388ccbf6cd8c9128ae6c8bfeebfaa7c56e3df5"
     },
     "assets/shot-01.jpg": {
       "hash": "4243e2d3124555ec29d7b7ef45ea13b6f4a4c1fe7d84ac6ef95bb4250306094f",
@@ -69,8 +69,8 @@
       "content": "/Users/beny/.cache/hyperframes/history/30b2df54-bd84-446b-9b6c-dff62a7d6902/blobs/12/12bb941b1e4060ce7418673e6ecf96e5aec4b3032a6640b3842a7f519534b7a2"
     },
     "index.html": {
-      "hash": "61e6a28a81740ccf906c537add9b87269db819186039e3d169d5f99a60313b15",
-      "content": "/Users/beny/.cache/hyperframes/history/30b2df54-bd84-446b-9b6c-dff62a7d6902/blobs/61/61e6a28a81740ccf906c537add9b87269db819186039e3d169d5f99a60313b15"
+      "hash": "9e792aa27db10c4479b8cdcf2c193718024f6a8df7b3f4e31ab371ce02703ab3",
+      "content": "/Users/beny/.cache/hyperframes/history/30b2df54-bd84-446b-9b6c-dff62a7d6902/blobs/9e/9e792aa27db10c4479b8cdcf2c193718024f6a8df7b3f4e31ab371ce02703ab3"
     }
   },
   "revisions": {
@@ -163,6 +163,25 @@
           "after": "/Users/beny/.cache/hyperframes/history/30b2df54-bd84-446b-9b6c-dff62a7d6902/blobs/61/61e6a28a81740ccf906c537add9b87269db819186039e3d169d5f99a60313b15"
         }
       }
+    },
+    "64863b44-853d-4ae3-9856-04b69076a12d": {
+      "actor": {
+        "kind": "outside",
+        "name": "Outside"
+      },
+      "label": "Changed outside the app",
+      "startedAt": 1794792306325,
+      "endedAt": 1794792306350,
+      "files": {
+        "assets/cover-shot-00.jpg": {
+          "before": "/Users/beny/.cache/hyperframes/history/30b2df54-bd84-446b-9b6c-dff62a7d6902/blobs/5a/5a891cdd0ff433e9f21238be61d55420e82b240bf265cfcd4770f8128113493d",
+          "after": "/Users/beny/.cache/hyperframes/history/30b2df54-bd84-446b-9b6c-dff62a7d6902/blobs/c1/c1b0a2c22a5579f84889485e72388ccbf6cd8c9128ae6c8bfeebfaa7c56e3df5"
+        },
+        "index.html": {
+          "before": "/Users/beny/.cache/hyperframes/history/30b2df54-bd84-446b-9b6c-dff62a7d6902/blobs/61/61e6a28a81740ccf906c537add9b87269db819186039e3d169d5f99a60313b15",
+          "after": "/Users/beny/.cache/hyperframes/history/30b2df54-bd84-446b-9b6c-dff62a7d6902/blobs/9e/9e792aa27db10c4479b8cdcf2c193718024f6a8df7b3f4e31ab371ce02703ab3"
+        }
+      }
     }
   },
   "checks": {
@@ -177,15 +196,15 @@
   },
   "renders": {
     "latest": {
-      "id": "7425ae09-d9fd-4e89-aae8-dd5e634c874f",
-      "completedAt": 1794791905379,
+      "id": "bc339552-65a1-4d22-8140-97523257e95a",
+      "completedAt": 1794792617205,
       "output": "/Users/beny/Documents/Project-self/Content-automation/public/renders/mbah-slamet-banjarnegara/temp-visual-timeline.mp4",
       "status": "completed",
-      "revision": "7de25967-eaa8-43c0-a8a7-4e8d89c61fc3"
+      "revision": "64863b44-853d-4ae3-9856-04b69076a12d"
     },
     "retainedRevisions": [
-      "7de25967-eaa8-43c0-a8a7-4e8d89c61fc3",
-      "c99b057e-7b43-4a4e-bb85-b182b7a3c8bc"
+      "64863b44-853d-4ae3-9856-04b69076a12d",
+      "7de25967-eaa8-43c0-a8a7-4e8d89c61fc3"
     ]
   },
   "pendingArtifactCleanup": []

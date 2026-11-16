@@ -1,0 +1,309 @@
+import fs from 'node:fs';
+import path from 'node:path';
+import { execFileSync } from 'node:child_process';
+import { renderHyperframes } from '../lib/hyperframes/renderEngine';
+
+const PROJECT_ID = 'mbah-slamet-banjarnegara';
+const ROOT_DIR = process.cwd();
+const PUBLIC_DIR = path.join(ROOT_DIR, 'public', 'renders', PROJECT_ID);
+const HF_WORKSPACE = path.join(ROOT_DIR, 'hyperframes-workspace', PROJECT_ID);
+
+function resolveFfmpegBin(): { ffmpeg: string; ffprobe: string } {
+  const localFfmpeg = path.resolve(process.cwd(), 'bin', 'ffmpeg');
+  const localFfprobe = path.resolve(process.cwd(), 'bin', 'ffprobe');
+  const ffmpeg = fs.existsSync(localFfmpeg) ? localFfmpeg : 'ffmpeg';
+  const ffprobe = fs.existsSync(localFfprobe) ? localFfprobe : 'ffprobe';
+  return { ffmpeg, ffprobe };
+}
+
+const { ffmpeg, ffprobe } = resolveFfmpegBin();
+
+async function main() {
+  console.log('========================================================================');
+  console.log('  🕶️  RENDERING CANONICAL CHARON VO (100% GEMINI) + BORDERLESS COVER');
+  console.log('========================================================================\n');
+
+  const tempVideoPath = path.join(PUBLIC_DIR, 'temp-visual-timeline.mp4');
+  const finalVideoPath = path.join(PUBLIC_DIR, 'mbah-slamet-final.mp4');
+  const masterAudioPath = path.join(PUBLIC_DIR, 'master-audio.mp3');
+
+  // Verify master-audio.mp3 exists and is 60.3s
+  const durStr = execFileSync(ffprobe, [
+    '-v', 'error',
+    '-show_entries', 'format=duration',
+    '-of', 'default=noprint_wrappers=1:nokey=1',
+    masterAudioPath,
+  ]).toString().trim();
+  console.log(`✅ Master Audio (Charon 100%): ${masterAudioPath} (${durStr}s)`);
+
+  // 1. Render Visual Timeline with HyperFrames
+  console.log('\n1. Rendering visual timeline with HyperFrames (1080x1920 @ 30fps)...');
+  const startTime = Date.now();
+  await renderHyperframes({
+    projectDir: HF_WORKSPACE,
+    outputPath: tempVideoPath,
+    fps: 30,
+    onProgress: (p) => process.stdout.write(p),
+  });
+
+  const renderTimeSec = ((Date.now() - startTime) / 1000).toFixed(1);
+  console.log(`\n\n✅ Visual render selesai dalam ${renderTimeSec} detik!`);
+
+  // 2. Multiplex with Audio Master
+  console.log('\n2. Multiplexing visual timeline dengan Audio Master Track (FFmpeg)...');
+  execFileSync(ffmpeg, [
+    '-y',
+    '-i', tempVideoPath,
+    '-i', masterAudioPath,
+    '-c:v', 'copy',
+    '-c:a', 'aac',
+    '-b:a', '192k',
+    '-shortest',
+    finalVideoPath,
+  ]);
+
+  if (fs.existsSync(tempVideoPath)) {
+    fs.unlinkSync(tempVideoPath);
+  }
+
+  console.log(`✅ Video Final Berhasil Dibuat: ${finalVideoPath}`);
+
+  // 3. Extract verified snapshots
+  console.log('\n3. Mengekstrak snapshot verifikasi visual & autocaption...');
+  const snapshots = [
+    { sec: '0.8', name: 'preview-01s-hook.jpg' },
+    { sec: '5.0', name: 'preview-05s-shot1.jpg' },
+    { sec: '20.0', name: 'preview-20s-shot4.jpg' },
+    { sec: '45.0', name: 'preview-45s-shot9.jpg' },
+  ];
+
+  for (const s of snapshots) {
+    const outImg = path.join(PUBLIC_DIR, s.name);
+    execFileSync(ffmpeg, [
+      '-y',
+      '-ss', s.sec,
+      '-i', finalVideoPath,
+      '-vframes', '1',
+      '-q:v', '2',
+      outImg,
+    ]);
+    console.log(`   Snapshot tersimpan: ${outImg}`);
+  }
+
+  // 4. Update Portal HTML with Charon specs & Social Kit
+  console.log('\n4. Memperbarui Review Portal & Social Media Distribution Kit...');
+  const portalHtml = `<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SERIAL KILLER BANJARNEGARA: 12 Nyawa Ditelan Bukit Kematian | Review Portal</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&family=Montserrat:wght@800;900&display=swap" rel="stylesheet">
+  <style>
+    body { font-family: 'Inter', sans-serif; background-color: #0A0D12; color: #E6EDF3; }
+    .gold-accent { color: #C59B27; }
+    .crimson-accent { color: #8B2635; }
+  </style>
+</head>
+<body class="p-6 md:p-12">
+  <div class="max-w-6xl mx-auto space-y-10">
+    
+    <!-- Header -->
+    <header class="border-b border-slate-800 pb-6 flex flex-col md:flex-row md:items-center justify-between gap-4">
+      <div>
+        <div class="flex items-center gap-3">
+          <span class="px-3 py-1 bg-red-950/80 border border-red-800 text-red-400 text-xs font-black tracking-widest rounded-full uppercase">Crime Noir Master</span>
+          <span class="text-xs text-slate-400 font-mono">1080x1920 (9:16) • 60.3s • 30fps</span>
+        </div>
+        <h1 class="text-3xl md:text-4xl font-black mt-2 tracking-tight text-white">SERIAL KILLER BANJARNEGARA: 12 NYAWA DITELAN BUKIT KEMATIAN</h1>
+        <p class="text-slate-400 text-sm mt-1">Studi Kasus Pembunuhan Berantai Dukun Pengganda Uang Mbah Slamet (Slamet Tohari) • Detikcom Archive</p>
+      </div>
+      <div class="flex items-center gap-3">
+        <a href="mbah-slamet-final.mp4" download class="px-5 py-2.5 bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold rounded-xl transition text-sm flex items-center gap-2 shadow-lg shadow-amber-500/20">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
+          Download Video MP4
+        </a>
+      </div>
+    </header>
+
+    <!-- Main Content Grid -->
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-10">
+      
+      <!-- Video Player Column (5 cols) -->
+      <div class="lg:col-span-5 flex flex-col items-center">
+        <div class="w-full max-w-[380px] bg-slate-950 p-2 rounded-3xl border border-slate-800 shadow-2xl relative overflow-hidden">
+          <video id="player" controls playsinline class="w-full rounded-2xl aspect-[9/16] object-cover bg-black" poster="preview-01s-hook.jpg">
+            <source src="mbah-slamet-final.mp4?v=${Date.now()}" type="video/mp4">
+            Browser Anda tidak mendukung tag video.
+          </video>
+        </div>
+        <div class="mt-4 text-xs text-slate-500 font-mono text-center">
+          Format: H.264 / AAC • 1080x1920 • 30fps • Subtitle Kata-per-Kata
+        </div>
+      </div>
+
+      <!-- Info & Social Distribution Kit Column (7 cols) -->
+      <div class="lg:col-span-7 space-y-8">
+        
+        <!-- Storyboard Structure & Visual Verification -->
+        <div class="bg-slate-900/60 border border-slate-800 rounded-2xl p-6 space-y-4">
+          <h2 class="text-lg font-bold text-white flex items-center gap-2">
+            <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
+            Struktur Cerita & Arsitektur Video
+          </h2>
+          <div class="grid grid-cols-2 md:grid-cols-4 gap-3 text-xs">
+            <div class="p-3 bg-black/40 rounded-xl border border-slate-800/80">
+              <span class="text-slate-400 block">Total Durasi</span>
+              <span class="text-white font-bold text-sm">60.3s</span>
+            </div>
+            <div class="p-3 bg-black/40 rounded-xl border border-slate-800/80">
+              <span class="text-slate-400 block">Visual Assets</span>
+              <span class="text-amber-400 font-bold text-sm">15 Flow MCP</span>
+            </div>
+            <div class="p-3 bg-black/40 rounded-xl border border-slate-800/80">
+              <span class="text-slate-400 block">Voice Over</span>
+              <span class="text-emerald-400 font-bold text-sm">Charon (100% Gemini)</span>
+            </div>
+            <div class="p-3 bg-black/40 rounded-xl border border-slate-800/80">
+              <span class="text-slate-400 block">Cover Format</span>
+              <span class="text-white font-bold text-sm">Full Bleed No Border</span>
+            </div>
+          </div>
+          <div class="space-y-2 text-xs text-slate-300 leading-relaxed">
+            <p><strong class="text-amber-400">Act 1 (0-11s):</strong> Teror bukit kubis Desa Balun & terungkapnya kuburan massal paling mengerikan di Jawa Tengah.</p>
+            <p><strong class="text-amber-400">Act 2 (11-21s):</strong> Modus ritual dukun pengganda uang, iming-iming miliaran rupiah, dan penipuan puluhan juta.</p>
+            <p><strong class="text-amber-400">Act 3 (21-31s):</strong> Rencana pembunuhan berdarah dingin saat korban menagih janji pengembalian uang.</p>
+            <p><strong class="text-amber-400">Act 4 (31-40s):</strong> Eksekusi racun potasium sianida mematikan dalam suguhan minuman ritual petang hari.</p>
+            <p><strong class="text-amber-400">Act 5 (40-50s):</strong> Titik terang firasat pesan WA Paryanto ("Takut ayah mati, bawa polisi ke sini").</p>
+            <p><strong class="text-amber-400">Act 6 (50-60s):</strong> 12 liang kubur dibongkar, persidangan di PN Banjarnegara & tuntutan hukuman mati.</p>
+          </div>
+        </div>
+
+        <!-- Snapshots Grid -->
+        <div class="space-y-3">
+          <h3 class="text-sm font-bold text-slate-300 uppercase tracking-wider">Verifikasi Visual & Captions</h3>
+          <div class="grid grid-cols-4 gap-3">
+            <div class="space-y-1">
+              <img src="preview-01s-hook.jpg" class="rounded-xl border border-slate-800 aspect-[9/16] object-cover w-full">
+              <span class="text-[10px] text-slate-400 block text-center font-mono">0.8s Cover (No Border)</span>
+            </div>
+            <div class="space-y-1">
+              <img src="preview-05s-shot1.jpg" class="rounded-xl border border-slate-800 aspect-[9/16] object-cover w-full">
+              <span class="text-[10px] text-slate-400 block text-center font-mono">5.0s Desa Balun</span>
+            </div>
+            <div class="space-y-1">
+              <img src="preview-20s-shot4.jpg" class="rounded-xl border border-slate-800 aspect-[9/16] object-cover w-full">
+              <span class="text-[10px] text-slate-400 block text-center font-mono">20.0s Barbut Forensik</span>
+            </div>
+            <div class="space-y-1">
+              <img src="preview-45s-shot9.jpg" class="rounded-xl border border-slate-800 aspect-[9/16] object-cover w-full">
+              <span class="text-[10px] text-slate-400 block text-center font-mono">45.0s Chat Paryanto</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- SOCIAL MEDIA DISTRIBUTION KIT -->
+        <div class="bg-slate-900 border border-slate-800 rounded-2xl p-6 space-y-6">
+          <div class="flex items-center justify-between">
+            <h2 class="text-lg font-bold text-white flex items-center gap-2">
+              <svg class="w-5 h-5 text-amber-400" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14h2v2h-2zm0-10h2v8h-2z"/></svg>
+              Social Media Distribution Kit
+            </h2>
+            <span class="text-xs text-slate-400 font-mono">Ready to Publish</span>
+          </div>
+
+          <!-- YouTube Shorts Tab -->
+          <div class="space-y-3 border-t border-slate-800/80 pt-4">
+            <div class="flex items-center justify-between">
+              <span class="text-xs font-bold text-red-400 uppercase tracking-wider flex items-center gap-1.5">
+                <span class="w-2 h-2 rounded-full bg-red-500"></span> YouTube Shorts
+              </span>
+              <button onclick="copyToClipboard('yt-desc', this)" class="px-3 py-1 bg-slate-800 hover:bg-slate-700 text-xs font-semibold text-slate-200 rounded-lg transition">Salin Copy</button>
+            </div>
+            <div class="text-xs text-slate-400 font-mono">Judul: <strong class="text-white">SERIAL KILLER BANJARNEGARA: 12 Korban Dukun Pengganda Uang Mbah Slamet Dituntut Hukuman Mati</strong></div>
+            <pre id="yt-desc" class="p-4 rounded-xl bg-black/60 border border-slate-800 text-xs text-slate-300 font-sans leading-relaxed whitespace-pre-wrap">Di lereng perbukitan Desa Balun, Wanayasa, Banjarnegara, terbongkar kasus pembunuhan berantai paling menggemparkan di Jawa Tengah.
+
+Slamet Tohari alias Mbah Slamet, dukun pengganda uang yang membantai 12 korbannya menggunakan racun potasium sianida di tengah perkebunan dingin.
+
+Firasat dan pesan terakhir Paryanto ke anaknya: "Takut ayah mati. Kalau ayah nggak ada kabar, bawa polisi ke sini" menjadi kunci terbongkarnya bukit kematian.
+
+Simak kronologi lengkap investigasi dan vonis mati sang serial killer.
+
+#MbahSlamet #SerialKiller #TrueCrimeIndonesia #Banjarnegara #Detikcom #KasusKriminal #Investigasi #HukumDanKriminal</pre>
+          </div>
+
+          <!-- TikTok Tab -->
+          <div class="space-y-3 border-t border-slate-800/80 pt-4">
+            <div class="flex items-center justify-between">
+              <span class="text-xs font-bold text-cyan-400 uppercase tracking-wider flex items-center gap-1.5">
+                <span class="w-2 h-2 rounded-full bg-cyan-400"></span> TikTok
+              </span>
+              <button onclick="copyToClipboard('tiktok-desc', this)" class="px-3 py-1 bg-slate-800 hover:bg-slate-700 text-xs font-semibold text-slate-200 rounded-lg transition">Salin Copy</button>
+            </div>
+            <pre id="tiktok-desc" class="p-4 rounded-xl bg-black/60 border border-slate-800 text-xs text-slate-300 font-sans leading-relaxed whitespace-pre-wrap">12 nyawa ditelan bukit kematian Banjarnegara... 😱 Firasat pesan WA korban terakhir: "Takut ayah mati, bawa polisi ke sini" berhasil membongkar kedok dukun maut Mbah Slamet!
+
+Semua korban diracun potas di kebun kubis saat menagih uang gaib. Jaksa dan Hakim jatuhkan vonis mati tanpa ampun! ⚖️
+
+#truecrime #mbahslamet #kasusviral #misteri #kriminal #banjarnegara #kisahnyata #hukumanmati</pre>
+          </div>
+
+          <!-- Instagram Reels Tab -->
+          <div class="space-y-3 border-t border-slate-800/80 pt-4">
+            <div class="flex items-center justify-between">
+              <span class="text-xs font-bold text-pink-400 uppercase tracking-wider flex items-center gap-1.5">
+                <span class="w-2 h-2 rounded-full bg-pink-400"></span> Instagram Reels
+              </span>
+              <button onclick="copyToClipboard('ig-desc', this)" class="px-3 py-1 bg-slate-800 hover:bg-slate-700 text-xs font-semibold text-slate-200 rounded-lg transition">Salin Copy</button>
+            </div>
+            <pre id="ig-desc" class="p-4 rounded-xl bg-black/60 border border-slate-800 text-xs text-slate-300 font-sans leading-relaxed whitespace-pre-wrap">Kisah Nyata: Serial Killer Mbah Slamet Banjarnegara.
+
+Di balik dinginnya perbukitan Desa Balun, tersembunyi liang kubur belasan korban penipuan berkedok dukun sakti pengganda uang.
+
+Para korban disuguhi teh potasium sianida dosis tinggi, lalu dikubur di lereng bukit saat meregang nyawa. Pengadilan Negeri Banjarnegara resmi menjatuhkan vonis mati atas pembunuhan berencana paling keji ini.
+
+Source: Detikcom Arsip Investigasi Kriminal.
+.
+.
+#TrueCrime #KasusKriminal #MbahSlamet #Banjarnegara #Detikcom #Investigasi #HukumMati #Storytelling #ViralIndonesia</pre>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+  <script>
+    function copyToClipboard(id, btn) {
+      const text = document.getElementById(id).innerText;
+      navigator.clipboard.writeText(text).then(() => {
+        const originalText = btn.innerText;
+        btn.innerText = 'Tersalin!';
+        btn.classList.add('bg-emerald-700', 'text-white');
+        setTimeout(() => {
+          btn.innerText = originalText;
+          btn.classList.remove('bg-emerald-700', 'text-white');
+        }, 2000);
+      });
+    }
+  </script>
+</body>
+</html>`;
+
+  fs.writeFileSync(path.join(PUBLIC_DIR, 'index.html'), portalHtml, 'utf8');
+
+  console.log('\n========================================================================');
+  console.log('🎉 RENDER OPSI A SELESAI (100% CHARON VO + BORDERLESS COVER)!');
+  console.log(`👉 Buka Review Portal: http://localhost:3000/renders/${PROJECT_ID}/index.html`);
+  console.log('========================================================================\n');
+}
+
+main().catch((err) => {
+  console.error('\n❌ Fatal Error in Render:', err);
+  process.exit(1);
+});

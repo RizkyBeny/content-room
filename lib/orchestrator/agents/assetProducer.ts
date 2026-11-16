@@ -4,11 +4,15 @@ import { execFile } from 'node:child_process';
 import { promisify } from 'node:util';
 import { flowClient } from '../../flowMcp/client';
 import { generateAudioAndAlignment, ProcessedAudio } from '../../flowMcp/audioPipeline';
-import { produceNoirMasterAudio } from '../audio/noirAudioPipeline';
+import { produceNoirMasterAudio, ShotTiming } from '../audio/noirAudioPipeline';
 import { KeyframeItem, OrchestratorJob } from '../types';
 import { ORCHESTRATOR_CONFIG } from '../config';
 
 const execFileAsync = promisify(execFile);
+
+export interface NoirProcessedAudio extends ProcessedAudio {
+  shotTimings: ShotTiming[];
+}
 
 export class AssetProducerAgent {
   /**
@@ -147,7 +151,7 @@ export class AssetProducerAgent {
   /**
    * Mensintesis narasi audio berkarakter True Crime Neo-Noir (Charon + Ducked BGM + Glitch SFX)
    */
-  async synthesizeVoiceAndAlign(job: OrchestratorJob): Promise<ProcessedAudio> {
+  async synthesizeVoiceAndAlign(job: OrchestratorJob): Promise<NoirProcessedAudio> {
     if (!job.script?.fullText) {
       throw new Error('Naskah belum dibuat pada job ini');
     }
@@ -168,6 +172,7 @@ export class AssetProducerAgent {
       durationMs: Math.round(result.totalDurationSec * 1000),
       words: result.words,
       text: job.script.fullText,
+      shotTimings: result.shotTimings,
     };
   }
 

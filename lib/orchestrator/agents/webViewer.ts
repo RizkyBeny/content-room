@@ -124,15 +124,18 @@ export function generateDownloadPage(job: OrchestratorJob): { htmlPath: string; 
   <div class="max-w-7xl w-full space-y-8">
     <!-- Header -->
     <div class="border-b border-slate-800 pb-6 flex flex-col md:flex-row md:items-center justify-between gap-4">
-      <div>
-        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-red-950/60 border border-red-800 text-red-400 text-xs font-semibold mb-2">
-          <span class="w-2 h-2 rounded-full bg-red-500 animate-pulse"></span>
-          Template: Mystery True Crime (9:16) &bull; Rigid Pacing: 3&ndash;5 Detik / Image
+      <div class="flex items-start gap-4">
+        <img src="/branding/crimco-avatar.jpg" alt="CRIMCO" class="w-14 h-14 rounded-full border-2 border-amber-500/80 shadow-lg object-cover shrink-0" onerror="this.style.display='none'">
+        <div>
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-red-950/60 border border-red-800 text-red-400 text-xs font-semibold mb-2">
+            <span class="w-2 h-2 rounded-full bg-red-500 animate-pulse"></span>
+            CRIMCO &bull; Mystery True Crime (9:16) &bull; Standard VO Charon
+          </div>
+          <h1 class="text-3xl font-extrabold text-white tracking-tight">${escapeHtml(job.script?.title || 'Investigasi Perkara Kriminal')}</h1>
+          <p class="text-slate-400 text-sm mt-1">
+            Kasus: <em>${escapeHtml(job.script?.subHeadline || 'Kasus Kriminal')}</em> &bull; Durasi Multichannel: <strong>&le; 60 Detik</strong>
+          </p>
         </div>
-        <h1 class="text-3xl font-extrabold text-white tracking-tight">${escapeHtml(job.script?.title || 'Investigasi Perkara Kriminal')}</h1>
-        <p class="text-slate-400 text-sm mt-1">
-          Kasus: <em>${escapeHtml(job.script?.subHeadline || 'Kasus Kriminal')}</em> &bull; Target Durasi: <strong>60 Detik (YouTube Shorts)</strong>
-        </p>
       </div>
       <div class="flex items-center gap-3">
         <div class="px-4 py-2 rounded-xl bg-slate-900 border border-slate-800 text-xs mono text-slate-300">

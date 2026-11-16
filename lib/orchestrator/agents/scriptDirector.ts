@@ -15,21 +15,21 @@ ATURAN EMAS DURASI & PACING:
 - Jangan menulis kalimat berita datar/kaku. Gunakan pembuka bercerita ("Sebuah dongeng kelam...", "Konon...", "Semua bermula saat...", "Namun fiksi dongeng runtuh...").
 
 STRUKTUR 15 BEATS KANONIK (Shot 00 s/d 14):
-- Shot 00 (0.0s - 1.5s): Hook Cover (Headline visual pembuka)
-- Shot 01 (1.5s - 5.5s): Hook Misteri (Pernyataan mengejutkan pembuka dongeng)
-- Shot 02 (5.5s - 9.5s): Mitos / Lenyapnya Korban
-- Shot 03 (9.5s - 13.5s): Malam Tragedi / Penembakan di Tempat Terpencil
-- Shot 04 (13.5s - 17.5s): Barang Bukti di TKP
-- Shot 05 (17.5s - 21.5s): Ledakan Histeria & Konspirasi Dunia Maya
-- Shot 06 (21.5s - 25.5s): Daftar Hitam Korban Misterius
-- Shot 07 (25.5s - 29.5s): Pemburu Bayangan / Klaim Sindikat Rahasia
-- Shot 08 (29.5s - 33.5s): Detektif Memecah Dongeng / Pelaku Nyata
-- Shot 09 (33.5s - 37.5s): Sosok Tersangka Nyata (Freddy Snyder)
-- Shot 10 (37.5s - 41.5s): Motif Nyata / Perampokan & Uang Tunai
-- Shot 11 (41.5s - 45.5s): Bantahan Murka Keluarga Korban
-- Shot 12 (45.5s - 49.5s): Ruang Sidang Pengadilan Berhadapan Fakta
-- Shot 13 (49.5s - 53.0s): Ketukan Palu Hakim & Keadilan
-- Shot 14 (53.0s - 56.0s): Gembok Arsip Terkunci / Penutup Kasus
+- Shot 00 (0.0s - 1.5s): Hook Cover (Headline visual pembuka dengan judul besar & stempel)
+- Shot 01 (1.5s - 5.5s): Hook Dongeng Kelam (Pernyataan mengejutkan pembuka misteri)
+- Shot 02 (5.5s - 9.5s): Sosok Pelaku & Awal Mula Kasus
+- Shot 03 (9.5s - 13.5s): Pola Kejahatan Berantai / Korban Berjatuhan
+- Shot 04 (13.5s - 17.5s): Modus Tersembunyi (Cangkir minuman, racun, jebakan manis)
+- Shot 05 (17.5s - 21.5s): Bukti Forensik Kunci (Zat kimia, obat, catatan rahasia)
+- Shot 06 (21.5s - 25.5s): Tragedi Korban Terakhir
+- Shot 07 (25.5s - 29.5s): Kecurigaan Keluarga / Kejanggalan di Balik Kematian
+- Shot 08 (29.5s - 33.5s): Investigasi Forensik & Toksikologi
+- Shot 09 (33.5s - 37.5s): Titik Terang / Saksi Kunci yang Lolos
+- Shot 10 (37.5s - 41.5s): Penangkapan Tersangka & Wajah Asli Pelaku
+- Shot 11 (41.5s - 45.5s): Motif Terbongkar (Harta, warisan, keserakahan)
+- Shot 12 (45.5s - 49.5s): Tuntutan Keluarga Korban di Meja Hijau
+- Shot 13 (49.5s - 53.0s): Ketukan Palu Hakim & Tuntutan Keadilan
+- Shot 14 (53.0s - 56.0s): Berkas Kasus Terkunci / Penutup Dongeng Kriminal
 
 Format Output WAJIB JSON murni:
 {

@@ -208,9 +208,14 @@ export class ContentOrchestrator {
         `🎬 <i>[3/3] Merender video 9:16 final via HyperFrames & FFmpeg (1080x1920 @ 30fps)...</i>`
       );
 
-      const finalVideoPath = await compositorNoir.composeAndRenderVideo(job, audioResult.words, (progress) => {
-        console.log(`[Orchestrator] Render Progress: ${progress}`);
-      });
+      const finalVideoPath = await compositorNoir.composeAndRenderVideo(
+        job,
+        audioResult.words,
+        (progress) => {
+          console.log(`[Orchestrator] Render Progress: ${progress}`);
+        },
+        audioResult.shotTimings
+      );
 
       job.finalVideoPath = finalVideoPath;
       job.status = 'PACKAGING_METADATA';

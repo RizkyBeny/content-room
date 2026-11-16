@@ -3,199 +3,285 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>TRAGEDI CANGKUL DADAP: Misteri Kamar 17 Eno Farihah | Review Portal</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&family=Montserrat:wght@800;900&display=swap" rel="stylesheet">
+  <title>MISTERI GEMBOK KAMAR 17 | Tragedi Cangkul Eno Farihah</title>
   <style>
-    body { font-family: 'Inter', sans-serif; background-color: #0A0D12; color: #E6EDF3; }
-    .gold-accent { color: #C59B27; }
-    .crimson-accent { color: #8B2635; }
+    :root {
+      --bg: #0D1117;
+      --card: #161B22;
+      --accent: #C59B27;
+      --crimson: #8B2635;
+      --text: #EDEDED;
+      --text-muted: #8B949E;
+      --border: #30363D;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      padding: 40px 20px;
+      line-height: 1.6;
+    }
+    .container { max-width: 1200px; margin: 0 auto; }
+    header {
+      text-align: center;
+      margin-bottom: 40px;
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 30px;
+    }
+    .tag {
+      display: inline-block;
+      background: var(--crimson);
+      color: #FFF;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      padding: 4px 12px;
+      border-radius: 4px;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+    h1 {
+      font-size: 32px;
+      font-weight: 800;
+      letter-spacing: 1px;
+      color: #FFF;
+      margin-bottom: 8px;
+    }
+    .subtitle {
+      font-size: 16px;
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: 480px 1fr;
+      gap: 40px;
+      margin-bottom: 50px;
+    }
+    @media (max-width: 900px) {
+      .grid { grid-template-columns: 1fr; }
+    }
+    .video-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.6);
+    }
+    video {
+      width: 100%;
+      aspect-ratio: 9 / 16;
+      display: block;
+      background: #000;
+    }
+    .info-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 30px;
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+    .stat-row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+    .stat-box {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 16px;
+      text-align: center;
+    }
+    .stat-val {
+      font-size: 20px;
+      font-weight: 800;
+      color: var(--accent);
+    }
+    .stat-lbl {
+      font-size: 12px;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      margin-top: 4px;
+    }
+    .section-title {
+      font-size: 16px;
+      font-weight: 700;
+      color: #FFF;
+      border-left: 3px solid var(--accent);
+      padding-left: 10px;
+      margin-bottom: 12px;
+    }
+    .caption-box {
+      background: #0D1117;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 16px;
+      font-family: monospace;
+      font-size: 13px;
+      white-space: pre-wrap;
+      position: relative;
+    }
+    .copy-btn {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      background: var(--accent);
+      color: #000;
+      border: none;
+      padding: 6px 12px;
+      border-radius: 4px;
+      font-size: 11px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: opacity 0.2s;
+    }
+    .copy-btn:hover { opacity: 0.85; }
+    .gallery {
+      margin-top: 40px;
+    }
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+      gap: 16px;
+      margin-top: 16px;
+    }
+    .gallery-item {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      overflow: hidden;
+    }
+    .gallery-item img {
+      width: 100%;
+      aspect-ratio: 9 / 16;
+      object-fit: cover;
+      display: block;
+    }
+    .gallery-caption {
+      padding: 10px;
+      font-size: 11px;
+      color: var(--text-muted);
+      text-align: center;
+    }
   </style>
 </head>
-<body class="p-6 md:p-12">
-  <div class="max-w-6xl mx-auto space-y-10">
-    
-    <!-- Header -->
-    <header class="border-b border-slate-800 pb-6 flex flex-col md:flex-row md:items-center justify-between gap-4">
-      <div>
-        <div class="flex items-center gap-3">
-          <span class="px-3 py-1 bg-red-950/80 border border-red-800 text-red-400 text-xs font-black tracking-widest rounded-full uppercase">Forensic Noir Mini-Doc</span>
-          <span class="text-xs text-slate-400 font-mono">1080x1920 (9:16) • 213.4s • 30fps • 20 Shots</span>
-        </div>
-        <h1 class="text-3xl md:text-4xl font-black mt-2 tracking-tight text-white">TRAGEDI CANGKUL DADAP: TEROR DI KAMAR MES KARYAWATI</h1>
-        <p class="text-slate-400 text-sm mt-1">Investigasi Forensik Lengkap Pembunuhan Sadis Eno Farihah (Dadap, Kosambi, Tangerang 2016) • Detikcom Archive</p>
-      </div>
-      <div class="flex items-center gap-3">
-        <a href="eno-farihah-final.mp4" download class="px-5 py-2.5 bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold rounded-xl transition text-sm flex items-center gap-2 shadow-lg shadow-amber-500/20">
-          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
-          Download Video MP4
-        </a>
-      </div>
+<body>
+  <div class="container">
+    <header>
+      <span class="tag">HIGH RETENTION RE-CUT • 1.5 MENIT (90s)</span>
+      <h1>MISTERI GEMBOK KAMAR 17</h1>
+      <p class="subtitle">Tragedi Cangkul Mes Karyawati Dadap, Kosambi, Tangerang</p>
     </header>
 
-    <!-- Main Content Grid -->
-    <div class="grid grid-cols-1 lg:grid-cols-12 gap-10">
-      
-      <!-- Video Player Column (5 cols) -->
-      <div class="lg:col-span-5 flex flex-col items-center">
-        <div class="w-full max-w-[380px] bg-slate-950 p-2 rounded-3xl border border-slate-800 shadow-2xl relative overflow-hidden">
-          <video id="player" controls playsinline class="w-full rounded-2xl aspect-[9/16] object-cover bg-black" poster="preview-01s-hook.jpg">
-            <source src="eno-farihah-final.mp4?v=1794836859223" type="video/mp4">
-            Browser Anda tidak mendukung tag video.
-          </video>
-        </div>
-        <div class="mt-4 text-xs text-slate-500 font-mono text-center">
-          Format: H.264 / AAC • 1080x1920 • 30fps • Subtitle Kata-per-Kata
-        </div>
+    <div class="grid">
+      <div class="video-card">
+        <video controls playsinline preload="metadata">
+          <source src="eno-farihah-final.mp4" type="video/mp4">
+          Browser Anda tidak mendukung tag video.
+        </video>
       </div>
 
-      <!-- Info & Social Distribution Kit Column (7 cols) -->
-      <div class="lg:col-span-7 space-y-8">
-        
-        <!-- Storyboard Structure & Visual Verification -->
-        <div class="bg-slate-900/60 border border-slate-800 rounded-2xl p-6 space-y-4">
-          <h2 class="text-lg font-bold text-white flex items-center gap-2">
-            <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
-            Struktur Cerita & Arsitektur Video
-          </h2>
-          <div class="grid grid-cols-2 md:grid-cols-4 gap-3 text-xs">
-            <div class="p-3 bg-black/40 rounded-xl border border-slate-800/80">
-              <span class="text-slate-400 block">Total Durasi</span>
-              <span class="text-white font-bold text-sm">213.4s</span>
-            </div>
-            <div class="p-3 bg-black/40 rounded-xl border border-slate-800/80">
-              <span class="text-slate-400 block">Visual Assets</span>
-              <span class="text-amber-400 font-bold text-sm">21 Keyframes</span>
-            </div>
-            <div class="p-3 bg-black/40 rounded-xl border border-slate-800/80">
-              <span class="text-slate-400 block">Voice Over</span>
-              <span class="text-emerald-400 font-bold text-sm">Charon (100% Gemini)</span>
-            </div>
-            <div class="p-3 bg-black/40 rounded-xl border border-slate-800/80">
-              <span class="text-slate-400 block">Subtitles</span>
-              <span class="text-white font-bold text-sm">131 Frasa Karaoke</span>
-            </div>
+      <div class="info-card">
+        <div class="stat-row">
+          <div class="stat-box">
+            <div class="stat-val">118.59s</div>
+            <div class="stat-lbl">Durasi Video</div>
           </div>
-          <div class="space-y-2 text-xs text-slate-300 leading-relaxed">
-            <p><strong class="text-amber-400">Babak 1 (0-25s):</strong> Penemuan kamar mes 17 yang tergembok dari luar & olah TKP awal Inafis.</p>
-            <p><strong class="text-amber-400">Babak 2 (25-50s):</strong> Temuan ganjil cangkul proyek, sidik jari darah, & hilangnya HP Polytron korban.</p>
-            <p><strong class="text-amber-400">Babak 3 (50-85s):</strong> Kilas balik SMS 23.30 WIB, penolakan RAL, dendam Arif "pahit", & sakit hati Imam.</p>
-            <p><strong class="text-amber-400">Babak 4 (85-110s):</strong> Konspirasi gelap tiga pria asing, eksekusi tengah malam, & pembuangan bukti ke rawa.</p>
-            <p><strong class="text-amber-400">Babak 5 (110s+):</strong> Pelacakan sinyal BTS cyber crime, penggerebekan 1x24 jam, & vonis mati PN Tangerang.</p>
+          <div class="stat-box">
+            <div class="stat-val">11 Shots</div>
+            <div class="stat-lbl">Fast Pacing</div>
+          </div>
+          <div class="stat-box">
+            <div class="stat-val">Charon VO</div>
+            <div class="stat-lbl">Voice Over</div>
           </div>
         </div>
 
-        <!-- Snapshots Grid -->
-        <div class="space-y-3">
-          <h3 class="text-sm font-bold text-slate-300 uppercase tracking-wider">Verifikasi Visual & Captions</h3>
-          <div class="grid grid-cols-4 gap-3">
-            <div class="space-y-1">
-              <img src="preview-01s-hook.jpg" class="rounded-xl border border-slate-800 aspect-[9/16] object-cover w-full">
-              <span class="text-[10px] text-slate-400 block text-center font-mono">0.8s Cover Hook</span>
-            </div>
-            <div class="space-y-1">
-              <img src="preview-06s-shot1.jpg" class="rounded-xl border border-slate-800 aspect-[9/16] object-cover w-full">
-              <span class="text-[10px] text-slate-400 block text-center font-mono">6.0s Mes Dadap</span>
-            </div>
-            <div class="space-y-1">
-              <img src="preview-30s-shot5.jpg" class="rounded-xl border border-slate-800 aspect-[9/16] object-cover w-full">
-              <span class="text-[10px] text-slate-400 block text-center font-mono">30.0s Bukti Cangkul</span>
-            </div>
-            <div class="space-y-1">
-              <img src="preview-70s-shot11.jpg" class="rounded-xl border border-slate-800 aspect-[9/16] object-cover w-full">
-              <span class="text-[10px] text-slate-400 block text-center font-mono">70.0s Sakit Hati</span>
-            </div>
+        <div>
+          <h2 class="section-title">DISTRIBUSI SOSMED (VIRAL HIGH-RETENTION CAPTIONS)</h2>
+          
+          <p style="font-size: 12px; color: var(--accent); margin-bottom: 6px; font-weight: 600;">📱 FORMAT TIKTOK / INSTAGRAM REELS (HOOK KUAT):</p>
+          <div class="caption-box">
+            <button class="copy-btn" onclick="navigator.clipboard.writeText(this.nextElementSibling.innerText); alert('Copied!');">SALIN</button>
+            <span>Pintu kamar 17 terkunci rapat dari luar, tapi di dalamnya... sebuah tragedi paling mengguncang nurani bangsa baru saja terjadi. 🚪🔐🩸
+
+Bagaimana mungkin 3 pria yang awalnya tak saling kenal bisa bersekongkol melakukan aksi sekeji ini hanya dalam hitungan menit? Simak rekaman forensik olah TKP Inafis hingga pelacakan sinyal BTS yang menjerat para pelaku ke vonis mati!
+
+#TrueCrimeIndonesia #EnoFarihah #TragediCangkul #MisteriKamar17 #DadapTangerang #KasusKriminal #Forensik #CrimeInvestigation #Detikcom #fyp #viral</span>
+          </div>
+
+          <p style="font-size: 12px; color: var(--accent); margin-top: 14px; margin-bottom: 6px; font-weight: 600;">📺 FORMAT YOUTUBE SHORTS (HIGH CTR):</p>
+          <div class="caption-box">
+            <button class="copy-btn" onclick="navigator.clipboard.writeText(this.nextElementSibling.innerText); alert('Copied!');">SALIN</button>
+            <span>MISTERI GEMBOK KAMAR 17: Tragedi Teror di Mes Karyawati Tangerang 🚨
+
+Pintu terkunci gembok dari luar, barang bukti cangkul ganjil berlumuran darah, dan jejak pelacakan sinyal ponsel BTS yang menguak konspirasi 3 pelaku dalam kurun waktu kurang dari 24 jam.
+
+#Shorts #TrueCrime #EnoFarihah #InvestigasiKriminal #ForensikKepolisian #TragediCangkul</span>
           </div>
         </div>
-
-        <!-- SOCIAL MEDIA DISTRIBUTION KIT -->
-        <div class="bg-slate-900 border border-slate-800 rounded-2xl p-6 space-y-6">
-          <div class="flex items-center justify-between">
-            <h2 class="text-lg font-bold text-white flex items-center gap-2">
-              <svg class="w-5 h-5 text-amber-400" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14h2v2h-2zm0-10h2v8h-2z"/></svg>
-              Social Media Distribution Kit
-            </h2>
-            <span class="text-xs text-slate-400 font-mono">Ready to Publish</span>
-          </div>
-
-          <!-- YouTube Shorts Tab -->
-          <div class="space-y-3 border-t border-slate-800/80 pt-4">
-            <div class="flex items-center justify-between">
-              <span class="text-xs font-bold text-red-400 uppercase tracking-wider flex items-center gap-1.5">
-                <span class="w-2 h-2 rounded-full bg-red-500"></span> YouTube Shorts
-              </span>
-              <button onclick="copyToClipboard('yt-desc', this)" class="px-3 py-1 bg-slate-800 hover:bg-slate-700 text-xs font-semibold text-slate-200 rounded-lg transition">Salin Copy</button>
-            </div>
-            <div class="text-xs text-slate-400 font-mono">Judul: <strong class="text-white">TRAGEDI CANGKUL DADAP: Kronologi Lengkap & Penangkapan 3 Tersangka Pembunuhan Eno Farihah</strong></div>
-            <pre id="yt-desc" class="p-4 rounded-xl bg-black/60 border border-slate-800 text-xs text-slate-300 font-sans leading-relaxed whitespace-pre-wrap">Kamar mes nomor 17 di Dadap, Kosambi, Tangerang, menyimpan saksi bisu salah satu kasus kriminal paling mengguncang Indonesia.
-
-Eno Farihah (18), karyawati pabrik plastik ditemukan tewas mengenaskan setelah dianiaya oleh 3 pria yang awalnya saling tidak kenal, namun dipersatukan dendam akibat penolakan asmara.
-
-Melalui kejelian Tim Inafis Polda Metro Jaya dalam membaca sidik jari pada gagang cangkul serta pelacakan sinyal ponsel korban, kasus ini terungkap kurang dari 24 jam.
-
-Simak investigasi forensik lengkap dan vonis peradilan sang pelaku.
-
-#EnoFarihah #TragediCangkul #TrueCrimeIndonesia #Detikcom #KasusKriminal #Investigasi #HukumDanKriminal #PoldaMetroJaya</pre>
-          </div>
-
-          <!-- TikTok Tab -->
-          <div class="space-y-3 border-t border-slate-800/80 pt-4">
-            <div class="flex items-center justify-between">
-              <span class="text-xs font-bold text-cyan-400 uppercase tracking-wider flex items-center gap-1.5">
-                <span class="w-2 h-2 rounded-full bg-cyan-400"></span> TikTok
-              </span>
-              <button onclick="copyToClipboard('tiktok-desc', this)" class="px-3 py-1 bg-slate-800 hover:bg-slate-700 text-xs font-semibold text-slate-200 rounded-lg transition">Salin Copy</button>
-            </div>
-            <pre id="tiktok-desc" class="p-4 rounded-xl bg-black/60 border border-slate-800 text-xs text-slate-300 font-sans leading-relaxed whitespace-pre-wrap">Misteri kamar mes 17 Dadap Tangerang... 😱 Tiga pria yang tak saling kenal bersekongkol menghabisi nyawa Eno Farihah hanya karena sakit hati ditolak!
-
-Jejak sidik jari di gagang cangkul dan sinyal HP membongkar para pelaku dalam waktu kurang dari 24 jam! ⚖️
-
-#truecrime #enofarihah #kasusviral #misteri #kriminal #tangerang #kisahnyata #hukumanmati</pre>
-          </div>
-
-          <!-- Instagram Reels Tab -->
-          <div class="space-y-3 border-t border-slate-800/80 pt-4">
-            <div class="flex items-center justify-between">
-              <span class="text-xs font-bold text-pink-400 uppercase tracking-wider flex items-center gap-1.5">
-                <span class="w-2 h-2 rounded-full bg-pink-400"></span> Instagram Reels
-              </span>
-              <button onclick="copyToClipboard('ig-desc', this)" class="px-3 py-1 bg-slate-800 hover:bg-slate-700 text-xs font-semibold text-slate-200 rounded-lg transition">Salin Copy</button>
-            </div>
-            <pre id="ig-desc" class="p-4 rounded-xl bg-black/60 border border-slate-800 text-xs text-slate-300 font-sans leading-relaxed whitespace-pre-wrap">Tragedi Cangkul Dadap Tangerang: Kisah Nyata Pembunuhan Eno Farihah.
-
-Sebuah kasus kelam di mana amarah penolakan asmara menyatukan tiga pria asing dalam satu malam kejahatan terencana.
-
-Penyelidikan ilmiah Inafis dan pelacakan digital Polda Metro Jaya berhasil mengamankan seluruh tersangka kurang dari 1x24 jam hingga vonis hukuman mati diketok di pengadilan.
-
-Source: Detikcom Arsip Berita Kriminal.
-.
-.
-#TrueCrime #KasusKriminal #EnoFarihah #Detikcom #Investigasi #HukumMati #Storytelling #ViralIndonesia</pre>
-          </div>
-
-        </div>
-
       </div>
-
     </div>
 
+    <div class="gallery">
+      <h2 class="section-title">SNAPSHOT TIMELINE (11 SHOTS RE-CUT)</h2>
+      <div class="gallery-grid">
+        <div class="gallery-item">
+          <img src="keyframes/cover-shot-00.jpg" alt="Cover Hook">
+          <div class="gallery-caption">Shot 00: Cover Full-Bleed</div>
+        </div>
+        
+        <div class="gallery-item">
+          <img src="keyframes/short-shot-01.jpg" alt="Shot 1">
+          <div class="gallery-caption">Shot 01 (12.14s)</div>
+        </div>
+        <div class="gallery-item">
+          <img src="keyframes/short-shot-02.jpg" alt="Shot 2">
+          <div class="gallery-caption">Shot 02 (11.78s)</div>
+        </div>
+        <div class="gallery-item">
+          <img src="keyframes/short-shot-03.jpg" alt="Shot 3">
+          <div class="gallery-caption">Shot 03 (10.34s)</div>
+        </div>
+        <div class="gallery-item">
+          <img src="keyframes/short-shot-04.jpg" alt="Shot 4">
+          <div class="gallery-caption">Shot 04 (10.67s)</div>
+        </div>
+        <div class="gallery-item">
+          <img src="keyframes/short-shot-05.jpg" alt="Shot 5">
+          <div class="gallery-caption">Shot 05 (9.9s)</div>
+        </div>
+        <div class="gallery-item">
+          <img src="keyframes/short-shot-06.jpg" alt="Shot 6">
+          <div class="gallery-caption">Shot 06 (11.3s)</div>
+        </div>
+        <div class="gallery-item">
+          <img src="keyframes/short-shot-07.jpg" alt="Shot 7">
+          <div class="gallery-caption">Shot 07 (9.63s)</div>
+        </div>
+        <div class="gallery-item">
+          <img src="keyframes/short-shot-08.jpg" alt="Shot 8">
+          <div class="gallery-caption">Shot 08 (11.31s)</div>
+        </div>
+        <div class="gallery-item">
+          <img src="keyframes/short-shot-09.jpg" alt="Shot 9">
+          <div class="gallery-caption">Shot 09 (9.79s)</div>
+        </div>
+        <div class="gallery-item">
+          <img src="keyframes/short-shot-10.jpg" alt="Shot 10">
+          <div class="gallery-caption">Shot 10 (10.1s)</div>
+        </div>
+        <div class="gallery-item">
+          <img src="keyframes/short-shot-11.jpg" alt="Shot 11">
+          <div class="gallery-caption">Shot 11 (10.33s)</div>
+        </div>
+      </div>
+    </div>
   </div>
-
-  <script>
-    function copyToClipboard(id, btn) {
-      const text = document.getElementById(id).innerText;
-      navigator.clipboard.writeText(text).then(() => {
-        const originalText = btn.innerText;
-        btn.innerText = 'Tersalin!';
-        btn.classList.add('bg-emerald-700', 'text-white');
-        setTimeout(() => {
-          btn.innerText = originalText;
-          btn.classList.remove('bg-emerald-700', 'text-white');
-        }, 2000);
-      });
-    }
-  </script>
 </body>
 </html>

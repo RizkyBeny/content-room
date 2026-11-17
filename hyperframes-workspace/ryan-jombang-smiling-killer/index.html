@@ -129,8 +129,8 @@
     }
   </style>
 </head>
-<body data-duration="104.560">
-  <div id="root" data-composition-id="main" data-start="0" data-duration="104.560" data-width="1080" data-height="1920">
+<body data-duration="129.400">
+  <div id="root" data-composition-id="main" data-start="0" data-duration="129.400" data-width="1080" data-height="1920">
     <!-- Shot 00 (Cover Image Hook) -->
     <div class="shot-scene" id="shot-0" style="z-index: 5;">
       <div class="shot-media-wrapper">
@@ -380,69 +380,6 @@
     <div class="shot-scene" id="shot-35">
       <div class="shot-media-wrapper">
         <img src="assets/shot-35.jpg" class="shot-bg" id="bg-35" alt="Shot 35">
-      </div>
-    </div>
-
-    <!-- Shot 36 -->
-    <div class="shot-scene" id="shot-36">
-      <div class="shot-media-wrapper">
-        <img src="assets/shot-36.jpg" class="shot-bg" id="bg-36" alt="Shot 36">
-      </div>
-    </div>
-
-    <!-- Shot 37 -->
-    <div class="shot-scene" id="shot-37">
-      <div class="shot-media-wrapper">
-        <img src="assets/shot-37.jpg" class="shot-bg" id="bg-37" alt="Shot 37">
-      </div>
-    </div>
-
-    <!-- Shot 38 -->
-    <div class="shot-scene" id="shot-38">
-      <div class="shot-media-wrapper">
-        <img src="assets/shot-38.jpg" class="shot-bg" id="bg-38" alt="Shot 38">
-      </div>
-    </div>
-
-    <!-- Shot 39 -->
-    <div class="shot-scene" id="shot-39">
-      <div class="shot-media-wrapper">
-        <img src="assets/shot-39.jpg" class="shot-bg" id="bg-39" alt="Shot 39">
-      </div>
-    </div>
-
-    <!-- Shot 40 -->
-    <div class="shot-scene" id="shot-40">
-      <div class="shot-media-wrapper">
-        <img src="assets/shot-40.jpg" class="shot-bg" id="bg-40" alt="Shot 40">
-      </div>
-    </div>
-
-    <!-- Shot 41 -->
-    <div class="shot-scene" id="shot-41">
-      <div class="shot-media-wrapper">
-        <img src="assets/shot-41.jpg" class="shot-bg" id="bg-41" alt="Shot 41">
-      </div>
-    </div>
-
-    <!-- Shot 42 -->
-    <div class="shot-scene" id="shot-42">
-      <div class="shot-media-wrapper">
-        <img src="assets/shot-42.jpg" class="shot-bg" id="bg-42" alt="Shot 42">
-      </div>
-    </div>
-
-    <!-- Shot 43 -->
-    <div class="shot-scene" id="shot-43">
-      <div class="shot-media-wrapper">
-        <img src="assets/shot-43.jpg" class="shot-bg" id="bg-43" alt="Shot 43">
-      </div>
-    </div>
-
-    <!-- Shot 44 -->
-    <div class="shot-scene" id="shot-44">
-      <div class="shot-media-wrapper">
-        <img src="assets/shot-44.jpg" class="shot-bg" id="bg-44" alt="Shot 44">
       </div>
     </div>
     <!-- Atmospheric Vignette -->
@@ -716,7 +653,7 @@
   </div>
 
   <script>
-    const totalDuration = 104.560;
+    const totalDuration = 129.400;
     const tl = gsap.timeline({ paused: true });
     window.__timeline = tl;
     window.__timelines = window.__timelines || {};
@@ -735,7 +672,7 @@
       tl.add(gTl, Math.max(0, atTime - 0.06));
     }
 
-    const glitchTimings = [1.30, 3.65, 6.00, 8.35, 10.70, 13.05, 15.40, 17.75, 20.10, 22.45, 24.80, 27.15, 29.50, 31.85, 34.20, 36.55, 38.90, 41.25, 43.60, 45.95, 48.30, 50.65, 53.00, 55.35, 57.70, 60.05, 62.40, 64.75, 67.10, 69.45, 71.80, 74.15, 76.50, 78.85, 81.20, 83.55, 85.90, 88.25, 90.60, 92.95, 95.30, 97.65, 100.00, 102.35];
+    const glitchTimings = [1.30, 4.75, 8.90, 13.39, 16.24, 19.09, 21.94, 25.38, 28.08, 30.78, 34.02, 36.72, 39.40, 42.57, 46.38, 51.46, 54.12, 56.78, 59.97, 63.96, 68.33, 71.06, 74.60, 79.64, 83.28, 86.35, 89.72, 93.40, 97.08, 101.97, 107.61, 111.52, 117.21, 121.74, 125.92];
     glitchTimings.forEach((t) => triggerNoirGlitch(t));
 
     // --- SHOT TRANSITIONS & SMOOTH CAMERA MOVEMENTS ---
@@ -748,405 +685,324 @@
     );
     tl.to("#shot-0", { autoAlpha: 0, duration: 0.35, ease: "power2.inOut" }, 1.15);
 
-    // Shot 1 (1.3s - 3.65s)
+    // Shot 1 (1.3s - 4.75s)
     tl.set("#shot-1", { autoAlpha: 1 }, 1.3);
     tl.fromTo("#bg-1",
       { scale: 1, x: 0, y: 0 },
-      { scale: 1.08, x: 0, y: 0, duration: 2.35, ease: "none" },
+      { scale: 1.08, x: 0, y: 0, duration: 3.45, ease: "none" },
       1.3
     );
-    tl.to("#shot-1", { autoAlpha: 0, duration: 0.25, ease: "power1.inOut" }, 3.40);
+    tl.to("#shot-1", { autoAlpha: 0, duration: 0.25, ease: "power1.inOut" }, 4.50);
 
-    // Shot 2 (3.65s - 6s)
-    tl.set("#shot-2", { autoAlpha: 1 }, 3.65);
+    // Shot 2 (4.75s - 8.9s)
+    tl.set("#shot-2", { autoAlpha: 1 }, 4.75);
     tl.fromTo("#bg-2",
       { scale: 1, x: 0, y: 0 },
-      { scale: 1.08, x: 0, y: -25, duration: 2.35, ease: "none" },
-      3.65
+      { scale: 1.08, x: 0, y: -25, duration: 4.15, ease: "none" },
+      4.75
     );
-    tl.to("#shot-2", { autoAlpha: 0, duration: 0.25, ease: "power1.inOut" }, 5.75);
+    tl.to("#shot-2", { autoAlpha: 0, duration: 0.25, ease: "power1.inOut" }, 8.65);
 
-    // Shot 3 (6s - 8.35s)
-    tl.set("#shot-3", { autoAlpha: 1 }, 6);
+    // Shot 3 (8.9s - 13.39s)
+    tl.set("#shot-3", { autoAlpha: 1 }, 8.9);
     tl.fromTo("#bg-3",
       { scale: 1.08, x: 0, y: 0 },
-      { scale: 1.01, x: 0, y: 0, duration: 2.35, ease: "none" },
-      6
+      { scale: 1.01, x: 0, y: 0, duration: 4.49, ease: "none" },
+      8.9
     );
-    tl.to("#shot-3", { autoAlpha: 0, duration: 0.25, ease: "power1.inOut" }, 8.10);
+    tl.to("#shot-3", { autoAlpha: 0, duration: 0.25, ease: "power1.inOut" }, 13.14);
 
-    // Shot 4 (8.35s - 10.7s)
-    tl.set("#shot-4", { autoAlpha: 1 }, 8.35);
+    // Shot 4 (13.39s - 16.24s)
+    tl.set("#shot-4", { autoAlpha: 1 }, 13.39);
     tl.fromTo("#bg-4",
       { scale: 1, x: -15, y: 0 },
-      { scale: 1.08, x: 15, y: -20, duration: 2.35, ease: "none" },
-      8.35
+      { scale: 1.08, x: 15, y: -20, duration: 2.85, ease: "none" },
+      13.39
     );
-    tl.to("#shot-4", { autoAlpha: 0, duration: 0.25, ease: "power1.inOut" }, 10.45);
+    tl.to("#shot-4", { autoAlpha: 0, duration: 0.25, ease: "power1.inOut" }, 15.99);
 
-    // Shot 5 (10.7s - 13.05s)
-    tl.set("#shot-5", { autoAlpha: 1 }, 10.7);
+    // Shot 5 (16.24s - 19.09s)
+    tl.set("#shot-5", { autoAlpha: 1 }, 16.24);
     tl.fromTo("#bg-5",
       { scale: 1.04, x: -30, y: 0 },
-      { scale: 1.04, x: 30, y: 0, duration: 2.35, ease: "none" },
-      10.7
+      { scale: 1.04, x: 30, y: 0, duration: 2.85, ease: "none" },
+      16.24
     );
-    tl.to("#shot-5", { autoAlpha: 0, duration: 0.25, ease: "power1.inOut" }, 12.80);
+    tl.to("#shot-5", { autoAlpha: 0, duration: 0.25, ease: "power1.inOut" }, 18.84);
 
-    // Shot 6 (13.05s - 15.4s)
-    tl.set("#shot-6", { autoAlpha: 1 }, 13.05);
+    // Shot 6 (19.09s - 21.94s)
+    tl.set("#shot-6", { autoAlpha: 1 }, 19.09);
     tl.fromTo("#bg-6",
       { scale: 1.05, x: 0, y: -40 },
-      { scale: 1.05, x: 0, y: 35, duration: 2.35, ease: "none" },
-      13.05
+      { scale: 1.05, x: 0, y: 35, duration: 2.85, ease: "none" },
+      19.09
     );
-    tl.to("#shot-6", { autoAlpha: 0, duration: 0.25, ease: "power1.inOut" }, 15.15);
+    tl.to("#shot-6", { autoAlpha: 0, duration: 0.25, ease: "power1.inOut" }, 21.69);
 
-    // Shot 7 (15.4s - 17.75s)
-    tl.set("#shot-7", { autoAlpha: 1 }, 15.4);
+    // Shot 7 (21.94s - 25.37s)
+    tl.set("#shot-7", { autoAlpha: 1 }, 21.94);
     tl.fromTo("#bg-7",
       { scale: 1, x: 0, y: 0 },
-      { scale: 1.08, x: 0, y: 0, duration: 2.35, ease: "none" },
-      15.4
+      { scale: 1.08, x: 0, y: 0, duration: 3.43, ease: "none" },
+      21.94
     );
-    tl.to("#shot-7", { autoAlpha: 0, duration: 0.25, ease: "power1.inOut" }, 17.50);
+    tl.to("#shot-7", { autoAlpha: 0, duration: 0.25, ease: "power1.inOut" }, 25.12);
 
-    // Shot 8 (17.75s - 20.1s)
-    tl.set("#shot-8", { autoAlpha: 1 }, 17.75);
+    // Shot 8 (25.38s - 28.08s)
+    tl.set("#shot-8", { autoAlpha: 1 }, 25.38);
     tl.fromTo("#bg-8",
       { scale: 1, x: 0, y: 0 },
-      { scale: 1.09, x: 0, y: -30, duration: 2.35, ease: "none" },
-      17.75
+      { scale: 1.09, x: 0, y: -30, duration: 2.7, ease: "none" },
+      25.38
     );
-    tl.to("#shot-8", { autoAlpha: 0, duration: 0.25, ease: "power1.inOut" }, 19.85);
+    tl.to("#shot-8", { autoAlpha: 0, duration: 0.25, ease: "power1.inOut" }, 27.83);
 
-    // Shot 9 (20.1s - 22.45s)
-    tl.set("#shot-9", { autoAlpha: 1 }, 20.1);
+    // Shot 9 (28.08s - 30.78s)
+    tl.set("#shot-9", { autoAlpha: 1 }, 28.08);
     tl.fromTo("#bg-9",
       { scale: 1.04, x: -25, y: 0 },
-      { scale: 1.04, x: 25, y: 0, duration: 2.35, ease: "none" },
-      20.1
+      { scale: 1.04, x: 25, y: 0, duration: 2.7, ease: "none" },
+      28.08
     );
-    tl.to("#shot-9", { autoAlpha: 0, duration: 0.25, ease: "power1.inOut" }, 22.20);
+    tl.to("#shot-9", { autoAlpha: 0, duration: 0.25, ease: "power1.inOut" }, 30.53);
 
-    // Shot 10 (22.45s - 24.8s)
-    tl.set("#shot-10", { autoAlpha: 1 }, 22.45);
+    // Shot 10 (30.78s - 34.02s)
+    tl.set("#shot-10", { autoAlpha: 1 }, 30.78);
     tl.fromTo("#bg-10",
       { scale: 1, x: 0, y: -15 },
-      { scale: 1.08, x: 0, y: 15, duration: 2.35, ease: "none" },
-      22.45
+      { scale: 1.08, x: 0, y: 15, duration: 3.24, ease: "none" },
+      30.78
     );
-    tl.to("#shot-10", { autoAlpha: 0, duration: 0.25, ease: "power1.inOut" }, 24.55);
+    tl.to("#shot-10", { autoAlpha: 0, duration: 0.25, ease: "power1.inOut" }, 33.77);
 
-    // Shot 11 (24.8s - 27.15s)
-    tl.set("#shot-11", { autoAlpha: 1 }, 24.8);
+    // Shot 11 (34.02s - 36.72s)
+    tl.set("#shot-11", { autoAlpha: 1 }, 34.02);
     tl.fromTo("#bg-11",
       { scale: 1.04, x: 25, y: 0 },
-      { scale: 1.04, x: -25, y: 0, duration: 2.35, ease: "none" },
-      24.8
+      { scale: 1.04, x: -25, y: 0, duration: 2.7, ease: "none" },
+      34.02
     );
-    tl.to("#shot-11", { autoAlpha: 0, duration: 0.25, ease: "power1.inOut" }, 26.90);
+    tl.to("#shot-11", { autoAlpha: 0, duration: 0.25, ease: "power1.inOut" }, 36.47);
 
-    // Shot 12 (27.15s - 29.5s)
-    tl.set("#shot-12", { autoAlpha: 1 }, 27.15);
+    // Shot 12 (36.72s - 39.42s)
+    tl.set("#shot-12", { autoAlpha: 1 }, 36.72);
     tl.fromTo("#bg-12",
       { scale: 1, x: 0, y: 0 },
-      { scale: 1.09, x: 0, y: -25, duration: 2.35, ease: "none" },
-      27.15
+      { scale: 1.09, x: 0, y: -25, duration: 2.7, ease: "none" },
+      36.72
     );
-    tl.to("#shot-12", { autoAlpha: 0, duration: 0.25, ease: "power1.inOut" }, 29.25);
+    tl.to("#shot-12", { autoAlpha: 0, duration: 0.25, ease: "power1.inOut" }, 39.17);
 
-    // Shot 13 (29.5s - 31.85s)
-    tl.set("#shot-13", { autoAlpha: 1 }, 29.5);
+    // Shot 13 (39.4s - 42.57s)
+    tl.set("#shot-13", { autoAlpha: 1 }, 39.4);
     tl.fromTo("#bg-13",
       { scale: 1, x: 0, y: 0 },
-      { scale: 1.08, x: 0, y: -30, duration: 2.35, ease: "none" },
-      29.5
+      { scale: 1.08, x: 0, y: -30, duration: 3.17, ease: "none" },
+      39.4
     );
-    tl.to("#shot-13", { autoAlpha: 0, duration: 0.25, ease: "power1.inOut" }, 31.60);
+    tl.to("#shot-13", { autoAlpha: 0, duration: 0.25, ease: "power1.inOut" }, 42.32);
 
-    // Shot 14 (31.85s - 34.2s)
-    tl.set("#shot-14", { autoAlpha: 1 }, 31.85);
+    // Shot 14 (42.57s - 46.38s)
+    tl.set("#shot-14", { autoAlpha: 1 }, 42.57);
     tl.fromTo("#bg-14",
       { scale: 1.06, x: 0, y: 0 },
-      { scale: 1.01, x: 0, y: 0, duration: 2.35, ease: "none" },
-      31.85
+      { scale: 1.01, x: 0, y: 0, duration: 3.81, ease: "none" },
+      42.57
     );
-    tl.to("#shot-14", { autoAlpha: 0, duration: 0.25, ease: "power1.inOut" }, 33.95);
+    tl.to("#shot-14", { autoAlpha: 0, duration: 0.25, ease: "power1.inOut" }, 46.13);
 
-    // Shot 15 (34.2s - 36.55s)
-    tl.set("#shot-15", { autoAlpha: 1 }, 34.2);
+    // Shot 15 (46.38s - 51.46s)
+    tl.set("#shot-15", { autoAlpha: 1 }, 46.38);
     tl.fromTo("#bg-15",
       { scale: 1, x: 0, y: 0 },
-      { scale: 1.08, x: 0, y: 0, duration: 2.35, ease: "none" },
-      34.2
+      { scale: 1.08, x: 0, y: 0, duration: 5.08, ease: "none" },
+      46.38
     );
-    tl.to("#shot-15", { autoAlpha: 0, duration: 0.25, ease: "power1.inOut" }, 36.30);
+    tl.to("#shot-15", { autoAlpha: 0, duration: 0.25, ease: "power1.inOut" }, 51.21);
 
-    // Shot 16 (36.55s - 38.9s)
-    tl.set("#shot-16", { autoAlpha: 1 }, 36.55);
+    // Shot 16 (51.46s - 54.12s)
+    tl.set("#shot-16", { autoAlpha: 1 }, 51.46);
     tl.fromTo("#bg-16",
       { scale: 1, x: 0, y: 0 },
-      { scale: 1.08, x: 0, y: -25, duration: 2.35, ease: "none" },
-      36.55
+      { scale: 1.08, x: 0, y: -25, duration: 2.66, ease: "none" },
+      51.46
     );
-    tl.to("#shot-16", { autoAlpha: 0, duration: 0.25, ease: "power1.inOut" }, 38.65);
+    tl.to("#shot-16", { autoAlpha: 0, duration: 0.25, ease: "power1.inOut" }, 53.87);
 
-    // Shot 17 (38.9s - 41.25s)
-    tl.set("#shot-17", { autoAlpha: 1 }, 38.9);
+    // Shot 17 (54.12s - 56.78s)
+    tl.set("#shot-17", { autoAlpha: 1 }, 54.12);
     tl.fromTo("#bg-17",
       { scale: 1.08, x: 0, y: 0 },
-      { scale: 1.01, x: 0, y: 0, duration: 2.35, ease: "none" },
-      38.9
+      { scale: 1.01, x: 0, y: 0, duration: 2.66, ease: "none" },
+      54.12
     );
-    tl.to("#shot-17", { autoAlpha: 0, duration: 0.25, ease: "power1.inOut" }, 41.00);
+    tl.to("#shot-17", { autoAlpha: 0, duration: 0.25, ease: "power1.inOut" }, 56.53);
 
-    // Shot 18 (41.25s - 43.6s)
-    tl.set("#shot-18", { autoAlpha: 1 }, 41.25);
+    // Shot 18 (56.78s - 59.97s)
+    tl.set("#shot-18", { autoAlpha: 1 }, 56.78);
     tl.fromTo("#bg-18",
       { scale: 1, x: -15, y: 0 },
-      { scale: 1.08, x: 15, y: -20, duration: 2.35, ease: "none" },
-      41.25
+      { scale: 1.08, x: 15, y: -20, duration: 3.19, ease: "none" },
+      56.78
     );
-    tl.to("#shot-18", { autoAlpha: 0, duration: 0.25, ease: "power1.inOut" }, 43.35);
+    tl.to("#shot-18", { autoAlpha: 0, duration: 0.25, ease: "power1.inOut" }, 59.72);
 
-    // Shot 19 (43.6s - 45.95s)
-    tl.set("#shot-19", { autoAlpha: 1 }, 43.6);
+    // Shot 19 (59.97s - 63.96s)
+    tl.set("#shot-19", { autoAlpha: 1 }, 59.97);
     tl.fromTo("#bg-19",
       { scale: 1.04, x: -30, y: 0 },
-      { scale: 1.04, x: 30, y: 0, duration: 2.35, ease: "none" },
-      43.6
+      { scale: 1.04, x: 30, y: 0, duration: 3.99, ease: "none" },
+      59.97
     );
-    tl.to("#shot-19", { autoAlpha: 0, duration: 0.25, ease: "power1.inOut" }, 45.70);
+    tl.to("#shot-19", { autoAlpha: 0, duration: 0.25, ease: "power1.inOut" }, 63.71);
 
-    // Shot 20 (45.95s - 48.3s)
-    tl.set("#shot-20", { autoAlpha: 1 }, 45.95);
+    // Shot 20 (63.96s - 68.33s)
+    tl.set("#shot-20", { autoAlpha: 1 }, 63.96);
     tl.fromTo("#bg-20",
       { scale: 1.05, x: 0, y: -40 },
-      { scale: 1.05, x: 0, y: 35, duration: 2.35, ease: "none" },
-      45.95
+      { scale: 1.05, x: 0, y: 35, duration: 4.37, ease: "none" },
+      63.96
     );
-    tl.to("#shot-20", { autoAlpha: 0, duration: 0.25, ease: "power1.inOut" }, 48.05);
+    tl.to("#shot-20", { autoAlpha: 0, duration: 0.25, ease: "power1.inOut" }, 68.08);
 
-    // Shot 21 (48.3s - 50.65s)
-    tl.set("#shot-21", { autoAlpha: 1 }, 48.3);
+    // Shot 21 (68.33s - 71.06s)
+    tl.set("#shot-21", { autoAlpha: 1 }, 68.33);
     tl.fromTo("#bg-21",
       { scale: 1, x: 0, y: 0 },
-      { scale: 1.08, x: 0, y: 0, duration: 2.35, ease: "none" },
-      48.3
+      { scale: 1.08, x: 0, y: 0, duration: 2.73, ease: "none" },
+      68.33
     );
-    tl.to("#shot-21", { autoAlpha: 0, duration: 0.25, ease: "power1.inOut" }, 50.40);
+    tl.to("#shot-21", { autoAlpha: 0, duration: 0.25, ease: "power1.inOut" }, 70.81);
 
-    // Shot 22 (50.65s - 53s)
-    tl.set("#shot-22", { autoAlpha: 1 }, 50.65);
+    // Shot 22 (71.06s - 74.61s)
+    tl.set("#shot-22", { autoAlpha: 1 }, 71.06);
     tl.fromTo("#bg-22",
       { scale: 1, x: 0, y: 0 },
-      { scale: 1.09, x: 0, y: -30, duration: 2.35, ease: "none" },
-      50.65
+      { scale: 1.09, x: 0, y: -30, duration: 3.55, ease: "none" },
+      71.06
     );
-    tl.to("#shot-22", { autoAlpha: 0, duration: 0.25, ease: "power1.inOut" }, 52.75);
+    tl.to("#shot-22", { autoAlpha: 0, duration: 0.25, ease: "power1.inOut" }, 74.36);
 
-    // Shot 23 (53s - 55.35s)
-    tl.set("#shot-23", { autoAlpha: 1 }, 53);
+    // Shot 23 (74.6s - 79.64s)
+    tl.set("#shot-23", { autoAlpha: 1 }, 74.6);
     tl.fromTo("#bg-23",
       { scale: 1.04, x: -25, y: 0 },
-      { scale: 1.04, x: 25, y: 0, duration: 2.35, ease: "none" },
-      53
+      { scale: 1.04, x: 25, y: 0, duration: 5.04, ease: "none" },
+      74.6
     );
-    tl.to("#shot-23", { autoAlpha: 0, duration: 0.25, ease: "power1.inOut" }, 55.10);
+    tl.to("#shot-23", { autoAlpha: 0, duration: 0.25, ease: "power1.inOut" }, 79.39);
 
-    // Shot 24 (55.35s - 57.7s)
-    tl.set("#shot-24", { autoAlpha: 1 }, 55.35);
+    // Shot 24 (79.64s - 83.28s)
+    tl.set("#shot-24", { autoAlpha: 1 }, 79.64);
     tl.fromTo("#bg-24",
       { scale: 1, x: 0, y: -15 },
-      { scale: 1.08, x: 0, y: 15, duration: 2.35, ease: "none" },
-      55.35
+      { scale: 1.08, x: 0, y: 15, duration: 3.64, ease: "none" },
+      79.64
     );
-    tl.to("#shot-24", { autoAlpha: 0, duration: 0.25, ease: "power1.inOut" }, 57.45);
+    tl.to("#shot-24", { autoAlpha: 0, duration: 0.25, ease: "power1.inOut" }, 83.03);
 
-    // Shot 25 (57.7s - 60.05s)
-    tl.set("#shot-25", { autoAlpha: 1 }, 57.7);
+    // Shot 25 (83.28s - 86.36s)
+    tl.set("#shot-25", { autoAlpha: 1 }, 83.28);
     tl.fromTo("#bg-25",
       { scale: 1.04, x: 25, y: 0 },
-      { scale: 1.04, x: -25, y: 0, duration: 2.35, ease: "none" },
-      57.7
+      { scale: 1.04, x: -25, y: 0, duration: 3.08, ease: "none" },
+      83.28
     );
-    tl.to("#shot-25", { autoAlpha: 0, duration: 0.25, ease: "power1.inOut" }, 59.80);
+    tl.to("#shot-25", { autoAlpha: 0, duration: 0.25, ease: "power1.inOut" }, 86.11);
 
-    // Shot 26 (60.05s - 62.4s)
-    tl.set("#shot-26", { autoAlpha: 1 }, 60.05);
+    // Shot 26 (86.35s - 89.72s)
+    tl.set("#shot-26", { autoAlpha: 1 }, 86.35);
     tl.fromTo("#bg-26",
       { scale: 1, x: 0, y: 0 },
-      { scale: 1.09, x: 0, y: -25, duration: 2.35, ease: "none" },
-      60.05
+      { scale: 1.09, x: 0, y: -25, duration: 3.37, ease: "none" },
+      86.35
     );
-    tl.to("#shot-26", { autoAlpha: 0, duration: 0.25, ease: "power1.inOut" }, 62.15);
+    tl.to("#shot-26", { autoAlpha: 0, duration: 0.25, ease: "power1.inOut" }, 89.47);
 
-    // Shot 27 (62.4s - 64.75s)
-    tl.set("#shot-27", { autoAlpha: 1 }, 62.4);
+    // Shot 27 (89.72s - 93.4s)
+    tl.set("#shot-27", { autoAlpha: 1 }, 89.72);
     tl.fromTo("#bg-27",
       { scale: 1, x: 0, y: 0 },
-      { scale: 1.08, x: 0, y: -30, duration: 2.35, ease: "none" },
-      62.4
+      { scale: 1.08, x: 0, y: -30, duration: 3.68, ease: "none" },
+      89.72
     );
-    tl.to("#shot-27", { autoAlpha: 0, duration: 0.25, ease: "power1.inOut" }, 64.50);
+    tl.to("#shot-27", { autoAlpha: 0, duration: 0.25, ease: "power1.inOut" }, 93.15);
 
-    // Shot 28 (64.75s - 67.1s)
-    tl.set("#shot-28", { autoAlpha: 1 }, 64.75);
+    // Shot 28 (93.4s - 97.08s)
+    tl.set("#shot-28", { autoAlpha: 1 }, 93.4);
     tl.fromTo("#bg-28",
       { scale: 1.06, x: 0, y: 0 },
-      { scale: 1.01, x: 0, y: 0, duration: 2.35, ease: "none" },
-      64.75
+      { scale: 1.01, x: 0, y: 0, duration: 3.68, ease: "none" },
+      93.4
     );
-    tl.to("#shot-28", { autoAlpha: 0, duration: 0.25, ease: "power1.inOut" }, 66.85);
+    tl.to("#shot-28", { autoAlpha: 0, duration: 0.25, ease: "power1.inOut" }, 96.83);
 
-    // Shot 29 (67.1s - 69.45s)
-    tl.set("#shot-29", { autoAlpha: 1 }, 67.1);
+    // Shot 29 (97.08s - 101.97s)
+    tl.set("#shot-29", { autoAlpha: 1 }, 97.08);
     tl.fromTo("#bg-29",
       { scale: 1, x: 0, y: 0 },
-      { scale: 1.08, x: 0, y: 0, duration: 2.35, ease: "none" },
-      67.1
+      { scale: 1.08, x: 0, y: 0, duration: 4.89, ease: "none" },
+      97.08
     );
-    tl.to("#shot-29", { autoAlpha: 0, duration: 0.25, ease: "power1.inOut" }, 69.20);
+    tl.to("#shot-29", { autoAlpha: 0, duration: 0.25, ease: "power1.inOut" }, 101.72);
 
-    // Shot 30 (69.45s - 71.8s)
-    tl.set("#shot-30", { autoAlpha: 1 }, 69.45);
+    // Shot 30 (101.97s - 107.61s)
+    tl.set("#shot-30", { autoAlpha: 1 }, 101.97);
     tl.fromTo("#bg-30",
       { scale: 1, x: 0, y: 0 },
-      { scale: 1.08, x: 0, y: -25, duration: 2.35, ease: "none" },
-      69.45
+      { scale: 1.08, x: 0, y: -25, duration: 5.64, ease: "none" },
+      101.97
     );
-    tl.to("#shot-30", { autoAlpha: 0, duration: 0.25, ease: "power1.inOut" }, 71.55);
+    tl.to("#shot-30", { autoAlpha: 0, duration: 0.25, ease: "power1.inOut" }, 107.36);
 
-    // Shot 31 (71.8s - 74.15s)
-    tl.set("#shot-31", { autoAlpha: 1 }, 71.8);
+    // Shot 31 (107.61s - 111.52s)
+    tl.set("#shot-31", { autoAlpha: 1 }, 107.61);
     tl.fromTo("#bg-31",
       { scale: 1.08, x: 0, y: 0 },
-      { scale: 1.01, x: 0, y: 0, duration: 2.35, ease: "none" },
-      71.8
+      { scale: 1.01, x: 0, y: 0, duration: 3.91, ease: "none" },
+      107.61
     );
-    tl.to("#shot-31", { autoAlpha: 0, duration: 0.25, ease: "power1.inOut" }, 73.90);
+    tl.to("#shot-31", { autoAlpha: 0, duration: 0.25, ease: "power1.inOut" }, 111.27);
 
-    // Shot 32 (74.15s - 76.5s)
-    tl.set("#shot-32", { autoAlpha: 1 }, 74.15);
+    // Shot 32 (111.52s - 117.21s)
+    tl.set("#shot-32", { autoAlpha: 1 }, 111.52);
     tl.fromTo("#bg-32",
       { scale: 1, x: -15, y: 0 },
-      { scale: 1.08, x: 15, y: -20, duration: 2.35, ease: "none" },
-      74.15
+      { scale: 1.08, x: 15, y: -20, duration: 5.69, ease: "none" },
+      111.52
     );
-    tl.to("#shot-32", { autoAlpha: 0, duration: 0.25, ease: "power1.inOut" }, 76.25);
+    tl.to("#shot-32", { autoAlpha: 0, duration: 0.25, ease: "power1.inOut" }, 116.96);
 
-    // Shot 33 (76.5s - 78.85s)
-    tl.set("#shot-33", { autoAlpha: 1 }, 76.5);
+    // Shot 33 (117.21s - 121.74s)
+    tl.set("#shot-33", { autoAlpha: 1 }, 117.21);
     tl.fromTo("#bg-33",
       { scale: 1.04, x: -30, y: 0 },
-      { scale: 1.04, x: 30, y: 0, duration: 2.35, ease: "none" },
-      76.5
+      { scale: 1.04, x: 30, y: 0, duration: 4.53, ease: "none" },
+      117.21
     );
-    tl.to("#shot-33", { autoAlpha: 0, duration: 0.25, ease: "power1.inOut" }, 78.60);
+    tl.to("#shot-33", { autoAlpha: 0, duration: 0.25, ease: "power1.inOut" }, 121.49);
 
-    // Shot 34 (78.85s - 81.2s)
-    tl.set("#shot-34", { autoAlpha: 1 }, 78.85);
+    // Shot 34 (121.74s - 125.92s)
+    tl.set("#shot-34", { autoAlpha: 1 }, 121.74);
     tl.fromTo("#bg-34",
       { scale: 1.05, x: 0, y: -40 },
-      { scale: 1.05, x: 0, y: 35, duration: 2.35, ease: "none" },
-      78.85
+      { scale: 1.05, x: 0, y: 35, duration: 4.18, ease: "none" },
+      121.74
     );
-    tl.to("#shot-34", { autoAlpha: 0, duration: 0.25, ease: "power1.inOut" }, 80.95);
+    tl.to("#shot-34", { autoAlpha: 0, duration: 0.25, ease: "power1.inOut" }, 125.67);
 
-    // Shot 35 (81.2s - 83.55s)
-    tl.set("#shot-35", { autoAlpha: 1 }, 81.2);
+    // Shot 35 (125.92s - 129.4s)
+    tl.set("#shot-35", { autoAlpha: 1 }, 125.92);
     tl.fromTo("#bg-35",
       { scale: 1, x: 0, y: 0 },
-      { scale: 1.08, x: 0, y: 0, duration: 2.35, ease: "none" },
-      81.2
-    );
-    tl.to("#shot-35", { autoAlpha: 0, duration: 0.25, ease: "power1.inOut" }, 83.30);
-
-    // Shot 36 (83.55s - 85.9s)
-    tl.set("#shot-36", { autoAlpha: 1 }, 83.55);
-    tl.fromTo("#bg-36",
-      { scale: 1, x: 0, y: 0 },
-      { scale: 1.09, x: 0, y: -30, duration: 2.35, ease: "none" },
-      83.55
-    );
-    tl.to("#shot-36", { autoAlpha: 0, duration: 0.25, ease: "power1.inOut" }, 85.65);
-
-    // Shot 37 (85.9s - 88.25s)
-    tl.set("#shot-37", { autoAlpha: 1 }, 85.9);
-    tl.fromTo("#bg-37",
-      { scale: 1.04, x: -25, y: 0 },
-      { scale: 1.04, x: 25, y: 0, duration: 2.35, ease: "none" },
-      85.9
-    );
-    tl.to("#shot-37", { autoAlpha: 0, duration: 0.25, ease: "power1.inOut" }, 88.00);
-
-    // Shot 38 (88.25s - 90.6s)
-    tl.set("#shot-38", { autoAlpha: 1 }, 88.25);
-    tl.fromTo("#bg-38",
-      { scale: 1, x: 0, y: -15 },
-      { scale: 1.08, x: 0, y: 15, duration: 2.35, ease: "none" },
-      88.25
-    );
-    tl.to("#shot-38", { autoAlpha: 0, duration: 0.25, ease: "power1.inOut" }, 90.35);
-
-    // Shot 39 (90.6s - 92.95s)
-    tl.set("#shot-39", { autoAlpha: 1 }, 90.6);
-    tl.fromTo("#bg-39",
-      { scale: 1.04, x: 25, y: 0 },
-      { scale: 1.04, x: -25, y: 0, duration: 2.35, ease: "none" },
-      90.6
-    );
-    tl.to("#shot-39", { autoAlpha: 0, duration: 0.25, ease: "power1.inOut" }, 92.70);
-
-    // Shot 40 (92.95s - 95.3s)
-    tl.set("#shot-40", { autoAlpha: 1 }, 92.95);
-    tl.fromTo("#bg-40",
-      { scale: 1, x: 0, y: 0 },
-      { scale: 1.09, x: 0, y: -25, duration: 2.35, ease: "none" },
-      92.95
-    );
-    tl.to("#shot-40", { autoAlpha: 0, duration: 0.25, ease: "power1.inOut" }, 95.05);
-
-    // Shot 41 (95.3s - 97.65s)
-    tl.set("#shot-41", { autoAlpha: 1 }, 95.3);
-    tl.fromTo("#bg-41",
-      { scale: 1, x: 0, y: 0 },
-      { scale: 1.08, x: 0, y: -30, duration: 2.35, ease: "none" },
-      95.3
-    );
-    tl.to("#shot-41", { autoAlpha: 0, duration: 0.25, ease: "power1.inOut" }, 97.40);
-
-    // Shot 42 (97.65s - 100s)
-    tl.set("#shot-42", { autoAlpha: 1 }, 97.65);
-    tl.fromTo("#bg-42",
-      { scale: 1.06, x: 0, y: 0 },
-      { scale: 1.01, x: 0, y: 0, duration: 2.35, ease: "none" },
-      97.65
-    );
-    tl.to("#shot-42", { autoAlpha: 0, duration: 0.25, ease: "power1.inOut" }, 99.75);
-
-    // Shot 43 (100s - 102.35s)
-    tl.set("#shot-43", { autoAlpha: 1 }, 100);
-    tl.fromTo("#bg-43",
-      { scale: 1, x: 0, y: 0 },
-      { scale: 1.08, x: 0, y: 0, duration: 2.35, ease: "none" },
-      100
-    );
-    tl.to("#shot-43", { autoAlpha: 0, duration: 0.25, ease: "power1.inOut" }, 102.10);
-
-    // Shot 44 (102.35s - 104.56s)
-    tl.set("#shot-44", { autoAlpha: 1 }, 102.35);
-    tl.fromTo("#bg-44",
-      { scale: 1, x: 0, y: 0 },
-      { scale: 1.08, x: 0, y: -25, duration: 2.21, ease: "none" },
-      102.35
+      { scale: 1.08, x: 0, y: 0, duration: 3.48, ease: "none" },
+      125.92
     );
     
 
     // --- AUTOCAPTION PHRASE BLOCKS & KARAOKE WORD HIGHLIGHTS ---
 
-    // Phrase phrase-0 (0.08s - 1.08s)
+    // Phrase phrase-0 (0.08s - 1.41s)
     tl.fromTo("#phrase-0",
       { autoAlpha: 0, y: 15, filter: "blur(6px)" },
       { autoAlpha: 1, y: 0, filter: "blur(0px)", duration: 0.25, ease: "power2.out" },
@@ -1156,1631 +1012,1631 @@
       color: "#C59B27",
       textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
       scale: 1.06,
-      duration: 0.12,
+      duration: 0.14,
       ease: "power1.out"
     }, 0.08);
     tl.to("#w-phrase-0-1", {
       color: "#C59B27",
       textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
       scale: 1.06,
-      duration: 0.26,
+      duration: 0.35,
       ease: "power1.out"
-    }, 0.19);
+    }, 0.22);
     tl.to("#w-phrase-0-2", {
       color: "#C59B27",
       textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
       scale: 1.06,
-      duration: 0.31,
+      duration: 0.42,
       ease: "power1.out"
-    }, 0.45);
+    }, 0.57);
     tl.to("#w-phrase-0-3", {
       color: "#C59B27",
       textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
       scale: 1.06,
-      duration: 0.32,
+      duration: 0.42,
       ease: "power1.out"
-    }, 0.76);
+    }, 0.99);
     tl.to("#phrase-0",
       { autoAlpha: 0, y: -10, filter: "blur(4px)", duration: 0.2, ease: "power1.in" },
-      1.13
+      1.46
     );
 
-    // Phrase phrase-1 (1.08s - 2.18s)
+    // Phrase phrase-1 (1.41s - 2.88s)
     tl.fromTo("#phrase-1",
       { autoAlpha: 0, y: 15, filter: "blur(6px)" },
       { autoAlpha: 1, y: 0, filter: "blur(0px)", duration: 0.25, ease: "power2.out" },
-      1.08
+      1.41
     );
     tl.to("#w-phrase-1-0", {
       color: "#C59B27",
       textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
       scale: 1.06,
-      duration: 0.16,
-      ease: "power1.out"
-    }, 1.08);
-    tl.to("#w-phrase-1-1", {
-      color: "#C59B27",
-      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
-      scale: 1.06,
-      duration: 0.26,
-      ease: "power1.out"
-    }, 1.24);
-    tl.to("#w-phrase-1-2", {
-      color: "#C59B27",
-      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
-      scale: 1.06,
-      duration: 0.31,
-      ease: "power1.out"
-    }, 1.50);
-    tl.to("#w-phrase-1-3", {
-      color: "#C59B27",
-      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
-      scale: 1.06,
-      duration: 0.37,
-      ease: "power1.out"
-    }, 1.81);
-    tl.to("#phrase-1",
-      { autoAlpha: 0, y: -10, filter: "blur(4px)", duration: 0.2, ease: "power1.in" },
-      2.23
-    );
-
-    // Phrase phrase-2 (2.18s - 2.6s)
-    tl.fromTo("#phrase-2",
-      { autoAlpha: 0, y: 15, filter: "blur(6px)" },
-      { autoAlpha: 1, y: 0, filter: "blur(0px)", duration: 0.25, ease: "power2.out" },
-      2.18
-    );
-    tl.to("#w-phrase-2-0", {
-      color: "#C59B27",
-      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
-      scale: 1.06,
-      duration: 0.42,
-      ease: "power1.out"
-    }, 2.18);
-    tl.to("#phrase-2",
-      { autoAlpha: 0, y: -10, filter: "blur(4px)", duration: 0.2, ease: "power1.in" },
-      2.65
-    );
-
-    // Phrase phrase-3 (2.6s - 4.07s)
-    tl.fromTo("#phrase-3",
-      { autoAlpha: 0, y: 15, filter: "blur(6px)" },
-      { autoAlpha: 1, y: 0, filter: "blur(0px)", duration: 0.25, ease: "power2.out" },
-      2.6
-    );
-    tl.to("#w-phrase-3-0", {
-      color: "#C59B27",
-      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
-      scale: 1.06,
-      duration: 0.58,
-      ease: "power1.out"
-    }, 2.60);
-    tl.to("#w-phrase-3-1", {
-      color: "#C59B27",
-      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
-      scale: 1.06,
-      duration: 0.26,
-      ease: "power1.out"
-    }, 3.18);
-    tl.to("#w-phrase-3-2", {
-      color: "#C59B27",
-      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
-      scale: 1.06,
       duration: 0.21,
       ease: "power1.out"
-    }, 3.44);
-    tl.to("#w-phrase-3-3", {
-      color: "#C59B27",
-      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
-      scale: 1.06,
-      duration: 0.42,
-      ease: "power1.out"
-    }, 3.65);
-    tl.to("#phrase-3",
-      { autoAlpha: 0, y: -10, filter: "blur(4px)", duration: 0.2, ease: "power1.in" },
-      4.12
-    );
-
-    // Phrase phrase-4 (4.07s - 5.54s)
-    tl.fromTo("#phrase-4",
-      { autoAlpha: 0, y: 15, filter: "blur(6px)" },
-      { autoAlpha: 1, y: 0, filter: "blur(0px)", duration: 0.25, ease: "power2.out" },
-      4.07
-    );
-    tl.to("#w-phrase-4-0", {
-      color: "#C59B27",
-      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
-      scale: 1.06,
-      duration: 0.32,
-      ease: "power1.out"
-    }, 4.07);
-    tl.to("#w-phrase-4-1", {
-      color: "#C59B27",
-      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
-      scale: 1.06,
-      duration: 0.52,
-      ease: "power1.out"
-    }, 4.39);
-    tl.to("#w-phrase-4-2", {
-      color: "#C59B27",
-      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
-      scale: 1.06,
-      duration: 0.27,
-      ease: "power1.out"
-    }, 4.91);
-    tl.to("#w-phrase-4-3", {
-      color: "#C59B27",
-      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
-      scale: 1.06,
-      duration: 0.36,
-      ease: "power1.out"
-    }, 5.18);
-    tl.to("#phrase-4",
-      { autoAlpha: 0, y: -10, filter: "blur(4px)", duration: 0.2, ease: "power1.in" },
-      5.59
-    );
-
-    // Phrase phrase-5 (5.54s - 6.49s)
-    tl.fromTo("#phrase-5",
-      { autoAlpha: 0, y: 15, filter: "blur(6px)" },
-      { autoAlpha: 1, y: 0, filter: "blur(0px)", duration: 0.25, ease: "power2.out" },
-      5.54
-    );
-    tl.to("#w-phrase-5-0", {
-      color: "#C59B27",
-      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
-      scale: 1.06,
-      duration: 0.42,
-      ease: "power1.out"
-    }, 5.54);
-    tl.to("#w-phrase-5-1", {
-      color: "#C59B27",
-      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
-      scale: 1.06,
-      duration: 0.53,
-      ease: "power1.out"
-    }, 5.96);
-    tl.to("#phrase-5",
-      { autoAlpha: 0, y: -10, filter: "blur(4px)", duration: 0.2, ease: "power1.in" },
-      6.54
-    );
-
-    // Phrase phrase-6 (6.49s - 7.91s)
-    tl.fromTo("#phrase-6",
-      { autoAlpha: 0, y: 15, filter: "blur(6px)" },
-      { autoAlpha: 1, y: 0, filter: "blur(0px)", duration: 0.25, ease: "power2.out" },
-      6.49
-    );
-    tl.to("#w-phrase-6-0", {
-      color: "#C59B27",
-      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
-      scale: 1.06,
-      duration: 0.37,
-      ease: "power1.out"
-    }, 6.49);
-    tl.to("#w-phrase-6-1", {
-      color: "#C59B27",
-      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
-      scale: 1.06,
-      duration: 0.26,
-      ease: "power1.out"
-    }, 6.86);
-    tl.to("#w-phrase-6-2", {
-      color: "#C59B27",
-      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
-      scale: 1.06,
-      duration: 0.37,
-      ease: "power1.out"
-    }, 7.12);
-    tl.to("#w-phrase-6-3", {
-      color: "#C59B27",
-      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
-      scale: 1.06,
-      duration: 0.42,
-      ease: "power1.out"
-    }, 7.49);
-    tl.to("#phrase-6",
-      { autoAlpha: 0, y: -10, filter: "blur(4px)", duration: 0.2, ease: "power1.in" },
-      7.96
-    );
-
-    // Phrase phrase-7 (7.91s - 9.28s)
-    tl.fromTo("#phrase-7",
-      { autoAlpha: 0, y: 15, filter: "blur(6px)" },
-      { autoAlpha: 1, y: 0, filter: "blur(0px)", duration: 0.25, ease: "power2.out" },
-      7.91
-    );
-    tl.to("#w-phrase-7-0", {
-      color: "#C59B27",
-      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
-      scale: 1.06,
-      duration: 0.47,
-      ease: "power1.out"
-    }, 7.91);
-    tl.to("#w-phrase-7-1", {
-      color: "#C59B27",
-      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
-      scale: 1.06,
-      duration: 0.12,
-      ease: "power1.out"
-    }, 8.38);
-    tl.to("#w-phrase-7-2", {
-      color: "#C59B27",
-      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
-      scale: 1.06,
-      duration: 0.36,
-      ease: "power1.out"
-    }, 8.49);
-    tl.to("#w-phrase-7-3", {
-      color: "#C59B27",
-      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
-      scale: 1.06,
-      duration: 0.43,
-      ease: "power1.out"
-    }, 8.85);
-    tl.to("#phrase-7",
-      { autoAlpha: 0, y: -10, filter: "blur(4px)", duration: 0.2, ease: "power1.in" },
-      9.33
-    );
-
-    // Phrase phrase-8 (9.28s - 9.91s)
-    tl.fromTo("#phrase-8",
-      { autoAlpha: 0, y: 15, filter: "blur(6px)" },
-      { autoAlpha: 1, y: 0, filter: "blur(0px)", duration: 0.25, ease: "power2.out" },
-      9.28
-    );
-    tl.to("#w-phrase-8-0", {
-      color: "#C59B27",
-      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
-      scale: 1.06,
-      duration: 0.63,
-      ease: "power1.out"
-    }, 9.28);
-    tl.to("#phrase-8",
-      { autoAlpha: 0, y: -10, filter: "blur(4px)", duration: 0.2, ease: "power1.in" },
-      9.96
-    );
-
-    // Phrase phrase-9 (10.11s - 11.43s)
-    tl.fromTo("#phrase-9",
-      { autoAlpha: 0, y: 15, filter: "blur(6px)" },
-      { autoAlpha: 1, y: 0, filter: "blur(0px)", duration: 0.25, ease: "power2.out" },
-      10.11
-    );
-    tl.to("#w-phrase-9-0", {
-      color: "#C59B27",
-      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
-      scale: 1.06,
-      duration: 0.44,
-      ease: "power1.out"
-    }, 10.11);
-    tl.to("#w-phrase-9-1", {
-      color: "#C59B27",
-      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
-      scale: 1.06,
-      duration: 0.50,
-      ease: "power1.out"
-    }, 10.55);
-    tl.to("#w-phrase-9-2", {
-      color: "#C59B27",
-      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
-      scale: 1.06,
-      duration: 0.22,
-      ease: "power1.out"
-    }, 11.05);
-    tl.to("#w-phrase-9-3", {
-      color: "#C59B27",
-      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
-      scale: 1.06,
-      duration: 0.16,
-      ease: "power1.out"
-    }, 11.27);
-    tl.to("#phrase-9",
-      { autoAlpha: 0, y: -10, filter: "blur(4px)", duration: 0.2, ease: "power1.in" },
-      11.48
-    );
-
-    // Phrase phrase-10 (11.43s - 12.37s)
-    tl.fromTo("#phrase-10",
-      { autoAlpha: 0, y: 15, filter: "blur(6px)" },
-      { autoAlpha: 1, y: 0, filter: "blur(0px)", duration: 0.25, ease: "power2.out" },
-      11.43
-    );
-    tl.to("#w-phrase-10-0", {
-      color: "#C59B27",
-      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
-      scale: 1.06,
-      duration: 0.28,
-      ease: "power1.out"
-    }, 11.43);
-    tl.to("#w-phrase-10-1", {
-      color: "#C59B27",
-      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
-      scale: 1.06,
-      duration: 0.22,
-      ease: "power1.out"
-    }, 11.71);
-    tl.to("#w-phrase-10-2", {
-      color: "#C59B27",
-      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
-      scale: 1.06,
-      duration: 0.44,
-      ease: "power1.out"
-    }, 11.93);
-    tl.to("#phrase-10",
-      { autoAlpha: 0, y: -10, filter: "blur(4px)", duration: 0.2, ease: "power1.in" },
-      12.42
-    );
-
-    // Phrase phrase-11 (12.37s - 13.85s)
-    tl.fromTo("#phrase-11",
-      { autoAlpha: 0, y: 15, filter: "blur(6px)" },
-      { autoAlpha: 1, y: 0, filter: "blur(0px)", duration: 0.25, ease: "power2.out" },
-      12.37
-    );
-    tl.to("#w-phrase-11-0", {
-      color: "#C59B27",
-      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
-      scale: 1.06,
-      duration: 0.33,
-      ease: "power1.out"
-    }, 12.37);
-    tl.to("#w-phrase-11-1", {
-      color: "#C59B27",
-      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
-      scale: 1.06,
-      duration: 0.44,
-      ease: "power1.out"
-    }, 12.70);
-    tl.to("#w-phrase-11-2", {
-      color: "#C59B27",
-      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
-      scale: 1.06,
-      duration: 0.44,
-      ease: "power1.out"
-    }, 13.14);
-    tl.to("#w-phrase-11-3", {
-      color: "#C59B27",
-      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
-      scale: 1.06,
-      duration: 0.27,
-      ease: "power1.out"
-    }, 13.58);
-    tl.to("#phrase-11",
-      { autoAlpha: 0, y: -10, filter: "blur(4px)", duration: 0.2, ease: "power1.in" },
-      13.90
-    );
-
-    // Phrase phrase-12 (13.85s - 14.84s)
-    tl.fromTo("#phrase-12",
-      { autoAlpha: 0, y: 15, filter: "blur(6px)" },
-      { autoAlpha: 1, y: 0, filter: "blur(0px)", duration: 0.25, ease: "power2.out" },
-      13.85
-    );
-    tl.to("#w-phrase-12-0", {
-      color: "#C59B27",
-      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
-      scale: 1.06,
-      duration: 0.22,
-      ease: "power1.out"
-    }, 13.85);
-    tl.to("#w-phrase-12-1", {
-      color: "#C59B27",
-      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
-      scale: 1.06,
-      duration: 0.39,
-      ease: "power1.out"
-    }, 14.07);
-    tl.to("#w-phrase-12-2", {
-      color: "#C59B27",
-      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
-      scale: 1.06,
-      duration: 0.12,
-      ease: "power1.out"
-    }, 14.46);
-    tl.to("#w-phrase-12-3", {
-      color: "#C59B27",
-      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
-      scale: 1.06,
-      duration: 0.27,
-      ease: "power1.out"
-    }, 14.57);
-    tl.to("#phrase-12",
-      { autoAlpha: 0, y: -10, filter: "blur(4px)", duration: 0.2, ease: "power1.in" },
-      14.89
-    );
-
-    // Phrase phrase-13 (14.84s - 16.6s)
-    tl.fromTo("#phrase-13",
-      { autoAlpha: 0, y: 15, filter: "blur(6px)" },
-      { autoAlpha: 1, y: 0, filter: "blur(0px)", duration: 0.25, ease: "power2.out" },
-      14.84
-    );
-    tl.to("#w-phrase-13-0", {
-      color: "#C59B27",
-      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
-      scale: 1.06,
-      duration: 0.39,
-      ease: "power1.out"
-    }, 14.84);
-    tl.to("#w-phrase-13-1", {
-      color: "#C59B27",
-      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
-      scale: 1.06,
-      duration: 0.38,
-      ease: "power1.out"
-    }, 15.23);
-    tl.to("#w-phrase-13-2", {
-      color: "#C59B27",
-      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
-      scale: 1.06,
-      duration: 0.61,
-      ease: "power1.out"
-    }, 15.61);
-    tl.to("#w-phrase-13-3", {
-      color: "#C59B27",
-      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
-      scale: 1.06,
-      duration: 0.38,
-      ease: "power1.out"
-    }, 16.22);
-    tl.to("#phrase-13",
-      { autoAlpha: 0, y: -10, filter: "blur(4px)", duration: 0.2, ease: "power1.in" },
-      16.65
-    );
-
-    // Phrase phrase-14 (16.6s - 17.98s)
-    tl.fromTo("#phrase-14",
-      { autoAlpha: 0, y: 15, filter: "blur(6px)" },
-      { autoAlpha: 1, y: 0, filter: "blur(0px)", duration: 0.25, ease: "power2.out" },
-      16.6
-    );
-    tl.to("#w-phrase-14-0", {
-      color: "#C59B27",
-      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
-      scale: 1.06,
-      duration: 0.17,
-      ease: "power1.out"
-    }, 16.60);
-    tl.to("#w-phrase-14-1", {
-      color: "#C59B27",
-      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
-      scale: 1.06,
-      duration: 0.38,
-      ease: "power1.out"
-    }, 16.77);
-    tl.to("#w-phrase-14-2", {
-      color: "#C59B27",
-      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
-      scale: 1.06,
-      duration: 0.28,
-      ease: "power1.out"
-    }, 17.15);
-    tl.to("#w-phrase-14-3", {
-      color: "#C59B27",
-      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
-      scale: 1.06,
-      duration: 0.55,
-      ease: "power1.out"
-    }, 17.43);
-    tl.to("#phrase-14",
-      { autoAlpha: 0, y: -10, filter: "blur(4px)", duration: 0.2, ease: "power1.in" },
-      18.03
-    );
-
-    // Phrase phrase-15 (17.98s - 19.13s)
-    tl.fromTo("#phrase-15",
-      { autoAlpha: 0, y: 15, filter: "blur(6px)" },
-      { autoAlpha: 1, y: 0, filter: "blur(0px)", duration: 0.25, ease: "power2.out" },
-      17.98
-    );
-    tl.to("#w-phrase-15-0", {
-      color: "#C59B27",
-      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
-      scale: 1.06,
-      duration: 0.44,
-      ease: "power1.out"
-    }, 17.98);
-    tl.to("#w-phrase-15-1", {
-      color: "#C59B27",
-      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
-      scale: 1.06,
-      duration: 0.22,
-      ease: "power1.out"
-    }, 18.42);
-    tl.to("#w-phrase-15-2", {
-      color: "#C59B27",
-      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
-      scale: 1.06,
-      duration: 0.33,
-      ease: "power1.out"
-    }, 18.64);
-    tl.to("#w-phrase-15-3", {
-      color: "#C59B27",
-      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
-      scale: 1.06,
-      duration: 0.16,
-      ease: "power1.out"
-    }, 18.97);
-    tl.to("#phrase-15",
-      { autoAlpha: 0, y: -10, filter: "blur(4px)", duration: 0.2, ease: "power1.in" },
-      19.18
-    );
-
-    // Phrase phrase-16 (19.13s - 19.96s)
-    tl.fromTo("#phrase-16",
-      { autoAlpha: 0, y: 15, filter: "blur(6px)" },
-      { autoAlpha: 1, y: 0, filter: "blur(0px)", duration: 0.25, ease: "power2.out" },
-      19.13
-    );
-    tl.to("#w-phrase-16-0", {
-      color: "#C59B27",
-      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
-      scale: 1.06,
-      duration: 0.17,
-      ease: "power1.out"
-    }, 19.13);
-    tl.to("#w-phrase-16-1", {
-      color: "#C59B27",
-      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
-      scale: 1.06,
-      duration: 0.66,
-      ease: "power1.out"
-    }, 19.30);
-    tl.to("#phrase-16",
-      { autoAlpha: 0, y: -10, filter: "blur(4px)", duration: 0.2, ease: "power1.in" },
-      20.01
-    );
-
-    // Phrase phrase-17 (20.16s - 21.3s)
-    tl.fromTo("#phrase-17",
-      { autoAlpha: 0, y: 15, filter: "blur(6px)" },
-      { autoAlpha: 1, y: 0, filter: "blur(0px)", duration: 0.25, ease: "power2.out" },
-      20.16
-    );
-    tl.to("#w-phrase-17-0", {
-      color: "#C59B27",
-      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
-      scale: 1.06,
-      duration: 0.34,
-      ease: "power1.out"
-    }, 20.16);
-    tl.to("#w-phrase-17-1", {
-      color: "#C59B27",
-      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
-      scale: 1.06,
-      duration: 0.46,
-      ease: "power1.out"
-    }, 20.50);
-    tl.to("#w-phrase-17-2", {
-      color: "#C59B27",
-      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
-      scale: 1.06,
-      duration: 0.34,
-      ease: "power1.out"
-    }, 20.96);
-    tl.to("#phrase-17",
-      { autoAlpha: 0, y: -10, filter: "blur(4px)", duration: 0.2, ease: "power1.in" },
-      21.35
-    );
-
-    // Phrase phrase-18 (21.3s - 22.27s)
-    tl.fromTo("#phrase-18",
-      { autoAlpha: 0, y: 15, filter: "blur(6px)" },
-      { autoAlpha: 1, y: 0, filter: "blur(0px)", duration: 0.25, ease: "power2.out" },
-      21.3
-    );
-    tl.to("#w-phrase-18-0", {
-      color: "#C59B27",
-      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
-      scale: 1.06,
-      duration: 0.34,
-      ease: "power1.out"
-    }, 21.30);
-    tl.to("#w-phrase-18-1", {
-      color: "#C59B27",
-      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
-      scale: 1.06,
-      duration: 0.23,
-      ease: "power1.out"
-    }, 21.64);
-    tl.to("#w-phrase-18-2", {
-      color: "#C59B27",
-      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
-      scale: 1.06,
-      duration: 0.12,
-      ease: "power1.out"
-    }, 21.87);
-    tl.to("#w-phrase-18-3", {
-      color: "#C59B27",
-      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
-      scale: 1.06,
-      duration: 0.29,
-      ease: "power1.out"
-    }, 21.98);
-    tl.to("#phrase-18",
-      { autoAlpha: 0, y: -10, filter: "blur(4px)", duration: 0.2, ease: "power1.in" },
-      22.32
-    );
-
-    // Phrase phrase-19 (22.27s - 22.84s)
-    tl.fromTo("#phrase-19",
-      { autoAlpha: 0, y: 15, filter: "blur(6px)" },
-      { autoAlpha: 1, y: 0, filter: "blur(0px)", duration: 0.25, ease: "power2.out" },
-      22.27
-    );
-    tl.to("#w-phrase-19-0", {
-      color: "#C59B27",
-      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
-      scale: 1.06,
-      duration: 0.57,
-      ease: "power1.out"
-    }, 22.27);
-    tl.to("#phrase-19",
-      { autoAlpha: 0, y: -10, filter: "blur(4px)", duration: 0.2, ease: "power1.in" },
-      22.89
-    );
-
-    // Phrase phrase-20 (22.84s - 23.98s)
-    tl.fromTo("#phrase-20",
-      { autoAlpha: 0, y: 15, filter: "blur(6px)" },
-      { autoAlpha: 1, y: 0, filter: "blur(0px)", duration: 0.25, ease: "power2.out" },
-      22.84
-    );
-    tl.to("#w-phrase-20-0", {
-      color: "#C59B27",
-      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
-      scale: 1.06,
-      duration: 0.28,
-      ease: "power1.out"
-    }, 22.84);
-    tl.to("#w-phrase-20-1", {
-      color: "#C59B27",
-      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
-      scale: 1.06,
-      duration: 0.23,
-      ease: "power1.out"
-    }, 23.12);
-    tl.to("#w-phrase-20-2", {
-      color: "#C59B27",
-      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
-      scale: 1.06,
-      duration: 0.51,
-      ease: "power1.out"
-    }, 23.35);
-    tl.to("#w-phrase-20-3", {
-      color: "#C59B27",
-      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
-      scale: 1.06,
-      duration: 0.12,
-      ease: "power1.out"
-    }, 23.86);
-    tl.to("#phrase-20",
-      { autoAlpha: 0, y: -10, filter: "blur(4px)", duration: 0.2, ease: "power1.in" },
-      24.03
-    );
-
-    // Phrase phrase-21 (23.98s - 25.46s)
-    tl.fromTo("#phrase-21",
-      { autoAlpha: 0, y: 15, filter: "blur(6px)" },
-      { autoAlpha: 1, y: 0, filter: "blur(0px)", duration: 0.25, ease: "power2.out" },
-      23.98
-    );
-    tl.to("#w-phrase-21-0", {
-      color: "#C59B27",
-      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
-      scale: 1.06,
-      duration: 0.45,
-      ease: "power1.out"
-    }, 23.98);
-    tl.to("#w-phrase-21-1", {
-      color: "#C59B27",
-      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
-      scale: 1.06,
-      duration: 0.51,
-      ease: "power1.out"
-    }, 24.43);
-    tl.to("#w-phrase-21-2", {
-      color: "#C59B27",
-      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
-      scale: 1.06,
-      duration: 0.52,
-      ease: "power1.out"
-    }, 24.94);
-    tl.to("#phrase-21",
-      { autoAlpha: 0, y: -10, filter: "blur(4px)", duration: 0.2, ease: "power1.in" },
-      25.51
-    );
-
-    // Phrase phrase-22 (25.46s - 26.6s)
-    tl.fromTo("#phrase-22",
-      { autoAlpha: 0, y: 15, filter: "blur(6px)" },
-      { autoAlpha: 1, y: 0, filter: "blur(0px)", duration: 0.25, ease: "power2.out" },
-      25.46
-    );
-    tl.to("#w-phrase-22-0", {
-      color: "#C59B27",
-      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
-      scale: 1.06,
-      duration: 0.17,
-      ease: "power1.out"
-    }, 25.46);
-    tl.to("#w-phrase-22-1", {
-      color: "#C59B27",
-      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
-      scale: 1.06,
-      duration: 0.28,
-      ease: "power1.out"
-    }, 25.63);
-    tl.to("#w-phrase-22-2", {
-      color: "#C59B27",
-      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
-      scale: 1.06,
-      duration: 0.40,
-      ease: "power1.out"
-    }, 25.91);
-    tl.to("#w-phrase-22-3", {
-      color: "#C59B27",
-      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
-      scale: 1.06,
-      duration: 0.29,
-      ease: "power1.out"
-    }, 26.31);
-    tl.to("#phrase-22",
-      { autoAlpha: 0, y: -10, filter: "blur(4px)", duration: 0.2, ease: "power1.in" },
-      26.65
-    );
-
-    // Phrase phrase-23 (26.6s - 27.96s)
-    tl.fromTo("#phrase-23",
-      { autoAlpha: 0, y: 15, filter: "blur(6px)" },
-      { autoAlpha: 1, y: 0, filter: "blur(0px)", duration: 0.25, ease: "power2.out" },
-      26.6
-    );
-    tl.to("#w-phrase-23-0", {
-      color: "#C59B27",
-      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
-      scale: 1.06,
-      duration: 0.34,
-      ease: "power1.out"
-    }, 26.60);
-    tl.to("#w-phrase-23-1", {
-      color: "#C59B27",
-      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
-      scale: 1.06,
-      duration: 0.45,
-      ease: "power1.out"
-    }, 26.94);
-    tl.to("#w-phrase-23-2", {
-      color: "#C59B27",
-      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
-      scale: 1.06,
-      duration: 0.46,
-      ease: "power1.out"
-    }, 27.39);
-    tl.to("#w-phrase-23-3", {
-      color: "#C59B27",
-      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
-      scale: 1.06,
-      duration: 0.12,
-      ease: "power1.out"
-    }, 27.85);
-    tl.to("#phrase-23",
-      { autoAlpha: 0, y: -10, filter: "blur(4px)", duration: 0.2, ease: "power1.in" },
-      28.01
-    );
-
-    // Phrase phrase-24 (27.96s - 28.48s)
-    tl.fromTo("#phrase-24",
-      { autoAlpha: 0, y: 15, filter: "blur(6px)" },
-      { autoAlpha: 1, y: 0, filter: "blur(0px)", duration: 0.25, ease: "power2.out" },
-      27.96
-    );
-    tl.to("#w-phrase-24-0", {
-      color: "#C59B27",
-      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
-      scale: 1.06,
-      duration: 0.23,
-      ease: "power1.out"
-    }, 27.96);
-    tl.to("#w-phrase-24-1", {
-      color: "#C59B27",
-      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
-      scale: 1.06,
-      duration: 0.29,
-      ease: "power1.out"
-    }, 28.19);
-    tl.to("#phrase-24",
-      { autoAlpha: 0, y: -10, filter: "blur(4px)", duration: 0.2, ease: "power1.in" },
-      28.53
-    );
-
-    // Phrase phrase-25 (28.48s - 29.84s)
-    tl.fromTo("#phrase-25",
-      { autoAlpha: 0, y: 15, filter: "blur(6px)" },
-      { autoAlpha: 1, y: 0, filter: "blur(0px)", duration: 0.25, ease: "power2.out" },
-      28.48
-    );
-    tl.to("#w-phrase-25-0", {
-      color: "#C59B27",
-      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
-      scale: 1.06,
-      duration: 0.22,
-      ease: "power1.out"
-    }, 28.48);
-    tl.to("#w-phrase-25-1", {
-      color: "#C59B27",
-      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
-      scale: 1.06,
-      duration: 0.29,
-      ease: "power1.out"
-    }, 28.70);
-    tl.to("#w-phrase-25-2", {
-      color: "#C59B27",
-      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
-      scale: 1.06,
-      duration: 0.57,
-      ease: "power1.out"
-    }, 28.99);
-    tl.to("#w-phrase-25-3", {
-      color: "#C59B27",
-      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
-      scale: 1.06,
-      duration: 0.28,
-      ease: "power1.out"
-    }, 29.56);
-    tl.to("#phrase-25",
-      { autoAlpha: 0, y: -10, filter: "blur(4px)", duration: 0.2, ease: "power1.in" },
-      29.89
-    );
-
-    // Phrase phrase-26 (29.84s - 30.7s)
-    tl.fromTo("#phrase-26",
-      { autoAlpha: 0, y: 15, filter: "blur(6px)" },
-      { autoAlpha: 1, y: 0, filter: "blur(0px)", duration: 0.25, ease: "power2.out" },
-      29.84
-    );
-    tl.to("#w-phrase-26-0", {
-      color: "#C59B27",
-      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
-      scale: 1.06,
-      duration: 0.23,
-      ease: "power1.out"
-    }, 29.84);
-    tl.to("#w-phrase-26-1", {
-      color: "#C59B27",
-      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
-      scale: 1.06,
-      duration: 0.63,
-      ease: "power1.out"
-    }, 30.07);
-    tl.to("#phrase-26",
-      { autoAlpha: 0, y: -10, filter: "blur(4px)", duration: 0.2, ease: "power1.in" },
-      30.75
-    );
-
-    // Phrase phrase-27 (30.9s - 32.09s)
-    tl.fromTo("#phrase-27",
-      { autoAlpha: 0, y: 15, filter: "blur(6px)" },
-      { autoAlpha: 1, y: 0, filter: "blur(0px)", duration: 0.25, ease: "power2.out" },
-      30.9
-    );
-    tl.to("#w-phrase-27-0", {
-      color: "#C59B27",
-      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
-      scale: 1.06,
-      duration: 0.23,
-      ease: "power1.out"
-    }, 30.90);
-    tl.to("#w-phrase-27-1", {
-      color: "#C59B27",
-      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
-      scale: 1.06,
-      duration: 0.22,
-      ease: "power1.out"
-    }, 31.13);
-    tl.to("#w-phrase-27-2", {
-      color: "#C59B27",
-      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
-      scale: 1.06,
-      duration: 0.29,
-      ease: "power1.out"
-    }, 31.35);
-    tl.to("#w-phrase-27-3", {
-      color: "#C59B27",
-      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
-      scale: 1.06,
-      duration: 0.45,
-      ease: "power1.out"
-    }, 31.64);
-    tl.to("#phrase-27",
-      { autoAlpha: 0, y: -10, filter: "blur(4px)", duration: 0.2, ease: "power1.in" },
-      32.14
-    );
-
-    // Phrase phrase-28 (32.09s - 33.91s)
-    tl.fromTo("#phrase-28",
-      { autoAlpha: 0, y: 15, filter: "blur(6px)" },
-      { autoAlpha: 1, y: 0, filter: "blur(0px)", duration: 0.25, ease: "power2.out" },
-      32.09
-    );
-    tl.to("#w-phrase-28-0", {
-      color: "#C59B27",
-      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
-      scale: 1.06,
-      duration: 0.23,
-      ease: "power1.out"
-    }, 32.09);
-    tl.to("#w-phrase-28-1", {
-      color: "#C59B27",
-      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
-      scale: 1.06,
-      duration: 0.51,
-      ease: "power1.out"
-    }, 32.32);
-    tl.to("#w-phrase-28-2", {
-      color: "#C59B27",
-      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
-      scale: 1.06,
-      duration: 0.40,
-      ease: "power1.out"
-    }, 32.83);
-    tl.to("#w-phrase-28-3", {
-      color: "#C59B27",
-      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
-      scale: 1.06,
-      duration: 0.68,
-      ease: "power1.out"
-    }, 33.23);
-    tl.to("#phrase-28",
-      { autoAlpha: 0, y: -10, filter: "blur(4px)", duration: 0.2, ease: "power1.in" },
-      33.96
-    );
-
-    // Phrase phrase-29 (33.91s - 35.51s)
-    tl.fromTo("#phrase-29",
-      { autoAlpha: 0, y: 15, filter: "blur(6px)" },
-      { autoAlpha: 1, y: 0, filter: "blur(0px)", duration: 0.25, ease: "power2.out" },
-      33.91
-    );
-    tl.to("#w-phrase-29-0", {
-      color: "#C59B27",
-      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
-      scale: 1.06,
-      duration: 0.29,
-      ease: "power1.out"
-    }, 33.91);
-    tl.to("#w-phrase-29-1", {
-      color: "#C59B27",
-      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
-      scale: 1.06,
-      duration: 0.57,
-      ease: "power1.out"
-    }, 34.20);
-    tl.to("#w-phrase-29-2", {
-      color: "#C59B27",
-      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
-      scale: 1.06,
-      duration: 0.34,
-      ease: "power1.out"
-    }, 34.77);
-    tl.to("#w-phrase-29-3", {
-      color: "#C59B27",
-      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
-      scale: 1.06,
-      duration: 0.40,
-      ease: "power1.out"
-    }, 35.11);
-    tl.to("#phrase-29",
-      { autoAlpha: 0, y: -10, filter: "blur(4px)", duration: 0.2, ease: "power1.in" },
-      35.56
-    );
-
-    // Phrase phrase-30 (35.51s - 36.25s)
-    tl.fromTo("#phrase-30",
-      { autoAlpha: 0, y: 15, filter: "blur(6px)" },
-      { autoAlpha: 1, y: 0, filter: "blur(0px)", duration: 0.25, ease: "power2.out" },
-      35.51
-    );
-    tl.to("#w-phrase-30-0", {
-      color: "#C59B27",
-      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
-      scale: 1.06,
-      duration: 0.34,
-      ease: "power1.out"
-    }, 35.51);
-    tl.to("#w-phrase-30-1", {
-      color: "#C59B27",
-      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
-      scale: 1.06,
-      duration: 0.40,
-      ease: "power1.out"
-    }, 35.85);
-    tl.to("#phrase-30",
-      { autoAlpha: 0, y: -10, filter: "blur(4px)", duration: 0.2, ease: "power1.in" },
-      36.30
-    );
-
-    // Phrase phrase-31 (36.25s - 37.5s)
-    tl.fromTo("#phrase-31",
-      { autoAlpha: 0, y: 15, filter: "blur(6px)" },
-      { autoAlpha: 1, y: 0, filter: "blur(0px)", duration: 0.25, ease: "power2.out" },
-      36.25
-    );
-    tl.to("#w-phrase-31-0", {
-      color: "#C59B27",
-      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
-      scale: 1.06,
-      duration: 0.22,
-      ease: "power1.out"
-    }, 36.25);
-    tl.to("#w-phrase-31-1", {
-      color: "#C59B27",
-      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
-      scale: 1.06,
-      duration: 0.17,
-      ease: "power1.out"
-    }, 36.47);
-    tl.to("#w-phrase-31-2", {
-      color: "#C59B27",
-      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
-      scale: 1.06,
-      duration: 0.51,
-      ease: "power1.out"
-    }, 36.64);
-    tl.to("#w-phrase-31-3", {
+    }, 1.41);
+    tl.to("#w-phrase-1-1", {
       color: "#C59B27",
       textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
       scale: 1.06,
       duration: 0.35,
       ease: "power1.out"
-    }, 37.15);
-    tl.to("#phrase-31",
-      { autoAlpha: 0, y: -10, filter: "blur(4px)", duration: 0.2, ease: "power1.in" },
-      37.55
-    );
-
-    // Phrase phrase-32 (37.5s - 38.29s)
-    tl.fromTo("#phrase-32",
-      { autoAlpha: 0, y: 15, filter: "blur(6px)" },
-      { autoAlpha: 1, y: 0, filter: "blur(0px)", duration: 0.25, ease: "power2.out" },
-      37.5
-    );
-    tl.to("#w-phrase-32-0", {
-      color: "#C59B27",
-      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
-      scale: 1.06,
-      duration: 0.17,
-      ease: "power1.out"
-    }, 37.50);
-    tl.to("#w-phrase-32-1", {
-      color: "#C59B27",
-      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
-      scale: 1.06,
-      duration: 0.62,
-      ease: "power1.out"
-    }, 37.67);
-    tl.to("#phrase-32",
-      { autoAlpha: 0, y: -10, filter: "blur(4px)", duration: 0.2, ease: "power1.in" },
-      38.34
-    );
-
-    // Phrase phrase-33 (38.29s - 39.37s)
-    tl.fromTo("#phrase-33",
-      { autoAlpha: 0, y: 15, filter: "blur(6px)" },
-      { autoAlpha: 1, y: 0, filter: "blur(0px)", duration: 0.25, ease: "power2.out" },
-      38.29
-    );
-    tl.to("#w-phrase-33-0", {
-      color: "#C59B27",
-      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
-      scale: 1.06,
-      duration: 0.23,
-      ease: "power1.out"
-    }, 38.29);
-    tl.to("#w-phrase-33-1", {
-      color: "#C59B27",
-      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
-      scale: 1.06,
-      duration: 0.34,
-      ease: "power1.out"
-    }, 38.52);
-    tl.to("#w-phrase-33-2", {
-      color: "#C59B27",
-      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
-      scale: 1.06,
-      duration: 0.29,
-      ease: "power1.out"
-    }, 38.86);
-    tl.to("#w-phrase-33-3", {
-      color: "#C59B27",
-      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
-      scale: 1.06,
-      duration: 0.22,
-      ease: "power1.out"
-    }, 39.15);
-    tl.to("#phrase-33",
-      { autoAlpha: 0, y: -10, filter: "blur(4px)", duration: 0.2, ease: "power1.in" },
-      39.42
-    );
-
-    // Phrase phrase-34 (39.37s - 41.19s)
-    tl.fromTo("#phrase-34",
-      { autoAlpha: 0, y: 15, filter: "blur(6px)" },
-      { autoAlpha: 1, y: 0, filter: "blur(0px)", duration: 0.25, ease: "power2.out" },
-      39.37
-    );
-    tl.to("#w-phrase-34-0", {
-      color: "#C59B27",
-      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
-      scale: 1.06,
-      duration: 0.29,
-      ease: "power1.out"
-    }, 39.37);
-    tl.to("#w-phrase-34-1", {
-      color: "#C59B27",
-      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
-      scale: 1.06,
-      duration: 0.45,
-      ease: "power1.out"
-    }, 39.66);
-    tl.to("#w-phrase-34-2", {
-      color: "#C59B27",
-      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
-      scale: 1.06,
-      duration: 0.40,
-      ease: "power1.out"
-    }, 40.11);
-    tl.to("#w-phrase-34-3", {
-      color: "#C59B27",
-      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
-      scale: 1.06,
-      duration: 0.68,
-      ease: "power1.out"
-    }, 40.51);
-    tl.to("#phrase-34",
-      { autoAlpha: 0, y: -10, filter: "blur(4px)", duration: 0.2, ease: "power1.in" },
-      41.24
-    );
-
-    // Phrase phrase-35 (41.39s - 42.5s)
-    tl.fromTo("#phrase-35",
-      { autoAlpha: 0, y: 15, filter: "blur(6px)" },
-      { autoAlpha: 1, y: 0, filter: "blur(0px)", duration: 0.25, ease: "power2.out" },
-      41.39
-    );
-    tl.to("#w-phrase-35-0", {
-      color: "#C59B27",
-      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
-      scale: 1.06,
-      duration: 0.27,
-      ease: "power1.out"
-    }, 41.39);
-    tl.to("#w-phrase-35-1", {
-      color: "#C59B27",
-      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
-      scale: 1.06,
-      duration: 0.21,
-      ease: "power1.out"
-    }, 41.66);
-    tl.to("#w-phrase-35-2", {
-      color: "#C59B27",
-      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
-      scale: 1.06,
-      duration: 0.63,
-      ease: "power1.out"
-    }, 41.87);
-    tl.to("#phrase-35",
-      { autoAlpha: 0, y: -10, filter: "blur(4px)", duration: 0.2, ease: "power1.in" },
-      42.55
-    );
-
-    // Phrase phrase-36 (42.5s - 43.93s)
-    tl.fromTo("#phrase-36",
-      { autoAlpha: 0, y: 15, filter: "blur(6px)" },
-      { autoAlpha: 1, y: 0, filter: "blur(0px)", duration: 0.25, ease: "power2.out" },
-      42.5
-    );
-    tl.to("#w-phrase-36-0", {
-      color: "#C59B27",
-      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
-      scale: 1.06,
-      duration: 0.27,
-      ease: "power1.out"
-    }, 42.50);
-    tl.to("#w-phrase-36-1", {
-      color: "#C59B27",
-      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
-      scale: 1.06,
-      duration: 0.53,
-      ease: "power1.out"
-    }, 42.77);
-    tl.to("#w-phrase-36-2", {
+    }, 1.62);
+    tl.to("#w-phrase-1-2", {
       color: "#C59B27",
       textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
       scale: 1.06,
       duration: 0.42,
       ease: "power1.out"
-    }, 43.30);
-    tl.to("#w-phrase-36-3", {
+    }, 1.97);
+    tl.to("#w-phrase-1-3", {
       color: "#C59B27",
       textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
       scale: 1.06,
-      duration: 0.21,
+      duration: 0.49,
       ease: "power1.out"
-    }, 43.72);
-    tl.to("#phrase-36",
+    }, 2.39);
+    tl.to("#phrase-1",
       { autoAlpha: 0, y: -10, filter: "blur(4px)", duration: 0.2, ease: "power1.in" },
-      43.98
+      2.93
     );
 
-    // Phrase phrase-37 (43.93s - 45.05s)
-    tl.fromTo("#phrase-37",
+    // Phrase phrase-2 (2.88s - 3.45s)
+    tl.fromTo("#phrase-2",
       { autoAlpha: 0, y: 15, filter: "blur(6px)" },
       { autoAlpha: 1, y: 0, filter: "blur(0px)", duration: 0.25, ease: "power2.out" },
-      43.93
+      2.88
     );
-    tl.to("#w-phrase-37-0", {
+    tl.to("#w-phrase-2-0", {
       color: "#C59B27",
       textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
       scale: 1.06,
-      duration: 0.43,
+      duration: 0.57,
       ease: "power1.out"
-    }, 43.93);
-    tl.to("#w-phrase-37-1", {
-      color: "#C59B27",
-      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
-      scale: 1.06,
-      duration: 0.26,
-      ease: "power1.out"
-    }, 44.36);
-    tl.to("#w-phrase-37-2", {
-      color: "#C59B27",
-      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
-      scale: 1.06,
-      duration: 0.43,
-      ease: "power1.out"
-    }, 44.62);
-    tl.to("#phrase-37",
+    }, 2.88);
+    tl.to("#phrase-2",
       { autoAlpha: 0, y: -10, filter: "blur(4px)", duration: 0.2, ease: "power1.in" },
-      45.10
+      3.50
     );
 
-    // Phrase phrase-38 (45.05s - 46.8s)
-    tl.fromTo("#phrase-38",
+    // Phrase phrase-3 (3.45s - 5.41s)
+    tl.fromTo("#phrase-3",
       { autoAlpha: 0, y: 15, filter: "blur(6px)" },
       { autoAlpha: 1, y: 0, filter: "blur(0px)", duration: 0.25, ease: "power2.out" },
-      45.05
+      3.45
     );
-    tl.to("#w-phrase-38-0", {
+    tl.to("#w-phrase-3-0", {
       color: "#C59B27",
       textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
       scale: 1.06,
-      duration: 0.47,
+      duration: 0.77,
       ease: "power1.out"
-    }, 45.05);
-    tl.to("#w-phrase-38-1", {
+    }, 3.45);
+    tl.to("#w-phrase-3-1", {
       color: "#C59B27",
       textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
       scale: 1.06,
-      duration: 0.48,
+      duration: 0.35,
       ease: "power1.out"
-    }, 45.52);
-    tl.to("#w-phrase-38-2", {
+    }, 4.22);
+    tl.to("#w-phrase-3-2", {
       color: "#C59B27",
       textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
       scale: 1.06,
-      duration: 0.53,
+      duration: 0.28,
       ease: "power1.out"
-    }, 46.00);
-    tl.to("#w-phrase-38-3", {
+    }, 4.57);
+    tl.to("#w-phrase-3-3", {
       color: "#C59B27",
       textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
       scale: 1.06,
-      duration: 0.27,
+      duration: 0.56,
       ease: "power1.out"
-    }, 46.53);
-    tl.to("#phrase-38",
+    }, 4.85);
+    tl.to("#phrase-3",
       { autoAlpha: 0, y: -10, filter: "blur(4px)", duration: 0.2, ease: "power1.in" },
-      46.85
+      5.46
     );
 
-    // Phrase phrase-39 (46.8s - 47.8s)
-    tl.fromTo("#phrase-39",
+    // Phrase phrase-4 (5.41s - 7.37s)
+    tl.fromTo("#phrase-4",
       { autoAlpha: 0, y: 15, filter: "blur(6px)" },
       { autoAlpha: 1, y: 0, filter: "blur(0px)", duration: 0.25, ease: "power2.out" },
-      46.8
+      5.41
     );
-    tl.to("#w-phrase-39-0", {
+    tl.to("#w-phrase-4-0", {
       color: "#C59B27",
       textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
       scale: 1.06,
-      duration: 0.26,
+      duration: 0.42,
       ease: "power1.out"
-    }, 46.80);
-    tl.to("#w-phrase-39-1", {
+    }, 5.41);
+    tl.to("#w-phrase-4-1", {
       color: "#C59B27",
       textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
       scale: 1.06,
-      duration: 0.27,
+      duration: 0.70,
       ease: "power1.out"
-    }, 47.06);
-    tl.to("#w-phrase-39-2", {
+    }, 5.83);
+    tl.to("#w-phrase-4-2", {
       color: "#C59B27",
       textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
       scale: 1.06,
-      duration: 0.12,
+      duration: 0.35,
       ease: "power1.out"
-    }, 47.33);
-    tl.to("#w-phrase-39-3", {
+    }, 6.53);
+    tl.to("#w-phrase-4-3", {
       color: "#C59B27",
       textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
       scale: 1.06,
-      duration: 0.37,
+      duration: 0.49,
       ease: "power1.out"
-    }, 47.43);
-    tl.to("#phrase-39",
+    }, 6.88);
+    tl.to("#phrase-4",
       { autoAlpha: 0, y: -10, filter: "blur(4px)", duration: 0.2, ease: "power1.in" },
-      47.85
+      7.42
     );
 
-    // Phrase phrase-40 (47.8s - 49.39s)
-    tl.fromTo("#phrase-40",
+    // Phrase phrase-5 (7.37s - 8.63s)
+    tl.fromTo("#phrase-5",
       { autoAlpha: 0, y: 15, filter: "blur(6px)" },
       { autoAlpha: 1, y: 0, filter: "blur(0px)", duration: 0.25, ease: "power2.out" },
-      47.8
+      7.37
     );
-    tl.to("#w-phrase-40-0", {
+    tl.to("#w-phrase-5-0", {
       color: "#C59B27",
       textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
       scale: 1.06,
-      duration: 0.43,
+      duration: 0.56,
       ease: "power1.out"
-    }, 47.80);
-    tl.to("#w-phrase-40-1", {
+    }, 7.37);
+    tl.to("#w-phrase-5-1", {
       color: "#C59B27",
       textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
       scale: 1.06,
-      duration: 0.47,
+      duration: 0.70,
       ease: "power1.out"
-    }, 48.23);
-    tl.to("#w-phrase-40-2", {
-      color: "#C59B27",
-      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
-      scale: 1.06,
-      duration: 0.22,
-      ease: "power1.out"
-    }, 48.70);
-    tl.to("#w-phrase-40-3", {
-      color: "#C59B27",
-      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
-      scale: 1.06,
-      duration: 0.47,
-      ease: "power1.out"
-    }, 48.92);
-    tl.to("#phrase-40",
+    }, 7.93);
+    tl.to("#phrase-5",
       { autoAlpha: 0, y: -10, filter: "blur(4px)", duration: 0.2, ease: "power1.in" },
-      49.44
+      8.68
     );
 
-    // Phrase phrase-41 (49.39s - 50.61s)
-    tl.fromTo("#phrase-41",
+    // Phrase phrase-6 (8.63s - 10.53s)
+    tl.fromTo("#phrase-6",
       { autoAlpha: 0, y: 15, filter: "blur(6px)" },
       { autoAlpha: 1, y: 0, filter: "blur(0px)", duration: 0.25, ease: "power2.out" },
-      49.39
+      8.63
     );
-    tl.to("#w-phrase-41-0", {
+    tl.to("#w-phrase-6-0", {
       color: "#C59B27",
       textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
       scale: 1.06,
-      duration: 0.53,
+      duration: 0.49,
       ease: "power1.out"
-    }, 49.39);
-    tl.to("#w-phrase-41-1", {
-      color: "#C59B27",
-      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
-      scale: 1.06,
-      duration: 0.22,
-      ease: "power1.out"
-    }, 49.92);
-    tl.to("#w-phrase-41-2", {
-      color: "#C59B27",
-      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
-      scale: 1.06,
-      duration: 0.21,
-      ease: "power1.out"
-    }, 50.14);
-    tl.to("#w-phrase-41-3", {
-      color: "#C59B27",
-      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
-      scale: 1.06,
-      duration: 0.26,
-      ease: "power1.out"
-    }, 50.35);
-    tl.to("#phrase-41",
-      { autoAlpha: 0, y: -10, filter: "blur(4px)", duration: 0.2, ease: "power1.in" },
-      50.66
-    );
-
-    // Phrase phrase-42 (50.61s - 51.04s)
-    tl.fromTo("#phrase-42",
-      { autoAlpha: 0, y: 15, filter: "blur(6px)" },
-      { autoAlpha: 1, y: 0, filter: "blur(0px)", duration: 0.25, ease: "power2.out" },
-      50.61
-    );
-    tl.to("#w-phrase-42-0", {
-      color: "#C59B27",
-      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
-      scale: 1.06,
-      duration: 0.43,
-      ease: "power1.out"
-    }, 50.61);
-    tl.to("#phrase-42",
-      { autoAlpha: 0, y: -10, filter: "blur(4px)", duration: 0.2, ease: "power1.in" },
-      51.09
-    );
-
-    // Phrase phrase-43 (51.24s - 52.56s)
-    tl.fromTo("#phrase-43",
-      { autoAlpha: 0, y: 15, filter: "blur(6px)" },
-      { autoAlpha: 1, y: 0, filter: "blur(0px)", duration: 0.25, ease: "power2.out" },
-      51.24
-    );
-    tl.to("#w-phrase-43-0", {
-      color: "#C59B27",
-      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
-      scale: 1.06,
-      duration: 0.51,
-      ease: "power1.out"
-    }, 51.24);
-    tl.to("#w-phrase-43-1", {
-      color: "#C59B27",
-      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
-      scale: 1.06,
-      duration: 0.25,
-      ease: "power1.out"
-    }, 51.75);
-    tl.to("#w-phrase-43-2", {
+    }, 8.63);
+    tl.to("#w-phrase-6-1", {
       color: "#C59B27",
       textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
       scale: 1.06,
       duration: 0.36,
       ease: "power1.out"
-    }, 52.00);
-    tl.to("#w-phrase-43-3", {
+    }, 9.12);
+    tl.to("#w-phrase-6-2", {
       color: "#C59B27",
       textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
       scale: 1.06,
-      duration: 0.20,
+      duration: 0.49,
       ease: "power1.out"
-    }, 52.36);
-    tl.to("#phrase-43",
+    }, 9.48);
+    tl.to("#w-phrase-6-3", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.56,
+      ease: "power1.out"
+    }, 9.97);
+    tl.to("#phrase-6",
       { autoAlpha: 0, y: -10, filter: "blur(4px)", duration: 0.2, ease: "power1.in" },
-      52.61
+      10.58
     );
 
-    // Phrase phrase-44 (52.56s - 53.27s)
-    tl.fromTo("#phrase-44",
+    // Phrase phrase-7 (10.53s - 12.35s)
+    tl.fromTo("#phrase-7",
       { autoAlpha: 0, y: 15, filter: "blur(6px)" },
       { autoAlpha: 1, y: 0, filter: "blur(0px)", duration: 0.25, ease: "power2.out" },
-      52.56
+      10.53
     );
-    tl.to("#w-phrase-44-0", {
+    tl.to("#w-phrase-7-0", {
       color: "#C59B27",
       textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
       scale: 1.06,
-      duration: 0.15,
+      duration: 0.63,
       ease: "power1.out"
-    }, 52.56);
-    tl.to("#w-phrase-44-1", {
+    }, 10.53);
+    tl.to("#w-phrase-7-1", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.14,
+      ease: "power1.out"
+    }, 11.16);
+    tl.to("#w-phrase-7-2", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.49,
+      ease: "power1.out"
+    }, 11.30);
+    tl.to("#w-phrase-7-3", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.56,
+      ease: "power1.out"
+    }, 11.79);
+    tl.to("#phrase-7",
+      { autoAlpha: 0, y: -10, filter: "blur(4px)", duration: 0.2, ease: "power1.in" },
+      12.40
+    );
+
+    // Phrase phrase-8 (12.35s - 13.19s)
+    tl.fromTo("#phrase-8",
+      { autoAlpha: 0, y: 15, filter: "blur(6px)" },
+      { autoAlpha: 1, y: 0, filter: "blur(0px)", duration: 0.25, ease: "power2.out" },
+      12.35
+    );
+    tl.to("#w-phrase-8-0", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.84,
+      ease: "power1.out"
+    }, 12.35);
+    tl.to("#phrase-8",
+      { autoAlpha: 0, y: -10, filter: "blur(4px)", duration: 0.2, ease: "power1.in" },
+      13.24
+    );
+
+    // Phrase phrase-9 (13.39s - 14.97s)
+    tl.fromTo("#phrase-9",
+      { autoAlpha: 0, y: 15, filter: "blur(6px)" },
+      { autoAlpha: 1, y: 0, filter: "blur(0px)", duration: 0.25, ease: "power2.out" },
+      13.39
+    );
+    tl.to("#w-phrase-9-0", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.53,
+      ease: "power1.out"
+    }, 13.39);
+    tl.to("#w-phrase-9-1", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.59,
+      ease: "power1.out"
+    }, 13.92);
+    tl.to("#w-phrase-9-2", {
       color: "#C59B27",
       textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
       scale: 1.06,
       duration: 0.26,
       ease: "power1.out"
-    }, 52.71);
-    tl.to("#w-phrase-44-2", {
+    }, 14.51);
+    tl.to("#w-phrase-9-3", {
       color: "#C59B27",
       textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
       scale: 1.06,
       duration: 0.20,
       ease: "power1.out"
-    }, 52.97);
-    tl.to("#w-phrase-44-3", {
-      color: "#C59B27",
-      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
-      scale: 1.06,
-      duration: 0.12,
-      ease: "power1.out"
-    }, 53.17);
-    tl.to("#phrase-44",
+    }, 14.77);
+    tl.to("#phrase-9",
       { autoAlpha: 0, y: -10, filter: "blur(4px)", duration: 0.2, ease: "power1.in" },
-      53.32
+      15.02
     );
 
-    // Phrase phrase-45 (53.27s - 54.8s)
-    tl.fromTo("#phrase-45",
+    // Phrase phrase-10 (14.97s - 16.09s)
+    tl.fromTo("#phrase-10",
       { autoAlpha: 0, y: 15, filter: "blur(6px)" },
       { autoAlpha: 1, y: 0, filter: "blur(0px)", duration: 0.25, ease: "power2.out" },
-      53.27
+      14.97
     );
-    tl.to("#w-phrase-45-0", {
+    tl.to("#w-phrase-10-0", {
       color: "#C59B27",
       textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
       scale: 1.06,
-      duration: 0.36,
+      duration: 0.33,
       ease: "power1.out"
-    }, 53.27);
-    tl.to("#w-phrase-45-1", {
+    }, 14.97);
+    tl.to("#w-phrase-10-1", {
       color: "#C59B27",
       textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
       scale: 1.06,
-      duration: 0.46,
+      duration: 0.26,
       ease: "power1.out"
-    }, 53.63);
-    tl.to("#w-phrase-45-2", {
+    }, 15.30);
+    tl.to("#w-phrase-10-2", {
       color: "#C59B27",
       textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
       scale: 1.06,
-      duration: 0.20,
+      duration: 0.53,
       ease: "power1.out"
-    }, 54.09);
-    tl.to("#w-phrase-45-3", {
-      color: "#C59B27",
-      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
-      scale: 1.06,
-      duration: 0.51,
-      ease: "power1.out"
-    }, 54.29);
-    tl.to("#phrase-45",
+    }, 15.56);
+    tl.to("#phrase-10",
       { autoAlpha: 0, y: -10, filter: "blur(4px)", duration: 0.2, ease: "power1.in" },
-      54.85
+      16.14
     );
 
-    // Phrase phrase-46 (54.8s - 55.92s)
-    tl.fromTo("#phrase-46",
+    // Phrase phrase-11 (16.09s - 17.87s)
+    tl.fromTo("#phrase-11",
       { autoAlpha: 0, y: 15, filter: "blur(6px)" },
       { autoAlpha: 1, y: 0, filter: "blur(0px)", duration: 0.25, ease: "power2.out" },
-      54.8
+      16.09
     );
-    tl.to("#w-phrase-46-0", {
-      color: "#C59B27",
-      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
-      scale: 1.06,
-      duration: 0.25,
-      ease: "power1.out"
-    }, 54.80);
-    tl.to("#w-phrase-46-1", {
-      color: "#C59B27",
-      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
-      scale: 1.06,
-      duration: 0.16,
-      ease: "power1.out"
-    }, 55.05);
-    tl.to("#w-phrase-46-2", {
+    tl.to("#w-phrase-11-0", {
       color: "#C59B27",
       textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
       scale: 1.06,
       duration: 0.40,
       ease: "power1.out"
-    }, 55.21);
-    tl.to("#w-phrase-46-3", {
+    }, 16.09);
+    tl.to("#w-phrase-11-1", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.52,
+      ease: "power1.out"
+    }, 16.49);
+    tl.to("#w-phrase-11-2", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.53,
+      ease: "power1.out"
+    }, 17.01);
+    tl.to("#w-phrase-11-3", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.33,
+      ease: "power1.out"
+    }, 17.54);
+    tl.to("#phrase-11",
+      { autoAlpha: 0, y: -10, filter: "blur(4px)", duration: 0.2, ease: "power1.in" },
+      17.92
+    );
+
+    // Phrase phrase-12 (17.87s - 19.06s)
+    tl.fromTo("#phrase-12",
+      { autoAlpha: 0, y: 15, filter: "blur(6px)" },
+      { autoAlpha: 1, y: 0, filter: "blur(0px)", duration: 0.25, ease: "power2.out" },
+      17.87
+    );
+    tl.to("#w-phrase-12-0", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.26,
+      ease: "power1.out"
+    }, 17.87);
+    tl.to("#w-phrase-12-1", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.47,
+      ease: "power1.out"
+    }, 18.13);
+    tl.to("#w-phrase-12-2", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.13,
+      ease: "power1.out"
+    }, 18.60);
+    tl.to("#w-phrase-12-3", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.33,
+      ease: "power1.out"
+    }, 18.73);
+    tl.to("#phrase-12",
+      { autoAlpha: 0, y: -10, filter: "blur(4px)", duration: 0.2, ease: "power1.in" },
+      19.11
+    );
+
+    // Phrase phrase-13 (19.06s - 21.17s)
+    tl.fromTo("#phrase-13",
+      { autoAlpha: 0, y: 15, filter: "blur(6px)" },
+      { autoAlpha: 1, y: 0, filter: "blur(0px)", duration: 0.25, ease: "power2.out" },
+      19.06
+    );
+    tl.to("#w-phrase-13-0", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.46,
+      ease: "power1.out"
+    }, 19.06);
+    tl.to("#w-phrase-13-1", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.46,
+      ease: "power1.out"
+    }, 19.52);
+    tl.to("#w-phrase-13-2", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.72,
+      ease: "power1.out"
+    }, 19.98);
+    tl.to("#w-phrase-13-3", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.47,
+      ease: "power1.out"
+    }, 20.70);
+    tl.to("#phrase-13",
+      { autoAlpha: 0, y: -10, filter: "blur(4px)", duration: 0.2, ease: "power1.in" },
+      21.22
+    );
+
+    // Phrase phrase-14 (21.17s - 22.81s)
+    tl.fromTo("#phrase-14",
+      { autoAlpha: 0, y: 15, filter: "blur(6px)" },
+      { autoAlpha: 1, y: 0, filter: "blur(0px)", duration: 0.25, ease: "power2.out" },
+      21.17
+    );
+    tl.to("#w-phrase-14-0", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.19,
+      ease: "power1.out"
+    }, 21.17);
+    tl.to("#w-phrase-14-1", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.46,
+      ease: "power1.out"
+    }, 21.36);
+    tl.to("#w-phrase-14-2", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.33,
+      ease: "power1.out"
+    }, 21.82);
+    tl.to("#w-phrase-14-3", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.66,
+      ease: "power1.out"
+    }, 22.15);
+    tl.to("#phrase-14",
+      { autoAlpha: 0, y: -10, filter: "blur(4px)", duration: 0.2, ease: "power1.in" },
+      22.86
+    );
+
+    // Phrase phrase-15 (22.81s - 24.2s)
+    tl.fromTo("#phrase-15",
+      { autoAlpha: 0, y: 15, filter: "blur(6px)" },
+      { autoAlpha: 1, y: 0, filter: "blur(0px)", duration: 0.25, ease: "power2.out" },
+      22.81
+    );
+    tl.to("#w-phrase-15-0", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.53,
+      ease: "power1.out"
+    }, 22.81);
+    tl.to("#w-phrase-15-1", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.26,
+      ease: "power1.out"
+    }, 23.34);
+    tl.to("#w-phrase-15-2", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.40,
+      ease: "power1.out"
+    }, 23.60);
+    tl.to("#w-phrase-15-3", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.20,
+      ease: "power1.out"
+    }, 24.00);
+    tl.to("#phrase-15",
+      { autoAlpha: 0, y: -10, filter: "blur(4px)", duration: 0.2, ease: "power1.in" },
+      24.25
+    );
+
+    // Phrase phrase-16 (24.2s - 25.18s)
+    tl.fromTo("#phrase-16",
+      { autoAlpha: 0, y: 15, filter: "blur(6px)" },
+      { autoAlpha: 1, y: 0, filter: "blur(0px)", duration: 0.25, ease: "power2.out" },
+      24.2
+    );
+    tl.to("#w-phrase-16-0", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.19,
+      ease: "power1.out"
+    }, 24.20);
+    tl.to("#w-phrase-16-1", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.79,
+      ease: "power1.out"
+    }, 24.39);
+    tl.to("#phrase-16",
+      { autoAlpha: 0, y: -10, filter: "blur(4px)", duration: 0.2, ease: "power1.in" },
+      25.23
+    );
+
+    // Phrase phrase-17 (25.38s - 26.87s)
+    tl.fromTo("#phrase-17",
+      { autoAlpha: 0, y: 15, filter: "blur(6px)" },
+      { autoAlpha: 1, y: 0, filter: "blur(0px)", duration: 0.25, ease: "power2.out" },
+      25.38
+    );
+    tl.to("#w-phrase-17-0", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.45,
+      ease: "power1.out"
+    }, 25.38);
+    tl.to("#w-phrase-17-1", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.60,
+      ease: "power1.out"
+    }, 25.83);
+    tl.to("#w-phrase-17-2", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.44,
+      ease: "power1.out"
+    }, 26.43);
+    tl.to("#phrase-17",
+      { autoAlpha: 0, y: -10, filter: "blur(4px)", duration: 0.2, ease: "power1.in" },
+      26.92
+    );
+
+    // Phrase phrase-18 (26.87s - 28.14s)
+    tl.fromTo("#phrase-18",
+      { autoAlpha: 0, y: 15, filter: "blur(6px)" },
+      { autoAlpha: 1, y: 0, filter: "blur(0px)", duration: 0.25, ease: "power2.out" },
+      26.87
+    );
+    tl.to("#w-phrase-18-0", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.45,
+      ease: "power1.out"
+    }, 26.87);
+    tl.to("#w-phrase-18-1", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.30,
+      ease: "power1.out"
+    }, 27.32);
+    tl.to("#w-phrase-18-2", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.15,
+      ease: "power1.out"
+    }, 27.62);
+    tl.to("#w-phrase-18-3", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.37,
+      ease: "power1.out"
+    }, 27.77);
+    tl.to("#phrase-18",
+      { autoAlpha: 0, y: -10, filter: "blur(4px)", duration: 0.2, ease: "power1.in" },
+      28.19
+    );
+
+    // Phrase phrase-19 (28.14s - 28.89s)
+    tl.fromTo("#phrase-19",
+      { autoAlpha: 0, y: 15, filter: "blur(6px)" },
+      { autoAlpha: 1, y: 0, filter: "blur(0px)", duration: 0.25, ease: "power2.out" },
+      28.14
+    );
+    tl.to("#w-phrase-19-0", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.75,
+      ease: "power1.out"
+    }, 28.14);
+    tl.to("#phrase-19",
+      { autoAlpha: 0, y: -10, filter: "blur(4px)", duration: 0.2, ease: "power1.in" },
+      28.94
+    );
+
+    // Phrase phrase-20 (28.89s - 30.39s)
+    tl.fromTo("#phrase-20",
+      { autoAlpha: 0, y: 15, filter: "blur(6px)" },
+      { autoAlpha: 1, y: 0, filter: "blur(0px)", duration: 0.25, ease: "power2.out" },
+      28.89
+    );
+    tl.to("#w-phrase-20-0", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.38,
+      ease: "power1.out"
+    }, 28.89);
+    tl.to("#w-phrase-20-1", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.29,
+      ease: "power1.out"
+    }, 29.27);
+    tl.to("#w-phrase-20-2", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.68,
+      ease: "power1.out"
+    }, 29.56);
+    tl.to("#w-phrase-20-3", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.15,
+      ease: "power1.out"
+    }, 30.24);
+    tl.to("#phrase-20",
+      { autoAlpha: 0, y: -10, filter: "blur(4px)", duration: 0.2, ease: "power1.in" },
+      30.44
+    );
+
+    // Phrase phrase-21 (30.39s - 32.33s)
+    tl.fromTo("#phrase-21",
+      { autoAlpha: 0, y: 15, filter: "blur(6px)" },
+      { autoAlpha: 1, y: 0, filter: "blur(0px)", duration: 0.25, ease: "power2.out" },
+      30.39
+    );
+    tl.to("#w-phrase-21-0", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.59,
+      ease: "power1.out"
+    }, 30.39);
+    tl.to("#w-phrase-21-1", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.68,
+      ease: "power1.out"
+    }, 30.98);
+    tl.to("#w-phrase-21-2", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.67,
+      ease: "power1.out"
+    }, 31.66);
+    tl.to("#phrase-21",
+      { autoAlpha: 0, y: -10, filter: "blur(4px)", duration: 0.2, ease: "power1.in" },
+      32.38
+    );
+
+    // Phrase phrase-22 (32.33s - 33.82s)
+    tl.fromTo("#phrase-22",
+      { autoAlpha: 0, y: 15, filter: "blur(6px)" },
+      { autoAlpha: 1, y: 0, filter: "blur(0px)", duration: 0.25, ease: "power2.out" },
+      32.33
+    );
+    tl.to("#w-phrase-22-0", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.22,
+      ease: "power1.out"
+    }, 32.33);
+    tl.to("#w-phrase-22-1", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.38,
+      ease: "power1.out"
+    }, 32.55);
+    tl.to("#w-phrase-22-2", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.52,
+      ease: "power1.out"
+    }, 32.93);
+    tl.to("#w-phrase-22-3", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.37,
+      ease: "power1.out"
+    }, 33.45);
+    tl.to("#phrase-22",
+      { autoAlpha: 0, y: -10, filter: "blur(4px)", duration: 0.2, ease: "power1.in" },
+      33.87
+    );
+
+    // Phrase phrase-23 (33.82s - 35.62s)
+    tl.fromTo("#phrase-23",
+      { autoAlpha: 0, y: 15, filter: "blur(6px)" },
+      { autoAlpha: 1, y: 0, filter: "blur(0px)", duration: 0.25, ease: "power2.out" },
+      33.82
+    );
+    tl.to("#w-phrase-23-0", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.45,
+      ease: "power1.out"
+    }, 33.82);
+    tl.to("#w-phrase-23-1", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.60,
+      ease: "power1.out"
+    }, 34.27);
+    tl.to("#w-phrase-23-2", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.60,
+      ease: "power1.out"
+    }, 34.87);
+    tl.to("#w-phrase-23-3", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.15,
+      ease: "power1.out"
+    }, 35.47);
+    tl.to("#phrase-23",
+      { autoAlpha: 0, y: -10, filter: "blur(4px)", duration: 0.2, ease: "power1.in" },
+      35.67
+    );
+
+    // Phrase phrase-24 (35.62s - 36.29s)
+    tl.fromTo("#phrase-24",
+      { autoAlpha: 0, y: 15, filter: "blur(6px)" },
+      { autoAlpha: 1, y: 0, filter: "blur(0px)", duration: 0.25, ease: "power2.out" },
+      35.62
+    );
+    tl.to("#w-phrase-24-0", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.30,
+      ease: "power1.out"
+    }, 35.62);
+    tl.to("#w-phrase-24-1", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.37,
+      ease: "power1.out"
+    }, 35.92);
+    tl.to("#phrase-24",
+      { autoAlpha: 0, y: -10, filter: "blur(4px)", duration: 0.2, ease: "power1.in" },
+      36.34
+    );
+
+    // Phrase phrase-25 (36.29s - 38.08s)
+    tl.fromTo("#phrase-25",
+      { autoAlpha: 0, y: 15, filter: "blur(6px)" },
+      { autoAlpha: 1, y: 0, filter: "blur(0px)", duration: 0.25, ease: "power2.out" },
+      36.29
+    );
+    tl.to("#w-phrase-25-0", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.30,
+      ease: "power1.out"
+    }, 36.29);
+    tl.to("#w-phrase-25-1", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.37,
+      ease: "power1.out"
+    }, 36.59);
+    tl.to("#w-phrase-25-2", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.75,
+      ease: "power1.out"
+    }, 36.96);
+    tl.to("#w-phrase-25-3", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.37,
+      ease: "power1.out"
+    }, 37.71);
+    tl.to("#phrase-25",
+      { autoAlpha: 0, y: -10, filter: "blur(4px)", duration: 0.2, ease: "power1.in" },
+      38.13
+    );
+
+    // Phrase phrase-26 (38.08s - 39.2s)
+    tl.fromTo("#phrase-26",
+      { autoAlpha: 0, y: 15, filter: "blur(6px)" },
+      { autoAlpha: 1, y: 0, filter: "blur(0px)", duration: 0.25, ease: "power2.out" },
+      38.08
+    );
+    tl.to("#w-phrase-26-0", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.30,
+      ease: "power1.out"
+    }, 38.08);
+    tl.to("#w-phrase-26-1", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.82,
+      ease: "power1.out"
+    }, 38.38);
+    tl.to("#phrase-26",
+      { autoAlpha: 0, y: -10, filter: "blur(4px)", duration: 0.2, ease: "power1.in" },
+      39.25
+    );
+
+    // Phrase phrase-27 (39.4s - 40.78s)
+    tl.fromTo("#phrase-27",
+      { autoAlpha: 0, y: 15, filter: "blur(6px)" },
+      { autoAlpha: 1, y: 0, filter: "blur(0px)", duration: 0.25, ease: "power2.out" },
+      39.4
+    );
+    tl.to("#w-phrase-27-0", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.26,
+      ease: "power1.out"
+    }, 39.40);
+    tl.to("#w-phrase-27-1", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.26,
+      ease: "power1.out"
+    }, 39.66);
+    tl.to("#w-phrase-27-2", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.33,
+      ease: "power1.out"
+    }, 39.92);
+    tl.to("#w-phrase-27-3", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.53,
+      ease: "power1.out"
+    }, 40.25);
+    tl.to("#phrase-27",
+      { autoAlpha: 0, y: -10, filter: "blur(4px)", duration: 0.2, ease: "power1.in" },
+      40.83
+    );
+
+    // Phrase phrase-28 (40.78s - 42.87s)
+    tl.fromTo("#phrase-28",
+      { autoAlpha: 0, y: 15, filter: "blur(6px)" },
+      { autoAlpha: 1, y: 0, filter: "blur(0px)", duration: 0.25, ease: "power2.out" },
+      40.78
+    );
+    tl.to("#w-phrase-28-0", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.26,
+      ease: "power1.out"
+    }, 40.78);
+    tl.to("#w-phrase-28-1", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.59,
+      ease: "power1.out"
+    }, 41.04);
+    tl.to("#w-phrase-28-2", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.46,
+      ease: "power1.out"
+    }, 41.63);
+    tl.to("#w-phrase-28-3", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.78,
+      ease: "power1.out"
+    }, 42.09);
+    tl.to("#phrase-28",
+      { autoAlpha: 0, y: -10, filter: "blur(4px)", duration: 0.2, ease: "power1.in" },
+      42.92
+    );
+
+    // Phrase phrase-29 (42.87s - 44.71s)
+    tl.fromTo("#phrase-29",
+      { autoAlpha: 0, y: 15, filter: "blur(6px)" },
+      { autoAlpha: 1, y: 0, filter: "blur(0px)", duration: 0.25, ease: "power2.out" },
+      42.87
+    );
+    tl.to("#w-phrase-29-0", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.33,
+      ease: "power1.out"
+    }, 42.87);
+    tl.to("#w-phrase-29-1", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.66,
+      ease: "power1.out"
+    }, 43.20);
+    tl.to("#w-phrase-29-2", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.39,
+      ease: "power1.out"
+    }, 43.86);
+    tl.to("#w-phrase-29-3", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.46,
+      ease: "power1.out"
+    }, 44.25);
+    tl.to("#phrase-29",
+      { autoAlpha: 0, y: -10, filter: "blur(4px)", duration: 0.2, ease: "power1.in" },
+      44.76
+    );
+
+    // Phrase phrase-30 (44.71s - 45.56s)
+    tl.fromTo("#phrase-30",
+      { autoAlpha: 0, y: 15, filter: "blur(6px)" },
+      { autoAlpha: 1, y: 0, filter: "blur(0px)", duration: 0.25, ease: "power2.out" },
+      44.71
+    );
+    tl.to("#w-phrase-30-0", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.39,
+      ease: "power1.out"
+    }, 44.71);
+    tl.to("#w-phrase-30-1", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.46,
+      ease: "power1.out"
+    }, 45.10);
+    tl.to("#phrase-30",
+      { autoAlpha: 0, y: -10, filter: "blur(4px)", duration: 0.2, ease: "power1.in" },
+      45.61
+    );
+
+    // Phrase phrase-31 (45.56s - 47s)
+    tl.fromTo("#phrase-31",
+      { autoAlpha: 0, y: 15, filter: "blur(6px)" },
+      { autoAlpha: 1, y: 0, filter: "blur(0px)", duration: 0.25, ease: "power2.out" },
+      45.56
+    );
+    tl.to("#w-phrase-31-0", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.26,
+      ease: "power1.out"
+    }, 45.56);
+    tl.to("#w-phrase-31-1", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.20,
+      ease: "power1.out"
+    }, 45.82);
+    tl.to("#w-phrase-31-2", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.59,
+      ease: "power1.out"
+    }, 46.02);
+    tl.to("#w-phrase-31-3", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.39,
+      ease: "power1.out"
+    }, 46.61);
+    tl.to("#phrase-31",
+      { autoAlpha: 0, y: -10, filter: "blur(4px)", duration: 0.2, ease: "power1.in" },
+      47.05
+    );
+
+    // Phrase phrase-32 (47s - 47.92s)
+    tl.fromTo("#phrase-32",
+      { autoAlpha: 0, y: 15, filter: "blur(6px)" },
+      { autoAlpha: 1, y: 0, filter: "blur(0px)", duration: 0.25, ease: "power2.out" },
+      47
+    );
+    tl.to("#w-phrase-32-0", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.20,
+      ease: "power1.out"
+    }, 47.00);
+    tl.to("#w-phrase-32-1", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.72,
+      ease: "power1.out"
+    }, 47.20);
+    tl.to("#phrase-32",
+      { autoAlpha: 0, y: -10, filter: "blur(4px)", duration: 0.2, ease: "power1.in" },
+      47.97
+    );
+
+    // Phrase phrase-33 (47.92s - 49.17s)
+    tl.fromTo("#phrase-33",
+      { autoAlpha: 0, y: 15, filter: "blur(6px)" },
+      { autoAlpha: 1, y: 0, filter: "blur(0px)", duration: 0.25, ease: "power2.out" },
+      47.92
+    );
+    tl.to("#w-phrase-33-0", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.26,
+      ease: "power1.out"
+    }, 47.92);
+    tl.to("#w-phrase-33-1", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.40,
+      ease: "power1.out"
+    }, 48.18);
+    tl.to("#w-phrase-33-2", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.32,
+      ease: "power1.out"
+    }, 48.58);
+    tl.to("#w-phrase-33-3", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.27,
+      ease: "power1.out"
+    }, 48.90);
+    tl.to("#phrase-33",
+      { autoAlpha: 0, y: -10, filter: "blur(4px)", duration: 0.2, ease: "power1.in" },
+      49.22
+    );
+
+    // Phrase phrase-34 (49.17s - 51.26s)
+    tl.fromTo("#phrase-34",
+      { autoAlpha: 0, y: 15, filter: "blur(6px)" },
+      { autoAlpha: 1, y: 0, filter: "blur(0px)", duration: 0.25, ease: "power2.out" },
+      49.17
+    );
+    tl.to("#w-phrase-34-0", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.32,
+      ease: "power1.out"
+    }, 49.17);
+    tl.to("#w-phrase-34-1", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.53,
+      ease: "power1.out"
+    }, 49.49);
+    tl.to("#w-phrase-34-2", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.46,
+      ease: "power1.out"
+    }, 50.02);
+    tl.to("#w-phrase-34-3", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.78,
+      ease: "power1.out"
+    }, 50.48);
+    tl.to("#phrase-34",
+      { autoAlpha: 0, y: -10, filter: "blur(4px)", duration: 0.2, ease: "power1.in" },
+      51.31
+    );
+
+    // Phrase phrase-35 (51.46s - 52.88s)
+    tl.fromTo("#phrase-35",
+      { autoAlpha: 0, y: 15, filter: "blur(6px)" },
+      { autoAlpha: 1, y: 0, filter: "blur(0px)", duration: 0.25, ease: "power2.out" },
+      51.46
+    );
+    tl.to("#w-phrase-35-0", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.34,
+      ease: "power1.out"
+    }, 51.46);
+    tl.to("#w-phrase-35-1", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.27,
+      ease: "power1.out"
+    }, 51.80);
+    tl.to("#w-phrase-35-2", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.81,
+      ease: "power1.out"
+    }, 52.07);
+    tl.to("#phrase-35",
+      { autoAlpha: 0, y: -10, filter: "blur(4px)", duration: 0.2, ease: "power1.in" },
+      52.93
+    );
+
+    // Phrase phrase-36 (52.88s - 54.7s)
+    tl.fromTo("#phrase-36",
+      { autoAlpha: 0, y: 15, filter: "blur(6px)" },
+      { autoAlpha: 1, y: 0, filter: "blur(0px)", duration: 0.25, ease: "power2.out" },
+      52.88
+    );
+    tl.to("#w-phrase-36-0", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.34,
+      ease: "power1.out"
+    }, 52.88);
+    tl.to("#w-phrase-36-1", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.67,
+      ease: "power1.out"
+    }, 53.22);
+    tl.to("#w-phrase-36-2", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.54,
+      ease: "power1.out"
+    }, 53.89);
+    tl.to("#w-phrase-36-3", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.27,
+      ease: "power1.out"
+    }, 54.43);
+    tl.to("#phrase-36",
+      { autoAlpha: 0, y: -10, filter: "blur(4px)", duration: 0.2, ease: "power1.in" },
+      54.75
+    );
+
+    // Phrase phrase-37 (54.7s - 56.12s)
+    tl.fromTo("#phrase-37",
+      { autoAlpha: 0, y: 15, filter: "blur(6px)" },
+      { autoAlpha: 1, y: 0, filter: "blur(0px)", duration: 0.25, ease: "power2.out" },
+      54.7
+    );
+    tl.to("#w-phrase-37-0", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.55,
+      ease: "power1.out"
+    }, 54.70);
+    tl.to("#w-phrase-37-1", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.33,
+      ease: "power1.out"
+    }, 55.25);
+    tl.to("#w-phrase-37-2", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.54,
+      ease: "power1.out"
+    }, 55.58);
+    tl.to("#phrase-37",
+      { autoAlpha: 0, y: -10, filter: "blur(4px)", duration: 0.2, ease: "power1.in" },
+      56.17
+    );
+
+    // Phrase phrase-38 (56.12s - 58.36s)
+    tl.fromTo("#phrase-38",
+      { autoAlpha: 0, y: 15, filter: "blur(6px)" },
+      { autoAlpha: 1, y: 0, filter: "blur(0px)", duration: 0.25, ease: "power2.out" },
+      56.12
+    );
+    tl.to("#w-phrase-38-0", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.61,
+      ease: "power1.out"
+    }, 56.12);
+    tl.to("#w-phrase-38-1", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.61,
+      ease: "power1.out"
+    }, 56.73);
+    tl.to("#w-phrase-38-2", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.68,
+      ease: "power1.out"
+    }, 57.34);
+    tl.to("#w-phrase-38-3", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.34,
+      ease: "power1.out"
+    }, 58.02);
+    tl.to("#phrase-38",
+      { autoAlpha: 0, y: -10, filter: "blur(4px)", duration: 0.2, ease: "power1.in" },
+      58.41
+    );
+
+    // Phrase phrase-39 (58.36s - 59.64s)
+    tl.fromTo("#phrase-39",
+      { autoAlpha: 0, y: 15, filter: "blur(6px)" },
+      { autoAlpha: 1, y: 0, filter: "blur(0px)", duration: 0.25, ease: "power2.out" },
+      58.36
+    );
+    tl.to("#w-phrase-39-0", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.33,
+      ease: "power1.out"
+    }, 58.36);
+    tl.to("#w-phrase-39-1", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.34,
+      ease: "power1.out"
+    }, 58.69);
+    tl.to("#w-phrase-39-2", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.14,
+      ease: "power1.out"
+    }, 59.03);
+    tl.to("#w-phrase-39-3", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.47,
+      ease: "power1.out"
+    }, 59.17);
+    tl.to("#phrase-39",
+      { autoAlpha: 0, y: -10, filter: "blur(4px)", duration: 0.2, ease: "power1.in" },
+      59.69
+    );
+
+    // Phrase phrase-40 (59.64s - 61.67s)
+    tl.fromTo("#phrase-40",
+      { autoAlpha: 0, y: 15, filter: "blur(6px)" },
+      { autoAlpha: 1, y: 0, filter: "blur(0px)", duration: 0.25, ease: "power2.out" },
+      59.64
+    );
+    tl.to("#w-phrase-40-0", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.54,
+      ease: "power1.out"
+    }, 59.64);
+    tl.to("#w-phrase-40-1", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.61,
+      ease: "power1.out"
+    }, 60.18);
+    tl.to("#w-phrase-40-2", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.27,
+      ease: "power1.out"
+    }, 60.79);
+    tl.to("#w-phrase-40-3", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.61,
+      ease: "power1.out"
+    }, 61.06);
+    tl.to("#phrase-40",
+      { autoAlpha: 0, y: -10, filter: "blur(4px)", duration: 0.2, ease: "power1.in" },
+      61.72
+    );
+
+    // Phrase phrase-41 (61.67s - 63.22s)
+    tl.fromTo("#phrase-41",
+      { autoAlpha: 0, y: 15, filter: "blur(6px)" },
+      { autoAlpha: 1, y: 0, filter: "blur(0px)", duration: 0.25, ease: "power2.out" },
+      61.67
+    );
+    tl.to("#w-phrase-41-0", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.67,
+      ease: "power1.out"
+    }, 61.67);
+    tl.to("#w-phrase-41-1", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.27,
+      ease: "power1.out"
+    }, 62.34);
+    tl.to("#w-phrase-41-2", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.27,
+      ease: "power1.out"
+    }, 62.61);
+    tl.to("#w-phrase-41-3", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.34,
+      ease: "power1.out"
+    }, 62.88);
+    tl.to("#phrase-41",
+      { autoAlpha: 0, y: -10, filter: "blur(4px)", duration: 0.2, ease: "power1.in" },
+      63.27
+    );
+
+    // Phrase phrase-42 (63.22s - 63.76s)
+    tl.fromTo("#phrase-42",
+      { autoAlpha: 0, y: 15, filter: "blur(6px)" },
+      { autoAlpha: 1, y: 0, filter: "blur(0px)", duration: 0.25, ease: "power2.out" },
+      63.22
+    );
+    tl.to("#w-phrase-42-0", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.54,
+      ease: "power1.out"
+    }, 63.22);
+    tl.to("#phrase-42",
+      { autoAlpha: 0, y: -10, filter: "blur(4px)", duration: 0.2, ease: "power1.in" },
+      63.81
+    );
+
+    // Phrase phrase-43 (63.96s - 65.62s)
+    tl.fromTo("#phrase-43",
+      { autoAlpha: 0, y: 15, filter: "blur(6px)" },
+      { autoAlpha: 1, y: 0, filter: "blur(0px)", duration: 0.25, ease: "power2.out" },
+      63.96
+    );
+    tl.to("#w-phrase-43-0", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.64,
+      ease: "power1.out"
+    }, 63.96);
+    tl.to("#w-phrase-43-1", {
       color: "#C59B27",
       textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
       scale: 1.06,
       duration: 0.31,
       ease: "power1.out"
-    }, 55.61);
-    tl.to("#phrase-46",
+    }, 64.60);
+    tl.to("#w-phrase-43-2", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.45,
+      ease: "power1.out"
+    }, 64.91);
+    tl.to("#w-phrase-43-3", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.26,
+      ease: "power1.out"
+    }, 65.36);
+    tl.to("#phrase-43",
       { autoAlpha: 0, y: -10, filter: "blur(4px)", duration: 0.2, ease: "power1.in" },
-      55.97
+      65.67
     );
 
-    // Phrase phrase-47 (55.92s - 56.68s)
+    // Phrase phrase-44 (65.62s - 66.51s)
+    tl.fromTo("#phrase-44",
+      { autoAlpha: 0, y: 15, filter: "blur(6px)" },
+      { autoAlpha: 1, y: 0, filter: "blur(0px)", duration: 0.25, ease: "power2.out" },
+      65.62
+    );
+    tl.to("#w-phrase-44-0", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.19,
+      ease: "power1.out"
+    }, 65.62);
+    tl.to("#w-phrase-44-1", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.31,
+      ease: "power1.out"
+    }, 65.81);
+    tl.to("#w-phrase-44-2", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.26,
+      ease: "power1.out"
+    }, 66.12);
+    tl.to("#w-phrase-44-3", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.13,
+      ease: "power1.out"
+    }, 66.38);
+    tl.to("#phrase-44",
+      { autoAlpha: 0, y: -10, filter: "blur(4px)", duration: 0.2, ease: "power1.in" },
+      66.56
+    );
+
+    // Phrase phrase-45 (66.51s - 68.42s)
+    tl.fromTo("#phrase-45",
+      { autoAlpha: 0, y: 15, filter: "blur(6px)" },
+      { autoAlpha: 1, y: 0, filter: "blur(0px)", duration: 0.25, ease: "power2.out" },
+      66.51
+    );
+    tl.to("#w-phrase-45-0", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.44,
+      ease: "power1.out"
+    }, 66.51);
+    tl.to("#w-phrase-45-1", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.57,
+      ease: "power1.out"
+    }, 66.95);
+    tl.to("#w-phrase-45-2", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.26,
+      ease: "power1.out"
+    }, 67.52);
+    tl.to("#w-phrase-45-3", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.64,
+      ease: "power1.out"
+    }, 67.78);
+    tl.to("#phrase-45",
+      { autoAlpha: 0, y: -10, filter: "blur(4px)", duration: 0.2, ease: "power1.in" },
+      68.47
+    );
+
+    // Phrase phrase-46 (68.42s - 69.82s)
+    tl.fromTo("#phrase-46",
+      { autoAlpha: 0, y: 15, filter: "blur(6px)" },
+      { autoAlpha: 1, y: 0, filter: "blur(0px)", duration: 0.25, ease: "power2.out" },
+      68.42
+    );
+    tl.to("#w-phrase-46-0", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.31,
+      ease: "power1.out"
+    }, 68.42);
+    tl.to("#w-phrase-46-1", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.20,
+      ease: "power1.out"
+    }, 68.73);
+    tl.to("#w-phrase-46-2", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.50,
+      ease: "power1.out"
+    }, 68.93);
+    tl.to("#w-phrase-46-3", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.39,
+      ease: "power1.out"
+    }, 69.43);
+    tl.to("#phrase-46",
+      { autoAlpha: 0, y: -10, filter: "blur(4px)", duration: 0.2, ease: "power1.in" },
+      69.87
+    );
+
+    // Phrase phrase-47 (69.82s - 70.77s)
     tl.fromTo("#phrase-47",
       { autoAlpha: 0, y: 15, filter: "blur(6px)" },
       { autoAlpha: 1, y: 0, filter: "blur(0px)", duration: 0.25, ease: "power2.out" },
-      55.92
+      69.82
     );
     tl.to("#w-phrase-47-0", {
       color: "#C59B27",
@@ -2788,1324 +2644,1324 @@
       scale: 1.06,
       duration: 0.12,
       ease: "power1.out"
-    }, 55.92);
+    }, 69.82);
     tl.to("#w-phrase-47-1", {
       color: "#C59B27",
       textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
       scale: 1.06,
-      duration: 0.25,
+      duration: 0.32,
       ease: "power1.out"
-    }, 56.02);
+    }, 69.94);
     tl.to("#w-phrase-47-2", {
       color: "#C59B27",
       textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
       scale: 1.06,
-      duration: 0.41,
+      duration: 0.51,
       ease: "power1.out"
-    }, 56.27);
+    }, 70.26);
     tl.to("#phrase-47",
       { autoAlpha: 0, y: -10, filter: "blur(4px)", duration: 0.2, ease: "power1.in" },
-      56.73
+      70.82
     );
 
-    // Phrase phrase-48 (56.68s - 57.65s)
+    // Phrase phrase-48 (70.77s - 71.98s)
     tl.fromTo("#phrase-48",
       { autoAlpha: 0, y: 15, filter: "blur(6px)" },
       { autoAlpha: 1, y: 0, filter: "blur(0px)", duration: 0.25, ease: "power2.out" },
-      56.68
+      70.77
     );
     tl.to("#w-phrase-48-0", {
       color: "#C59B27",
       textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
       scale: 1.06,
-      duration: 0.25,
+      duration: 0.32,
       ease: "power1.out"
-    }, 56.68);
+    }, 70.77);
     tl.to("#w-phrase-48-1", {
       color: "#C59B27",
       textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
       scale: 1.06,
-      duration: 0.26,
+      duration: 0.32,
       ease: "power1.out"
-    }, 56.93);
+    }, 71.09);
     tl.to("#w-phrase-48-2", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.32,
+      ease: "power1.out"
+    }, 71.41);
+    tl.to("#w-phrase-48-3", {
       color: "#C59B27",
       textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
       scale: 1.06,
       duration: 0.25,
       ease: "power1.out"
-    }, 57.19);
-    tl.to("#w-phrase-48-3", {
-      color: "#C59B27",
-      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
-      scale: 1.06,
-      duration: 0.21,
-      ease: "power1.out"
-    }, 57.44);
+    }, 71.73);
     tl.to("#phrase-48",
       { autoAlpha: 0, y: -10, filter: "blur(4px)", duration: 0.2, ease: "power1.in" },
-      57.70
+      72.03
     );
 
-    // Phrase phrase-49 (57.65s - 58.97s)
+    // Phrase phrase-49 (71.98s - 73.64s)
     tl.fromTo("#phrase-49",
       { autoAlpha: 0, y: 15, filter: "blur(6px)" },
       { autoAlpha: 1, y: 0, filter: "blur(0px)", duration: 0.25, ease: "power2.out" },
-      57.65
+      71.98
     );
     tl.to("#w-phrase-49-0", {
       color: "#C59B27",
       textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
       scale: 1.06,
-      duration: 0.45,
+      duration: 0.57,
       ease: "power1.out"
-    }, 57.65);
+    }, 71.98);
     tl.to("#w-phrase-49-1", {
       color: "#C59B27",
       textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
       scale: 1.06,
-      duration: 0.41,
+      duration: 0.51,
       ease: "power1.out"
-    }, 58.10);
+    }, 72.55);
     tl.to("#w-phrase-49-2", {
       color: "#C59B27",
       textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
       scale: 1.06,
-      duration: 0.12,
+      duration: 0.13,
       ease: "power1.out"
-    }, 58.51);
+    }, 73.06);
     tl.to("#w-phrase-49-3", {
       color: "#C59B27",
       textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
       scale: 1.06,
-      duration: 0.36,
+      duration: 0.45,
       ease: "power1.out"
-    }, 58.61);
+    }, 73.19);
     tl.to("#phrase-49",
       { autoAlpha: 0, y: -10, filter: "blur(4px)", duration: 0.2, ease: "power1.in" },
-      59.02
+      73.69
     );
 
-    // Phrase phrase-50 (58.97s - 59.58s)
+    // Phrase phrase-50 (73.64s - 74.4s)
     tl.fromTo("#phrase-50",
       { autoAlpha: 0, y: 15, filter: "blur(6px)" },
       { autoAlpha: 1, y: 0, filter: "blur(0px)", duration: 0.25, ease: "power2.out" },
-      58.97
+      73.64
     );
     tl.to("#w-phrase-50-0", {
       color: "#C59B27",
       textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
       scale: 1.06,
-      duration: 0.61,
+      duration: 0.76,
       ease: "power1.out"
-    }, 58.97);
+    }, 73.64);
     tl.to("#phrase-50",
       { autoAlpha: 0, y: -10, filter: "blur(4px)", duration: 0.2, ease: "power1.in" },
-      59.63
+      74.45
     );
 
-    // Phrase phrase-51 (59.78s - 61.06s)
+    // Phrase phrase-51 (74.6s - 76.16s)
     tl.fromTo("#phrase-51",
       { autoAlpha: 0, y: 15, filter: "blur(6px)" },
       { autoAlpha: 1, y: 0, filter: "blur(0px)", duration: 0.25, ease: "power2.out" },
-      59.78
+      74.6
     );
     tl.to("#w-phrase-51-0", {
       color: "#C59B27",
       textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
       scale: 1.06,
-      duration: 0.55,
+      duration: 0.68,
       ease: "power1.out"
-    }, 59.78);
+    }, 74.60);
     tl.to("#w-phrase-51-1", {
       color: "#C59B27",
       textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
       scale: 1.06,
-      duration: 0.73,
+      duration: 0.88,
       ease: "power1.out"
-    }, 60.33);
+    }, 75.28);
     tl.to("#phrase-51",
       { autoAlpha: 0, y: -10, filter: "blur(4px)", duration: 0.2, ease: "power1.in" },
-      61.11
+      76.21
     );
 
-    // Phrase phrase-52 (61.06s - 62.22s)
+    // Phrase phrase-52 (76.16s - 77.59s)
     tl.fromTo("#phrase-52",
       { autoAlpha: 0, y: 15, filter: "blur(6px)" },
       { autoAlpha: 1, y: 0, filter: "blur(0px)", duration: 0.25, ease: "power2.out" },
-      61.06
+      76.16
     );
     tl.to("#w-phrase-52-0", {
       color: "#C59B27",
       textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
       scale: 1.06,
-      duration: 0.16,
+      duration: 0.21,
       ease: "power1.out"
-    }, 61.06);
+    }, 76.16);
     tl.to("#w-phrase-52-1", {
       color: "#C59B27",
       textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
       scale: 1.06,
-      duration: 0.50,
+      duration: 0.61,
       ease: "power1.out"
-    }, 61.22);
+    }, 76.37);
     tl.to("#w-phrase-52-2", {
       color: "#C59B27",
       textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
       scale: 1.06,
-      duration: 0.22,
+      duration: 0.27,
       ease: "power1.out"
-    }, 61.72);
+    }, 76.98);
     tl.to("#w-phrase-52-3", {
-      color: "#C59B27",
-      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
-      scale: 1.06,
-      duration: 0.28,
-      ease: "power1.out"
-    }, 61.94);
-    tl.to("#phrase-52",
-      { autoAlpha: 0, y: -10, filter: "blur(4px)", duration: 0.2, ease: "power1.in" },
-      62.27
-    );
-
-    // Phrase phrase-53 (62.22s - 62.66s)
-    tl.fromTo("#phrase-53",
-      { autoAlpha: 0, y: 15, filter: "blur(6px)" },
-      { autoAlpha: 1, y: 0, filter: "blur(0px)", duration: 0.25, ease: "power2.out" },
-      62.22
-    );
-    tl.to("#w-phrase-53-0", {
-      color: "#C59B27",
-      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
-      scale: 1.06,
-      duration: 0.44,
-      ease: "power1.out"
-    }, 62.22);
-    tl.to("#phrase-53",
-      { autoAlpha: 0, y: -10, filter: "blur(4px)", duration: 0.2, ease: "power1.in" },
-      62.71
-    );
-
-    // Phrase phrase-54 (62.66s - 64.05s)
-    tl.fromTo("#phrase-54",
-      { autoAlpha: 0, y: 15, filter: "blur(6px)" },
-      { autoAlpha: 1, y: 0, filter: "blur(0px)", duration: 0.25, ease: "power2.out" },
-      62.66
-    );
-    tl.to("#w-phrase-54-0", {
-      color: "#C59B27",
-      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
-      scale: 1.06,
-      duration: 0.45,
-      ease: "power1.out"
-    }, 62.66);
-    tl.to("#w-phrase-54-1", {
-      color: "#C59B27",
-      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
-      scale: 1.06,
-      duration: 0.38,
-      ease: "power1.out"
-    }, 63.11);
-    tl.to("#w-phrase-54-2", {
-      color: "#C59B27",
-      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
-      scale: 1.06,
-      duration: 0.17,
-      ease: "power1.out"
-    }, 63.49);
-    tl.to("#w-phrase-54-3", {
-      color: "#C59B27",
-      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
-      scale: 1.06,
-      duration: 0.39,
-      ease: "power1.out"
-    }, 63.66);
-    tl.to("#phrase-54",
-      { autoAlpha: 0, y: -10, filter: "blur(4px)", duration: 0.2, ease: "power1.in" },
-      64.10
-    );
-
-    // Phrase phrase-55 (64.05s - 65.44s)
-    tl.fromTo("#phrase-55",
-      { autoAlpha: 0, y: 15, filter: "blur(6px)" },
-      { autoAlpha: 1, y: 0, filter: "blur(0px)", duration: 0.25, ease: "power2.out" },
-      64.05
-    );
-    tl.to("#w-phrase-55-0", {
-      color: "#C59B27",
-      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
-      scale: 1.06,
-      duration: 0.28,
-      ease: "power1.out"
-    }, 64.05);
-    tl.to("#w-phrase-55-1", {
-      color: "#C59B27",
-      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
-      scale: 1.06,
-      duration: 0.44,
-      ease: "power1.out"
-    }, 64.33);
-    tl.to("#w-phrase-55-2", {
-      color: "#C59B27",
-      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
-      scale: 1.06,
-      duration: 0.17,
-      ease: "power1.out"
-    }, 64.77);
-    tl.to("#w-phrase-55-3", {
-      color: "#C59B27",
-      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
-      scale: 1.06,
-      duration: 0.50,
-      ease: "power1.out"
-    }, 64.94);
-    tl.to("#phrase-55",
-      { autoAlpha: 0, y: -10, filter: "blur(4px)", duration: 0.2, ease: "power1.in" },
-      65.49
-    );
-
-    // Phrase phrase-56 (65.44s - 66.49s)
-    tl.fromTo("#phrase-56",
-      { autoAlpha: 0, y: 15, filter: "blur(6px)" },
-      { autoAlpha: 1, y: 0, filter: "blur(0px)", duration: 0.25, ease: "power2.out" },
-      65.44
-    );
-    tl.to("#w-phrase-56-0", {
-      color: "#C59B27",
-      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
-      scale: 1.06,
-      duration: 0.22,
-      ease: "power1.out"
-    }, 65.44);
-    tl.to("#w-phrase-56-1", {
-      color: "#C59B27",
-      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
-      scale: 1.06,
-      duration: 0.22,
-      ease: "power1.out"
-    }, 65.66);
-    tl.to("#w-phrase-56-2", {
-      color: "#C59B27",
-      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
-      scale: 1.06,
-      duration: 0.39,
-      ease: "power1.out"
-    }, 65.88);
-    tl.to("#w-phrase-56-3", {
-      color: "#C59B27",
-      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
-      scale: 1.06,
-      duration: 0.22,
-      ease: "power1.out"
-    }, 66.27);
-    tl.to("#phrase-56",
-      { autoAlpha: 0, y: -10, filter: "blur(4px)", duration: 0.2, ease: "power1.in" },
-      66.54
-    );
-
-    // Phrase phrase-57 (66.49s - 66.99s)
-    tl.fromTo("#phrase-57",
-      { autoAlpha: 0, y: 15, filter: "blur(6px)" },
-      { autoAlpha: 1, y: 0, filter: "blur(0px)", duration: 0.25, ease: "power2.out" },
-      66.49
-    );
-    tl.to("#w-phrase-57-0", {
-      color: "#C59B27",
-      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
-      scale: 1.06,
-      duration: 0.50,
-      ease: "power1.out"
-    }, 66.49);
-    tl.to("#phrase-57",
-      { autoAlpha: 0, y: -10, filter: "blur(4px)", duration: 0.2, ease: "power1.in" },
-      67.04
-    );
-
-    // Phrase phrase-58 (66.99s - 68.76s)
-    tl.fromTo("#phrase-58",
-      { autoAlpha: 0, y: 15, filter: "blur(6px)" },
-      { autoAlpha: 1, y: 0, filter: "blur(0px)", duration: 0.25, ease: "power2.out" },
-      66.99
-    );
-    tl.to("#w-phrase-58-0", {
-      color: "#C59B27",
-      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
-      scale: 1.06,
-      duration: 0.66,
-      ease: "power1.out"
-    }, 66.99);
-    tl.to("#w-phrase-58-1", {
       color: "#C59B27",
       textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
       scale: 1.06,
       duration: 0.34,
       ease: "power1.out"
-    }, 67.65);
-    tl.to("#w-phrase-58-2", {
-      color: "#C59B27",
-      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
-      scale: 1.06,
-      duration: 0.38,
-      ease: "power1.out"
-    }, 67.99);
-    tl.to("#w-phrase-58-3", {
-      color: "#C59B27",
-      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
-      scale: 1.06,
-      duration: 0.39,
-      ease: "power1.out"
-    }, 68.37);
-    tl.to("#phrase-58",
+    }, 77.25);
+    tl.to("#phrase-52",
       { autoAlpha: 0, y: -10, filter: "blur(4px)", duration: 0.2, ease: "power1.in" },
-      68.81
+      77.64
     );
 
-    // Phrase phrase-59 (68.76s - 69.21s)
-    tl.fromTo("#phrase-59",
+    // Phrase phrase-53 (77.59s - 78.13s)
+    tl.fromTo("#phrase-53",
       { autoAlpha: 0, y: 15, filter: "blur(6px)" },
       { autoAlpha: 1, y: 0, filter: "blur(0px)", duration: 0.25, ease: "power2.out" },
-      68.76
+      77.59
     );
-    tl.to("#w-phrase-59-0", {
-      color: "#C59B27",
-      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
-      scale: 1.06,
-      duration: 0.45,
-      ease: "power1.out"
-    }, 68.76);
-    tl.to("#phrase-59",
-      { autoAlpha: 0, y: -10, filter: "blur(4px)", duration: 0.2, ease: "power1.in" },
-      69.26
-    );
-
-    // Phrase phrase-60 (69.41s - 70.53s)
-    tl.fromTo("#phrase-60",
-      { autoAlpha: 0, y: 15, filter: "blur(6px)" },
-      { autoAlpha: 1, y: 0, filter: "blur(0px)", duration: 0.25, ease: "power2.out" },
-      69.41
-    );
-    tl.to("#w-phrase-60-0", {
-      color: "#C59B27",
-      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
-      scale: 1.06,
-      duration: 0.47,
-      ease: "power1.out"
-    }, 69.41);
-    tl.to("#w-phrase-60-1", {
-      color: "#C59B27",
-      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
-      scale: 1.06,
-      duration: 0.18,
-      ease: "power1.out"
-    }, 69.88);
-    tl.to("#w-phrase-60-2", {
-      color: "#C59B27",
-      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
-      scale: 1.06,
-      duration: 0.47,
-      ease: "power1.out"
-    }, 70.06);
-    tl.to("#phrase-60",
-      { autoAlpha: 0, y: -10, filter: "blur(4px)", duration: 0.2, ease: "power1.in" },
-      70.58
-    );
-
-    // Phrase phrase-61 (70.53s - 71.94s)
-    tl.fromTo("#phrase-61",
-      { autoAlpha: 0, y: 15, filter: "blur(6px)" },
-      { autoAlpha: 1, y: 0, filter: "blur(0px)", duration: 0.25, ease: "power2.out" },
-      70.53
-    );
-    tl.to("#w-phrase-61-0", {
-      color: "#C59B27",
-      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
-      scale: 1.06,
-      duration: 0.59,
-      ease: "power1.out"
-    }, 70.53);
-    tl.to("#w-phrase-61-1", {
-      color: "#C59B27",
-      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
-      scale: 1.06,
-      duration: 0.29,
-      ease: "power1.out"
-    }, 71.12);
-    tl.to("#w-phrase-61-2", {
-      color: "#C59B27",
-      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
-      scale: 1.06,
-      duration: 0.18,
-      ease: "power1.out"
-    }, 71.41);
-    tl.to("#w-phrase-61-3", {
-      color: "#C59B27",
-      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
-      scale: 1.06,
-      duration: 0.35,
-      ease: "power1.out"
-    }, 71.59);
-    tl.to("#phrase-61",
-      { autoAlpha: 0, y: -10, filter: "blur(4px)", duration: 0.2, ease: "power1.in" },
-      71.99
-    );
-
-    // Phrase phrase-62 (71.94s - 73.35s)
-    tl.fromTo("#phrase-62",
-      { autoAlpha: 0, y: 15, filter: "blur(6px)" },
-      { autoAlpha: 1, y: 0, filter: "blur(0px)", duration: 0.25, ease: "power2.out" },
-      71.94
-    );
-    tl.to("#w-phrase-62-0", {
-      color: "#C59B27",
-      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
-      scale: 1.06,
-      duration: 0.23,
-      ease: "power1.out"
-    }, 71.94);
-    tl.to("#w-phrase-62-1", {
-      color: "#C59B27",
-      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
-      scale: 1.06,
-      duration: 0.65,
-      ease: "power1.out"
-    }, 72.17);
-    tl.to("#w-phrase-62-2", {
-      color: "#C59B27",
-      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
-      scale: 1.06,
-      duration: 0.24,
-      ease: "power1.out"
-    }, 72.82);
-    tl.to("#w-phrase-62-3", {
-      color: "#C59B27",
-      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
-      scale: 1.06,
-      duration: 0.29,
-      ease: "power1.out"
-    }, 73.06);
-    tl.to("#phrase-62",
-      { autoAlpha: 0, y: -10, filter: "blur(4px)", duration: 0.2, ease: "power1.in" },
-      73.40
-    );
-
-    // Phrase phrase-63 (73.35s - 74.41s)
-    tl.fromTo("#phrase-63",
-      { autoAlpha: 0, y: 15, filter: "blur(6px)" },
-      { autoAlpha: 1, y: 0, filter: "blur(0px)", duration: 0.25, ease: "power2.out" },
-      73.35
-    );
-    tl.to("#w-phrase-63-0", {
-      color: "#C59B27",
-      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
-      scale: 1.06,
-      duration: 0.24,
-      ease: "power1.out"
-    }, 73.35);
-    tl.to("#w-phrase-63-1", {
-      color: "#C59B27",
-      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
-      scale: 1.06,
-      duration: 0.35,
-      ease: "power1.out"
-    }, 73.59);
-    tl.to("#w-phrase-63-2", {
-      color: "#C59B27",
-      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
-      scale: 1.06,
-      duration: 0.47,
-      ease: "power1.out"
-    }, 73.94);
-    tl.to("#phrase-63",
-      { autoAlpha: 0, y: -10, filter: "blur(4px)", duration: 0.2, ease: "power1.in" },
-      74.46
-    );
-
-    // Phrase phrase-64 (74.41s - 75.53s)
-    tl.fromTo("#phrase-64",
-      { autoAlpha: 0, y: 15, filter: "blur(6px)" },
-      { autoAlpha: 1, y: 0, filter: "blur(0px)", duration: 0.25, ease: "power2.out" },
-      74.41
-    );
-    tl.to("#w-phrase-64-0", {
-      color: "#C59B27",
-      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
-      scale: 1.06,
-      duration: 0.35,
-      ease: "power1.out"
-    }, 74.41);
-    tl.to("#w-phrase-64-1", {
-      color: "#C59B27",
-      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
-      scale: 1.06,
-      duration: 0.24,
-      ease: "power1.out"
-    }, 74.76);
-    tl.to("#w-phrase-64-2", {
-      color: "#C59B27",
-      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
-      scale: 1.06,
-      duration: 0.29,
-      ease: "power1.out"
-    }, 75.00);
-    tl.to("#w-phrase-64-3", {
-      color: "#C59B27",
-      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
-      scale: 1.06,
-      duration: 0.24,
-      ease: "power1.out"
-    }, 75.29);
-    tl.to("#phrase-64",
-      { autoAlpha: 0, y: -10, filter: "blur(4px)", duration: 0.2, ease: "power1.in" },
-      75.58
-    );
-
-    // Phrase phrase-65 (75.53s - 77.88s)
-    tl.fromTo("#phrase-65",
-      { autoAlpha: 0, y: 15, filter: "blur(6px)" },
-      { autoAlpha: 1, y: 0, filter: "blur(0px)", duration: 0.25, ease: "power2.out" },
-      75.53
-    );
-    tl.to("#w-phrase-65-0", {
-      color: "#C59B27",
-      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
-      scale: 1.06,
-      duration: 0.58,
-      ease: "power1.out"
-    }, 75.53);
-    tl.to("#w-phrase-65-1", {
-      color: "#C59B27",
-      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
-      scale: 1.06,
-      duration: 0.36,
-      ease: "power1.out"
-    }, 76.11);
-    tl.to("#w-phrase-65-2", {
-      color: "#C59B27",
-      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
-      scale: 1.06,
-      duration: 0.59,
-      ease: "power1.out"
-    }, 76.47);
-    tl.to("#w-phrase-65-3", {
-      color: "#C59B27",
-      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
-      scale: 1.06,
-      duration: 0.82,
-      ease: "power1.out"
-    }, 77.06);
-    tl.to("#phrase-65",
-      { autoAlpha: 0, y: -10, filter: "blur(4px)", duration: 0.2, ease: "power1.in" },
-      77.93
-    );
-
-    // Phrase phrase-66 (78.08s - 79.16s)
-    tl.fromTo("#phrase-66",
-      { autoAlpha: 0, y: 15, filter: "blur(6px)" },
-      { autoAlpha: 1, y: 0, filter: "blur(0px)", duration: 0.25, ease: "power2.out" },
-      78.08
-    );
-    tl.to("#w-phrase-66-0", {
-      color: "#C59B27",
-      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
-      scale: 1.06,
-      duration: 0.32,
-      ease: "power1.out"
-    }, 78.08);
-    tl.to("#w-phrase-66-1", {
-      color: "#C59B27",
-      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
-      scale: 1.06,
-      duration: 0.12,
-      ease: "power1.out"
-    }, 78.40);
-    tl.to("#w-phrase-66-2", {
-      color: "#C59B27",
-      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
-      scale: 1.06,
-      duration: 0.27,
-      ease: "power1.out"
-    }, 78.51);
-    tl.to("#w-phrase-66-3", {
-      color: "#C59B27",
-      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
-      scale: 1.06,
-      duration: 0.38,
-      ease: "power1.out"
-    }, 78.78);
-    tl.to("#phrase-66",
-      { autoAlpha: 0, y: -10, filter: "blur(4px)", duration: 0.2, ease: "power1.in" },
-      79.21
-    );
-
-    // Phrase phrase-67 (79.16s - 80.55s)
-    tl.fromTo("#phrase-67",
-      { autoAlpha: 0, y: 15, filter: "blur(6px)" },
-      { autoAlpha: 1, y: 0, filter: "blur(0px)", duration: 0.25, ease: "power2.out" },
-      79.16
-    );
-    tl.to("#w-phrase-67-0", {
-      color: "#C59B27",
-      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
-      scale: 1.06,
-      duration: 0.21,
-      ease: "power1.out"
-    }, 79.16);
-    tl.to("#w-phrase-67-1", {
-      color: "#C59B27",
-      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
-      scale: 1.06,
-      duration: 0.38,
-      ease: "power1.out"
-    }, 79.37);
-    tl.to("#w-phrase-67-2", {
-      color: "#C59B27",
-      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
-      scale: 1.06,
-      duration: 0.64,
-      ease: "power1.out"
-    }, 79.75);
-    tl.to("#w-phrase-67-3", {
-      color: "#C59B27",
-      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
-      scale: 1.06,
-      duration: 0.16,
-      ease: "power1.out"
-    }, 80.39);
-    tl.to("#phrase-67",
-      { autoAlpha: 0, y: -10, filter: "blur(4px)", duration: 0.2, ease: "power1.in" },
-      80.60
-    );
-
-    // Phrase phrase-68 (80.55s - 81.9s)
-    tl.fromTo("#phrase-68",
-      { autoAlpha: 0, y: 15, filter: "blur(6px)" },
-      { autoAlpha: 1, y: 0, filter: "blur(0px)", duration: 0.25, ease: "power2.out" },
-      80.55
-    );
-    tl.to("#w-phrase-68-0", {
-      color: "#C59B27",
-      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
-      scale: 1.06,
-      duration: 0.38,
-      ease: "power1.out"
-    }, 80.55);
-    tl.to("#w-phrase-68-1", {
-      color: "#C59B27",
-      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
-      scale: 1.06,
-      duration: 0.27,
-      ease: "power1.out"
-    }, 80.93);
-    tl.to("#w-phrase-68-2", {
-      color: "#C59B27",
-      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
-      scale: 1.06,
-      duration: 0.27,
-      ease: "power1.out"
-    }, 81.20);
-    tl.to("#w-phrase-68-3", {
-      color: "#C59B27",
-      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
-      scale: 1.06,
-      duration: 0.43,
-      ease: "power1.out"
-    }, 81.47);
-    tl.to("#phrase-68",
-      { autoAlpha: 0, y: -10, filter: "blur(4px)", duration: 0.2, ease: "power1.in" },
-      81.95
-    );
-
-    // Phrase phrase-69 (81.9s - 83.14s)
-    tl.fromTo("#phrase-69",
-      { autoAlpha: 0, y: 15, filter: "blur(6px)" },
-      { autoAlpha: 1, y: 0, filter: "blur(0px)", duration: 0.25, ease: "power2.out" },
-      81.9
-    );
-    tl.to("#w-phrase-69-0", {
-      color: "#C59B27",
-      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
-      scale: 1.06,
-      duration: 0.59,
-      ease: "power1.out"
-    }, 81.90);
-    tl.to("#w-phrase-69-1", {
-      color: "#C59B27",
-      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
-      scale: 1.06,
-      duration: 0.65,
-      ease: "power1.out"
-    }, 82.49);
-    tl.to("#phrase-69",
-      { autoAlpha: 0, y: -10, filter: "blur(4px)", duration: 0.2, ease: "power1.in" },
-      83.19
-    );
-
-    // Phrase phrase-70 (83.14s - 84.59s)
-    tl.fromTo("#phrase-70",
-      { autoAlpha: 0, y: 15, filter: "blur(6px)" },
-      { autoAlpha: 1, y: 0, filter: "blur(0px)", duration: 0.25, ease: "power2.out" },
-      83.14
-    );
-    tl.to("#w-phrase-70-0", {
-      color: "#C59B27",
-      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
-      scale: 1.06,
-      duration: 0.43,
-      ease: "power1.out"
-    }, 83.14);
-    tl.to("#w-phrase-70-1", {
-      color: "#C59B27",
-      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
-      scale: 1.06,
-      duration: 0.37,
-      ease: "power1.out"
-    }, 83.57);
-    tl.to("#w-phrase-70-2", {
-      color: "#C59B27",
-      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
-      scale: 1.06,
-      duration: 0.22,
-      ease: "power1.out"
-    }, 83.94);
-    tl.to("#w-phrase-70-3", {
-      color: "#C59B27",
-      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
-      scale: 1.06,
-      duration: 0.43,
-      ease: "power1.out"
-    }, 84.16);
-    tl.to("#phrase-70",
-      { autoAlpha: 0, y: -10, filter: "blur(4px)", duration: 0.2, ease: "power1.in" },
-      84.64
-    );
-
-    // Phrase phrase-71 (84.59s - 86.53s)
-    tl.fromTo("#phrase-71",
-      { autoAlpha: 0, y: 15, filter: "blur(6px)" },
-      { autoAlpha: 1, y: 0, filter: "blur(0px)", duration: 0.25, ease: "power2.out" },
-      84.59
-    );
-    tl.to("#w-phrase-71-0", {
-      color: "#C59B27",
-      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
-      scale: 1.06,
-      duration: 0.48,
-      ease: "power1.out"
-    }, 84.59);
-    tl.to("#w-phrase-71-1", {
-      color: "#C59B27",
-      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
-      scale: 1.06,
-      duration: 0.22,
-      ease: "power1.out"
-    }, 85.07);
-    tl.to("#w-phrase-71-2", {
-      color: "#C59B27",
-      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
-      scale: 1.06,
-      duration: 0.70,
-      ease: "power1.out"
-    }, 85.29);
-    tl.to("#w-phrase-71-3", {
+    tl.to("#w-phrase-53-0", {
       color: "#C59B27",
       textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
       scale: 1.06,
       duration: 0.54,
       ease: "power1.out"
-    }, 85.99);
-    tl.to("#phrase-71",
+    }, 77.59);
+    tl.to("#phrase-53",
       { autoAlpha: 0, y: -10, filter: "blur(4px)", duration: 0.2, ease: "power1.in" },
-      86.58
+      78.18
     );
 
-    // Phrase phrase-72 (86.73s - 88.22s)
-    tl.fromTo("#phrase-72",
+    // Phrase phrase-54 (78.13s - 79.83s)
+    tl.fromTo("#phrase-54",
       { autoAlpha: 0, y: 15, filter: "blur(6px)" },
       { autoAlpha: 1, y: 0, filter: "blur(0px)", duration: 0.25, ease: "power2.out" },
-      86.73
+      78.13
     );
-    tl.to("#w-phrase-72-0", {
+    tl.to("#w-phrase-54-0", {
       color: "#C59B27",
       textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
       scale: 1.06,
-      duration: 0.37,
+      duration: 0.55,
       ease: "power1.out"
-    }, 86.73);
-    tl.to("#w-phrase-72-1", {
+    }, 78.13);
+    tl.to("#w-phrase-54-1", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.47,
+      ease: "power1.out"
+    }, 78.68);
+    tl.to("#w-phrase-54-2", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.21,
+      ease: "power1.out"
+    }, 79.15);
+    tl.to("#w-phrase-54-3", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.47,
+      ease: "power1.out"
+    }, 79.36);
+    tl.to("#phrase-54",
+      { autoAlpha: 0, y: -10, filter: "blur(4px)", duration: 0.2, ease: "power1.in" },
+      79.88
+    );
+
+    // Phrase phrase-55 (79.83s - 81.53s)
+    tl.fromTo("#phrase-55",
+      { autoAlpha: 0, y: 15, filter: "blur(6px)" },
+      { autoAlpha: 1, y: 0, filter: "blur(0px)", duration: 0.25, ease: "power2.out" },
+      79.83
+    );
+    tl.to("#w-phrase-55-0", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.34,
+      ease: "power1.out"
+    }, 79.83);
+    tl.to("#w-phrase-55-1", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.54,
+      ease: "power1.out"
+    }, 80.17);
+    tl.to("#w-phrase-55-2", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.21,
+      ease: "power1.out"
+    }, 80.71);
+    tl.to("#w-phrase-55-3", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.61,
+      ease: "power1.out"
+    }, 80.92);
+    tl.to("#phrase-55",
+      { autoAlpha: 0, y: -10, filter: "blur(4px)", duration: 0.2, ease: "power1.in" },
+      81.58
+    );
+
+    // Phrase phrase-56 (81.53s - 82.82s)
+    tl.fromTo("#phrase-56",
+      { autoAlpha: 0, y: 15, filter: "blur(6px)" },
+      { autoAlpha: 1, y: 0, filter: "blur(0px)", duration: 0.25, ease: "power2.out" },
+      81.53
+    );
+    tl.to("#w-phrase-56-0", {
       color: "#C59B27",
       textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
       scale: 1.06,
       duration: 0.27,
       ease: "power1.out"
-    }, 87.10);
-    tl.to("#w-phrase-72-2", {
+    }, 81.53);
+    tl.to("#w-phrase-56-1", {
       color: "#C59B27",
       textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
       scale: 1.06,
-      duration: 0.53,
+      duration: 0.27,
       ease: "power1.out"
-    }, 87.37);
-    tl.to("#w-phrase-72-3", {
+    }, 81.80);
+    tl.to("#w-phrase-56-2", {
       color: "#C59B27",
       textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
       scale: 1.06,
-      duration: 0.32,
+      duration: 0.48,
       ease: "power1.out"
-    }, 87.90);
-    tl.to("#phrase-72",
+    }, 82.07);
+    tl.to("#w-phrase-56-3", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.27,
+      ease: "power1.out"
+    }, 82.55);
+    tl.to("#phrase-56",
       { autoAlpha: 0, y: -10, filter: "blur(4px)", duration: 0.2, ease: "power1.in" },
-      88.27
+      82.87
     );
 
-    // Phrase phrase-73 (88.22s - 89.76s)
-    tl.fromTo("#phrase-73",
+    // Phrase phrase-57 (82.82s - 83.43s)
+    tl.fromTo("#phrase-57",
       { autoAlpha: 0, y: 15, filter: "blur(6px)" },
       { autoAlpha: 1, y: 0, filter: "blur(0px)", duration: 0.25, ease: "power2.out" },
-      88.22
+      82.82
     );
-    tl.to("#w-phrase-73-0", {
+    tl.to("#w-phrase-57-0", {
       color: "#C59B27",
       textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
       scale: 1.06,
-      duration: 0.26,
+      duration: 0.61,
       ease: "power1.out"
-    }, 88.22);
-    tl.to("#w-phrase-73-1", {
+    }, 82.82);
+    tl.to("#phrase-57",
+      { autoAlpha: 0, y: -10, filter: "blur(4px)", duration: 0.2, ease: "power1.in" },
+      83.48
+    );
+
+    // Phrase phrase-58 (83.43s - 85.6s)
+    tl.fromTo("#phrase-58",
+      { autoAlpha: 0, y: 15, filter: "blur(6px)" },
+      { autoAlpha: 1, y: 0, filter: "blur(0px)", duration: 0.25, ease: "power2.out" },
+      83.43
+    );
+    tl.to("#w-phrase-58-0", {
       color: "#C59B27",
       textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
       scale: 1.06,
-      duration: 0.43,
+      duration: 0.82,
       ease: "power1.out"
-    }, 88.48);
-    tl.to("#w-phrase-73-2", {
+    }, 83.43);
+    tl.to("#w-phrase-58-1", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.40,
+      ease: "power1.out"
+    }, 84.25);
+    tl.to("#w-phrase-58-2", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.48,
+      ease: "power1.out"
+    }, 84.65);
+    tl.to("#w-phrase-58-3", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.47,
+      ease: "power1.out"
+    }, 85.13);
+    tl.to("#phrase-58",
+      { autoAlpha: 0, y: -10, filter: "blur(4px)", duration: 0.2, ease: "power1.in" },
+      85.65
+    );
+
+    // Phrase phrase-59 (85.6s - 86.15s)
+    tl.fromTo("#phrase-59",
+      { autoAlpha: 0, y: 15, filter: "blur(6px)" },
+      { autoAlpha: 1, y: 0, filter: "blur(0px)", duration: 0.25, ease: "power2.out" },
+      85.6
+    );
+    tl.to("#w-phrase-59-0", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.55,
+      ease: "power1.out"
+    }, 85.60);
+    tl.to("#phrase-59",
+      { autoAlpha: 0, y: -10, filter: "blur(4px)", duration: 0.2, ease: "power1.in" },
+      86.20
+    );
+
+    // Phrase phrase-60 (86.35s - 87.74s)
+    tl.fromTo("#phrase-60",
+      { autoAlpha: 0, y: 15, filter: "blur(6px)" },
+      { autoAlpha: 1, y: 0, filter: "blur(0px)", duration: 0.25, ease: "power2.out" },
+      86.35
+    );
+    tl.to("#w-phrase-60-0", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.58,
+      ease: "power1.out"
+    }, 86.35);
+    tl.to("#w-phrase-60-1", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.22,
+      ease: "power1.out"
+    }, 86.93);
+    tl.to("#w-phrase-60-2", {
       color: "#C59B27",
       textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
       scale: 1.06,
       duration: 0.59,
       ease: "power1.out"
-    }, 88.91);
-    tl.to("#w-phrase-73-3", {
+    }, 87.15);
+    tl.to("#phrase-60",
+      { autoAlpha: 0, y: -10, filter: "blur(4px)", duration: 0.2, ease: "power1.in" },
+      87.79
+    );
+
+    // Phrase phrase-61 (87.74s - 89.49s)
+    tl.fromTo("#phrase-61",
+      { autoAlpha: 0, y: 15, filter: "blur(6px)" },
+      { autoAlpha: 1, y: 0, filter: "blur(0px)", duration: 0.25, ease: "power2.out" },
+      87.74
+    );
+    tl.to("#w-phrase-61-0", {
       color: "#C59B27",
       textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
       scale: 1.06,
-      duration: 0.26,
+      duration: 0.73,
       ease: "power1.out"
-    }, 89.50);
-    tl.to("#phrase-73",
-      { autoAlpha: 0, y: -10, filter: "blur(4px)", duration: 0.2, ease: "power1.in" },
-      89.81
-    );
-
-    // Phrase phrase-74 (89.76s - 90.56s)
-    tl.fromTo("#phrase-74",
-      { autoAlpha: 0, y: 15, filter: "blur(6px)" },
-      { autoAlpha: 1, y: 0, filter: "blur(0px)", duration: 0.25, ease: "power2.out" },
-      89.76
-    );
-    tl.to("#w-phrase-74-0", {
+    }, 87.74);
+    tl.to("#w-phrase-61-1", {
       color: "#C59B27",
       textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
       scale: 1.06,
       duration: 0.37,
       ease: "power1.out"
-    }, 89.76);
-    tl.to("#w-phrase-74-1", {
-      color: "#C59B27",
-      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
-      scale: 1.06,
-      duration: 0.43,
-      ease: "power1.out"
-    }, 90.13);
-    tl.to("#phrase-74",
-      { autoAlpha: 0, y: -10, filter: "blur(4px)", duration: 0.2, ease: "power1.in" },
-      90.61
-    );
-
-    // Phrase phrase-75 (90.56s - 91.99s)
-    tl.fromTo("#phrase-75",
-      { autoAlpha: 0, y: 15, filter: "blur(6px)" },
-      { autoAlpha: 1, y: 0, filter: "blur(0px)", duration: 0.25, ease: "power2.out" },
-      90.56
-    );
-    tl.to("#w-phrase-75-0", {
-      color: "#C59B27",
-      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
-      scale: 1.06,
-      duration: 0.53,
-      ease: "power1.out"
-    }, 90.56);
-    tl.to("#w-phrase-75-1", {
-      color: "#C59B27",
-      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
-      scale: 1.06,
-      duration: 0.27,
-      ease: "power1.out"
-    }, 91.09);
-    tl.to("#w-phrase-75-2", {
-      color: "#C59B27",
-      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
-      scale: 1.06,
-      duration: 0.42,
-      ease: "power1.out"
-    }, 91.36);
-    tl.to("#w-phrase-75-3", {
+    }, 88.47);
+    tl.to("#w-phrase-61-2", {
       color: "#C59B27",
       textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
       scale: 1.06,
       duration: 0.21,
       ease: "power1.out"
-    }, 91.78);
-    tl.to("#phrase-75",
+    }, 88.84);
+    tl.to("#w-phrase-61-3", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.44,
+      ease: "power1.out"
+    }, 89.05);
+    tl.to("#phrase-61",
       { autoAlpha: 0, y: -10, filter: "blur(4px)", duration: 0.2, ease: "power1.in" },
-      92.04
+      89.54
     );
 
-    // Phrase phrase-76 (91.99s - 93.27s)
-    tl.fromTo("#phrase-76",
+    // Phrase phrase-62 (89.49s - 91.25s)
+    tl.fromTo("#phrase-62",
       { autoAlpha: 0, y: 15, filter: "blur(6px)" },
       { autoAlpha: 1, y: 0, filter: "blur(0px)", duration: 0.25, ease: "power2.out" },
-      91.99
+      89.49
     );
-    tl.to("#w-phrase-76-0", {
-      color: "#C59B27",
-      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
-      scale: 1.06,
-      duration: 0.43,
-      ease: "power1.out"
-    }, 91.99);
-    tl.to("#w-phrase-76-1", {
-      color: "#C59B27",
-      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
-      scale: 1.06,
-      duration: 0.21,
-      ease: "power1.out"
-    }, 92.42);
-    tl.to("#w-phrase-76-2", {
-      color: "#C59B27",
-      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
-      scale: 1.06,
-      duration: 0.27,
-      ease: "power1.out"
-    }, 92.63);
-    tl.to("#w-phrase-76-3", {
-      color: "#C59B27",
-      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
-      scale: 1.06,
-      duration: 0.37,
-      ease: "power1.out"
-    }, 92.90);
-    tl.to("#phrase-76",
-      { autoAlpha: 0, y: -10, filter: "blur(4px)", duration: 0.2, ease: "power1.in" },
-      93.32
-    );
-
-    // Phrase phrase-77 (93.27s - 94.6s)
-    tl.fromTo("#phrase-77",
-      { autoAlpha: 0, y: 15, filter: "blur(6px)" },
-      { autoAlpha: 1, y: 0, filter: "blur(0px)", duration: 0.25, ease: "power2.out" },
-      93.27
-    );
-    tl.to("#w-phrase-77-0", {
-      color: "#C59B27",
-      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
-      scale: 1.06,
-      duration: 0.12,
-      ease: "power1.out"
-    }, 93.27);
-    tl.to("#w-phrase-77-1", {
-      color: "#C59B27",
-      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
-      scale: 1.06,
-      duration: 0.26,
-      ease: "power1.out"
-    }, 93.38);
-    tl.to("#w-phrase-77-2", {
-      color: "#C59B27",
-      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
-      scale: 1.06,
-      duration: 0.32,
-      ease: "power1.out"
-    }, 93.64);
-    tl.to("#w-phrase-77-3", {
-      color: "#C59B27",
-      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
-      scale: 1.06,
-      duration: 0.64,
-      ease: "power1.out"
-    }, 93.96);
-    tl.to("#phrase-77",
-      { autoAlpha: 0, y: -10, filter: "blur(4px)", duration: 0.2, ease: "power1.in" },
-      94.65
-    );
-
-    // Phrase phrase-78 (94.8s - 95.73s)
-    tl.fromTo("#phrase-78",
-      { autoAlpha: 0, y: 15, filter: "blur(6px)" },
-      { autoAlpha: 1, y: 0, filter: "blur(0px)", duration: 0.25, ease: "power2.out" },
-      94.8
-    );
-    tl.to("#w-phrase-78-0", {
-      color: "#C59B27",
-      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
-      scale: 1.06,
-      duration: 0.41,
-      ease: "power1.out"
-    }, 94.80);
-    tl.to("#w-phrase-78-1", {
-      color: "#C59B27",
-      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
-      scale: 1.06,
-      duration: 0.52,
-      ease: "power1.out"
-    }, 95.21);
-    tl.to("#phrase-78",
-      { autoAlpha: 0, y: -10, filter: "blur(4px)", duration: 0.2, ease: "power1.in" },
-      95.78
-    );
-
-    // Phrase phrase-79 (95.73s - 97.12s)
-    tl.fromTo("#phrase-79",
-      { autoAlpha: 0, y: 15, filter: "blur(6px)" },
-      { autoAlpha: 1, y: 0, filter: "blur(0px)", duration: 0.25, ease: "power2.out" },
-      95.73
-    );
-    tl.to("#w-phrase-79-0", {
-      color: "#C59B27",
-      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
-      scale: 1.06,
-      duration: 0.36,
-      ease: "power1.out"
-    }, 95.73);
-    tl.to("#w-phrase-79-1", {
-      color: "#C59B27",
-      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
-      scale: 1.06,
-      duration: 0.31,
-      ease: "power1.out"
-    }, 96.09);
-    tl.to("#w-phrase-79-2", {
-      color: "#C59B27",
-      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
-      scale: 1.06,
-      duration: 0.46,
-      ease: "power1.out"
-    }, 96.40);
-    tl.to("#w-phrase-79-3", {
-      color: "#C59B27",
-      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
-      scale: 1.06,
-      duration: 0.26,
-      ease: "power1.out"
-    }, 96.86);
-    tl.to("#phrase-79",
-      { autoAlpha: 0, y: -10, filter: "blur(4px)", duration: 0.2, ease: "power1.in" },
-      97.17
-    );
-
-    // Phrase phrase-80 (97.12s - 98.3s)
-    tl.fromTo("#phrase-80",
-      { autoAlpha: 0, y: 15, filter: "blur(6px)" },
-      { autoAlpha: 1, y: 0, filter: "blur(0px)", duration: 0.25, ease: "power2.out" },
-      97.12
-    );
-    tl.to("#w-phrase-80-0", {
+    tl.to("#w-phrase-62-0", {
       color: "#C59B27",
       textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
       scale: 1.06,
       duration: 0.30,
       ease: "power1.out"
-    }, 97.12);
-    tl.to("#w-phrase-80-1", {
+    }, 89.49);
+    tl.to("#w-phrase-62-1", {
       color: "#C59B27",
       textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
       scale: 1.06,
-      duration: 0.31,
+      duration: 0.80,
       ease: "power1.out"
-    }, 97.42);
-    tl.to("#w-phrase-80-2", {
+    }, 89.79);
+    tl.to("#w-phrase-62-2", {
       color: "#C59B27",
       textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
       scale: 1.06,
-      duration: 0.31,
+      duration: 0.29,
       ease: "power1.out"
-    }, 97.73);
-    tl.to("#w-phrase-80-3", {
+    }, 90.59);
+    tl.to("#w-phrase-62-3", {
       color: "#C59B27",
       textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
       scale: 1.06,
-      duration: 0.26,
+      duration: 0.37,
       ease: "power1.out"
-    }, 98.04);
-    tl.to("#phrase-80",
+    }, 90.88);
+    tl.to("#phrase-62",
       { autoAlpha: 0, y: -10, filter: "blur(4px)", duration: 0.2, ease: "power1.in" },
-      98.35
+      91.30
     );
 
-    // Phrase phrase-81 (98.3s - 99.07s)
-    tl.fromTo("#phrase-81",
+    // Phrase phrase-63 (91.25s - 92.56s)
+    tl.fromTo("#phrase-63",
       { autoAlpha: 0, y: 15, filter: "blur(6px)" },
       { autoAlpha: 1, y: 0, filter: "blur(0px)", duration: 0.25, ease: "power2.out" },
-      98.3
+      91.25
     );
-    tl.to("#w-phrase-81-0", {
+    tl.to("#w-phrase-63-0", {
       color: "#C59B27",
       textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
       scale: 1.06,
-      duration: 0.77,
+      duration: 0.29,
       ease: "power1.out"
-    }, 98.30);
-    tl.to("#phrase-81",
+    }, 91.25);
+    tl.to("#w-phrase-63-1", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.44,
+      ease: "power1.out"
+    }, 91.54);
+    tl.to("#w-phrase-63-2", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.58,
+      ease: "power1.out"
+    }, 91.98);
+    tl.to("#phrase-63",
       { autoAlpha: 0, y: -10, filter: "blur(4px)", duration: 0.2, ease: "power1.in" },
-      99.12
+      92.61
     );
 
-    // Phrase phrase-82 (99.07s - 100.61s)
-    tl.fromTo("#phrase-82",
+    // Phrase phrase-64 (92.56s - 93.95s)
+    tl.fromTo("#phrase-64",
       { autoAlpha: 0, y: 15, filter: "blur(6px)" },
       { autoAlpha: 1, y: 0, filter: "blur(0px)", duration: 0.25, ease: "power2.out" },
-      99.07
+      92.56
     );
-    tl.to("#w-phrase-82-0", {
+    tl.to("#w-phrase-64-0", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.44,
+      ease: "power1.out"
+    }, 92.56);
+    tl.to("#w-phrase-64-1", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.29,
+      ease: "power1.out"
+    }, 93.00);
+    tl.to("#w-phrase-64-2", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.37,
+      ease: "power1.out"
+    }, 93.29);
+    tl.to("#w-phrase-64-3", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.29,
+      ease: "power1.out"
+    }, 93.66);
+    tl.to("#phrase-64",
+      { autoAlpha: 0, y: -10, filter: "blur(4px)", duration: 0.2, ease: "power1.in" },
+      94.00
+    );
+
+    // Phrase phrase-65 (93.95s - 96.88s)
+    tl.fromTo("#phrase-65",
+      { autoAlpha: 0, y: 15, filter: "blur(6px)" },
+      { autoAlpha: 1, y: 0, filter: "blur(0px)", duration: 0.25, ease: "power2.out" },
+      93.95
+    );
+    tl.to("#w-phrase-65-0", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.73,
+      ease: "power1.out"
+    }, 93.95);
+    tl.to("#w-phrase-65-1", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.44,
+      ease: "power1.out"
+    }, 94.68);
+    tl.to("#w-phrase-65-2", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.73,
+      ease: "power1.out"
+    }, 95.12);
+    tl.to("#w-phrase-65-3", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 1.03,
+      ease: "power1.out"
+    }, 95.85);
+    tl.to("#phrase-65",
+      { autoAlpha: 0, y: -10, filter: "blur(4px)", duration: 0.2, ease: "power1.in" },
+      96.93
+    );
+
+    // Phrase phrase-66 (97.08s - 98.4s)
+    tl.fromTo("#phrase-66",
+      { autoAlpha: 0, y: 15, filter: "blur(6px)" },
+      { autoAlpha: 1, y: 0, filter: "blur(0px)", duration: 0.25, ease: "power2.out" },
+      97.08
+    );
+    tl.to("#w-phrase-66-0", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.39,
+      ease: "power1.out"
+    }, 97.08);
+    tl.to("#w-phrase-66-1", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.14,
+      ease: "power1.out"
+    }, 97.47);
+    tl.to("#w-phrase-66-2", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.33,
+      ease: "power1.out"
+    }, 97.61);
+    tl.to("#w-phrase-66-3", {
       color: "#C59B27",
       textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
       scale: 1.06,
       duration: 0.46,
       ease: "power1.out"
-    }, 99.07);
-    tl.to("#w-phrase-82-1", {
-      color: "#C59B27",
-      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
-      scale: 1.06,
-      duration: 0.31,
-      ease: "power1.out"
-    }, 99.53);
-    tl.to("#w-phrase-82-2", {
-      color: "#C59B27",
-      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
-      scale: 1.06,
-      duration: 0.21,
-      ease: "power1.out"
-    }, 99.84);
-    tl.to("#w-phrase-82-3", {
-      color: "#C59B27",
-      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
-      scale: 1.06,
-      duration: 0.56,
-      ease: "power1.out"
-    }, 100.05);
-    tl.to("#phrase-82",
+    }, 97.94);
+    tl.to("#phrase-66",
       { autoAlpha: 0, y: -10, filter: "blur(4px)", duration: 0.2, ease: "power1.in" },
-      100.66
+      98.45
     );
 
-    // Phrase phrase-83 (100.61s - 101.69s)
-    tl.fromTo("#phrase-83",
+    // Phrase phrase-67 (98.4s - 100.11s)
+    tl.fromTo("#phrase-67",
       { autoAlpha: 0, y: 15, filter: "blur(6px)" },
       { autoAlpha: 1, y: 0, filter: "blur(0px)", duration: 0.25, ease: "power2.out" },
-      100.61
+      98.4
     );
-    tl.to("#w-phrase-83-0", {
-      color: "#C59B27",
-      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
-      scale: 1.06,
-      duration: 0.12,
-      ease: "power1.out"
-    }, 100.61);
-    tl.to("#w-phrase-83-1", {
-      color: "#C59B27",
-      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
-      scale: 1.06,
-      duration: 0.25,
-      ease: "power1.out"
-    }, 100.72);
-    tl.to("#w-phrase-83-2", {
-      color: "#C59B27",
-      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
-      scale: 1.06,
-      duration: 0.31,
-      ease: "power1.out"
-    }, 100.97);
-    tl.to("#w-phrase-83-3", {
-      color: "#C59B27",
-      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
-      scale: 1.06,
-      duration: 0.41,
-      ease: "power1.out"
-    }, 101.28);
-    tl.to("#phrase-83",
-      { autoAlpha: 0, y: -10, filter: "blur(4px)", duration: 0.2, ease: "power1.in" },
-      101.74
-    );
-
-    // Phrase phrase-84 (101.69s - 102.88s)
-    tl.fromTo("#phrase-84",
-      { autoAlpha: 0, y: 15, filter: "blur(6px)" },
-      { autoAlpha: 1, y: 0, filter: "blur(0px)", duration: 0.25, ease: "power2.out" },
-      101.69
-    );
-    tl.to("#w-phrase-84-0", {
+    tl.to("#w-phrase-67-0", {
       color: "#C59B27",
       textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
       scale: 1.06,
       duration: 0.26,
       ease: "power1.out"
-    }, 101.69);
+    }, 98.40);
+    tl.to("#w-phrase-67-1", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.46,
+      ease: "power1.out"
+    }, 98.66);
+    tl.to("#w-phrase-67-2", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.79,
+      ease: "power1.out"
+    }, 99.12);
+    tl.to("#w-phrase-67-3", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.20,
+      ease: "power1.out"
+    }, 99.91);
+    tl.to("#phrase-67",
+      { autoAlpha: 0, y: -10, filter: "blur(4px)", duration: 0.2, ease: "power1.in" },
+      100.16
+    );
+
+    // Phrase phrase-68 (100.11s - 101.75s)
+    tl.fromTo("#phrase-68",
+      { autoAlpha: 0, y: 15, filter: "blur(6px)" },
+      { autoAlpha: 1, y: 0, filter: "blur(0px)", duration: 0.25, ease: "power2.out" },
+      100.11
+    );
+    tl.to("#w-phrase-68-0", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.46,
+      ease: "power1.out"
+    }, 100.11);
+    tl.to("#w-phrase-68-1", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.33,
+      ease: "power1.out"
+    }, 100.57);
+    tl.to("#w-phrase-68-2", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.33,
+      ease: "power1.out"
+    }, 100.90);
+    tl.to("#w-phrase-68-3", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.52,
+      ease: "power1.out"
+    }, 101.23);
+    tl.to("#phrase-68",
+      { autoAlpha: 0, y: -10, filter: "blur(4px)", duration: 0.2, ease: "power1.in" },
+      101.80
+    );
+
+    // Phrase phrase-69 (101.75s - 103.27s)
+    tl.fromTo("#phrase-69",
+      { autoAlpha: 0, y: 15, filter: "blur(6px)" },
+      { autoAlpha: 1, y: 0, filter: "blur(0px)", duration: 0.25, ease: "power2.out" },
+      101.75
+    );
+    tl.to("#w-phrase-69-0", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.73,
+      ease: "power1.out"
+    }, 101.75);
+    tl.to("#w-phrase-69-1", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.79,
+      ease: "power1.out"
+    }, 102.48);
+    tl.to("#phrase-69",
+      { autoAlpha: 0, y: -10, filter: "blur(4px)", duration: 0.2, ease: "power1.in" },
+      103.32
+    );
+
+    // Phrase phrase-70 (103.27s - 105.04s)
+    tl.fromTo("#phrase-70",
+      { autoAlpha: 0, y: 15, filter: "blur(6px)" },
+      { autoAlpha: 1, y: 0, filter: "blur(0px)", duration: 0.25, ease: "power2.out" },
+      103.27
+    );
+    tl.to("#w-phrase-70-0", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.52,
+      ease: "power1.out"
+    }, 103.27);
+    tl.to("#w-phrase-70-1", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.46,
+      ease: "power1.out"
+    }, 103.79);
+    tl.to("#w-phrase-70-2", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.27,
+      ease: "power1.out"
+    }, 104.25);
+    tl.to("#w-phrase-70-3", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.52,
+      ease: "power1.out"
+    }, 104.52);
+    tl.to("#phrase-70",
+      { autoAlpha: 0, y: -10, filter: "blur(4px)", duration: 0.2, ease: "power1.in" },
+      105.09
+    );
+
+    // Phrase phrase-71 (105.04s - 107.41s)
+    tl.fromTo("#phrase-71",
+      { autoAlpha: 0, y: 15, filter: "blur(6px)" },
+      { autoAlpha: 1, y: 0, filter: "blur(0px)", duration: 0.25, ease: "power2.out" },
+      105.04
+    );
+    tl.to("#w-phrase-71-0", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.59,
+      ease: "power1.out"
+    }, 105.04);
+    tl.to("#w-phrase-71-1", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.27,
+      ease: "power1.out"
+    }, 105.63);
+    tl.to("#w-phrase-71-2", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.85,
+      ease: "power1.out"
+    }, 105.90);
+    tl.to("#w-phrase-71-3", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.66,
+      ease: "power1.out"
+    }, 106.75);
+    tl.to("#phrase-71",
+      { autoAlpha: 0, y: -10, filter: "blur(4px)", duration: 0.2, ease: "power1.in" },
+      107.46
+    );
+
+    // Phrase phrase-72 (107.61s - 109.39s)
+    tl.fromTo("#phrase-72",
+      { autoAlpha: 0, y: 15, filter: "blur(6px)" },
+      { autoAlpha: 1, y: 0, filter: "blur(0px)", duration: 0.25, ease: "power2.out" },
+      107.61
+    );
+    tl.to("#w-phrase-72-0", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.44,
+      ease: "power1.out"
+    }, 107.61);
+    tl.to("#w-phrase-72-1", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.32,
+      ease: "power1.out"
+    }, 108.05);
+    tl.to("#w-phrase-72-2", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.64,
+      ease: "power1.out"
+    }, 108.37);
+    tl.to("#w-phrase-72-3", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.38,
+      ease: "power1.out"
+    }, 109.01);
+    tl.to("#phrase-72",
+      { autoAlpha: 0, y: -10, filter: "blur(4px)", duration: 0.2, ease: "power1.in" },
+      109.44
+    );
+
+    // Phrase phrase-73 (109.39s - 111.23s)
+    tl.fromTo("#phrase-73",
+      { autoAlpha: 0, y: 15, filter: "blur(6px)" },
+      { autoAlpha: 1, y: 0, filter: "blur(0px)", duration: 0.25, ease: "power2.out" },
+      109.39
+    );
+    tl.to("#w-phrase-73-0", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.32,
+      ease: "power1.out"
+    }, 109.39);
+    tl.to("#w-phrase-73-1", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.50,
+      ease: "power1.out"
+    }, 109.71);
+    tl.to("#w-phrase-73-2", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.70,
+      ease: "power1.out"
+    }, 110.21);
+    tl.to("#w-phrase-73-3", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.32,
+      ease: "power1.out"
+    }, 110.91);
+    tl.to("#phrase-73",
+      { autoAlpha: 0, y: -10, filter: "blur(4px)", duration: 0.2, ease: "power1.in" },
+      111.28
+    );
+
+    // Phrase phrase-74 (111.23s - 112.18s)
+    tl.fromTo("#phrase-74",
+      { autoAlpha: 0, y: 15, filter: "blur(6px)" },
+      { autoAlpha: 1, y: 0, filter: "blur(0px)", duration: 0.25, ease: "power2.out" },
+      111.23
+    );
+    tl.to("#w-phrase-74-0", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.44,
+      ease: "power1.out"
+    }, 111.23);
+    tl.to("#w-phrase-74-1", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.51,
+      ease: "power1.out"
+    }, 111.67);
+    tl.to("#phrase-74",
+      { autoAlpha: 0, y: -10, filter: "blur(4px)", duration: 0.2, ease: "power1.in" },
+      112.23
+    );
+
+    // Phrase phrase-75 (112.18s - 113.9s)
+    tl.fromTo("#phrase-75",
+      { autoAlpha: 0, y: 15, filter: "blur(6px)" },
+      { autoAlpha: 1, y: 0, filter: "blur(0px)", duration: 0.25, ease: "power2.out" },
+      112.18
+    );
+    tl.to("#w-phrase-75-0", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.64,
+      ease: "power1.out"
+    }, 112.18);
+    tl.to("#w-phrase-75-1", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.32,
+      ease: "power1.out"
+    }, 112.82);
+    tl.to("#w-phrase-75-2", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.50,
+      ease: "power1.out"
+    }, 113.14);
+    tl.to("#w-phrase-75-3", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.26,
+      ease: "power1.out"
+    }, 113.64);
+    tl.to("#phrase-75",
+      { autoAlpha: 0, y: -10, filter: "blur(4px)", duration: 0.2, ease: "power1.in" },
+      113.95
+    );
+
+    // Phrase phrase-76 (113.9s - 115.42s)
+    tl.fromTo("#phrase-76",
+      { autoAlpha: 0, y: 15, filter: "blur(6px)" },
+      { autoAlpha: 1, y: 0, filter: "blur(0px)", duration: 0.25, ease: "power2.out" },
+      113.9
+    );
+    tl.to("#w-phrase-76-0", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.51,
+      ease: "power1.out"
+    }, 113.90);
+    tl.to("#w-phrase-76-1", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.25,
+      ease: "power1.out"
+    }, 114.41);
+    tl.to("#w-phrase-76-2", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.32,
+      ease: "power1.out"
+    }, 114.66);
+    tl.to("#w-phrase-76-3", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.44,
+      ease: "power1.out"
+    }, 114.98);
+    tl.to("#phrase-76",
+      { autoAlpha: 0, y: -10, filter: "blur(4px)", duration: 0.2, ease: "power1.in" },
+      115.47
+    );
+
+    // Phrase phrase-77 (115.42s - 117.01s)
+    tl.fromTo("#phrase-77",
+      { autoAlpha: 0, y: 15, filter: "blur(6px)" },
+      { autoAlpha: 1, y: 0, filter: "blur(0px)", duration: 0.25, ease: "power2.out" },
+      115.42
+    );
+    tl.to("#w-phrase-77-0", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.13,
+      ease: "power1.out"
+    }, 115.42);
+    tl.to("#w-phrase-77-1", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.32,
+      ease: "power1.out"
+    }, 115.55);
+    tl.to("#w-phrase-77-2", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.38,
+      ease: "power1.out"
+    }, 115.87);
+    tl.to("#w-phrase-77-3", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.76,
+      ease: "power1.out"
+    }, 116.25);
+    tl.to("#phrase-77",
+      { autoAlpha: 0, y: -10, filter: "blur(4px)", duration: 0.2, ease: "power1.in" },
+      117.06
+    );
+
+    // Phrase phrase-78 (117.21s - 118.38s)
+    tl.fromTo("#phrase-78",
+      { autoAlpha: 0, y: 15, filter: "blur(6px)" },
+      { autoAlpha: 1, y: 0, filter: "blur(0px)", duration: 0.25, ease: "power2.out" },
+      117.21
+    );
+    tl.to("#w-phrase-78-0", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.52,
+      ease: "power1.out"
+    }, 117.21);
+    tl.to("#w-phrase-78-1", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.65,
+      ease: "power1.out"
+    }, 117.73);
+    tl.to("#phrase-78",
+      { autoAlpha: 0, y: -10, filter: "blur(4px)", duration: 0.2, ease: "power1.in" },
+      118.43
+    );
+
+    // Phrase phrase-79 (118.38s - 120.14s)
+    tl.fromTo("#phrase-79",
+      { autoAlpha: 0, y: 15, filter: "blur(6px)" },
+      { autoAlpha: 1, y: 0, filter: "blur(0px)", duration: 0.25, ease: "power2.out" },
+      118.38
+    );
+    tl.to("#w-phrase-79-0", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.46,
+      ease: "power1.out"
+    }, 118.38);
+    tl.to("#w-phrase-79-1", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.39,
+      ease: "power1.out"
+    }, 118.84);
+    tl.to("#w-phrase-79-2", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.58,
+      ease: "power1.out"
+    }, 119.23);
+    tl.to("#w-phrase-79-3", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.33,
+      ease: "power1.out"
+    }, 119.81);
+    tl.to("#phrase-79",
+      { autoAlpha: 0, y: -10, filter: "blur(4px)", duration: 0.2, ease: "power1.in" },
+      120.19
+    );
+
+    // Phrase phrase-80 (120.14s - 121.64s)
+    tl.fromTo("#phrase-80",
+      { autoAlpha: 0, y: 15, filter: "blur(6px)" },
+      { autoAlpha: 1, y: 0, filter: "blur(0px)", duration: 0.25, ease: "power2.out" },
+      120.14
+    );
+    tl.to("#w-phrase-80-0", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.39,
+      ease: "power1.out"
+    }, 120.14);
+    tl.to("#w-phrase-80-1", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.39,
+      ease: "power1.out"
+    }, 120.53);
+    tl.to("#w-phrase-80-2", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.39,
+      ease: "power1.out"
+    }, 120.92);
+    tl.to("#w-phrase-80-3", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.33,
+      ease: "power1.out"
+    }, 121.31);
+    tl.to("#phrase-80",
+      { autoAlpha: 0, y: -10, filter: "blur(4px)", duration: 0.2, ease: "power1.in" },
+      121.69
+    );
+
+    // Phrase phrase-81 (121.64s - 122.61s)
+    tl.fromTo("#phrase-81",
+      { autoAlpha: 0, y: 15, filter: "blur(6px)" },
+      { autoAlpha: 1, y: 0, filter: "blur(0px)", duration: 0.25, ease: "power2.out" },
+      121.64
+    );
+    tl.to("#w-phrase-81-0", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.97,
+      ease: "power1.out"
+    }, 121.64);
+    tl.to("#phrase-81",
+      { autoAlpha: 0, y: -10, filter: "blur(4px)", duration: 0.2, ease: "power1.in" },
+      122.66
+    );
+
+    // Phrase phrase-82 (122.61s - 124.57s)
+    tl.fromTo("#phrase-82",
+      { autoAlpha: 0, y: 15, filter: "blur(6px)" },
+      { autoAlpha: 1, y: 0, filter: "blur(0px)", duration: 0.25, ease: "power2.out" },
+      122.61
+    );
+    tl.to("#w-phrase-82-0", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.59,
+      ease: "power1.out"
+    }, 122.61);
+    tl.to("#w-phrase-82-1", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.39,
+      ease: "power1.out"
+    }, 123.20);
+    tl.to("#w-phrase-82-2", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.26,
+      ease: "power1.out"
+    }, 123.59);
+    tl.to("#w-phrase-82-3", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.72,
+      ease: "power1.out"
+    }, 123.85);
+    tl.to("#phrase-82",
+      { autoAlpha: 0, y: -10, filter: "blur(4px)", duration: 0.2, ease: "power1.in" },
+      124.62
+    );
+
+    // Phrase phrase-83 (124.57s - 125.94s)
+    tl.fromTo("#phrase-83",
+      { autoAlpha: 0, y: 15, filter: "blur(6px)" },
+      { autoAlpha: 1, y: 0, filter: "blur(0px)", duration: 0.25, ease: "power2.out" },
+      124.57
+    );
+    tl.to("#w-phrase-83-0", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.13,
+      ease: "power1.out"
+    }, 124.57);
+    tl.to("#w-phrase-83-1", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.32,
+      ease: "power1.out"
+    }, 124.70);
+    tl.to("#w-phrase-83-2", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.39,
+      ease: "power1.out"
+    }, 125.02);
+    tl.to("#w-phrase-83-3", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.53,
+      ease: "power1.out"
+    }, 125.41);
+    tl.to("#phrase-83",
+      { autoAlpha: 0, y: -10, filter: "blur(4px)", duration: 0.2, ease: "power1.in" },
+      125.99
+    );
+
+    // Phrase phrase-84 (125.94s - 127.43s)
+    tl.fromTo("#phrase-84",
+      { autoAlpha: 0, y: 15, filter: "blur(6px)" },
+      { autoAlpha: 1, y: 0, filter: "blur(0px)", duration: 0.25, ease: "power2.out" },
+      125.94
+    );
+    tl.to("#w-phrase-84-0", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.32,
+      ease: "power1.out"
+    }, 125.94);
     tl.to("#w-phrase-84-1", {
       color: "#C59B27",
       textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
       scale: 1.06,
-      duration: 0.21,
+      duration: 0.26,
       ease: "power1.out"
-    }, 101.95);
+    }, 126.26);
     tl.to("#w-phrase-84-2", {
       color: "#C59B27",
       textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
       scale: 1.06,
-      duration: 0.41,
+      duration: 0.52,
       ease: "power1.out"
-    }, 102.16);
+    }, 126.52);
     tl.to("#w-phrase-84-3", {
       color: "#C59B27",
       textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
       scale: 1.06,
-      duration: 0.31,
+      duration: 0.39,
       ease: "power1.out"
-    }, 102.57);
+    }, 127.04);
     tl.to("#phrase-84",
       { autoAlpha: 0, y: -10, filter: "blur(4px)", duration: 0.2, ease: "power1.in" },
-      102.93
+      127.48
     );
 
-    // Phrase phrase-85 (102.88s - 103.96s)
+    // Phrase phrase-85 (127.43s - 128.8s)
     tl.fromTo("#phrase-85",
       { autoAlpha: 0, y: 15, filter: "blur(6px)" },
       { autoAlpha: 1, y: 0, filter: "blur(0px)", duration: 0.25, ease: "power2.out" },
-      102.88
+      127.43
     );
     tl.to("#w-phrase-85-0", {
       color: "#C59B27",
       textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
       scale: 1.06,
-      duration: 0.12,
+      duration: 0.13,
       ease: "power1.out"
-    }, 102.88);
+    }, 127.43);
     tl.to("#w-phrase-85-1", {
       color: "#C59B27",
       textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
       scale: 1.06,
-      duration: 0.36,
+      duration: 0.46,
       ease: "power1.out"
-    }, 102.98);
+    }, 127.56);
     tl.to("#w-phrase-85-2", {
       color: "#C59B27",
       textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
       scale: 1.06,
-      duration: 0.62,
+      duration: 0.78,
       ease: "power1.out"
-    }, 103.34);
+    }, 128.02);
     tl.to("#phrase-85",
       { autoAlpha: 0, y: -10, filter: "blur(4px)", duration: 0.2, ease: "power1.in" },
-      104.01
+      128.85
     );
 
     tl.seek(0);

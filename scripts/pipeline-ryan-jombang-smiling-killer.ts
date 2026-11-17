@@ -98,65 +98,112 @@ const NEW_KEYFRAME_PROMPTS: Record<string, string> = {
   'jombang-excavation.jpg': "Graphic novel neo-noir cinematic vertical illustration 9:16 (1080x1920). Night excavation in a desolate rural backyard in Jombang East Java. Indonesian police detectives in dark jackets and forensic officers with shovels and spades digging near a banana grove and dried fish pond under harsh portable floodlights. Yellow police line tape 'GARIS POLISI' flapping in the night breeze, several excavated burial pits marked with numbered yellow evidence tents, deep ominous shadows, heavy graphic novel inking, chiaroscuro contrast, full bleed.",
   'bloody-hammer.jpg': "Graphic novel neo-noir cinematic vertical illustration 9:16 (1080x1920). Extreme close-up forensic laboratory view of physical murder weapon: a heavy steel claw hammer with weathered wooden handle. Dark dried biological bloodstains and microscopic white bone fragments visible on the steel head under a bright magnifying glass and forensic measuring ruler tape in centimeters. Labeled with yellow evidence tent 'B-04', clinical noir chiaroscuro, fine halftone dots, full bleed.",
   'prison-singer.jpg': "Graphic novel neo-noir cinematic vertical illustration 9:16 (1080x1920). Melancholic psychological prison interior. Inside a dim concrete cell behind heavy iron bars, an old studio recording microphone on a stand, handwritten song lyrics notebook, and an audio cassette tape labeled 'Persembahan Terakhir' resting on a small wooden stool. A single beam of cold moonlight piercing through high cell bars casting long vertical shadows, moody graphic novel inking, deep charcoal slate (#0D1117), full bleed.",
+  'victim-mother-child.jpg': "Graphic novel neo-noir cinematic vertical illustration 9:16 (1080x1920). Tragic forensic crime case file folder open on a brushed steel table. Black-and-white passport identification photographs of 30-year-old Indonesian woman Nanik Hidayati and her innocent 3-year-old daughter Silvia, stamped with red Indonesian police ink 'BERKAS IDENTIFIKASI KORBAN JOMBANG'. A pair of blue forensic latex gloves resting beside the file, harsh clinical desk lamp illumination, deep charcoal slate (#0D1117) with crimson blood accent, full bleed.",
+  'ryan-press-conference.jpg': "Graphic novel neo-noir cinematic vertical illustration 9:16 (1080x1920). Tense media press conference inside Polda Metro Jaya headquarters 2008. Handcuffed 30-year-old suspect Very Idham Henyansyah alias Ryan wearing an orange prison detainee vest, flanked by serious Indonesian police officers. A cluster of television microphones from news channels pointed at him. Ryan looks straight into the camera lenses with a shockingly calm, pleasant, eerie polite smile that chills the viewer. Blinding white camera flashlights cutting through dark shadowy background, heavy noir ink lines, full bleed.",
+  'margonda-door-309.jpg': "Graphic novel neo-noir cinematic vertical illustration 9:16 (1080x1920). Claustrophobic apartment corridor in Margonda Residence Depok late at night. Looking directly at apartment room door numbered '309', crisscrossed with bright yellow Indonesian police line tape 'DILARANG MELINTAS - GARIS POLISI'. A faint, sinister eerie warm light leaks through the bottom crack of the doorway onto the worn floor, heavy graphic novel vignette, deep psychological dread, full bleed.",
+  'jombang-burial-close-up.jpg': "Graphic novel neo-noir cinematic vertical illustration 9:16 (1080x1920). Extreme close-up low angle shot of an excavated burial pit in damp red earth in a Jombang rural backyard. A rusted steel shovel blade plunged into the dirt, surrounded by bright yellow forensic evidence marker cards numbered '07', '08', and '09'. Wet tropical banana tree roots exposed, dramatic high-contrast floodlight beam cutting through foggy night air, heavy noir crosshatching, full bleed.",
+  'ryan-autobiography.jpg': "Graphic novel neo-noir cinematic vertical illustration 9:16 (1080x1920). Melancholic psychological prison evidence view. On a scarred rustic wooden prison table, a handwritten lined notebook with dense handwritten pages titled 'The Untold Story: Persembahan Terakhir' written by serial killer Ryan. A vintage black fountain pen with ink leaking onto the manuscript paper, beside a cassette audio tape. A ray of cold moonlight through prison cell window bars, deep shadows, full bleed.",
+  'gavel-death-sentence.jpg': "Graphic novel neo-noir cinematic vertical illustration 9:16 (1080x1920). High-drama climax in Pengadilan Negeri Depok courtroom. Close-up of the chief judge's heavy dark mahogany wooden gavel striking down with immense force onto the circular wooden sound block. Flying dust motes caught in dramatic shafts of courtroom light, court verdict dossier papers below stamped with red official seal 'VONIS: HUKUMAN MATI' (DEATH PENALTY). Blurred brass scale of justice in dark background, intense graphic novel chiaroscuro, full bleed.",
+  'satellite-route-map.jpg': "Graphic novel neo-noir cinematic vertical illustration 9:16 (1080x1920). Dark forensic pinboard map of Java Island. Taut red threads pinned between Jakarta (Ragunan, Margonda Depok) and East Java (Jombang). Pinned Polaroid crime scene photos, casualty dates '2006 - 2008', yellow sticky notes, and handwritten police timeline connecting the dots of the serial killer's trail. Dramatic moody lighting, neo-noir investigative thriller aesthetic, full bleed.",
+  'atm-transaction-receipt.jpg': "Graphic novel neo-noir cinematic vertical illustration 9:16 (1080x1920). Macro forensic crime scene inspection. A blue-gloved police detective's hand holding a paper ATM withdrawal receipt slip under violet ultraviolet forensic light. Revealing transaction details and forged signature from Depok shopping mall using victim Heri Santoso's credit card. Evidence marker 'B-02' visible, fine clinical detailing, full bleed.",
 };
 
-// 44 Rapid-Fire Visual Beats Sequence (1.8s - 2.5s per cut)
-const RAPID_SCENE_SEQUENCE = [
-  // Scene 1: The Smiling Killer Paradox (0s - 10s)
-  'cover-shot-00.jpg',
-  'shot-10.jpg', // Sketsa Ryan tersenyum tenang
-  'jombang-excavation.jpg', // Pekarangan Jombang
-  'shot-10.jpg', // Wajah berkacamata
-  // Scene 2: 12 Juli 2008 Penemuan Koper Ragunan (10s - 19s)
-  'shot-01.jpg', // Kebagusan Ragunan berkabut
-  'shot-02.jpg', // Koper hitam tali merah
-  'shot-03.jpg', // Polisi membuka koper
-  'shot-04.jpg', // Lab forensik RS Polri
-  // Scene 3: Pelacakan Margonda & Kartu Kredit (19s - 28s)
-  'shot-05.jpg', // Berkas korban Heri Santoso
-  'shot-06.jpg', // Mobil korban terparkir
-  'shot-11.jpg', // Menara Margonda Residence
-  'shot-08.jpg', // Struk belanja kartu kredit
-  // Scene 4: Penangkapan & Senyum Bahagia (28s - 37s)
-  'shot-09.jpg', // CCTV mall tanda tangan palsu
-  'shot-18.jpg', // Penangkapan di Depok
-  'shot-10.jpg', // Senyum dingin tak berdosa
-  'shot-18.jpg', // Borgol taktis mengunci
-  // Scene 5: Pengakuan Dingin Interogasi (37s - 46s)
-  'shot-19.jpg', // Ruang interogasi Polda Metro Jaya
-  'shot-12.jpg', // Kamar 309 disemprot luminol
-  'shot-13.jpg', // Pendaran biru kamar mandi
-  'shot-19.jpg', // Tangan menunjuk peta Jombang
-  // Scene 6: Penggalian Jombang & Palu Tulang (46s - 55s)
-  'bloody-hammer.jpg', // Palu berlumuran darah & serpihan tulang
-  'jombang-excavation.jpg', // Penggalian pekarangan malam hari
-  'bloody-hammer.jpg', // Kaca pembesar bukti B-04
-  'jombang-excavation.jpg', // 4 makam pertama terbuka
-  // Scene 7: Penggalian 6 Mayat & Ibu-Balita (55s - 64s)
-  'jombang-excavation.jpg', // Garis polisi membentang di kebun
-  'shot-04.jpg', // Dokumen forensik identitas korban
-  'jombang-excavation.jpg', // Liang lahat di bawah pohon
-  'shot-14.jpg', // Pisau dan lakban barang bukti
-  // Scene 8: Pola Kelam & Motif Harta (64s - 72s)
-  'shot-15.jpg', // Rekonstruksi asmara & pertikaian
-  'shot-16.jpg', // Siluet eksekusi gelap noir
-  'shot-07.jpg', // Layar transaksi keuangan korban
-  'shot-17.jpg', // Taksi tengah malam mengangkut koper
-  // Scene 9: Album Musik di Bui Cibanong (72s - 81s)
-  'prison-singer.jpg', // Mikrofon rekaman di sel penjara
-  'prison-singer.jpg', // Kaset Persembahan Terakhir
-  'shot-10.jpg', // Sorot mata Ryan pembunuh bernyanyi
-  'prison-singer.jpg', // Jeruji besi dan bayangan dingin
-  // Scene 10: Palu Vonis Mati PN Depok (81s - 89s)
-  'shot-20.jpg', // Palu hakim di atas tatakan kayu
-  'shot-20.jpg', // Berkas resmi vonis mati
-  'shot-19.jpg', // Ruang sidang penuh wartawan
-  'shot-20.jpg', // Timbangan keadilan
-  // Scene 11: Moral Paradox Closing (89s - end)
-  'cover-shot-00.jpg', // Split face smiling killer
-  'jombang-excavation.jpg', // Pekarangan yang kini sunyi
-  'shot-10.jpg', // Senyuman dingin terakhir
-  'shot-20.jpg', // Penutupan keadilan
+// Narrative-Synchronized Beat Plans (Zero Repetition, Dynamic Rhythmic Weights)
+interface SentenceBeatPlan {
+  images: Array<{ file: string; weight: number }>;
+}
+
+const NARRATIVE_BEAT_PLANS: SentenceBeatPlan[] = [
+  // Sentence 1 (0s - ~13.2s): The Smiling Serial Killer Paradox
+  {
+    images: [
+      { file: 'shot-10.jpg', weight: 1.0 }, // Sketsa senyum tenang Ryan
+      { file: 'jombang-excavation.jpg', weight: 1.2 }, // Pekarangan kuburan massal malam hari
+      { file: 'jombang-burial-close-up.jpg', weight: 1.3 }, // Close-up sekop liang lahat tanah merah
+    ],
+  },
+  // Sentence 2 (13.2s - ~24.5s): 12 Juli 2008 Penemuan Potongan Tubuh Ragunan
+  {
+    images: [
+      { file: 'shot-01.jpg', weight: 1.0 }, // Jalan Ragunan berkabut
+      { file: 'shot-02.jpg', weight: 1.0 }, // Koper hitam tali merah
+      { file: 'shot-03.jpg', weight: 1.0 }, // Polisi membuka koper
+      { file: 'shot-04.jpg', weight: 1.2 }, // Meja autopsi lab RS Polri Kramat Jati
+    ],
+  },
+  // Sentence 3 (~24.7s - ~38.6s): Pelacakan Cepat Nota, Mobil, Margonda 309, Kartu Kredit (Staccato Rapid Fire)
+  {
+    images: [
+      { file: 'shot-05.jpg', weight: 1.0 }, // Berkas korban Heri Santoso
+      { file: 'shot-06.jpg', weight: 1.0 }, // Mobil APV korban terparkir
+      { file: 'margonda-door-309.jpg', weight: 1.2 }, // Pintu kamar 309 garis polisi
+      { file: 'atm-transaction-receipt.jpg', weight: 1.0 }, // Struk tarik tunai ATM UV
+      { file: 'shot-08.jpg', weight: 1.0 }, // Rekap slip belanja mall
+    ],
+  },
+  // Sentence 4 (~38.8s - ~50.8s): Penangkapan 15 Juli & Senyuman Bahagia
+  {
+    images: [
+      { file: 'shot-09.jpg', weight: 1.0 }, // CCTV mall tanda tangan palsu
+      { file: 'shot-18.jpg', weight: 1.2 }, // Penangkapan & borgol taktis di Depok
+      { file: 'ryan-press-conference.jpg', weight: 1.6 }, // Ryan tersenyum tenang di depan puluhan mikrofon TV
+    ],
+  },
+  // Sentence 5 (~51.0s - ~63.8s): Interogasi 19 Juli & Pengakuan Dingin
+  {
+    images: [
+      { file: 'shot-19.jpg', weight: 1.0 }, // Ruang interogasi Polda Metro Jaya
+      { file: 'shot-12.jpg', weight: 1.0 }, // Semprotan luminol kamar 309
+      { file: 'shot-13.jpg', weight: 1.2 }, // Pendaran biru kamar mandi
+      { file: 'satellite-route-map.jpg', weight: 1.5 }, // Peta benang merah Jakarta - Jombang
+    ],
+  },
+  // Sentence 6 (~64.0s - ~75.3s): Penggalian Jombang, Palu Tulang & 4 Mayat Pertama
+  {
+    images: [
+      { file: 'bloody-hammer.jpg', weight: 1.6 }, // Palu bercak darah & serpihan tulang
+      { file: 'shot-14.jpg', weight: 1.0 }, // Pisau daging barang bukti
+      { file: 'jombang-excavation.jpg', weight: 1.3 }, // Lampu tembak 4 makam terbuka
+    ],
+  },
+  // Sentence 7 (~75.5s - ~87.8s): Penggalian 6 Mayat Lagi & Ibu Nanik serta Balita 3 Tahun (Heavy Emotion)
+  {
+    images: [
+      { file: 'victim-mother-child.jpg', weight: 1.8 }, // Berkas identifikasi ibu & balita 3 tahun
+      { file: 'jombang-burial-close-up.jpg', weight: 1.3 }, // Bendera bukti 07, 08, 09 di liang kubur
+      { file: 'shot-07.jpg', weight: 1.1 }, // Ledger forensik total 11 korban
+    ],
+  },
+  // Sentence 8 (~88.0s - ~99.1s): Motif Harta & Pola Asmara 2006-2008
+  {
+    images: [
+      { file: 'shot-15.jpg', weight: 1.1 }, // Rekonstruksi pertikaian asmara
+      { file: 'shot-16.jpg', weight: 1.2 }, // Siluet eksekusi gelap noir
+      { file: 'shot-17.jpg', weight: 1.2 }, // Taksi tengah malam mengangkut koper
+    ],
+  },
+  // Sentence 9 (~99.3s - ~109.9s): Album Musik & Naskah Buku di Sel Bui
+  {
+    images: [
+      { file: 'prison-singer.jpg', weight: 1.3 }, // Mikrofon rekaman dan kaset Persembahan Terakhir
+      { file: 'ryan-autobiography.jpg', weight: 1.5 }, // Naskah buku tulis tangan & pulpen di sel bui
+    ],
+  },
+  // Sentence 10 (~110.1s - ~119.8s): Ketukan Palu Vonis Hukuman Mati PN Depok
+  {
+    images: [
+      { file: 'shot-20.jpg', weight: 1.1 }, // Ruang sidang PN Depok dan timbangan keadilan
+      { file: 'gavel-death-sentence.jpg', weight: 1.6 }, // Palu hakim menghantam 'VONIS HUKUMAN MATI'
+    ],
+  },
+  // Sentence 11 (~120.0s - ~129.0s): Refleksi Penutup (The Smiling Monster)
+  {
+    images: [
+      { file: 'cover-shot-00.jpg', weight: 1.3 }, // Split face smiling monster
+      { file: 'ryan-press-conference.jpg', weight: 1.2 }, // Senyuman di balik topeng
+      { file: 'shot-10.jpg', weight: 1.0 }, // Fade to black
+    ],
+  },
 ];
 
 // Strict voice synthesis using Gemini TTS pool with seamless edge-tts ArdiNeural fallback
@@ -184,36 +231,52 @@ async function synthesizeVoiceoverSentence(text: string, idx: number): Promise<{
     ];
 
     for (const model of models) {
-      try {
-        const res = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent?key=${key}`, {
-          method: 'POST',
-          headers: { 'content-type': 'application/json' },
-          body: JSON.stringify({
-            contents: [{ parts: [{ text }] }],
-            generationConfig: {
-              responseModalities: ['AUDIO'],
-              speechConfig: {
-                voiceConfig: {
-                  prebuiltVoiceConfig: { voiceName: 'Charon' },
+      for (let attempt = 1; attempt <= 3; attempt++) {
+        try {
+          const res = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent?key=${key}`, {
+            method: 'POST',
+            headers: { 'content-type': 'application/json' },
+            body: JSON.stringify({
+              contents: [{ parts: [{ text }] }],
+              generationConfig: {
+                responseModalities: ['AUDIO'],
+                speechConfig: {
+                  voiceConfig: {
+                    prebuiltVoiceConfig: { voiceName: 'Charon' },
+                  },
                 },
               },
-            },
-          }),
-        });
+            }),
+          });
 
-        if (res.status === 429 || !res.ok) {
-          break; // Daily quota exhausted, fallback immediately to high-def edge-tts
-        }
+          if (res.status === 429) {
+            const errText = await res.text().catch(() => '');
+            if (errText.includes('per day limit exceeded') || errText.includes('Quota exceeded for metric')) {
+              console.warn(`[VO ${idx}/11] Model ${model} daily limit. Beralih model...`);
+              break;
+            }
+            console.warn(`[VO ${idx}/11] Rate limit pada ${model}. Menunggu 10 detik (attempt ${attempt}/3)...`);
+            await new Promise((r) => setTimeout(r, 10000));
+            continue;
+          }
 
-        const data = (await res.json()) as any;
-        audioData = data.candidates?.[0]?.content?.parts?.[0]?.inlineData?.data;
-        if (audioData) {
-          console.log(`[VO ${idx}/11] Berhasil dengan Gemini TTS ${model} (Charon)`);
-          break;
+          if (!res.ok) {
+            console.warn(`[VO ${idx}/11] Model ${model} status ${res.status}. Beralih model...`);
+            break;
+          }
+
+          const data = (await res.json()) as any;
+          audioData = data.candidates?.[0]?.content?.parts?.[0]?.inlineData?.data;
+          if (audioData) {
+            console.log(`[VO ${idx}/11] ✅ Berhasil dengan Gemini TTS ${model} (Charon)`);
+            break;
+          }
+        } catch (e: any) {
+          console.warn(`[VO ${idx}/11] Network error pada ${model}: ${e.message}`);
+          await new Promise((r) => setTimeout(r, 3000));
         }
-      } catch (e: any) {
-        break;
       }
+      if (audioData) break;
     }
   }
 
@@ -386,56 +449,81 @@ async function main() {
   const totalDuration = Number((currentCursor + 0.4).toFixed(2));
   console.log(`\n✅ Voice Over Selesai: Total Durasi ${totalDuration}s (~${(totalDuration / 60).toFixed(1)} menit) di ${cleanVoPath}`);
 
-  // 4. Build 44 Rapid-Fire Visual Beats (Cutting every 1.8s - 2.5s)
-  console.log('\n4. Membangun 44 Rapid-Fire Visual Beats (1.8s - 2.5s per cut)...');
+  // 4. Build Narrative-Synchronized Visual Beats (Rhythmic Cadence, Zero Repetition)
+  console.log('\n4. Membangun Narrative-Synchronized Visual Beats (Rhythmic Cadence, Zero Repetition)...');
   const coverDuration = 1.30;
-  const remainingTime = totalDuration - coverDuration;
-  const numBeats = RAPID_SCENE_SEQUENCE.length;
-  const avgBeatDuration = remainingTime / numBeats;
-
   const shotTimings: Array<{ shot: number; startSec: number; endSec: number; durationSec: number; imageFile: string }> = [];
-  const transitionTimes: number[] = [1.3]; // Cut from Cover to Beat 1
+  const transitionTimes: number[] = [coverDuration]; // Cut from Cover to Beat 1
   const shotImages: Array<{ shot: number; imagePath: string }> = [];
 
-  let beatCursor = coverDuration;
-  for (let b = 0; b < numBeats; b++) {
-    const shotNum = b + 1;
-    const isLast = b === numBeats - 1;
-    const bStart = Number(beatCursor.toFixed(2));
-    const bEnd = isLast ? totalDuration : Number((beatCursor + avgBeatDuration).toFixed(2));
-    const bDur = Number((bEnd - bStart).toFixed(2));
+  let globalShotCounter = 1;
 
-    const sourceImageName = RAPID_SCENE_SEQUENCE[b];
-    const sourceImagePath = path.join(KEYFRAMES_DIR, sourceImageName);
+  for (let sIdx = 0; sIdx < sentenceTimings.length; sIdx++) {
+    const sTiming = sentenceTimings[sIdx];
+    const plan = NARRATIVE_BEAT_PLANS[sIdx];
+    if (!plan || plan.images.length === 0) continue;
 
-    const beatAssetName = `beat-${String(shotNum).padStart(2, '0')}.jpg`;
-    const beatPub = path.join(KEYFRAMES_DIR, beatAssetName);
-    const beatHf = path.join(HF_WORKSPACE, 'assets', beatAssetName);
+    // Time window for this sentence
+    // Sentence 0 starts after coverDuration (1.30s)
+    const windowStart = sIdx === 0 ? coverDuration : sTiming.start;
+    const isLastSentence = sIdx === sentenceTimings.length - 1;
+    const windowEnd = isLastSentence ? totalDuration : sentenceTimings[sIdx + 1].start;
+    const windowDur = windowEnd - windowStart;
 
-    if (fs.existsSync(sourceImagePath)) {
-      fs.copyFileSync(sourceImagePath, beatPub);
-      fs.copyFileSync(sourceImagePath, beatHf);
+    const totalWeight = plan.images.reduce((acc, img) => acc + img.weight, 0);
+
+    let subCursor = windowStart;
+    for (let imgIdx = 0; imgIdx < plan.images.length; imgIdx++) {
+      const imgInfo = plan.images[imgIdx];
+      const isLastImageInSentence = imgIdx === plan.images.length - 1;
+      const imgDur = (imgInfo.weight / totalWeight) * windowDur;
+
+      const bStart = Number(subCursor.toFixed(2));
+      const bEnd = (isLastSentence && isLastImageInSentence)
+        ? totalDuration
+        : Number((subCursor + imgDur).toFixed(2));
+      const bDur = Number((bEnd - bStart).toFixed(2));
+
+      const sourceImageName = imgInfo.file;
+      const sourceImagePath = path.join(KEYFRAMES_DIR, sourceImageName);
+
+      const beatAssetName = `beat-${String(globalShotCounter).padStart(2, '0')}.jpg`;
+      const beatPub = path.join(KEYFRAMES_DIR, beatAssetName);
+      const beatHf = path.join(HF_WORKSPACE, 'assets', beatAssetName);
+
+      if (fs.existsSync(sourceImagePath)) {
+        fs.copyFileSync(sourceImagePath, beatPub);
+        fs.copyFileSync(sourceImagePath, beatHf);
+      } else {
+        console.warn(`⚠️ Warning: ${sourceImagePath} tidak ditemukan, memakai fallback cover`);
+        const fallbackSrc = path.join(KEYFRAMES_DIR, 'cover-shot-00.jpg');
+        if (fs.existsSync(fallbackSrc)) {
+          fs.copyFileSync(fallbackSrc, beatPub);
+          fs.copyFileSync(fallbackSrc, beatHf);
+        }
+      }
+
+      shotImages.push({ shot: globalShotCounter, imagePath: beatPub });
+
+      shotTimings.push({
+        shot: globalShotCounter,
+        startSec: bStart,
+        endSec: bEnd,
+        durationSec: bDur,
+        imageFile: beatAssetName,
+      });
+
+      if (bStart > 0.1 && !transitionTimes.includes(bStart)) {
+        transitionTimes.push(bStart);
+      }
+
+      subCursor = bEnd;
+      globalShotCounter++;
     }
-
-    shotImages.push({ shot: shotNum, imagePath: beatPub });
-
-    shotTimings.push({
-      shot: shotNum,
-      startSec: bStart,
-      endSec: bEnd,
-      durationSec: bDur,
-      imageFile: beatAssetName,
-    });
-
-    if (bStart > 0.1 && !transitionTimes.includes(bStart)) {
-      transitionTimes.push(bStart);
-    }
-
-    beatCursor = bEnd;
   }
 
   transitionTimes.sort((a, b) => a - b);
-  console.log(`   Dihasilkan ${shotTimings.length} visual beats! (Rata-rata ${avgBeatDuration.toFixed(2)} detik per cut)`);
+  console.log(`   ✅ Dihasilkan ${shotTimings.length} visual beats tersinkronisasi narasi!`);
 
   // 5. Mixing Master Audio (VO + Looped BGM ducked 20% + Dynamic SFX Glitches)
   console.log('\n5. Mixing Audio Master Track...');
@@ -443,7 +531,9 @@ async function main() {
   const localBgm = path.join(ROOT_DIR, 'public', 'renders', 'mujianto-serial-killer', 'bgm-crime-tension.mp3');
   const bgmFadeOutStart = Math.max(0, totalDuration - 2.5);
 
-  const majorGlitchTimes = [1.3, 10.0, 19.0, 28.0, 37.0, 46.0, 55.0, 64.0, 72.0, 81.0].filter((t) => t < totalDuration - 2.0);
+  const majorGlitchTimes = [coverDuration, ...sentenceTimings.slice(1).map((st) => st.start)].filter(
+    (t) => t < totalDuration - 2.0
+  );
 
   let filterStr = `[0:a]volume=1.0[vo];[2:a]volume=0.20,afade=t=in:ss=0:d=1.5,afade=t=out:st=${bgmFadeOutStart.toFixed(1)}:d=2.5[bgm_bed];`;
   const delayedInputs: string[] = [];
@@ -568,10 +658,12 @@ async function main() {
   console.log('\n10. Mengekstrak snapshot verifikasi visual & autocaption...');
   const snapshots = [
     { sec: '0.8', name: 'preview-01s-hook.jpg' },
-    { sec: '5.0', name: 'preview-05s-smiling-killer.jpg' },
-    { sec: '25.0', name: 'preview-25s-margonda-card.jpg' },
-    { sec: '50.0', name: 'preview-50s-jombang-excavation.jpg' },
-    { sec: '85.0', name: 'preview-85s-verdict.jpg' },
+    { sec: '6.0', name: 'preview-06s-smiling-sketch.jpg' },
+    { sec: '32.0', name: 'preview-32s-margonda-door.jpg' },
+    { sec: '45.0', name: 'preview-45s-press-conference.jpg' },
+    { sec: '68.0', name: 'preview-68s-bloody-hammer.jpg' },
+    { sec: '80.0', name: 'preview-80s-victim-mother-child.jpg' },
+    { sec: '115.0', name: 'preview-115s-gavel-death-sentence.jpg' },
   ];
 
   for (const s of snapshots) {

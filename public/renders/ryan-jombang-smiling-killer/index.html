@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>THE SMILING SERIAL KILLER | Ryan Jombang</title>
+  <style>
+    :root {
+      --bg: #0D1117;
+      --card: #161B22;
+      --accent: #C59B27;
+      --crimson: #8B2635;
+      --text: #EDEDED;
+      --text-muted: #8B949E;
+      --border: #30363D;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      padding: 40px 20px;
+      line-height: 1.6;
+    }
+    .container { max-width: 1200px; margin: 0 auto; }
+    header {
+      text-align: center;
+      margin-bottom: 40px;
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 30px;
+    }
+    .tag {
+      display: inline-block;
+      background: var(--crimson);
+      color: #FFF;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      padding: 4px 12px;
+      border-radius: 4px;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+    h1 {
+      font-size: 32px;
+      font-weight: 800;
+      letter-spacing: 1px;
+      color: #FFF;
+      margin-bottom: 8px;
+    }
+    .subtitle {
+      font-size: 16px;
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: 480px 1fr;
+      gap: 40px;
+      margin-bottom: 50px;
+    }
+    @media (max-width: 900px) {
+      .grid { grid-template-columns: 1fr; }
+    }
+    .video-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.6);
+    }
+    video {
+      width: 100%;
+      aspect-ratio: 9 / 16;
+      display: block;
+      background: #000;
+    }
+    .info-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 30px;
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+    .stat-row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+    .stat-box {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 16px;
+      text-align: center;
+    }
+    .stat-val {
+      font-size: 20px;
+      font-weight: 800;
+      color: var(--accent);
+    }
+    .stat-lbl {
+      font-size: 12px;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      margin-top: 4px;
+    }
+    .section-title {
+      font-size: 16px;
+      font-weight: 700;
+      color: #FFF;
+      border-left: 3px solid var(--accent);
+      padding-left: 10px;
+      margin-bottom: 12px;
+    }
+    .caption-box {
+      background: #0D1117;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 16px;
+      font-family: monospace;
+      font-size: 13px;
+      white-space: pre-wrap;
+      position: relative;
+    }
+    .copy-btn {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      background: var(--accent);
+      color: #000;
+      border: none;
+      padding: 6px 12px;
+      border-radius: 4px;
+      font-size: 11px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: opacity 0.2s;
+    }
+    .copy-btn:hover { opacity: 0.85; }
+    .gallery {
+      margin-top: 40px;
+    }
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+      gap: 12px;
+      margin-top: 16px;
+    }
+    .gallery-item {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      overflow: hidden;
+    }
+    .gallery-item img {
+      width: 100%;
+      aspect-ratio: 9 / 16;
+      object-fit: cover;
+      display: block;
+    }
+    .gallery-caption {
+      padding: 8px;
+      font-size: 10px;
+      color: var(--text-muted);
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <span class="tag">INSTAGRAM REELS SPECIAL • 1.5 MENIT (DEEPSEEK SCRIPT)</span>
+      <h1>THE SMILING SERIAL KILLER</h1>
+      <p class="subtitle">Misteri 11 Korban di Balik Senyuman Ryan Jombang</p>
+    </header>
+
+    <div class="grid">
+      <div class="video-card">
+        <video controls playsinline preload="metadata">
+          <source src="ryan-jombang-smiling-killer-final.mp4" type="video/mp4">
+          Browser Anda tidak mendukung tag video.
+        </video>
+      </div>
+
+      <div class="info-card">
+        <div class="stat-row">
+          <div class="stat-box">
+            <div class="stat-val">104.56s</div>
+            <div class="stat-lbl">Durasi Video</div>
+          </div>
+          <div class="stat-box">
+            <div class="stat-val">44 Beats</div>
+            <div class="stat-lbl">Rigid Cuts (1.8s)</div>
+          </div>
+          <div class="stat-box">
+            <div class="stat-val">Frame 0s</div>
+            <div class="stat-lbl">VO Start</div>
+          </div>
+        </div>
+
+        <div>
+          <h2 class="section-title">DISTRIBUSI SOSMED (VIRAL INSTAGRAM REELS KIT)</h2>
+          
+          <p style="font-size: 12px; color: var(--accent); margin-bottom: 6px; font-weight: 600;">📱 FORMAT INSTAGRAM REELS (PARADOX HOOK):</p>
+          <div class="caption-box">
+            <button class="copy-btn" onclick="navigator.clipboard.writeText(this.nextElementSibling.innerText); alert('Copied!');">SALIN</button>
+            <span>Di balik senyuman ramah dan wajah tampan seorang pria... tersembunyi kuburan massal 11 jasad manusia di halaman belakang rumahnya. 🚪🩸🤐
+
+Dikenal sebagai "The Smiling Serial Killer", Ryan Jombang mengejutkan penyidik Polda Metro Jaya karena selalu tersenyum tenang dan bahagia tanpa rasa resah, hingga palu berlumuran darah di kamarnya membongkar pembunuhan keji seorang ibu dan balita 3 tahun.
+
+Simak kronologi lengkap penyelidikan forensik yang mengguncang bangsa ini!
+
+#TheSmilingSerialKiller #RyanJombang #TrueCrimeIndonesia #KasusMutilasi #Jombang #CrimeInvestigation #Forensik #Detikcom #InstagramReels #fyp #viral</span>
+          </div>
+
+          <p style="font-size: 12px; color: var(--accent); margin-top: 14px; margin-bottom: 6px; font-weight: 600;">📺 FORMAT YOUTUBE SHORTS / TIKTOK:</p>
+          <div class="caption-box">
+            <button class="copy-btn" onclick="navigator.clipboard.writeText(this.nextElementSibling.innerText); alert('Copied!');">SALIN</button>
+            <span>THE SMILING SERIAL KILLER: Misteri 11 Jasad di Halaman Belakang Ryan Jombang 🚨
+
+Wajah tampan, senyuman tenang, dan album musik di balik jeruji besi. Bagaimana pembunuh berantai paling fenomenal di Indonesia ini terbongkar dari potongan koper di Ragunan?
+
+#Shorts #TrueCrime #RyanJombang #InvestigasiKriminal #ForensikKepolisian</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="gallery">
+      <h2 class="section-title">TIMELINE 44 VISUAL BEATS (RIGID CUTS)</h2>
+      <div class="gallery-grid">
+        <div class="gallery-item">
+          <img src="keyframes/cover-shot-00.jpg" alt="Cover Hook">
+          <div class="gallery-caption">Cover (0s - 1.3s)</div>
+        </div>
+        
+        <div class="gallery-item">
+          <img src="keyframes/beat-01.jpg" alt="Beat 1">
+          <div class="gallery-caption">Beat 01 (2.35s)</div>
+        </div>
+        <div class="gallery-item">
+          <img src="keyframes/beat-02.jpg" alt="Beat 2">
+          <div class="gallery-caption">Beat 02 (2.35s)</div>
+        </div>
+        <div class="gallery-item">
+          <img src="keyframes/beat-03.jpg" alt="Beat 3">
+          <div class="gallery-caption">Beat 03 (2.35s)</div>
+        </div>
+        <div class="gallery-item">
+          <img src="keyframes/beat-04.jpg" alt="Beat 4">
+          <div class="gallery-caption">Beat 04 (2.35s)</div>
+        </div>
+        <div class="gallery-item">
+          <img src="keyframes/beat-05.jpg" alt="Beat 5">
+          <div class="gallery-caption">Beat 05 (2.35s)</div>
+        </div>
+        <div class="gallery-item">
+          <img src="keyframes/beat-06.jpg" alt="Beat 6">
+          <div class="gallery-caption">Beat 06 (2.35s)</div>
+        </div>
+        <div class="gallery-item">
+          <img src="keyframes/beat-07.jpg" alt="Beat 7">
+          <div class="gallery-caption">Beat 07 (2.35s)</div>
+        </div>
+        <div class="gallery-item">
+          <img src="keyframes/beat-08.jpg" alt="Beat 8">
+          <div class="gallery-caption">Beat 08 (2.35s)</div>
+        </div>
+        <div class="gallery-item">
+          <img src="keyframes/beat-09.jpg" alt="Beat 9">
+          <div class="gallery-caption">Beat 09 (2.35s)</div>
+        </div>
+        <div class="gallery-item">
+          <img src="keyframes/beat-10.jpg" alt="Beat 10">
+          <div class="gallery-caption">Beat 10 (2.35s)</div>
+        </div>
+        <div class="gallery-item">
+          <img src="keyframes/beat-11.jpg" alt="Beat 11">
+          <div class="gallery-caption">Beat 11 (2.35s)</div>
+        </div>
+        <div class="gallery-item">
+          <img src="keyframes/beat-12.jpg" alt="Beat 12">
+          <div class="gallery-caption">Beat 12 (2.35s)</div>
+        </div>
+        <div class="gallery-item">
+          <img src="keyframes/beat-13.jpg" alt="Beat 13">
+          <div class="gallery-caption">Beat 13 (2.35s)</div>
+        </div>
+        <div class="gallery-item">
+          <img src="keyframes/beat-14.jpg" alt="Beat 14">
+          <div class="gallery-caption">Beat 14 (2.35s)</div>
+        </div>
+        <div class="gallery-item">
+          <img src="keyframes/beat-15.jpg" alt="Beat 15">
+          <div class="gallery-caption">Beat 15 (2.35s)</div>
+        </div>
+        <div class="gallery-item">
+          <img src="keyframes/beat-16.jpg" alt="Beat 16">
+          <div class="gallery-caption">Beat 16 (2.35s)</div>
+        </div>
+        <div class="gallery-item">
+          <img src="keyframes/beat-17.jpg" alt="Beat 17">
+          <div class="gallery-caption">Beat 17 (2.35s)</div>
+        </div>
+        <div class="gallery-item">
+          <img src="keyframes/beat-18.jpg" alt="Beat 18">
+          <div class="gallery-caption">Beat 18 (2.35s)</div>
+        </div>
+        <div class="gallery-item">
+          <img src="keyframes/beat-19.jpg" alt="Beat 19">
+          <div class="gallery-caption">Beat 19 (2.35s)</div>
+        </div>
+        <div class="gallery-item">
+          <img src="keyframes/beat-20.jpg" alt="Beat 20">
+          <div class="gallery-caption">Beat 20 (2.35s)</div>
+        </div>
+        <div class="gallery-item">
+          <img src="keyframes/beat-21.jpg" alt="Beat 21">
+          <div class="gallery-caption">Beat 21 (2.35s)</div>
+        </div>
+        <div class="gallery-item">
+          <img src="keyframes/beat-22.jpg" alt="Beat 22">
+          <div class="gallery-caption">Beat 22 (2.35s)</div>
+        </div>
+        <div class="gallery-item">
+          <img src="keyframes/beat-23.jpg" alt="Beat 23">
+          <div class="gallery-caption">Beat 23 (2.35s)</div>
+        </div>
+        <div class="gallery-item">
+          <img src="keyframes/beat-24.jpg" alt="Beat 24">
+          <div class="gallery-caption">Beat 24 (2.35s)</div>
+        </div>
+        <div class="gallery-item">
+          <img src="keyframes/beat-25.jpg" alt="Beat 25">
+          <div class="gallery-caption">Beat 25 (2.35s)</div>
+        </div>
+        <div class="gallery-item">
+          <img src="keyframes/beat-26.jpg" alt="Beat 26">
+          <div class="gallery-caption">Beat 26 (2.35s)</div>
+        </div>
+        <div class="gallery-item">
+          <img src="keyframes/beat-27.jpg" alt="Beat 27">
+          <div class="gallery-caption">Beat 27 (2.35s)</div>
+        </div>
+        <div class="gallery-item">
+          <img src="keyframes/beat-28.jpg" alt="Beat 28">
+          <div class="gallery-caption">Beat 28 (2.35s)</div>
+        </div>
+        <div class="gallery-item">
+          <img src="keyframes/beat-29.jpg" alt="Beat 29">
+          <div class="gallery-caption">Beat 29 (2.35s)</div>
+        </div>
+        <div class="gallery-item">
+          <img src="keyframes/beat-30.jpg" alt="Beat 30">
+          <div class="gallery-caption">Beat 30 (2.35s)</div>
+        </div>
+        <div class="gallery-item">
+          <img src="keyframes/beat-31.jpg" alt="Beat 31">
+          <div class="gallery-caption">Beat 31 (2.35s)</div>
+        </div>
+        <div class="gallery-item">
+          <img src="keyframes/beat-32.jpg" alt="Beat 32">
+          <div class="gallery-caption">Beat 32 (2.35s)</div>
+        </div>
+        <div class="gallery-item">
+          <img src="keyframes/beat-33.jpg" alt="Beat 33">
+          <div class="gallery-caption">Beat 33 (2.35s)</div>
+        </div>
+        <div class="gallery-item">
+          <img src="keyframes/beat-34.jpg" alt="Beat 34">
+          <div class="gallery-caption">Beat 34 (2.35s)</div>
+        </div>
+        <div class="gallery-item">
+          <img src="keyframes/beat-35.jpg" alt="Beat 35">
+          <div class="gallery-caption">Beat 35 (2.35s)</div>
+        </div>
+        <div class="gallery-item">
+          <img src="keyframes/beat-36.jpg" alt="Beat 36">
+          <div class="gallery-caption">Beat 36 (2.35s)</div>
+        </div>
+        <div class="gallery-item">
+          <img src="keyframes/beat-37.jpg" alt="Beat 37">
+          <div class="gallery-caption">Beat 37 (2.35s)</div>
+        </div>
+        <div class="gallery-item">
+          <img src="keyframes/beat-38.jpg" alt="Beat 38">
+          <div class="gallery-caption">Beat 38 (2.35s)</div>
+        </div>
+        <div class="gallery-item">
+          <img src="keyframes/beat-39.jpg" alt="Beat 39">
+          <div class="gallery-caption">Beat 39 (2.35s)</div>
+        </div>
+        <div class="gallery-item">
+          <img src="keyframes/beat-40.jpg" alt="Beat 40">
+          <div class="gallery-caption">Beat 40 (2.35s)</div>
+        </div>
+        <div class="gallery-item">
+          <img src="keyframes/beat-41.jpg" alt="Beat 41">
+          <div class="gallery-caption">Beat 41 (2.35s)</div>
+        </div>
+        <div class="gallery-item">
+          <img src="keyframes/beat-42.jpg" alt="Beat 42">
+          <div class="gallery-caption">Beat 42 (2.35s)</div>
+        </div>
+        <div class="gallery-item">
+          <img src="keyframes/beat-43.jpg" alt="Beat 43">
+          <div class="gallery-caption">Beat 43 (2.35s)</div>
+        </div>
+        <div class="gallery-item">
+          <img src="keyframes/beat-44.jpg" alt="Beat 44">
+          <div class="gallery-caption">Beat 44 (2.21s)</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

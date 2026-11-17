@@ -1,0 +1,4114 @@
+<!doctype html>
+<html lang="id" data-resolution="portrait">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=1080, height=1920" />
+  <title>THE SMILING SERIAL KILLER - Misteri 11 Korban Ryan Jombang - Graphic Noir True Crime</title>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.15.0/dist/gsap.min.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@700;800;900&family=Montserrat:wght@800;900&display=swap" rel="stylesheet">
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    html, body {
+      margin: 0;
+      width: 1080px;
+      height: 1920px;
+      overflow: hidden;
+      background-color: #0A0D12;
+      color: #E6EDF3;
+      font-family: "Inter", sans-serif;
+    }
+    #root {
+      width: 1080px;
+      height: 1920px;
+      position: relative;
+      overflow: hidden;
+    }
+    .shot-scene {
+      position: absolute;
+      inset: 0;
+      width: 1080px;
+      height: 1920px;
+      opacity: 0;
+      visibility: hidden;
+      z-index: 1;
+    }
+    .shot-media-wrapper {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+    }
+    .shot-bg {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      transform-origin: center center;
+      will-change: transform;
+    }
+    /* Atmospheric Film Grain & Vignette Overlay */
+    .vignette-overlay {
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at 50% 50%, rgba(10, 13, 18, 0) 45%, rgba(10, 13, 18, 0.75) 100%);
+      pointer-events: none;
+      z-index: 2;
+    }
+    /* Bottom Dark Scrim for Enhanced Readability */
+    .bottom-caption-scrim {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 560px;
+      background: linear-gradient(180deg, rgba(10, 13, 18, 0) 0%, rgba(10, 13, 18, 0.55) 45%, rgba(10, 13, 18, 0.92) 100%);
+      pointer-events: none;
+      z-index: 20;
+    }
+    /* Clean Bottom Safe Area Autocaption Container */
+    #caption-container {
+      position: absolute;
+      bottom: 300px;
+      left: 72px;
+      right: 72px;
+      height: 180px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      z-index: 25;
+      pointer-events: none;
+    }
+    .caption-phrase {
+      position: absolute;
+      width: 100%;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+      opacity: 0;
+      visibility: hidden;
+      font-size: 52px;
+      font-weight: 800;
+      line-height: 1.25;
+      letter-spacing: -0.01em;
+      color: #E6EDF3;
+      text-shadow: 0 4px 18px rgba(0, 0, 0, 0.98), 0 2px 6px rgba(0, 0, 0, 0.95);
+    }
+    .caption-word {
+      display: inline-block;
+      transform-origin: center center;
+    }
+    /* Noir Forensic Glitch Overlay */
+    #forensic-glitch {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      opacity: 0;
+      z-index: 30;
+      background: repeating-linear-gradient(
+        0deg,
+        rgba(230, 237, 243, 0.09) 0px,
+        rgba(230, 237, 243, 0.09) 2px,
+        transparent 2px,
+        transparent 5px
+      );
+      mix-blend-mode: screen;
+      will-change: opacity, transform, filter;
+    }
+  </style>
+</head>
+<body data-duration="104.560">
+  <div id="root" data-composition-id="main" data-start="0" data-duration="104.560" data-width="1080" data-height="1920">
+    <!-- Shot 00 (Cover Image Hook) -->
+    <div class="shot-scene" id="shot-0" style="z-index: 5;">
+      <div class="shot-media-wrapper">
+        <img src="assets/cover-shot-00.jpg" class="shot-bg" id="bg-0" alt="Shot 00 Cover">
+      </div>
+    </div>
+
+    <!-- Shot 01 -->
+    <div class="shot-scene" id="shot-1">
+      <div class="shot-media-wrapper">
+        <img src="assets/shot-01.jpg" class="shot-bg" id="bg-1" alt="Shot 1">
+      </div>
+    </div>
+
+    <!-- Shot 02 -->
+    <div class="shot-scene" id="shot-2">
+      <div class="shot-media-wrapper">
+        <img src="assets/shot-02.jpg" class="shot-bg" id="bg-2" alt="Shot 2">
+      </div>
+    </div>
+
+    <!-- Shot 03 -->
+    <div class="shot-scene" id="shot-3">
+      <div class="shot-media-wrapper">
+        <img src="assets/shot-03.jpg" class="shot-bg" id="bg-3" alt="Shot 3">
+      </div>
+    </div>
+
+    <!-- Shot 04 -->
+    <div class="shot-scene" id="shot-4">
+      <div class="shot-media-wrapper">
+        <img src="assets/shot-04.jpg" class="shot-bg" id="bg-4" alt="Shot 4">
+      </div>
+    </div>
+
+    <!-- Shot 05 -->
+    <div class="shot-scene" id="shot-5">
+      <div class="shot-media-wrapper">
+        <img src="assets/shot-05.jpg" class="shot-bg" id="bg-5" alt="Shot 5">
+      </div>
+    </div>
+
+    <!-- Shot 06 -->
+    <div class="shot-scene" id="shot-6">
+      <div class="shot-media-wrapper">
+        <img src="assets/shot-06.jpg" class="shot-bg" id="bg-6" alt="Shot 6">
+      </div>
+    </div>
+
+    <!-- Shot 07 -->
+    <div class="shot-scene" id="shot-7">
+      <div class="shot-media-wrapper">
+        <img src="assets/shot-07.jpg" class="shot-bg" id="bg-7" alt="Shot 7">
+      </div>
+    </div>
+
+    <!-- Shot 08 -->
+    <div class="shot-scene" id="shot-8">
+      <div class="shot-media-wrapper">
+        <img src="assets/shot-08.jpg" class="shot-bg" id="bg-8" alt="Shot 8">
+      </div>
+    </div>
+
+    <!-- Shot 09 -->
+    <div class="shot-scene" id="shot-9">
+      <div class="shot-media-wrapper">
+        <img src="assets/shot-09.jpg" class="shot-bg" id="bg-9" alt="Shot 9">
+      </div>
+    </div>
+
+    <!-- Shot 10 -->
+    <div class="shot-scene" id="shot-10">
+      <div class="shot-media-wrapper">
+        <img src="assets/shot-10.jpg" class="shot-bg" id="bg-10" alt="Shot 10">
+      </div>
+    </div>
+
+    <!-- Shot 11 -->
+    <div class="shot-scene" id="shot-11">
+      <div class="shot-media-wrapper">
+        <img src="assets/shot-11.jpg" class="shot-bg" id="bg-11" alt="Shot 11">
+      </div>
+    </div>
+
+    <!-- Shot 12 -->
+    <div class="shot-scene" id="shot-12">
+      <div class="shot-media-wrapper">
+        <img src="assets/shot-12.jpg" class="shot-bg" id="bg-12" alt="Shot 12">
+      </div>
+    </div>
+
+    <!-- Shot 13 -->
+    <div class="shot-scene" id="shot-13">
+      <div class="shot-media-wrapper">
+        <img src="assets/shot-13.jpg" class="shot-bg" id="bg-13" alt="Shot 13">
+      </div>
+    </div>
+
+    <!-- Shot 14 -->
+    <div class="shot-scene" id="shot-14">
+      <div class="shot-media-wrapper">
+        <img src="assets/shot-14.jpg" class="shot-bg" id="bg-14" alt="Shot 14">
+      </div>
+    </div>
+
+    <!-- Shot 15 -->
+    <div class="shot-scene" id="shot-15">
+      <div class="shot-media-wrapper">
+        <img src="assets/shot-15.jpg" class="shot-bg" id="bg-15" alt="Shot 15">
+      </div>
+    </div>
+
+    <!-- Shot 16 -->
+    <div class="shot-scene" id="shot-16">
+      <div class="shot-media-wrapper">
+        <img src="assets/shot-16.jpg" class="shot-bg" id="bg-16" alt="Shot 16">
+      </div>
+    </div>
+
+    <!-- Shot 17 -->
+    <div class="shot-scene" id="shot-17">
+      <div class="shot-media-wrapper">
+        <img src="assets/shot-17.jpg" class="shot-bg" id="bg-17" alt="Shot 17">
+      </div>
+    </div>
+
+    <!-- Shot 18 -->
+    <div class="shot-scene" id="shot-18">
+      <div class="shot-media-wrapper">
+        <img src="assets/shot-18.jpg" class="shot-bg" id="bg-18" alt="Shot 18">
+      </div>
+    </div>
+
+    <!-- Shot 19 -->
+    <div class="shot-scene" id="shot-19">
+      <div class="shot-media-wrapper">
+        <img src="assets/shot-19.jpg" class="shot-bg" id="bg-19" alt="Shot 19">
+      </div>
+    </div>
+
+    <!-- Shot 20 -->
+    <div class="shot-scene" id="shot-20">
+      <div class="shot-media-wrapper">
+        <img src="assets/shot-20.jpg" class="shot-bg" id="bg-20" alt="Shot 20">
+      </div>
+    </div>
+
+    <!-- Shot 21 -->
+    <div class="shot-scene" id="shot-21">
+      <div class="shot-media-wrapper">
+        <img src="assets/shot-21.jpg" class="shot-bg" id="bg-21" alt="Shot 21">
+      </div>
+    </div>
+
+    <!-- Shot 22 -->
+    <div class="shot-scene" id="shot-22">
+      <div class="shot-media-wrapper">
+        <img src="assets/shot-22.jpg" class="shot-bg" id="bg-22" alt="Shot 22">
+      </div>
+    </div>
+
+    <!-- Shot 23 -->
+    <div class="shot-scene" id="shot-23">
+      <div class="shot-media-wrapper">
+        <img src="assets/shot-23.jpg" class="shot-bg" id="bg-23" alt="Shot 23">
+      </div>
+    </div>
+
+    <!-- Shot 24 -->
+    <div class="shot-scene" id="shot-24">
+      <div class="shot-media-wrapper">
+        <img src="assets/shot-24.jpg" class="shot-bg" id="bg-24" alt="Shot 24">
+      </div>
+    </div>
+
+    <!-- Shot 25 -->
+    <div class="shot-scene" id="shot-25">
+      <div class="shot-media-wrapper">
+        <img src="assets/shot-25.jpg" class="shot-bg" id="bg-25" alt="Shot 25">
+      </div>
+    </div>
+
+    <!-- Shot 26 -->
+    <div class="shot-scene" id="shot-26">
+      <div class="shot-media-wrapper">
+        <img src="assets/shot-26.jpg" class="shot-bg" id="bg-26" alt="Shot 26">
+      </div>
+    </div>
+
+    <!-- Shot 27 -->
+    <div class="shot-scene" id="shot-27">
+      <div class="shot-media-wrapper">
+        <img src="assets/shot-27.jpg" class="shot-bg" id="bg-27" alt="Shot 27">
+      </div>
+    </div>
+
+    <!-- Shot 28 -->
+    <div class="shot-scene" id="shot-28">
+      <div class="shot-media-wrapper">
+        <img src="assets/shot-28.jpg" class="shot-bg" id="bg-28" alt="Shot 28">
+      </div>
+    </div>
+
+    <!-- Shot 29 -->
+    <div class="shot-scene" id="shot-29">
+      <div class="shot-media-wrapper">
+        <img src="assets/shot-29.jpg" class="shot-bg" id="bg-29" alt="Shot 29">
+      </div>
+    </div>
+
+    <!-- Shot 30 -->
+    <div class="shot-scene" id="shot-30">
+      <div class="shot-media-wrapper">
+        <img src="assets/shot-30.jpg" class="shot-bg" id="bg-30" alt="Shot 30">
+      </div>
+    </div>
+
+    <!-- Shot 31 -->
+    <div class="shot-scene" id="shot-31">
+      <div class="shot-media-wrapper">
+        <img src="assets/shot-31.jpg" class="shot-bg" id="bg-31" alt="Shot 31">
+      </div>
+    </div>
+
+    <!-- Shot 32 -->
+    <div class="shot-scene" id="shot-32">
+      <div class="shot-media-wrapper">
+        <img src="assets/shot-32.jpg" class="shot-bg" id="bg-32" alt="Shot 32">
+      </div>
+    </div>
+
+    <!-- Shot 33 -->
+    <div class="shot-scene" id="shot-33">
+      <div class="shot-media-wrapper">
+        <img src="assets/shot-33.jpg" class="shot-bg" id="bg-33" alt="Shot 33">
+      </div>
+    </div>
+
+    <!-- Shot 34 -->
+    <div class="shot-scene" id="shot-34">
+      <div class="shot-media-wrapper">
+        <img src="assets/shot-34.jpg" class="shot-bg" id="bg-34" alt="Shot 34">
+      </div>
+    </div>
+
+    <!-- Shot 35 -->
+    <div class="shot-scene" id="shot-35">
+      <div class="shot-media-wrapper">
+        <img src="assets/shot-35.jpg" class="shot-bg" id="bg-35" alt="Shot 35">
+      </div>
+    </div>
+
+    <!-- Shot 36 -->
+    <div class="shot-scene" id="shot-36">
+      <div class="shot-media-wrapper">
+        <img src="assets/shot-36.jpg" class="shot-bg" id="bg-36" alt="Shot 36">
+      </div>
+    </div>
+
+    <!-- Shot 37 -->
+    <div class="shot-scene" id="shot-37">
+      <div class="shot-media-wrapper">
+        <img src="assets/shot-37.jpg" class="shot-bg" id="bg-37" alt="Shot 37">
+      </div>
+    </div>
+
+    <!-- Shot 38 -->
+    <div class="shot-scene" id="shot-38">
+      <div class="shot-media-wrapper">
+        <img src="assets/shot-38.jpg" class="shot-bg" id="bg-38" alt="Shot 38">
+      </div>
+    </div>
+
+    <!-- Shot 39 -->
+    <div class="shot-scene" id="shot-39">
+      <div class="shot-media-wrapper">
+        <img src="assets/shot-39.jpg" class="shot-bg" id="bg-39" alt="Shot 39">
+      </div>
+    </div>
+
+    <!-- Shot 40 -->
+    <div class="shot-scene" id="shot-40">
+      <div class="shot-media-wrapper">
+        <img src="assets/shot-40.jpg" class="shot-bg" id="bg-40" alt="Shot 40">
+      </div>
+    </div>
+
+    <!-- Shot 41 -->
+    <div class="shot-scene" id="shot-41">
+      <div class="shot-media-wrapper">
+        <img src="assets/shot-41.jpg" class="shot-bg" id="bg-41" alt="Shot 41">
+      </div>
+    </div>
+
+    <!-- Shot 42 -->
+    <div class="shot-scene" id="shot-42">
+      <div class="shot-media-wrapper">
+        <img src="assets/shot-42.jpg" class="shot-bg" id="bg-42" alt="Shot 42">
+      </div>
+    </div>
+
+    <!-- Shot 43 -->
+    <div class="shot-scene" id="shot-43">
+      <div class="shot-media-wrapper">
+        <img src="assets/shot-43.jpg" class="shot-bg" id="bg-43" alt="Shot 43">
+      </div>
+    </div>
+
+    <!-- Shot 44 -->
+    <div class="shot-scene" id="shot-44">
+      <div class="shot-media-wrapper">
+        <img src="assets/shot-44.jpg" class="shot-bg" id="bg-44" alt="Shot 44">
+      </div>
+    </div>
+    <!-- Atmospheric Vignette -->
+    <div class="vignette-overlay"></div>
+    <!-- Bottom Dark Scrim for Caption Readability -->
+    <div class="bottom-caption-scrim"></div>
+    <!-- Noir Forensic Glitch Overlay -->
+    <div id="forensic-glitch"></div>
+
+    <!-- Pure Autocaption in Bottom Safe Area -->
+    <div id="caption-container">
+      <div class="caption-phrase" id="phrase-0">
+        <span class="caption-word" id="w-phrase-0-0">Di</span> <span class="caption-word" id="w-phrase-0-1">balik</span> <span class="caption-word" id="w-phrase-0-2">senyum</span> <span class="caption-word" id="w-phrase-0-3">tenang</span>
+      </div>
+      <div class="caption-phrase" id="phrase-1">
+        <span class="caption-word" id="w-phrase-1-0">dan</span> <span class="caption-word" id="w-phrase-1-1">wajah</span> <span class="caption-word" id="w-phrase-1-2">tampan</span> <span class="caption-word" id="w-phrase-1-3">seorang</span>
+      </div>
+      <div class="caption-phrase" id="phrase-2">
+        <span class="caption-word" id="w-phrase-2-0">pria,</span>
+      </div>
+      <div class="caption-phrase" id="phrase-3">
+        <span class="caption-word" id="w-phrase-3-0">tersembunyi</span> <span class="caption-word" id="w-phrase-3-1">salah</span> <span class="caption-word" id="w-phrase-3-2">satu</span> <span class="caption-word" id="w-phrase-3-3">paradoks</span>
+      </div>
+      <div class="caption-phrase" id="phrase-4">
+        <span class="caption-word" id="w-phrase-4-0">paling</span> <span class="caption-word" id="w-phrase-4-1">mengerikan</span> <span class="caption-word" id="w-phrase-4-2">dalam</span> <span class="caption-word" id="w-phrase-4-3">sejarah</span>
+      </div>
+      <div class="caption-phrase" id="phrase-5">
+        <span class="caption-word" id="w-phrase-5-0">kriminal</span> <span class="caption-word" id="w-phrase-5-1">Indonesia:</span>
+      </div>
+      <div class="caption-phrase" id="phrase-6">
+        <span class="caption-word" id="w-phrase-6-0">sebelas</span> <span class="caption-word" id="w-phrase-6-1">jasad</span> <span class="caption-word" id="w-phrase-6-2">manusia</span> <span class="caption-word" id="w-phrase-6-3">terkubur</span>
+      </div>
+      <div class="caption-phrase" id="phrase-7">
+        <span class="caption-word" id="w-phrase-7-0">diam-diam</span> <span class="caption-word" id="w-phrase-7-1">di</span> <span class="caption-word" id="w-phrase-7-2">halaman</span> <span class="caption-word" id="w-phrase-7-3">belakang</span>
+      </div>
+      <div class="caption-phrase" id="phrase-8">
+        <span class="caption-word" id="w-phrase-8-0">rumahnya.</span>
+      </div>
+      <div class="caption-phrase" id="phrase-9">
+        <span class="caption-word" id="w-phrase-9-0">Semuanya</span> <span class="caption-word" id="w-phrase-9-1">terungkap</span> <span class="caption-word" id="w-phrase-9-2">pada</span> <span class="caption-word" id="w-phrase-9-3">dua</span>
+      </div>
+      <div class="caption-phrase" id="phrase-10">
+        <span class="caption-word" id="w-phrase-10-0">belas</span> <span class="caption-word" id="w-phrase-10-1">Juli</span> <span class="caption-word" id="w-phrase-10-2">2008,</span>
+      </div>
+      <div class="caption-phrase" id="phrase-11">
+        <span class="caption-word" id="w-phrase-11-0">ketika</span> <span class="caption-word" id="w-phrase-11-1">penemuan</span> <span class="caption-word" id="w-phrase-11-2">potongan</span> <span class="caption-word" id="w-phrase-11-3">tubuh</span>
+      </div>
+      <div class="caption-phrase" id="phrase-12">
+        <span class="caption-word" id="w-phrase-12-0">Heri</span> <span class="caption-word" id="w-phrase-12-1">Santoso</span> <span class="caption-word" id="w-phrase-12-2">di</span> <span class="caption-word" id="w-phrase-12-3">dekat</span>
+      </div>
+      <div class="caption-phrase" id="phrase-13">
+        <span class="caption-word" id="w-phrase-13-0">kawasan</span> <span class="caption-word" id="w-phrase-13-1">Ragunan</span> <span class="caption-word" id="w-phrase-13-2">mengguncang</span> <span class="caption-word" id="w-phrase-13-3">Jakarta</span>
+      </div>
+      <div class="caption-phrase" id="phrase-14">
+        <span class="caption-word" id="w-phrase-14-0">dan</span> <span class="caption-word" id="w-phrase-14-1">membuka</span> <span class="caption-word" id="w-phrase-14-2">tabir</span> <span class="caption-word" id="w-phrase-14-3">pembunuhan</span>
+      </div>
+      <div class="caption-phrase" id="phrase-15">
+        <span class="caption-word" id="w-phrase-15-0">berantai</span> <span class="caption-word" id="w-phrase-15-1">yang</span> <span class="caption-word" id="w-phrase-15-2">selama</span> <span class="caption-word" id="w-phrase-15-3">ini</span>
+      </div>
+      <div class="caption-phrase" id="phrase-16">
+        <span class="caption-word" id="w-phrase-16-0">tak</span> <span class="caption-word" id="w-phrase-16-1">terlihat.</span>
+      </div>
+      <div class="caption-phrase" id="phrase-17">
+        <span class="caption-word" id="w-phrase-17-0">Polisi</span> <span class="caption-word" id="w-phrase-17-1">bergerak</span> <span class="caption-word" id="w-phrase-17-2">cepat:</span>
+      </div>
+      <div class="caption-phrase" id="phrase-18">
+        <span class="caption-word" id="w-phrase-18-0">sebuah</span> <span class="caption-word" id="w-phrase-18-1">nota</span> <span class="caption-word" id="w-phrase-18-2">di</span> <span class="caption-word" id="w-phrase-18-3">rumah</span>
+      </div>
+      <div class="caption-phrase" id="phrase-19">
+        <span class="caption-word" id="w-phrase-19-0">korban,</span>
+      </div>
+      <div class="caption-phrase" id="phrase-20">
+        <span class="caption-word" id="w-phrase-20-0">mobil</span> <span class="caption-word" id="w-phrase-20-1">yang</span> <span class="caption-word" id="w-phrase-20-2">terparkir</span> <span class="caption-word" id="w-phrase-20-3">di</span>
+      </div>
+      <div class="caption-phrase" id="phrase-21">
+        <span class="caption-word" id="w-phrase-21-0">Margonda</span> <span class="caption-word" id="w-phrase-21-1">Residence</span> <span class="caption-word" id="w-phrase-21-2">Depok,</span>
+      </div>
+      <div class="caption-phrase" id="phrase-22">
+        <span class="caption-word" id="w-phrase-22-0">dan</span> <span class="caption-word" id="w-phrase-22-1">jejak</span> <span class="caption-word" id="w-phrase-22-2">belanja</span> <span class="caption-word" id="w-phrase-22-3">kartu</span>
+      </div>
+      <div class="caption-phrase" id="phrase-23">
+        <span class="caption-word" id="w-phrase-23-0">kredit</span> <span class="caption-word" id="w-phrase-23-1">menuntun</span> <span class="caption-word" id="w-phrase-23-2">penyidik</span> <span class="caption-word" id="w-phrase-23-3">ke</span>
+      </div>
+      <div class="caption-phrase" id="phrase-24">
+        <span class="caption-word" id="w-phrase-24-0">satu</span> <span class="caption-word" id="w-phrase-24-1">nama:</span>
+      </div>
+      <div class="caption-phrase" id="phrase-25">
+        <span class="caption-word" id="w-phrase-25-0">Very</span> <span class="caption-word" id="w-phrase-25-1">Idham</span> <span class="caption-word" id="w-phrase-25-2">Henyansyah</span> <span class="caption-word" id="w-phrase-25-3">alias</span>
+      </div>
+      <div class="caption-phrase" id="phrase-26">
+        <span class="caption-word" id="w-phrase-26-0">Ryan</span> <span class="caption-word" id="w-phrase-26-1">Jombang.</span>
+      </div>
+      <div class="caption-phrase" id="phrase-27">
+        <span class="caption-word" id="w-phrase-27-0">Pada</span> <span class="caption-word" id="w-phrase-27-1">lima</span> <span class="caption-word" id="w-phrase-27-2">belas</span> <span class="caption-word" id="w-phrase-27-3">Juli,</span>
+      </div>
+      <div class="caption-phrase" id="phrase-28">
+        <span class="caption-word" id="w-phrase-28-0">Ryan</span> <span class="caption-word" id="w-phrase-28-1">ditangkap</span> <span class="caption-word" id="w-phrase-28-2">bersama</span> <span class="caption-word" id="w-phrase-28-3">pacarnya,</span>
+      </div>
+      <div class="caption-phrase" id="phrase-29">
+        <span class="caption-word" id="w-phrase-29-0">namun</span> <span class="caption-word" id="w-phrase-29-1">gelagatnya</span> <span class="caption-word" id="w-phrase-29-2">justru</span> <span class="caption-word" id="w-phrase-29-3">membuat</span>
+      </div>
+      <div class="caption-phrase" id="phrase-30">
+        <span class="caption-word" id="w-phrase-30-0">polisi</span> <span class="caption-word" id="w-phrase-30-1">curiga:</span>
+      </div>
+      <div class="caption-phrase" id="phrase-31">
+        <span class="caption-word" id="w-phrase-31-0">pria</span> <span class="caption-word" id="w-phrase-31-1">itu</span> <span class="caption-word" id="w-phrase-31-2">tersenyum</span> <span class="caption-word" id="w-phrase-31-3">tenang</span>
+      </div>
+      <div class="caption-phrase" id="phrase-32">
+        <span class="caption-word" id="w-phrase-32-0">dan</span> <span class="caption-word" id="w-phrase-32-1">bahagia,</span>
+      </div>
+      <div class="caption-phrase" id="phrase-33">
+        <span class="caption-word" id="w-phrase-33-0">sama</span> <span class="caption-word" id="w-phrase-33-1">sekali</span> <span class="caption-word" id="w-phrase-33-2">tanpa</span> <span class="caption-word" id="w-phrase-33-3">rasa</span>
+      </div>
+      <div class="caption-phrase" id="phrase-34">
+        <span class="caption-word" id="w-phrase-34-0">resah</span> <span class="caption-word" id="w-phrase-34-1">layaknya</span> <span class="caption-word" id="w-phrase-34-2">seorang</span> <span class="caption-word" id="w-phrase-34-3">pembunuh.</span>
+      </div>
+      <div class="caption-phrase" id="phrase-35">
+        <span class="caption-word" id="w-phrase-35-0">Empat</span> <span class="caption-word" id="w-phrase-35-1">hari</span> <span class="caption-word" id="w-phrase-35-2">kemudian,</span>
+      </div>
+      <div class="caption-phrase" id="phrase-36">
+        <span class="caption-word" id="w-phrase-36-0">dalam</span> <span class="caption-word" id="w-phrase-36-1">interogasi</span> <span class="caption-word" id="w-phrase-36-2">intensif</span> <span class="caption-word" id="w-phrase-36-3">pada</span>
+      </div>
+      <div class="caption-phrase" id="phrase-37">
+        <span class="caption-word" id="w-phrase-37-0">sembilan</span> <span class="caption-word" id="w-phrase-37-1">belas</span> <span class="caption-word" id="w-phrase-37-2">Juli,</span>
+      </div>
+      <div class="caption-phrase" id="phrase-38">
+        <span class="caption-word" id="w-phrase-38-0">pengakuan</span> <span class="caption-word" id="w-phrase-38-1">dinginnya</span> <span class="caption-word" id="w-phrase-38-2">membongkar</span> <span class="caption-word" id="w-phrase-38-3">fakta</span>
+      </div>
+      <div class="caption-phrase" id="phrase-39">
+        <span class="caption-word" id="w-phrase-39-0">bahwa</span> <span class="caption-word" id="w-phrase-39-1">koper</span> <span class="caption-word" id="w-phrase-39-2">di</span> <span class="caption-word" id="w-phrase-39-3">Ragunan</span>
+      </div>
+      <div class="caption-phrase" id="phrase-40">
+        <span class="caption-word" id="w-phrase-40-0">hanyalah</span> <span class="caption-word" id="w-phrase-40-1">permulaan</span> <span class="caption-word" id="w-phrase-40-2">dari</span> <span class="caption-word" id="w-phrase-40-3">rangkaian</span>
+      </div>
+      <div class="caption-phrase" id="phrase-41">
+        <span class="caption-word" id="w-phrase-41-0">pembunuhan</span> <span class="caption-word" id="w-phrase-41-1">yang</span> <span class="caption-word" id="w-phrase-41-2">jauh</span> <span class="caption-word" id="w-phrase-41-3">lebih</span>
+      </div>
+      <div class="caption-phrase" id="phrase-42">
+        <span class="caption-word" id="w-phrase-42-0">luas.</span>
+      </div>
+      <div class="caption-phrase" id="phrase-43">
+        <span class="caption-word" id="w-phrase-43-0">Penggalian</span> <span class="caption-word" id="w-phrase-43-1">tahap</span> <span class="caption-word" id="w-phrase-43-2">pertama</span> <span class="caption-word" id="w-phrase-43-3">pada</span>
+      </div>
+      <div class="caption-phrase" id="phrase-44">
+        <span class="caption-word" id="w-phrase-44-0">dua</span> <span class="caption-word" id="w-phrase-44-1">puluh</span> <span class="caption-word" id="w-phrase-44-2">Juli</span> <span class="caption-word" id="w-phrase-44-3">di</span>
+      </div>
+      <div class="caption-phrase" id="phrase-45">
+        <span class="caption-word" id="w-phrase-45-0">Jombang</span> <span class="caption-word" id="w-phrase-45-1">mendapati</span> <span class="caption-word" id="w-phrase-45-2">palu</span> <span class="caption-word" id="w-phrase-45-3">berlumuran</span>
+      </div>
+      <div class="caption-phrase" id="phrase-46">
+        <span class="caption-word" id="w-phrase-46-0">darah</span> <span class="caption-word" id="w-phrase-46-1">dan</span> <span class="caption-word" id="w-phrase-46-2">serpihan</span> <span class="caption-word" id="w-phrase-46-3">tulang</span>
+      </div>
+      <div class="caption-phrase" id="phrase-47">
+        <span class="caption-word" id="w-phrase-47-0">di</span> <span class="caption-word" id="w-phrase-47-1">kamar</span> <span class="caption-word" id="w-phrase-47-2">Ryan,</span>
+      </div>
+      <div class="caption-phrase" id="phrase-48">
+        <span class="caption-word" id="w-phrase-48-0">serta</span> <span class="caption-word" id="w-phrase-48-1">empat</span> <span class="caption-word" id="w-phrase-48-2">mayat</span> <span class="caption-word" id="w-phrase-48-3">yang</span>
+      </div>
+      <div class="caption-phrase" id="phrase-49">
+        <span class="caption-word" id="w-phrase-49-0">ditemukan</span> <span class="caption-word" id="w-phrase-49-1">terkubur</span> <span class="caption-word" id="w-phrase-49-2">di</span> <span class="caption-word" id="w-phrase-49-3">halaman</span>
+      </div>
+      <div class="caption-phrase" id="phrase-50">
+        <span class="caption-word" id="w-phrase-50-0">belakang.</span>
+      </div>
+      <div class="caption-phrase" id="phrase-51">
+        <span class="caption-word" id="w-phrase-51-0">Penggalian</span> <span class="caption-word" id="w-phrase-51-1">diperluas,</span>
+      </div>
+      <div class="caption-phrase" id="phrase-52">
+        <span class="caption-word" id="w-phrase-52-0">dan</span> <span class="caption-word" id="w-phrase-52-1">terungkap</span> <span class="caption-word" id="w-phrase-52-2">enam</span> <span class="caption-word" id="w-phrase-52-3">mayat</span>
+      </div>
+      <div class="caption-phrase" id="phrase-53">
+        <span class="caption-word" id="w-phrase-53-0">lagi,</span>
+      </div>
+      <div class="caption-phrase" id="phrase-54">
+        <span class="caption-word" id="w-phrase-54-0">termasuk</span> <span class="caption-word" id="w-phrase-54-1">seorang</span> <span class="caption-word" id="w-phrase-54-2">ibu</span> <span class="caption-word" id="w-phrase-54-3">bernama</span>
+      </div>
+      <div class="caption-phrase" id="phrase-55">
+        <span class="caption-word" id="w-phrase-55-0">Nanik</span> <span class="caption-word" id="w-phrase-55-1">Hidayati</span> <span class="caption-word" id="w-phrase-55-2">dan</span> <span class="caption-word" id="w-phrase-55-3">balitanya</span>
+      </div>
+      <div class="caption-phrase" id="phrase-56">
+        <span class="caption-word" id="w-phrase-56-0">yang</span> <span class="caption-word" id="w-phrase-56-1">baru</span> <span class="caption-word" id="w-phrase-56-2">berusia</span> <span class="caption-word" id="w-phrase-56-3">tiga</span>
+      </div>
+      <div class="caption-phrase" id="phrase-57">
+        <span class="caption-word" id="w-phrase-57-0">tahun,</span>
+      </div>
+      <div class="caption-phrase" id="phrase-58">
+        <span class="caption-word" id="w-phrase-58-0">menggenapkan</span> <span class="caption-word" id="w-phrase-58-1">korban</span> <span class="caption-word" id="w-phrase-58-2">menjadi</span> <span class="caption-word" id="w-phrase-58-3">sebelas</span>
+      </div>
+      <div class="caption-phrase" id="phrase-59">
+        <span class="caption-word" id="w-phrase-59-0">jiwa.</span>
+      </div>
+      <div class="caption-phrase" id="phrase-60">
+        <span class="caption-word" id="w-phrase-60-0">Motifnya</span> <span class="caption-word" id="w-phrase-60-1">pun</span> <span class="caption-word" id="w-phrase-60-2">terkuak:</span>
+      </div>
+      <div class="caption-phrase" id="phrase-61">
+        <span class="caption-word" id="w-phrase-61-0">penguasaan</span> <span class="caption-word" id="w-phrase-61-1">harta</span> <span class="caption-word" id="w-phrase-61-2">dan</span> <span class="caption-word" id="w-phrase-61-3">asmara</span>
+      </div>
+      <div class="caption-phrase" id="phrase-62">
+        <span class="caption-word" id="w-phrase-62-0">yang</span> <span class="caption-word" id="w-phrase-62-1">berlangsung</span> <span class="caption-word" id="w-phrase-62-2">dari</span> <span class="caption-word" id="w-phrase-62-3">tahun</span>
+      </div>
+      <div class="caption-phrase" id="phrase-63">
+        <span class="caption-word" id="w-phrase-63-0">2006</span> <span class="caption-word" id="w-phrase-63-1">hingga</span> <span class="caption-word" id="w-phrase-63-2">2008,</span>
+      </div>
+      <div class="caption-phrase" id="phrase-64">
+        <span class="caption-word" id="w-phrase-64-0">sebuah</span> <span class="caption-word" id="w-phrase-64-1">pola</span> <span class="caption-word" id="w-phrase-64-2">kelam</span> <span class="caption-word" id="w-phrase-64-3">yang</span>
+      </div>
+      <div class="caption-phrase" id="phrase-65">
+        <span class="caption-word" id="w-phrase-65-0">dijalankan</span> <span class="caption-word" id="w-phrase-65-1">dengan</span> <span class="caption-word" id="w-phrase-65-2">ketenangan</span> <span class="caption-word" id="w-phrase-65-3">mengerikan.</span>
+      </div>
+      <div class="caption-phrase" id="phrase-66">
+        <span class="caption-word" id="w-phrase-66-0">Bahkan</span> <span class="caption-word" id="w-phrase-66-1">di</span> <span class="caption-word" id="w-phrase-66-2">dalam</span> <span class="caption-word" id="w-phrase-66-3">bui,</span>
+      </div>
+      <div class="caption-phrase" id="phrase-67">
+        <span class="caption-word" id="w-phrase-67-0">Ryan</span> <span class="caption-word" id="w-phrase-67-1">menulis</span> <span class="caption-word" id="w-phrase-67-2">autobiografi</span> <span class="caption-word" id="w-phrase-67-3">dan</span>
+      </div>
+      <div class="caption-phrase" id="phrase-68">
+        <span class="caption-word" id="w-phrase-68-0">merekam</span> <span class="caption-word" id="w-phrase-68-1">album</span> <span class="caption-word" id="w-phrase-68-2">musik</span> <span class="caption-word" id="w-phrase-68-3">berjudul</span>
+      </div>
+      <div class="caption-phrase" id="phrase-69">
+        <span class="caption-word" id="w-phrase-69-0">Persembahan</span> <span class="caption-word" id="w-phrase-69-1">Terakhir,</span>
+      </div>
+      <div class="caption-phrase" id="phrase-70">
+        <span class="caption-word" id="w-phrase-70-0">menjelma</span> <span class="caption-word" id="w-phrase-70-1">sebagai</span> <span class="caption-word" id="w-phrase-70-2">sang</span> <span class="caption-word" id="w-phrase-70-3">pembunuh</span>
+      </div>
+      <div class="caption-phrase" id="phrase-71">
+        <span class="caption-word" id="w-phrase-71-0">bernyanyi</span> <span class="caption-word" id="w-phrase-71-1">yang</span> <span class="caption-word" id="w-phrase-71-2">menggemparkan</span> <span class="caption-word" id="w-phrase-71-3">publik.</span>
+      </div>
+      <div class="caption-phrase" id="phrase-72">
+        <span class="caption-word" id="w-phrase-72-0">Majelis</span> <span class="caption-word" id="w-phrase-72-1">Hakim</span> <span class="caption-word" id="w-phrase-72-2">Pengadilan</span> <span class="caption-word" id="w-phrase-72-3">Negeri</span>
+      </div>
+      <div class="caption-phrase" id="phrase-73">
+        <span class="caption-word" id="w-phrase-73-0">Depok</span> <span class="caption-word" id="w-phrase-73-1">akhirnya</span> <span class="caption-word" id="w-phrase-73-2">menjatuhkan</span> <span class="caption-word" id="w-phrase-73-3">vonis</span>
+      </div>
+      <div class="caption-phrase" id="phrase-74">
+        <span class="caption-word" id="w-phrase-74-0">hukuman</span> <span class="caption-word" id="w-phrase-74-1">mati,</span>
+      </div>
+      <div class="caption-phrase" id="phrase-75">
+        <span class="caption-word" id="w-phrase-75-0">mengakhiri</span> <span class="caption-word" id="w-phrase-75-1">drama</span> <span class="caption-word" id="w-phrase-75-2">kriminal</span> <span class="caption-word" id="w-phrase-75-3">yang</span>
+      </div>
+      <div class="caption-phrase" id="phrase-76">
+        <span class="caption-word" id="w-phrase-76-0">menyorot</span> <span class="caption-word" id="w-phrase-76-1">sisi</span> <span class="caption-word" id="w-phrase-76-2">gelap</span> <span class="caption-word" id="w-phrase-76-3">manusia</span>
+      </div>
+      <div class="caption-phrase" id="phrase-77">
+        <span class="caption-word" id="w-phrase-77-0">di</span> <span class="caption-word" id="w-phrase-77-1">balik</span> <span class="caption-word" id="w-phrase-77-2">senyum</span> <span class="caption-word" id="w-phrase-77-3">ramahnya.</span>
+      </div>
+      <div class="caption-phrase" id="phrase-78">
+        <span class="caption-word" id="w-phrase-78-0">Refleksi</span> <span class="caption-word" id="w-phrase-78-1">dinginnya:</span>
+      </div>
+      <div class="caption-phrase" id="phrase-79">
+        <span class="caption-word" id="w-phrase-79-0">monster</span> <span class="caption-word" id="w-phrase-79-1">paling</span> <span class="caption-word" id="w-phrase-79-2">berbahaya</span> <span class="caption-word" id="w-phrase-79-3">tidak</span>
+      </div>
+      <div class="caption-phrase" id="phrase-80">
+        <span class="caption-word" id="w-phrase-80-0">selalu</span> <span class="caption-word" id="w-phrase-80-1">datang</span> <span class="caption-word" id="w-phrase-80-2">dengan</span> <span class="caption-word" id="w-phrase-80-3">wajah</span>
+      </div>
+      <div class="caption-phrase" id="phrase-81">
+        <span class="caption-word" id="w-phrase-81-0">menyeramkan,</span>
+      </div>
+      <div class="caption-phrase" id="phrase-82">
+        <span class="caption-word" id="w-phrase-82-0">melainkan</span> <span class="caption-word" id="w-phrase-82-1">sering</span> <span class="caption-word" id="w-phrase-82-2">kali</span> <span class="caption-word" id="w-phrase-82-3">bersembunyi</span>
+      </div>
+      <div class="caption-phrase" id="phrase-83">
+        <span class="caption-word" id="w-phrase-83-0">di</span> <span class="caption-word" id="w-phrase-83-1">balik</span> <span class="caption-word" id="w-phrase-83-2">topeng</span> <span class="caption-word" id="w-phrase-83-3">senyuman</span>
+      </div>
+      <div class="caption-phrase" id="phrase-84">
+        <span class="caption-word" id="w-phrase-84-0">ramah</span> <span class="caption-word" id="w-phrase-84-1">yang</span> <span class="caption-word" id="w-phrase-84-2">menutupi</span> <span class="caption-word" id="w-phrase-84-3">neraka</span>
+      </div>
+      <div class="caption-phrase" id="phrase-85">
+        <span class="caption-word" id="w-phrase-85-0">di</span> <span class="caption-word" id="w-phrase-85-1">halaman</span> <span class="caption-word" id="w-phrase-85-2">belakang.</span>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const totalDuration = 104.560;
+    const tl = gsap.timeline({ paused: true });
+    window.__timeline = tl;
+    window.__timelines = window.__timelines || {};
+    window.__timelines["main"] = tl;
+
+    // --- NOIR FORENSIC GLITCH TRANSITION FUNCTION ---
+    function triggerNoirGlitch(atTime) {
+      const gTl = gsap.timeline();
+      gTl.fromTo("#forensic-glitch",
+        { opacity: 0, x: -14, filter: "drop-shadow(-6px 0 rgba(139,38,53,0.9)) drop-shadow(6px 0 rgba(197,155,39,0.9))" },
+        { opacity: 0.85, x: 12, y: -4, duration: 0.05, ease: "rough" }
+      )
+      .to("#forensic-glitch", { opacity: 0.5, x: -6, y: 3, filter: "drop-shadow(4px 0 rgba(230,237,243,0.8)) drop-shadow(-4px 0 rgba(139,38,53,0.8))", duration: 0.05 })
+      .to("#forensic-glitch", { opacity: 0, x: 0, y: 0, filter: "none", duration: 0.06 });
+
+      tl.add(gTl, Math.max(0, atTime - 0.06));
+    }
+
+    const glitchTimings = [1.30, 3.65, 6.00, 8.35, 10.70, 13.05, 15.40, 17.75, 20.10, 22.45, 24.80, 27.15, 29.50, 31.85, 34.20, 36.55, 38.90, 41.25, 43.60, 45.95, 48.30, 50.65, 53.00, 55.35, 57.70, 60.05, 62.40, 64.75, 67.10, 69.45, 71.80, 74.15, 76.50, 78.85, 81.20, 83.55, 85.90, 88.25, 90.60, 92.95, 95.30, 97.65, 100.00, 102.35];
+    glitchTimings.forEach((t) => triggerNoirGlitch(t));
+
+    // --- SHOT TRANSITIONS & SMOOTH CAMERA MOVEMENTS ---
+    // Shot 0 (Mandatory Cover Hook: 0s - 1.5s)
+    tl.set("#shot-0", { autoAlpha: 1 }, 0);
+    tl.fromTo("#bg-0",
+      { scale: 1.05 },
+      { scale: 1.0, duration: 1.5, ease: "power2.out" },
+      0
+    );
+    tl.to("#shot-0", { autoAlpha: 0, duration: 0.35, ease: "power2.inOut" }, 1.15);
+
+    // Shot 1 (1.3s - 3.65s)
+    tl.set("#shot-1", { autoAlpha: 1 }, 1.3);
+    tl.fromTo("#bg-1",
+      { scale: 1, x: 0, y: 0 },
+      { scale: 1.08, x: 0, y: 0, duration: 2.35, ease: "none" },
+      1.3
+    );
+    tl.to("#shot-1", { autoAlpha: 0, duration: 0.25, ease: "power1.inOut" }, 3.40);
+
+    // Shot 2 (3.65s - 6s)
+    tl.set("#shot-2", { autoAlpha: 1 }, 3.65);
+    tl.fromTo("#bg-2",
+      { scale: 1, x: 0, y: 0 },
+      { scale: 1.08, x: 0, y: -25, duration: 2.35, ease: "none" },
+      3.65
+    );
+    tl.to("#shot-2", { autoAlpha: 0, duration: 0.25, ease: "power1.inOut" }, 5.75);
+
+    // Shot 3 (6s - 8.35s)
+    tl.set("#shot-3", { autoAlpha: 1 }, 6);
+    tl.fromTo("#bg-3",
+      { scale: 1.08, x: 0, y: 0 },
+      { scale: 1.01, x: 0, y: 0, duration: 2.35, ease: "none" },
+      6
+    );
+    tl.to("#shot-3", { autoAlpha: 0, duration: 0.25, ease: "power1.inOut" }, 8.10);
+
+    // Shot 4 (8.35s - 10.7s)
+    tl.set("#shot-4", { autoAlpha: 1 }, 8.35);
+    tl.fromTo("#bg-4",
+      { scale: 1, x: -15, y: 0 },
+      { scale: 1.08, x: 15, y: -20, duration: 2.35, ease: "none" },
+      8.35
+    );
+    tl.to("#shot-4", { autoAlpha: 0, duration: 0.25, ease: "power1.inOut" }, 10.45);
+
+    // Shot 5 (10.7s - 13.05s)
+    tl.set("#shot-5", { autoAlpha: 1 }, 10.7);
+    tl.fromTo("#bg-5",
+      { scale: 1.04, x: -30, y: 0 },
+      { scale: 1.04, x: 30, y: 0, duration: 2.35, ease: "none" },
+      10.7
+    );
+    tl.to("#shot-5", { autoAlpha: 0, duration: 0.25, ease: "power1.inOut" }, 12.80);
+
+    // Shot 6 (13.05s - 15.4s)
+    tl.set("#shot-6", { autoAlpha: 1 }, 13.05);
+    tl.fromTo("#bg-6",
+      { scale: 1.05, x: 0, y: -40 },
+      { scale: 1.05, x: 0, y: 35, duration: 2.35, ease: "none" },
+      13.05
+    );
+    tl.to("#shot-6", { autoAlpha: 0, duration: 0.25, ease: "power1.inOut" }, 15.15);
+
+    // Shot 7 (15.4s - 17.75s)
+    tl.set("#shot-7", { autoAlpha: 1 }, 15.4);
+    tl.fromTo("#bg-7",
+      { scale: 1, x: 0, y: 0 },
+      { scale: 1.08, x: 0, y: 0, duration: 2.35, ease: "none" },
+      15.4
+    );
+    tl.to("#shot-7", { autoAlpha: 0, duration: 0.25, ease: "power1.inOut" }, 17.50);
+
+    // Shot 8 (17.75s - 20.1s)
+    tl.set("#shot-8", { autoAlpha: 1 }, 17.75);
+    tl.fromTo("#bg-8",
+      { scale: 1, x: 0, y: 0 },
+      { scale: 1.09, x: 0, y: -30, duration: 2.35, ease: "none" },
+      17.75
+    );
+    tl.to("#shot-8", { autoAlpha: 0, duration: 0.25, ease: "power1.inOut" }, 19.85);
+
+    // Shot 9 (20.1s - 22.45s)
+    tl.set("#shot-9", { autoAlpha: 1 }, 20.1);
+    tl.fromTo("#bg-9",
+      { scale: 1.04, x: -25, y: 0 },
+      { scale: 1.04, x: 25, y: 0, duration: 2.35, ease: "none" },
+      20.1
+    );
+    tl.to("#shot-9", { autoAlpha: 0, duration: 0.25, ease: "power1.inOut" }, 22.20);
+
+    // Shot 10 (22.45s - 24.8s)
+    tl.set("#shot-10", { autoAlpha: 1 }, 22.45);
+    tl.fromTo("#bg-10",
+      { scale: 1, x: 0, y: -15 },
+      { scale: 1.08, x: 0, y: 15, duration: 2.35, ease: "none" },
+      22.45
+    );
+    tl.to("#shot-10", { autoAlpha: 0, duration: 0.25, ease: "power1.inOut" }, 24.55);
+
+    // Shot 11 (24.8s - 27.15s)
+    tl.set("#shot-11", { autoAlpha: 1 }, 24.8);
+    tl.fromTo("#bg-11",
+      { scale: 1.04, x: 25, y: 0 },
+      { scale: 1.04, x: -25, y: 0, duration: 2.35, ease: "none" },
+      24.8
+    );
+    tl.to("#shot-11", { autoAlpha: 0, duration: 0.25, ease: "power1.inOut" }, 26.90);
+
+    // Shot 12 (27.15s - 29.5s)
+    tl.set("#shot-12", { autoAlpha: 1 }, 27.15);
+    tl.fromTo("#bg-12",
+      { scale: 1, x: 0, y: 0 },
+      { scale: 1.09, x: 0, y: -25, duration: 2.35, ease: "none" },
+      27.15
+    );
+    tl.to("#shot-12", { autoAlpha: 0, duration: 0.25, ease: "power1.inOut" }, 29.25);
+
+    // Shot 13 (29.5s - 31.85s)
+    tl.set("#shot-13", { autoAlpha: 1 }, 29.5);
+    tl.fromTo("#bg-13",
+      { scale: 1, x: 0, y: 0 },
+      { scale: 1.08, x: 0, y: -30, duration: 2.35, ease: "none" },
+      29.5
+    );
+    tl.to("#shot-13", { autoAlpha: 0, duration: 0.25, ease: "power1.inOut" }, 31.60);
+
+    // Shot 14 (31.85s - 34.2s)
+    tl.set("#shot-14", { autoAlpha: 1 }, 31.85);
+    tl.fromTo("#bg-14",
+      { scale: 1.06, x: 0, y: 0 },
+      { scale: 1.01, x: 0, y: 0, duration: 2.35, ease: "none" },
+      31.85
+    );
+    tl.to("#shot-14", { autoAlpha: 0, duration: 0.25, ease: "power1.inOut" }, 33.95);
+
+    // Shot 15 (34.2s - 36.55s)
+    tl.set("#shot-15", { autoAlpha: 1 }, 34.2);
+    tl.fromTo("#bg-15",
+      { scale: 1, x: 0, y: 0 },
+      { scale: 1.08, x: 0, y: 0, duration: 2.35, ease: "none" },
+      34.2
+    );
+    tl.to("#shot-15", { autoAlpha: 0, duration: 0.25, ease: "power1.inOut" }, 36.30);
+
+    // Shot 16 (36.55s - 38.9s)
+    tl.set("#shot-16", { autoAlpha: 1 }, 36.55);
+    tl.fromTo("#bg-16",
+      { scale: 1, x: 0, y: 0 },
+      { scale: 1.08, x: 0, y: -25, duration: 2.35, ease: "none" },
+      36.55
+    );
+    tl.to("#shot-16", { autoAlpha: 0, duration: 0.25, ease: "power1.inOut" }, 38.65);
+
+    // Shot 17 (38.9s - 41.25s)
+    tl.set("#shot-17", { autoAlpha: 1 }, 38.9);
+    tl.fromTo("#bg-17",
+      { scale: 1.08, x: 0, y: 0 },
+      { scale: 1.01, x: 0, y: 0, duration: 2.35, ease: "none" },
+      38.9
+    );
+    tl.to("#shot-17", { autoAlpha: 0, duration: 0.25, ease: "power1.inOut" }, 41.00);
+
+    // Shot 18 (41.25s - 43.6s)
+    tl.set("#shot-18", { autoAlpha: 1 }, 41.25);
+    tl.fromTo("#bg-18",
+      { scale: 1, x: -15, y: 0 },
+      { scale: 1.08, x: 15, y: -20, duration: 2.35, ease: "none" },
+      41.25
+    );
+    tl.to("#shot-18", { autoAlpha: 0, duration: 0.25, ease: "power1.inOut" }, 43.35);
+
+    // Shot 19 (43.6s - 45.95s)
+    tl.set("#shot-19", { autoAlpha: 1 }, 43.6);
+    tl.fromTo("#bg-19",
+      { scale: 1.04, x: -30, y: 0 },
+      { scale: 1.04, x: 30, y: 0, duration: 2.35, ease: "none" },
+      43.6
+    );
+    tl.to("#shot-19", { autoAlpha: 0, duration: 0.25, ease: "power1.inOut" }, 45.70);
+
+    // Shot 20 (45.95s - 48.3s)
+    tl.set("#shot-20", { autoAlpha: 1 }, 45.95);
+    tl.fromTo("#bg-20",
+      { scale: 1.05, x: 0, y: -40 },
+      { scale: 1.05, x: 0, y: 35, duration: 2.35, ease: "none" },
+      45.95
+    );
+    tl.to("#shot-20", { autoAlpha: 0, duration: 0.25, ease: "power1.inOut" }, 48.05);
+
+    // Shot 21 (48.3s - 50.65s)
+    tl.set("#shot-21", { autoAlpha: 1 }, 48.3);
+    tl.fromTo("#bg-21",
+      { scale: 1, x: 0, y: 0 },
+      { scale: 1.08, x: 0, y: 0, duration: 2.35, ease: "none" },
+      48.3
+    );
+    tl.to("#shot-21", { autoAlpha: 0, duration: 0.25, ease: "power1.inOut" }, 50.40);
+
+    // Shot 22 (50.65s - 53s)
+    tl.set("#shot-22", { autoAlpha: 1 }, 50.65);
+    tl.fromTo("#bg-22",
+      { scale: 1, x: 0, y: 0 },
+      { scale: 1.09, x: 0, y: -30, duration: 2.35, ease: "none" },
+      50.65
+    );
+    tl.to("#shot-22", { autoAlpha: 0, duration: 0.25, ease: "power1.inOut" }, 52.75);
+
+    // Shot 23 (53s - 55.35s)
+    tl.set("#shot-23", { autoAlpha: 1 }, 53);
+    tl.fromTo("#bg-23",
+      { scale: 1.04, x: -25, y: 0 },
+      { scale: 1.04, x: 25, y: 0, duration: 2.35, ease: "none" },
+      53
+    );
+    tl.to("#shot-23", { autoAlpha: 0, duration: 0.25, ease: "power1.inOut" }, 55.10);
+
+    // Shot 24 (55.35s - 57.7s)
+    tl.set("#shot-24", { autoAlpha: 1 }, 55.35);
+    tl.fromTo("#bg-24",
+      { scale: 1, x: 0, y: -15 },
+      { scale: 1.08, x: 0, y: 15, duration: 2.35, ease: "none" },
+      55.35
+    );
+    tl.to("#shot-24", { autoAlpha: 0, duration: 0.25, ease: "power1.inOut" }, 57.45);
+
+    // Shot 25 (57.7s - 60.05s)
+    tl.set("#shot-25", { autoAlpha: 1 }, 57.7);
+    tl.fromTo("#bg-25",
+      { scale: 1.04, x: 25, y: 0 },
+      { scale: 1.04, x: -25, y: 0, duration: 2.35, ease: "none" },
+      57.7
+    );
+    tl.to("#shot-25", { autoAlpha: 0, duration: 0.25, ease: "power1.inOut" }, 59.80);
+
+    // Shot 26 (60.05s - 62.4s)
+    tl.set("#shot-26", { autoAlpha: 1 }, 60.05);
+    tl.fromTo("#bg-26",
+      { scale: 1, x: 0, y: 0 },
+      { scale: 1.09, x: 0, y: -25, duration: 2.35, ease: "none" },
+      60.05
+    );
+    tl.to("#shot-26", { autoAlpha: 0, duration: 0.25, ease: "power1.inOut" }, 62.15);
+
+    // Shot 27 (62.4s - 64.75s)
+    tl.set("#shot-27", { autoAlpha: 1 }, 62.4);
+    tl.fromTo("#bg-27",
+      { scale: 1, x: 0, y: 0 },
+      { scale: 1.08, x: 0, y: -30, duration: 2.35, ease: "none" },
+      62.4
+    );
+    tl.to("#shot-27", { autoAlpha: 0, duration: 0.25, ease: "power1.inOut" }, 64.50);
+
+    // Shot 28 (64.75s - 67.1s)
+    tl.set("#shot-28", { autoAlpha: 1 }, 64.75);
+    tl.fromTo("#bg-28",
+      { scale: 1.06, x: 0, y: 0 },
+      { scale: 1.01, x: 0, y: 0, duration: 2.35, ease: "none" },
+      64.75
+    );
+    tl.to("#shot-28", { autoAlpha: 0, duration: 0.25, ease: "power1.inOut" }, 66.85);
+
+    // Shot 29 (67.1s - 69.45s)
+    tl.set("#shot-29", { autoAlpha: 1 }, 67.1);
+    tl.fromTo("#bg-29",
+      { scale: 1, x: 0, y: 0 },
+      { scale: 1.08, x: 0, y: 0, duration: 2.35, ease: "none" },
+      67.1
+    );
+    tl.to("#shot-29", { autoAlpha: 0, duration: 0.25, ease: "power1.inOut" }, 69.20);
+
+    // Shot 30 (69.45s - 71.8s)
+    tl.set("#shot-30", { autoAlpha: 1 }, 69.45);
+    tl.fromTo("#bg-30",
+      { scale: 1, x: 0, y: 0 },
+      { scale: 1.08, x: 0, y: -25, duration: 2.35, ease: "none" },
+      69.45
+    );
+    tl.to("#shot-30", { autoAlpha: 0, duration: 0.25, ease: "power1.inOut" }, 71.55);
+
+    // Shot 31 (71.8s - 74.15s)
+    tl.set("#shot-31", { autoAlpha: 1 }, 71.8);
+    tl.fromTo("#bg-31",
+      { scale: 1.08, x: 0, y: 0 },
+      { scale: 1.01, x: 0, y: 0, duration: 2.35, ease: "none" },
+      71.8
+    );
+    tl.to("#shot-31", { autoAlpha: 0, duration: 0.25, ease: "power1.inOut" }, 73.90);
+
+    // Shot 32 (74.15s - 76.5s)
+    tl.set("#shot-32", { autoAlpha: 1 }, 74.15);
+    tl.fromTo("#bg-32",
+      { scale: 1, x: -15, y: 0 },
+      { scale: 1.08, x: 15, y: -20, duration: 2.35, ease: "none" },
+      74.15
+    );
+    tl.to("#shot-32", { autoAlpha: 0, duration: 0.25, ease: "power1.inOut" }, 76.25);
+
+    // Shot 33 (76.5s - 78.85s)
+    tl.set("#shot-33", { autoAlpha: 1 }, 76.5);
+    tl.fromTo("#bg-33",
+      { scale: 1.04, x: -30, y: 0 },
+      { scale: 1.04, x: 30, y: 0, duration: 2.35, ease: "none" },
+      76.5
+    );
+    tl.to("#shot-33", { autoAlpha: 0, duration: 0.25, ease: "power1.inOut" }, 78.60);
+
+    // Shot 34 (78.85s - 81.2s)
+    tl.set("#shot-34", { autoAlpha: 1 }, 78.85);
+    tl.fromTo("#bg-34",
+      { scale: 1.05, x: 0, y: -40 },
+      { scale: 1.05, x: 0, y: 35, duration: 2.35, ease: "none" },
+      78.85
+    );
+    tl.to("#shot-34", { autoAlpha: 0, duration: 0.25, ease: "power1.inOut" }, 80.95);
+
+    // Shot 35 (81.2s - 83.55s)
+    tl.set("#shot-35", { autoAlpha: 1 }, 81.2);
+    tl.fromTo("#bg-35",
+      { scale: 1, x: 0, y: 0 },
+      { scale: 1.08, x: 0, y: 0, duration: 2.35, ease: "none" },
+      81.2
+    );
+    tl.to("#shot-35", { autoAlpha: 0, duration: 0.25, ease: "power1.inOut" }, 83.30);
+
+    // Shot 36 (83.55s - 85.9s)
+    tl.set("#shot-36", { autoAlpha: 1 }, 83.55);
+    tl.fromTo("#bg-36",
+      { scale: 1, x: 0, y: 0 },
+      { scale: 1.09, x: 0, y: -30, duration: 2.35, ease: "none" },
+      83.55
+    );
+    tl.to("#shot-36", { autoAlpha: 0, duration: 0.25, ease: "power1.inOut" }, 85.65);
+
+    // Shot 37 (85.9s - 88.25s)
+    tl.set("#shot-37", { autoAlpha: 1 }, 85.9);
+    tl.fromTo("#bg-37",
+      { scale: 1.04, x: -25, y: 0 },
+      { scale: 1.04, x: 25, y: 0, duration: 2.35, ease: "none" },
+      85.9
+    );
+    tl.to("#shot-37", { autoAlpha: 0, duration: 0.25, ease: "power1.inOut" }, 88.00);
+
+    // Shot 38 (88.25s - 90.6s)
+    tl.set("#shot-38", { autoAlpha: 1 }, 88.25);
+    tl.fromTo("#bg-38",
+      { scale: 1, x: 0, y: -15 },
+      { scale: 1.08, x: 0, y: 15, duration: 2.35, ease: "none" },
+      88.25
+    );
+    tl.to("#shot-38", { autoAlpha: 0, duration: 0.25, ease: "power1.inOut" }, 90.35);
+
+    // Shot 39 (90.6s - 92.95s)
+    tl.set("#shot-39", { autoAlpha: 1 }, 90.6);
+    tl.fromTo("#bg-39",
+      { scale: 1.04, x: 25, y: 0 },
+      { scale: 1.04, x: -25, y: 0, duration: 2.35, ease: "none" },
+      90.6
+    );
+    tl.to("#shot-39", { autoAlpha: 0, duration: 0.25, ease: "power1.inOut" }, 92.70);
+
+    // Shot 40 (92.95s - 95.3s)
+    tl.set("#shot-40", { autoAlpha: 1 }, 92.95);
+    tl.fromTo("#bg-40",
+      { scale: 1, x: 0, y: 0 },
+      { scale: 1.09, x: 0, y: -25, duration: 2.35, ease: "none" },
+      92.95
+    );
+    tl.to("#shot-40", { autoAlpha: 0, duration: 0.25, ease: "power1.inOut" }, 95.05);
+
+    // Shot 41 (95.3s - 97.65s)
+    tl.set("#shot-41", { autoAlpha: 1 }, 95.3);
+    tl.fromTo("#bg-41",
+      { scale: 1, x: 0, y: 0 },
+      { scale: 1.08, x: 0, y: -30, duration: 2.35, ease: "none" },
+      95.3
+    );
+    tl.to("#shot-41", { autoAlpha: 0, duration: 0.25, ease: "power1.inOut" }, 97.40);
+
+    // Shot 42 (97.65s - 100s)
+    tl.set("#shot-42", { autoAlpha: 1 }, 97.65);
+    tl.fromTo("#bg-42",
+      { scale: 1.06, x: 0, y: 0 },
+      { scale: 1.01, x: 0, y: 0, duration: 2.35, ease: "none" },
+      97.65
+    );
+    tl.to("#shot-42", { autoAlpha: 0, duration: 0.25, ease: "power1.inOut" }, 99.75);
+
+    // Shot 43 (100s - 102.35s)
+    tl.set("#shot-43", { autoAlpha: 1 }, 100);
+    tl.fromTo("#bg-43",
+      { scale: 1, x: 0, y: 0 },
+      { scale: 1.08, x: 0, y: 0, duration: 2.35, ease: "none" },
+      100
+    );
+    tl.to("#shot-43", { autoAlpha: 0, duration: 0.25, ease: "power1.inOut" }, 102.10);
+
+    // Shot 44 (102.35s - 104.56s)
+    tl.set("#shot-44", { autoAlpha: 1 }, 102.35);
+    tl.fromTo("#bg-44",
+      { scale: 1, x: 0, y: 0 },
+      { scale: 1.08, x: 0, y: -25, duration: 2.21, ease: "none" },
+      102.35
+    );
+    
+
+    // --- AUTOCAPTION PHRASE BLOCKS & KARAOKE WORD HIGHLIGHTS ---
+
+    // Phrase phrase-0 (0.08s - 1.08s)
+    tl.fromTo("#phrase-0",
+      { autoAlpha: 0, y: 15, filter: "blur(6px)" },
+      { autoAlpha: 1, y: 0, filter: "blur(0px)", duration: 0.25, ease: "power2.out" },
+      0.08
+    );
+    tl.to("#w-phrase-0-0", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.12,
+      ease: "power1.out"
+    }, 0.08);
+    tl.to("#w-phrase-0-1", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.26,
+      ease: "power1.out"
+    }, 0.19);
+    tl.to("#w-phrase-0-2", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.31,
+      ease: "power1.out"
+    }, 0.45);
+    tl.to("#w-phrase-0-3", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.32,
+      ease: "power1.out"
+    }, 0.76);
+    tl.to("#phrase-0",
+      { autoAlpha: 0, y: -10, filter: "blur(4px)", duration: 0.2, ease: "power1.in" },
+      1.13
+    );
+
+    // Phrase phrase-1 (1.08s - 2.18s)
+    tl.fromTo("#phrase-1",
+      { autoAlpha: 0, y: 15, filter: "blur(6px)" },
+      { autoAlpha: 1, y: 0, filter: "blur(0px)", duration: 0.25, ease: "power2.out" },
+      1.08
+    );
+    tl.to("#w-phrase-1-0", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.16,
+      ease: "power1.out"
+    }, 1.08);
+    tl.to("#w-phrase-1-1", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.26,
+      ease: "power1.out"
+    }, 1.24);
+    tl.to("#w-phrase-1-2", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.31,
+      ease: "power1.out"
+    }, 1.50);
+    tl.to("#w-phrase-1-3", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.37,
+      ease: "power1.out"
+    }, 1.81);
+    tl.to("#phrase-1",
+      { autoAlpha: 0, y: -10, filter: "blur(4px)", duration: 0.2, ease: "power1.in" },
+      2.23
+    );
+
+    // Phrase phrase-2 (2.18s - 2.6s)
+    tl.fromTo("#phrase-2",
+      { autoAlpha: 0, y: 15, filter: "blur(6px)" },
+      { autoAlpha: 1, y: 0, filter: "blur(0px)", duration: 0.25, ease: "power2.out" },
+      2.18
+    );
+    tl.to("#w-phrase-2-0", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.42,
+      ease: "power1.out"
+    }, 2.18);
+    tl.to("#phrase-2",
+      { autoAlpha: 0, y: -10, filter: "blur(4px)", duration: 0.2, ease: "power1.in" },
+      2.65
+    );
+
+    // Phrase phrase-3 (2.6s - 4.07s)
+    tl.fromTo("#phrase-3",
+      { autoAlpha: 0, y: 15, filter: "blur(6px)" },
+      { autoAlpha: 1, y: 0, filter: "blur(0px)", duration: 0.25, ease: "power2.out" },
+      2.6
+    );
+    tl.to("#w-phrase-3-0", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.58,
+      ease: "power1.out"
+    }, 2.60);
+    tl.to("#w-phrase-3-1", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.26,
+      ease: "power1.out"
+    }, 3.18);
+    tl.to("#w-phrase-3-2", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.21,
+      ease: "power1.out"
+    }, 3.44);
+    tl.to("#w-phrase-3-3", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.42,
+      ease: "power1.out"
+    }, 3.65);
+    tl.to("#phrase-3",
+      { autoAlpha: 0, y: -10, filter: "blur(4px)", duration: 0.2, ease: "power1.in" },
+      4.12
+    );
+
+    // Phrase phrase-4 (4.07s - 5.54s)
+    tl.fromTo("#phrase-4",
+      { autoAlpha: 0, y: 15, filter: "blur(6px)" },
+      { autoAlpha: 1, y: 0, filter: "blur(0px)", duration: 0.25, ease: "power2.out" },
+      4.07
+    );
+    tl.to("#w-phrase-4-0", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.32,
+      ease: "power1.out"
+    }, 4.07);
+    tl.to("#w-phrase-4-1", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.52,
+      ease: "power1.out"
+    }, 4.39);
+    tl.to("#w-phrase-4-2", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.27,
+      ease: "power1.out"
+    }, 4.91);
+    tl.to("#w-phrase-4-3", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.36,
+      ease: "power1.out"
+    }, 5.18);
+    tl.to("#phrase-4",
+      { autoAlpha: 0, y: -10, filter: "blur(4px)", duration: 0.2, ease: "power1.in" },
+      5.59
+    );
+
+    // Phrase phrase-5 (5.54s - 6.49s)
+    tl.fromTo("#phrase-5",
+      { autoAlpha: 0, y: 15, filter: "blur(6px)" },
+      { autoAlpha: 1, y: 0, filter: "blur(0px)", duration: 0.25, ease: "power2.out" },
+      5.54
+    );
+    tl.to("#w-phrase-5-0", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.42,
+      ease: "power1.out"
+    }, 5.54);
+    tl.to("#w-phrase-5-1", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.53,
+      ease: "power1.out"
+    }, 5.96);
+    tl.to("#phrase-5",
+      { autoAlpha: 0, y: -10, filter: "blur(4px)", duration: 0.2, ease: "power1.in" },
+      6.54
+    );
+
+    // Phrase phrase-6 (6.49s - 7.91s)
+    tl.fromTo("#phrase-6",
+      { autoAlpha: 0, y: 15, filter: "blur(6px)" },
+      { autoAlpha: 1, y: 0, filter: "blur(0px)", duration: 0.25, ease: "power2.out" },
+      6.49
+    );
+    tl.to("#w-phrase-6-0", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.37,
+      ease: "power1.out"
+    }, 6.49);
+    tl.to("#w-phrase-6-1", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.26,
+      ease: "power1.out"
+    }, 6.86);
+    tl.to("#w-phrase-6-2", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.37,
+      ease: "power1.out"
+    }, 7.12);
+    tl.to("#w-phrase-6-3", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.42,
+      ease: "power1.out"
+    }, 7.49);
+    tl.to("#phrase-6",
+      { autoAlpha: 0, y: -10, filter: "blur(4px)", duration: 0.2, ease: "power1.in" },
+      7.96
+    );
+
+    // Phrase phrase-7 (7.91s - 9.28s)
+    tl.fromTo("#phrase-7",
+      { autoAlpha: 0, y: 15, filter: "blur(6px)" },
+      { autoAlpha: 1, y: 0, filter: "blur(0px)", duration: 0.25, ease: "power2.out" },
+      7.91
+    );
+    tl.to("#w-phrase-7-0", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.47,
+      ease: "power1.out"
+    }, 7.91);
+    tl.to("#w-phrase-7-1", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.12,
+      ease: "power1.out"
+    }, 8.38);
+    tl.to("#w-phrase-7-2", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.36,
+      ease: "power1.out"
+    }, 8.49);
+    tl.to("#w-phrase-7-3", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.43,
+      ease: "power1.out"
+    }, 8.85);
+    tl.to("#phrase-7",
+      { autoAlpha: 0, y: -10, filter: "blur(4px)", duration: 0.2, ease: "power1.in" },
+      9.33
+    );
+
+    // Phrase phrase-8 (9.28s - 9.91s)
+    tl.fromTo("#phrase-8",
+      { autoAlpha: 0, y: 15, filter: "blur(6px)" },
+      { autoAlpha: 1, y: 0, filter: "blur(0px)", duration: 0.25, ease: "power2.out" },
+      9.28
+    );
+    tl.to("#w-phrase-8-0", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.63,
+      ease: "power1.out"
+    }, 9.28);
+    tl.to("#phrase-8",
+      { autoAlpha: 0, y: -10, filter: "blur(4px)", duration: 0.2, ease: "power1.in" },
+      9.96
+    );
+
+    // Phrase phrase-9 (10.11s - 11.43s)
+    tl.fromTo("#phrase-9",
+      { autoAlpha: 0, y: 15, filter: "blur(6px)" },
+      { autoAlpha: 1, y: 0, filter: "blur(0px)", duration: 0.25, ease: "power2.out" },
+      10.11
+    );
+    tl.to("#w-phrase-9-0", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.44,
+      ease: "power1.out"
+    }, 10.11);
+    tl.to("#w-phrase-9-1", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.50,
+      ease: "power1.out"
+    }, 10.55);
+    tl.to("#w-phrase-9-2", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.22,
+      ease: "power1.out"
+    }, 11.05);
+    tl.to("#w-phrase-9-3", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.16,
+      ease: "power1.out"
+    }, 11.27);
+    tl.to("#phrase-9",
+      { autoAlpha: 0, y: -10, filter: "blur(4px)", duration: 0.2, ease: "power1.in" },
+      11.48
+    );
+
+    // Phrase phrase-10 (11.43s - 12.37s)
+    tl.fromTo("#phrase-10",
+      { autoAlpha: 0, y: 15, filter: "blur(6px)" },
+      { autoAlpha: 1, y: 0, filter: "blur(0px)", duration: 0.25, ease: "power2.out" },
+      11.43
+    );
+    tl.to("#w-phrase-10-0", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.28,
+      ease: "power1.out"
+    }, 11.43);
+    tl.to("#w-phrase-10-1", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.22,
+      ease: "power1.out"
+    }, 11.71);
+    tl.to("#w-phrase-10-2", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.44,
+      ease: "power1.out"
+    }, 11.93);
+    tl.to("#phrase-10",
+      { autoAlpha: 0, y: -10, filter: "blur(4px)", duration: 0.2, ease: "power1.in" },
+      12.42
+    );
+
+    // Phrase phrase-11 (12.37s - 13.85s)
+    tl.fromTo("#phrase-11",
+      { autoAlpha: 0, y: 15, filter: "blur(6px)" },
+      { autoAlpha: 1, y: 0, filter: "blur(0px)", duration: 0.25, ease: "power2.out" },
+      12.37
+    );
+    tl.to("#w-phrase-11-0", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.33,
+      ease: "power1.out"
+    }, 12.37);
+    tl.to("#w-phrase-11-1", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.44,
+      ease: "power1.out"
+    }, 12.70);
+    tl.to("#w-phrase-11-2", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.44,
+      ease: "power1.out"
+    }, 13.14);
+    tl.to("#w-phrase-11-3", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.27,
+      ease: "power1.out"
+    }, 13.58);
+    tl.to("#phrase-11",
+      { autoAlpha: 0, y: -10, filter: "blur(4px)", duration: 0.2, ease: "power1.in" },
+      13.90
+    );
+
+    // Phrase phrase-12 (13.85s - 14.84s)
+    tl.fromTo("#phrase-12",
+      { autoAlpha: 0, y: 15, filter: "blur(6px)" },
+      { autoAlpha: 1, y: 0, filter: "blur(0px)", duration: 0.25, ease: "power2.out" },
+      13.85
+    );
+    tl.to("#w-phrase-12-0", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.22,
+      ease: "power1.out"
+    }, 13.85);
+    tl.to("#w-phrase-12-1", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.39,
+      ease: "power1.out"
+    }, 14.07);
+    tl.to("#w-phrase-12-2", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.12,
+      ease: "power1.out"
+    }, 14.46);
+    tl.to("#w-phrase-12-3", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.27,
+      ease: "power1.out"
+    }, 14.57);
+    tl.to("#phrase-12",
+      { autoAlpha: 0, y: -10, filter: "blur(4px)", duration: 0.2, ease: "power1.in" },
+      14.89
+    );
+
+    // Phrase phrase-13 (14.84s - 16.6s)
+    tl.fromTo("#phrase-13",
+      { autoAlpha: 0, y: 15, filter: "blur(6px)" },
+      { autoAlpha: 1, y: 0, filter: "blur(0px)", duration: 0.25, ease: "power2.out" },
+      14.84
+    );
+    tl.to("#w-phrase-13-0", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.39,
+      ease: "power1.out"
+    }, 14.84);
+    tl.to("#w-phrase-13-1", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.38,
+      ease: "power1.out"
+    }, 15.23);
+    tl.to("#w-phrase-13-2", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.61,
+      ease: "power1.out"
+    }, 15.61);
+    tl.to("#w-phrase-13-3", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.38,
+      ease: "power1.out"
+    }, 16.22);
+    tl.to("#phrase-13",
+      { autoAlpha: 0, y: -10, filter: "blur(4px)", duration: 0.2, ease: "power1.in" },
+      16.65
+    );
+
+    // Phrase phrase-14 (16.6s - 17.98s)
+    tl.fromTo("#phrase-14",
+      { autoAlpha: 0, y: 15, filter: "blur(6px)" },
+      { autoAlpha: 1, y: 0, filter: "blur(0px)", duration: 0.25, ease: "power2.out" },
+      16.6
+    );
+    tl.to("#w-phrase-14-0", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.17,
+      ease: "power1.out"
+    }, 16.60);
+    tl.to("#w-phrase-14-1", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.38,
+      ease: "power1.out"
+    }, 16.77);
+    tl.to("#w-phrase-14-2", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.28,
+      ease: "power1.out"
+    }, 17.15);
+    tl.to("#w-phrase-14-3", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.55,
+      ease: "power1.out"
+    }, 17.43);
+    tl.to("#phrase-14",
+      { autoAlpha: 0, y: -10, filter: "blur(4px)", duration: 0.2, ease: "power1.in" },
+      18.03
+    );
+
+    // Phrase phrase-15 (17.98s - 19.13s)
+    tl.fromTo("#phrase-15",
+      { autoAlpha: 0, y: 15, filter: "blur(6px)" },
+      { autoAlpha: 1, y: 0, filter: "blur(0px)", duration: 0.25, ease: "power2.out" },
+      17.98
+    );
+    tl.to("#w-phrase-15-0", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.44,
+      ease: "power1.out"
+    }, 17.98);
+    tl.to("#w-phrase-15-1", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.22,
+      ease: "power1.out"
+    }, 18.42);
+    tl.to("#w-phrase-15-2", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.33,
+      ease: "power1.out"
+    }, 18.64);
+    tl.to("#w-phrase-15-3", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.16,
+      ease: "power1.out"
+    }, 18.97);
+    tl.to("#phrase-15",
+      { autoAlpha: 0, y: -10, filter: "blur(4px)", duration: 0.2, ease: "power1.in" },
+      19.18
+    );
+
+    // Phrase phrase-16 (19.13s - 19.96s)
+    tl.fromTo("#phrase-16",
+      { autoAlpha: 0, y: 15, filter: "blur(6px)" },
+      { autoAlpha: 1, y: 0, filter: "blur(0px)", duration: 0.25, ease: "power2.out" },
+      19.13
+    );
+    tl.to("#w-phrase-16-0", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.17,
+      ease: "power1.out"
+    }, 19.13);
+    tl.to("#w-phrase-16-1", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.66,
+      ease: "power1.out"
+    }, 19.30);
+    tl.to("#phrase-16",
+      { autoAlpha: 0, y: -10, filter: "blur(4px)", duration: 0.2, ease: "power1.in" },
+      20.01
+    );
+
+    // Phrase phrase-17 (20.16s - 21.3s)
+    tl.fromTo("#phrase-17",
+      { autoAlpha: 0, y: 15, filter: "blur(6px)" },
+      { autoAlpha: 1, y: 0, filter: "blur(0px)", duration: 0.25, ease: "power2.out" },
+      20.16
+    );
+    tl.to("#w-phrase-17-0", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.34,
+      ease: "power1.out"
+    }, 20.16);
+    tl.to("#w-phrase-17-1", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.46,
+      ease: "power1.out"
+    }, 20.50);
+    tl.to("#w-phrase-17-2", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.34,
+      ease: "power1.out"
+    }, 20.96);
+    tl.to("#phrase-17",
+      { autoAlpha: 0, y: -10, filter: "blur(4px)", duration: 0.2, ease: "power1.in" },
+      21.35
+    );
+
+    // Phrase phrase-18 (21.3s - 22.27s)
+    tl.fromTo("#phrase-18",
+      { autoAlpha: 0, y: 15, filter: "blur(6px)" },
+      { autoAlpha: 1, y: 0, filter: "blur(0px)", duration: 0.25, ease: "power2.out" },
+      21.3
+    );
+    tl.to("#w-phrase-18-0", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.34,
+      ease: "power1.out"
+    }, 21.30);
+    tl.to("#w-phrase-18-1", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.23,
+      ease: "power1.out"
+    }, 21.64);
+    tl.to("#w-phrase-18-2", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.12,
+      ease: "power1.out"
+    }, 21.87);
+    tl.to("#w-phrase-18-3", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.29,
+      ease: "power1.out"
+    }, 21.98);
+    tl.to("#phrase-18",
+      { autoAlpha: 0, y: -10, filter: "blur(4px)", duration: 0.2, ease: "power1.in" },
+      22.32
+    );
+
+    // Phrase phrase-19 (22.27s - 22.84s)
+    tl.fromTo("#phrase-19",
+      { autoAlpha: 0, y: 15, filter: "blur(6px)" },
+      { autoAlpha: 1, y: 0, filter: "blur(0px)", duration: 0.25, ease: "power2.out" },
+      22.27
+    );
+    tl.to("#w-phrase-19-0", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.57,
+      ease: "power1.out"
+    }, 22.27);
+    tl.to("#phrase-19",
+      { autoAlpha: 0, y: -10, filter: "blur(4px)", duration: 0.2, ease: "power1.in" },
+      22.89
+    );
+
+    // Phrase phrase-20 (22.84s - 23.98s)
+    tl.fromTo("#phrase-20",
+      { autoAlpha: 0, y: 15, filter: "blur(6px)" },
+      { autoAlpha: 1, y: 0, filter: "blur(0px)", duration: 0.25, ease: "power2.out" },
+      22.84
+    );
+    tl.to("#w-phrase-20-0", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.28,
+      ease: "power1.out"
+    }, 22.84);
+    tl.to("#w-phrase-20-1", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.23,
+      ease: "power1.out"
+    }, 23.12);
+    tl.to("#w-phrase-20-2", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.51,
+      ease: "power1.out"
+    }, 23.35);
+    tl.to("#w-phrase-20-3", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.12,
+      ease: "power1.out"
+    }, 23.86);
+    tl.to("#phrase-20",
+      { autoAlpha: 0, y: -10, filter: "blur(4px)", duration: 0.2, ease: "power1.in" },
+      24.03
+    );
+
+    // Phrase phrase-21 (23.98s - 25.46s)
+    tl.fromTo("#phrase-21",
+      { autoAlpha: 0, y: 15, filter: "blur(6px)" },
+      { autoAlpha: 1, y: 0, filter: "blur(0px)", duration: 0.25, ease: "power2.out" },
+      23.98
+    );
+    tl.to("#w-phrase-21-0", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.45,
+      ease: "power1.out"
+    }, 23.98);
+    tl.to("#w-phrase-21-1", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.51,
+      ease: "power1.out"
+    }, 24.43);
+    tl.to("#w-phrase-21-2", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.52,
+      ease: "power1.out"
+    }, 24.94);
+    tl.to("#phrase-21",
+      { autoAlpha: 0, y: -10, filter: "blur(4px)", duration: 0.2, ease: "power1.in" },
+      25.51
+    );
+
+    // Phrase phrase-22 (25.46s - 26.6s)
+    tl.fromTo("#phrase-22",
+      { autoAlpha: 0, y: 15, filter: "blur(6px)" },
+      { autoAlpha: 1, y: 0, filter: "blur(0px)", duration: 0.25, ease: "power2.out" },
+      25.46
+    );
+    tl.to("#w-phrase-22-0", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.17,
+      ease: "power1.out"
+    }, 25.46);
+    tl.to("#w-phrase-22-1", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.28,
+      ease: "power1.out"
+    }, 25.63);
+    tl.to("#w-phrase-22-2", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.40,
+      ease: "power1.out"
+    }, 25.91);
+    tl.to("#w-phrase-22-3", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.29,
+      ease: "power1.out"
+    }, 26.31);
+    tl.to("#phrase-22",
+      { autoAlpha: 0, y: -10, filter: "blur(4px)", duration: 0.2, ease: "power1.in" },
+      26.65
+    );
+
+    // Phrase phrase-23 (26.6s - 27.96s)
+    tl.fromTo("#phrase-23",
+      { autoAlpha: 0, y: 15, filter: "blur(6px)" },
+      { autoAlpha: 1, y: 0, filter: "blur(0px)", duration: 0.25, ease: "power2.out" },
+      26.6
+    );
+    tl.to("#w-phrase-23-0", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.34,
+      ease: "power1.out"
+    }, 26.60);
+    tl.to("#w-phrase-23-1", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.45,
+      ease: "power1.out"
+    }, 26.94);
+    tl.to("#w-phrase-23-2", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.46,
+      ease: "power1.out"
+    }, 27.39);
+    tl.to("#w-phrase-23-3", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.12,
+      ease: "power1.out"
+    }, 27.85);
+    tl.to("#phrase-23",
+      { autoAlpha: 0, y: -10, filter: "blur(4px)", duration: 0.2, ease: "power1.in" },
+      28.01
+    );
+
+    // Phrase phrase-24 (27.96s - 28.48s)
+    tl.fromTo("#phrase-24",
+      { autoAlpha: 0, y: 15, filter: "blur(6px)" },
+      { autoAlpha: 1, y: 0, filter: "blur(0px)", duration: 0.25, ease: "power2.out" },
+      27.96
+    );
+    tl.to("#w-phrase-24-0", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.23,
+      ease: "power1.out"
+    }, 27.96);
+    tl.to("#w-phrase-24-1", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.29,
+      ease: "power1.out"
+    }, 28.19);
+    tl.to("#phrase-24",
+      { autoAlpha: 0, y: -10, filter: "blur(4px)", duration: 0.2, ease: "power1.in" },
+      28.53
+    );
+
+    // Phrase phrase-25 (28.48s - 29.84s)
+    tl.fromTo("#phrase-25",
+      { autoAlpha: 0, y: 15, filter: "blur(6px)" },
+      { autoAlpha: 1, y: 0, filter: "blur(0px)", duration: 0.25, ease: "power2.out" },
+      28.48
+    );
+    tl.to("#w-phrase-25-0", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.22,
+      ease: "power1.out"
+    }, 28.48);
+    tl.to("#w-phrase-25-1", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.29,
+      ease: "power1.out"
+    }, 28.70);
+    tl.to("#w-phrase-25-2", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.57,
+      ease: "power1.out"
+    }, 28.99);
+    tl.to("#w-phrase-25-3", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.28,
+      ease: "power1.out"
+    }, 29.56);
+    tl.to("#phrase-25",
+      { autoAlpha: 0, y: -10, filter: "blur(4px)", duration: 0.2, ease: "power1.in" },
+      29.89
+    );
+
+    // Phrase phrase-26 (29.84s - 30.7s)
+    tl.fromTo("#phrase-26",
+      { autoAlpha: 0, y: 15, filter: "blur(6px)" },
+      { autoAlpha: 1, y: 0, filter: "blur(0px)", duration: 0.25, ease: "power2.out" },
+      29.84
+    );
+    tl.to("#w-phrase-26-0", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.23,
+      ease: "power1.out"
+    }, 29.84);
+    tl.to("#w-phrase-26-1", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.63,
+      ease: "power1.out"
+    }, 30.07);
+    tl.to("#phrase-26",
+      { autoAlpha: 0, y: -10, filter: "blur(4px)", duration: 0.2, ease: "power1.in" },
+      30.75
+    );
+
+    // Phrase phrase-27 (30.9s - 32.09s)
+    tl.fromTo("#phrase-27",
+      { autoAlpha: 0, y: 15, filter: "blur(6px)" },
+      { autoAlpha: 1, y: 0, filter: "blur(0px)", duration: 0.25, ease: "power2.out" },
+      30.9
+    );
+    tl.to("#w-phrase-27-0", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.23,
+      ease: "power1.out"
+    }, 30.90);
+    tl.to("#w-phrase-27-1", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.22,
+      ease: "power1.out"
+    }, 31.13);
+    tl.to("#w-phrase-27-2", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.29,
+      ease: "power1.out"
+    }, 31.35);
+    tl.to("#w-phrase-27-3", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.45,
+      ease: "power1.out"
+    }, 31.64);
+    tl.to("#phrase-27",
+      { autoAlpha: 0, y: -10, filter: "blur(4px)", duration: 0.2, ease: "power1.in" },
+      32.14
+    );
+
+    // Phrase phrase-28 (32.09s - 33.91s)
+    tl.fromTo("#phrase-28",
+      { autoAlpha: 0, y: 15, filter: "blur(6px)" },
+      { autoAlpha: 1, y: 0, filter: "blur(0px)", duration: 0.25, ease: "power2.out" },
+      32.09
+    );
+    tl.to("#w-phrase-28-0", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.23,
+      ease: "power1.out"
+    }, 32.09);
+    tl.to("#w-phrase-28-1", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.51,
+      ease: "power1.out"
+    }, 32.32);
+    tl.to("#w-phrase-28-2", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.40,
+      ease: "power1.out"
+    }, 32.83);
+    tl.to("#w-phrase-28-3", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.68,
+      ease: "power1.out"
+    }, 33.23);
+    tl.to("#phrase-28",
+      { autoAlpha: 0, y: -10, filter: "blur(4px)", duration: 0.2, ease: "power1.in" },
+      33.96
+    );
+
+    // Phrase phrase-29 (33.91s - 35.51s)
+    tl.fromTo("#phrase-29",
+      { autoAlpha: 0, y: 15, filter: "blur(6px)" },
+      { autoAlpha: 1, y: 0, filter: "blur(0px)", duration: 0.25, ease: "power2.out" },
+      33.91
+    );
+    tl.to("#w-phrase-29-0", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.29,
+      ease: "power1.out"
+    }, 33.91);
+    tl.to("#w-phrase-29-1", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.57,
+      ease: "power1.out"
+    }, 34.20);
+    tl.to("#w-phrase-29-2", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.34,
+      ease: "power1.out"
+    }, 34.77);
+    tl.to("#w-phrase-29-3", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.40,
+      ease: "power1.out"
+    }, 35.11);
+    tl.to("#phrase-29",
+      { autoAlpha: 0, y: -10, filter: "blur(4px)", duration: 0.2, ease: "power1.in" },
+      35.56
+    );
+
+    // Phrase phrase-30 (35.51s - 36.25s)
+    tl.fromTo("#phrase-30",
+      { autoAlpha: 0, y: 15, filter: "blur(6px)" },
+      { autoAlpha: 1, y: 0, filter: "blur(0px)", duration: 0.25, ease: "power2.out" },
+      35.51
+    );
+    tl.to("#w-phrase-30-0", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.34,
+      ease: "power1.out"
+    }, 35.51);
+    tl.to("#w-phrase-30-1", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.40,
+      ease: "power1.out"
+    }, 35.85);
+    tl.to("#phrase-30",
+      { autoAlpha: 0, y: -10, filter: "blur(4px)", duration: 0.2, ease: "power1.in" },
+      36.30
+    );
+
+    // Phrase phrase-31 (36.25s - 37.5s)
+    tl.fromTo("#phrase-31",
+      { autoAlpha: 0, y: 15, filter: "blur(6px)" },
+      { autoAlpha: 1, y: 0, filter: "blur(0px)", duration: 0.25, ease: "power2.out" },
+      36.25
+    );
+    tl.to("#w-phrase-31-0", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.22,
+      ease: "power1.out"
+    }, 36.25);
+    tl.to("#w-phrase-31-1", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.17,
+      ease: "power1.out"
+    }, 36.47);
+    tl.to("#w-phrase-31-2", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.51,
+      ease: "power1.out"
+    }, 36.64);
+    tl.to("#w-phrase-31-3", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.35,
+      ease: "power1.out"
+    }, 37.15);
+    tl.to("#phrase-31",
+      { autoAlpha: 0, y: -10, filter: "blur(4px)", duration: 0.2, ease: "power1.in" },
+      37.55
+    );
+
+    // Phrase phrase-32 (37.5s - 38.29s)
+    tl.fromTo("#phrase-32",
+      { autoAlpha: 0, y: 15, filter: "blur(6px)" },
+      { autoAlpha: 1, y: 0, filter: "blur(0px)", duration: 0.25, ease: "power2.out" },
+      37.5
+    );
+    tl.to("#w-phrase-32-0", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.17,
+      ease: "power1.out"
+    }, 37.50);
+    tl.to("#w-phrase-32-1", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.62,
+      ease: "power1.out"
+    }, 37.67);
+    tl.to("#phrase-32",
+      { autoAlpha: 0, y: -10, filter: "blur(4px)", duration: 0.2, ease: "power1.in" },
+      38.34
+    );
+
+    // Phrase phrase-33 (38.29s - 39.37s)
+    tl.fromTo("#phrase-33",
+      { autoAlpha: 0, y: 15, filter: "blur(6px)" },
+      { autoAlpha: 1, y: 0, filter: "blur(0px)", duration: 0.25, ease: "power2.out" },
+      38.29
+    );
+    tl.to("#w-phrase-33-0", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.23,
+      ease: "power1.out"
+    }, 38.29);
+    tl.to("#w-phrase-33-1", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.34,
+      ease: "power1.out"
+    }, 38.52);
+    tl.to("#w-phrase-33-2", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.29,
+      ease: "power1.out"
+    }, 38.86);
+    tl.to("#w-phrase-33-3", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.22,
+      ease: "power1.out"
+    }, 39.15);
+    tl.to("#phrase-33",
+      { autoAlpha: 0, y: -10, filter: "blur(4px)", duration: 0.2, ease: "power1.in" },
+      39.42
+    );
+
+    // Phrase phrase-34 (39.37s - 41.19s)
+    tl.fromTo("#phrase-34",
+      { autoAlpha: 0, y: 15, filter: "blur(6px)" },
+      { autoAlpha: 1, y: 0, filter: "blur(0px)", duration: 0.25, ease: "power2.out" },
+      39.37
+    );
+    tl.to("#w-phrase-34-0", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.29,
+      ease: "power1.out"
+    }, 39.37);
+    tl.to("#w-phrase-34-1", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.45,
+      ease: "power1.out"
+    }, 39.66);
+    tl.to("#w-phrase-34-2", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.40,
+      ease: "power1.out"
+    }, 40.11);
+    tl.to("#w-phrase-34-3", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.68,
+      ease: "power1.out"
+    }, 40.51);
+    tl.to("#phrase-34",
+      { autoAlpha: 0, y: -10, filter: "blur(4px)", duration: 0.2, ease: "power1.in" },
+      41.24
+    );
+
+    // Phrase phrase-35 (41.39s - 42.5s)
+    tl.fromTo("#phrase-35",
+      { autoAlpha: 0, y: 15, filter: "blur(6px)" },
+      { autoAlpha: 1, y: 0, filter: "blur(0px)", duration: 0.25, ease: "power2.out" },
+      41.39
+    );
+    tl.to("#w-phrase-35-0", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.27,
+      ease: "power1.out"
+    }, 41.39);
+    tl.to("#w-phrase-35-1", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.21,
+      ease: "power1.out"
+    }, 41.66);
+    tl.to("#w-phrase-35-2", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.63,
+      ease: "power1.out"
+    }, 41.87);
+    tl.to("#phrase-35",
+      { autoAlpha: 0, y: -10, filter: "blur(4px)", duration: 0.2, ease: "power1.in" },
+      42.55
+    );
+
+    // Phrase phrase-36 (42.5s - 43.93s)
+    tl.fromTo("#phrase-36",
+      { autoAlpha: 0, y: 15, filter: "blur(6px)" },
+      { autoAlpha: 1, y: 0, filter: "blur(0px)", duration: 0.25, ease: "power2.out" },
+      42.5
+    );
+    tl.to("#w-phrase-36-0", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.27,
+      ease: "power1.out"
+    }, 42.50);
+    tl.to("#w-phrase-36-1", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.53,
+      ease: "power1.out"
+    }, 42.77);
+    tl.to("#w-phrase-36-2", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.42,
+      ease: "power1.out"
+    }, 43.30);
+    tl.to("#w-phrase-36-3", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.21,
+      ease: "power1.out"
+    }, 43.72);
+    tl.to("#phrase-36",
+      { autoAlpha: 0, y: -10, filter: "blur(4px)", duration: 0.2, ease: "power1.in" },
+      43.98
+    );
+
+    // Phrase phrase-37 (43.93s - 45.05s)
+    tl.fromTo("#phrase-37",
+      { autoAlpha: 0, y: 15, filter: "blur(6px)" },
+      { autoAlpha: 1, y: 0, filter: "blur(0px)", duration: 0.25, ease: "power2.out" },
+      43.93
+    );
+    tl.to("#w-phrase-37-0", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.43,
+      ease: "power1.out"
+    }, 43.93);
+    tl.to("#w-phrase-37-1", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.26,
+      ease: "power1.out"
+    }, 44.36);
+    tl.to("#w-phrase-37-2", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.43,
+      ease: "power1.out"
+    }, 44.62);
+    tl.to("#phrase-37",
+      { autoAlpha: 0, y: -10, filter: "blur(4px)", duration: 0.2, ease: "power1.in" },
+      45.10
+    );
+
+    // Phrase phrase-38 (45.05s - 46.8s)
+    tl.fromTo("#phrase-38",
+      { autoAlpha: 0, y: 15, filter: "blur(6px)" },
+      { autoAlpha: 1, y: 0, filter: "blur(0px)", duration: 0.25, ease: "power2.out" },
+      45.05
+    );
+    tl.to("#w-phrase-38-0", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.47,
+      ease: "power1.out"
+    }, 45.05);
+    tl.to("#w-phrase-38-1", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.48,
+      ease: "power1.out"
+    }, 45.52);
+    tl.to("#w-phrase-38-2", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.53,
+      ease: "power1.out"
+    }, 46.00);
+    tl.to("#w-phrase-38-3", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.27,
+      ease: "power1.out"
+    }, 46.53);
+    tl.to("#phrase-38",
+      { autoAlpha: 0, y: -10, filter: "blur(4px)", duration: 0.2, ease: "power1.in" },
+      46.85
+    );
+
+    // Phrase phrase-39 (46.8s - 47.8s)
+    tl.fromTo("#phrase-39",
+      { autoAlpha: 0, y: 15, filter: "blur(6px)" },
+      { autoAlpha: 1, y: 0, filter: "blur(0px)", duration: 0.25, ease: "power2.out" },
+      46.8
+    );
+    tl.to("#w-phrase-39-0", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.26,
+      ease: "power1.out"
+    }, 46.80);
+    tl.to("#w-phrase-39-1", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.27,
+      ease: "power1.out"
+    }, 47.06);
+    tl.to("#w-phrase-39-2", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.12,
+      ease: "power1.out"
+    }, 47.33);
+    tl.to("#w-phrase-39-3", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.37,
+      ease: "power1.out"
+    }, 47.43);
+    tl.to("#phrase-39",
+      { autoAlpha: 0, y: -10, filter: "blur(4px)", duration: 0.2, ease: "power1.in" },
+      47.85
+    );
+
+    // Phrase phrase-40 (47.8s - 49.39s)
+    tl.fromTo("#phrase-40",
+      { autoAlpha: 0, y: 15, filter: "blur(6px)" },
+      { autoAlpha: 1, y: 0, filter: "blur(0px)", duration: 0.25, ease: "power2.out" },
+      47.8
+    );
+    tl.to("#w-phrase-40-0", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.43,
+      ease: "power1.out"
+    }, 47.80);
+    tl.to("#w-phrase-40-1", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.47,
+      ease: "power1.out"
+    }, 48.23);
+    tl.to("#w-phrase-40-2", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.22,
+      ease: "power1.out"
+    }, 48.70);
+    tl.to("#w-phrase-40-3", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.47,
+      ease: "power1.out"
+    }, 48.92);
+    tl.to("#phrase-40",
+      { autoAlpha: 0, y: -10, filter: "blur(4px)", duration: 0.2, ease: "power1.in" },
+      49.44
+    );
+
+    // Phrase phrase-41 (49.39s - 50.61s)
+    tl.fromTo("#phrase-41",
+      { autoAlpha: 0, y: 15, filter: "blur(6px)" },
+      { autoAlpha: 1, y: 0, filter: "blur(0px)", duration: 0.25, ease: "power2.out" },
+      49.39
+    );
+    tl.to("#w-phrase-41-0", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.53,
+      ease: "power1.out"
+    }, 49.39);
+    tl.to("#w-phrase-41-1", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.22,
+      ease: "power1.out"
+    }, 49.92);
+    tl.to("#w-phrase-41-2", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.21,
+      ease: "power1.out"
+    }, 50.14);
+    tl.to("#w-phrase-41-3", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.26,
+      ease: "power1.out"
+    }, 50.35);
+    tl.to("#phrase-41",
+      { autoAlpha: 0, y: -10, filter: "blur(4px)", duration: 0.2, ease: "power1.in" },
+      50.66
+    );
+
+    // Phrase phrase-42 (50.61s - 51.04s)
+    tl.fromTo("#phrase-42",
+      { autoAlpha: 0, y: 15, filter: "blur(6px)" },
+      { autoAlpha: 1, y: 0, filter: "blur(0px)", duration: 0.25, ease: "power2.out" },
+      50.61
+    );
+    tl.to("#w-phrase-42-0", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.43,
+      ease: "power1.out"
+    }, 50.61);
+    tl.to("#phrase-42",
+      { autoAlpha: 0, y: -10, filter: "blur(4px)", duration: 0.2, ease: "power1.in" },
+      51.09
+    );
+
+    // Phrase phrase-43 (51.24s - 52.56s)
+    tl.fromTo("#phrase-43",
+      { autoAlpha: 0, y: 15, filter: "blur(6px)" },
+      { autoAlpha: 1, y: 0, filter: "blur(0px)", duration: 0.25, ease: "power2.out" },
+      51.24
+    );
+    tl.to("#w-phrase-43-0", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.51,
+      ease: "power1.out"
+    }, 51.24);
+    tl.to("#w-phrase-43-1", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.25,
+      ease: "power1.out"
+    }, 51.75);
+    tl.to("#w-phrase-43-2", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.36,
+      ease: "power1.out"
+    }, 52.00);
+    tl.to("#w-phrase-43-3", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.20,
+      ease: "power1.out"
+    }, 52.36);
+    tl.to("#phrase-43",
+      { autoAlpha: 0, y: -10, filter: "blur(4px)", duration: 0.2, ease: "power1.in" },
+      52.61
+    );
+
+    // Phrase phrase-44 (52.56s - 53.27s)
+    tl.fromTo("#phrase-44",
+      { autoAlpha: 0, y: 15, filter: "blur(6px)" },
+      { autoAlpha: 1, y: 0, filter: "blur(0px)", duration: 0.25, ease: "power2.out" },
+      52.56
+    );
+    tl.to("#w-phrase-44-0", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.15,
+      ease: "power1.out"
+    }, 52.56);
+    tl.to("#w-phrase-44-1", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.26,
+      ease: "power1.out"
+    }, 52.71);
+    tl.to("#w-phrase-44-2", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.20,
+      ease: "power1.out"
+    }, 52.97);
+    tl.to("#w-phrase-44-3", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.12,
+      ease: "power1.out"
+    }, 53.17);
+    tl.to("#phrase-44",
+      { autoAlpha: 0, y: -10, filter: "blur(4px)", duration: 0.2, ease: "power1.in" },
+      53.32
+    );
+
+    // Phrase phrase-45 (53.27s - 54.8s)
+    tl.fromTo("#phrase-45",
+      { autoAlpha: 0, y: 15, filter: "blur(6px)" },
+      { autoAlpha: 1, y: 0, filter: "blur(0px)", duration: 0.25, ease: "power2.out" },
+      53.27
+    );
+    tl.to("#w-phrase-45-0", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.36,
+      ease: "power1.out"
+    }, 53.27);
+    tl.to("#w-phrase-45-1", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.46,
+      ease: "power1.out"
+    }, 53.63);
+    tl.to("#w-phrase-45-2", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.20,
+      ease: "power1.out"
+    }, 54.09);
+    tl.to("#w-phrase-45-3", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.51,
+      ease: "power1.out"
+    }, 54.29);
+    tl.to("#phrase-45",
+      { autoAlpha: 0, y: -10, filter: "blur(4px)", duration: 0.2, ease: "power1.in" },
+      54.85
+    );
+
+    // Phrase phrase-46 (54.8s - 55.92s)
+    tl.fromTo("#phrase-46",
+      { autoAlpha: 0, y: 15, filter: "blur(6px)" },
+      { autoAlpha: 1, y: 0, filter: "blur(0px)", duration: 0.25, ease: "power2.out" },
+      54.8
+    );
+    tl.to("#w-phrase-46-0", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.25,
+      ease: "power1.out"
+    }, 54.80);
+    tl.to("#w-phrase-46-1", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.16,
+      ease: "power1.out"
+    }, 55.05);
+    tl.to("#w-phrase-46-2", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.40,
+      ease: "power1.out"
+    }, 55.21);
+    tl.to("#w-phrase-46-3", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.31,
+      ease: "power1.out"
+    }, 55.61);
+    tl.to("#phrase-46",
+      { autoAlpha: 0, y: -10, filter: "blur(4px)", duration: 0.2, ease: "power1.in" },
+      55.97
+    );
+
+    // Phrase phrase-47 (55.92s - 56.68s)
+    tl.fromTo("#phrase-47",
+      { autoAlpha: 0, y: 15, filter: "blur(6px)" },
+      { autoAlpha: 1, y: 0, filter: "blur(0px)", duration: 0.25, ease: "power2.out" },
+      55.92
+    );
+    tl.to("#w-phrase-47-0", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.12,
+      ease: "power1.out"
+    }, 55.92);
+    tl.to("#w-phrase-47-1", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.25,
+      ease: "power1.out"
+    }, 56.02);
+    tl.to("#w-phrase-47-2", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.41,
+      ease: "power1.out"
+    }, 56.27);
+    tl.to("#phrase-47",
+      { autoAlpha: 0, y: -10, filter: "blur(4px)", duration: 0.2, ease: "power1.in" },
+      56.73
+    );
+
+    // Phrase phrase-48 (56.68s - 57.65s)
+    tl.fromTo("#phrase-48",
+      { autoAlpha: 0, y: 15, filter: "blur(6px)" },
+      { autoAlpha: 1, y: 0, filter: "blur(0px)", duration: 0.25, ease: "power2.out" },
+      56.68
+    );
+    tl.to("#w-phrase-48-0", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.25,
+      ease: "power1.out"
+    }, 56.68);
+    tl.to("#w-phrase-48-1", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.26,
+      ease: "power1.out"
+    }, 56.93);
+    tl.to("#w-phrase-48-2", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.25,
+      ease: "power1.out"
+    }, 57.19);
+    tl.to("#w-phrase-48-3", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.21,
+      ease: "power1.out"
+    }, 57.44);
+    tl.to("#phrase-48",
+      { autoAlpha: 0, y: -10, filter: "blur(4px)", duration: 0.2, ease: "power1.in" },
+      57.70
+    );
+
+    // Phrase phrase-49 (57.65s - 58.97s)
+    tl.fromTo("#phrase-49",
+      { autoAlpha: 0, y: 15, filter: "blur(6px)" },
+      { autoAlpha: 1, y: 0, filter: "blur(0px)", duration: 0.25, ease: "power2.out" },
+      57.65
+    );
+    tl.to("#w-phrase-49-0", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.45,
+      ease: "power1.out"
+    }, 57.65);
+    tl.to("#w-phrase-49-1", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.41,
+      ease: "power1.out"
+    }, 58.10);
+    tl.to("#w-phrase-49-2", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.12,
+      ease: "power1.out"
+    }, 58.51);
+    tl.to("#w-phrase-49-3", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.36,
+      ease: "power1.out"
+    }, 58.61);
+    tl.to("#phrase-49",
+      { autoAlpha: 0, y: -10, filter: "blur(4px)", duration: 0.2, ease: "power1.in" },
+      59.02
+    );
+
+    // Phrase phrase-50 (58.97s - 59.58s)
+    tl.fromTo("#phrase-50",
+      { autoAlpha: 0, y: 15, filter: "blur(6px)" },
+      { autoAlpha: 1, y: 0, filter: "blur(0px)", duration: 0.25, ease: "power2.out" },
+      58.97
+    );
+    tl.to("#w-phrase-50-0", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.61,
+      ease: "power1.out"
+    }, 58.97);
+    tl.to("#phrase-50",
+      { autoAlpha: 0, y: -10, filter: "blur(4px)", duration: 0.2, ease: "power1.in" },
+      59.63
+    );
+
+    // Phrase phrase-51 (59.78s - 61.06s)
+    tl.fromTo("#phrase-51",
+      { autoAlpha: 0, y: 15, filter: "blur(6px)" },
+      { autoAlpha: 1, y: 0, filter: "blur(0px)", duration: 0.25, ease: "power2.out" },
+      59.78
+    );
+    tl.to("#w-phrase-51-0", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.55,
+      ease: "power1.out"
+    }, 59.78);
+    tl.to("#w-phrase-51-1", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.73,
+      ease: "power1.out"
+    }, 60.33);
+    tl.to("#phrase-51",
+      { autoAlpha: 0, y: -10, filter: "blur(4px)", duration: 0.2, ease: "power1.in" },
+      61.11
+    );
+
+    // Phrase phrase-52 (61.06s - 62.22s)
+    tl.fromTo("#phrase-52",
+      { autoAlpha: 0, y: 15, filter: "blur(6px)" },
+      { autoAlpha: 1, y: 0, filter: "blur(0px)", duration: 0.25, ease: "power2.out" },
+      61.06
+    );
+    tl.to("#w-phrase-52-0", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.16,
+      ease: "power1.out"
+    }, 61.06);
+    tl.to("#w-phrase-52-1", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.50,
+      ease: "power1.out"
+    }, 61.22);
+    tl.to("#w-phrase-52-2", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.22,
+      ease: "power1.out"
+    }, 61.72);
+    tl.to("#w-phrase-52-3", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.28,
+      ease: "power1.out"
+    }, 61.94);
+    tl.to("#phrase-52",
+      { autoAlpha: 0, y: -10, filter: "blur(4px)", duration: 0.2, ease: "power1.in" },
+      62.27
+    );
+
+    // Phrase phrase-53 (62.22s - 62.66s)
+    tl.fromTo("#phrase-53",
+      { autoAlpha: 0, y: 15, filter: "blur(6px)" },
+      { autoAlpha: 1, y: 0, filter: "blur(0px)", duration: 0.25, ease: "power2.out" },
+      62.22
+    );
+    tl.to("#w-phrase-53-0", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.44,
+      ease: "power1.out"
+    }, 62.22);
+    tl.to("#phrase-53",
+      { autoAlpha: 0, y: -10, filter: "blur(4px)", duration: 0.2, ease: "power1.in" },
+      62.71
+    );
+
+    // Phrase phrase-54 (62.66s - 64.05s)
+    tl.fromTo("#phrase-54",
+      { autoAlpha: 0, y: 15, filter: "blur(6px)" },
+      { autoAlpha: 1, y: 0, filter: "blur(0px)", duration: 0.25, ease: "power2.out" },
+      62.66
+    );
+    tl.to("#w-phrase-54-0", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.45,
+      ease: "power1.out"
+    }, 62.66);
+    tl.to("#w-phrase-54-1", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.38,
+      ease: "power1.out"
+    }, 63.11);
+    tl.to("#w-phrase-54-2", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.17,
+      ease: "power1.out"
+    }, 63.49);
+    tl.to("#w-phrase-54-3", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.39,
+      ease: "power1.out"
+    }, 63.66);
+    tl.to("#phrase-54",
+      { autoAlpha: 0, y: -10, filter: "blur(4px)", duration: 0.2, ease: "power1.in" },
+      64.10
+    );
+
+    // Phrase phrase-55 (64.05s - 65.44s)
+    tl.fromTo("#phrase-55",
+      { autoAlpha: 0, y: 15, filter: "blur(6px)" },
+      { autoAlpha: 1, y: 0, filter: "blur(0px)", duration: 0.25, ease: "power2.out" },
+      64.05
+    );
+    tl.to("#w-phrase-55-0", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.28,
+      ease: "power1.out"
+    }, 64.05);
+    tl.to("#w-phrase-55-1", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.44,
+      ease: "power1.out"
+    }, 64.33);
+    tl.to("#w-phrase-55-2", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.17,
+      ease: "power1.out"
+    }, 64.77);
+    tl.to("#w-phrase-55-3", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.50,
+      ease: "power1.out"
+    }, 64.94);
+    tl.to("#phrase-55",
+      { autoAlpha: 0, y: -10, filter: "blur(4px)", duration: 0.2, ease: "power1.in" },
+      65.49
+    );
+
+    // Phrase phrase-56 (65.44s - 66.49s)
+    tl.fromTo("#phrase-56",
+      { autoAlpha: 0, y: 15, filter: "blur(6px)" },
+      { autoAlpha: 1, y: 0, filter: "blur(0px)", duration: 0.25, ease: "power2.out" },
+      65.44
+    );
+    tl.to("#w-phrase-56-0", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.22,
+      ease: "power1.out"
+    }, 65.44);
+    tl.to("#w-phrase-56-1", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.22,
+      ease: "power1.out"
+    }, 65.66);
+    tl.to("#w-phrase-56-2", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.39,
+      ease: "power1.out"
+    }, 65.88);
+    tl.to("#w-phrase-56-3", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.22,
+      ease: "power1.out"
+    }, 66.27);
+    tl.to("#phrase-56",
+      { autoAlpha: 0, y: -10, filter: "blur(4px)", duration: 0.2, ease: "power1.in" },
+      66.54
+    );
+
+    // Phrase phrase-57 (66.49s - 66.99s)
+    tl.fromTo("#phrase-57",
+      { autoAlpha: 0, y: 15, filter: "blur(6px)" },
+      { autoAlpha: 1, y: 0, filter: "blur(0px)", duration: 0.25, ease: "power2.out" },
+      66.49
+    );
+    tl.to("#w-phrase-57-0", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.50,
+      ease: "power1.out"
+    }, 66.49);
+    tl.to("#phrase-57",
+      { autoAlpha: 0, y: -10, filter: "blur(4px)", duration: 0.2, ease: "power1.in" },
+      67.04
+    );
+
+    // Phrase phrase-58 (66.99s - 68.76s)
+    tl.fromTo("#phrase-58",
+      { autoAlpha: 0, y: 15, filter: "blur(6px)" },
+      { autoAlpha: 1, y: 0, filter: "blur(0px)", duration: 0.25, ease: "power2.out" },
+      66.99
+    );
+    tl.to("#w-phrase-58-0", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.66,
+      ease: "power1.out"
+    }, 66.99);
+    tl.to("#w-phrase-58-1", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.34,
+      ease: "power1.out"
+    }, 67.65);
+    tl.to("#w-phrase-58-2", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.38,
+      ease: "power1.out"
+    }, 67.99);
+    tl.to("#w-phrase-58-3", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.39,
+      ease: "power1.out"
+    }, 68.37);
+    tl.to("#phrase-58",
+      { autoAlpha: 0, y: -10, filter: "blur(4px)", duration: 0.2, ease: "power1.in" },
+      68.81
+    );
+
+    // Phrase phrase-59 (68.76s - 69.21s)
+    tl.fromTo("#phrase-59",
+      { autoAlpha: 0, y: 15, filter: "blur(6px)" },
+      { autoAlpha: 1, y: 0, filter: "blur(0px)", duration: 0.25, ease: "power2.out" },
+      68.76
+    );
+    tl.to("#w-phrase-59-0", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.45,
+      ease: "power1.out"
+    }, 68.76);
+    tl.to("#phrase-59",
+      { autoAlpha: 0, y: -10, filter: "blur(4px)", duration: 0.2, ease: "power1.in" },
+      69.26
+    );
+
+    // Phrase phrase-60 (69.41s - 70.53s)
+    tl.fromTo("#phrase-60",
+      { autoAlpha: 0, y: 15, filter: "blur(6px)" },
+      { autoAlpha: 1, y: 0, filter: "blur(0px)", duration: 0.25, ease: "power2.out" },
+      69.41
+    );
+    tl.to("#w-phrase-60-0", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.47,
+      ease: "power1.out"
+    }, 69.41);
+    tl.to("#w-phrase-60-1", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.18,
+      ease: "power1.out"
+    }, 69.88);
+    tl.to("#w-phrase-60-2", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.47,
+      ease: "power1.out"
+    }, 70.06);
+    tl.to("#phrase-60",
+      { autoAlpha: 0, y: -10, filter: "blur(4px)", duration: 0.2, ease: "power1.in" },
+      70.58
+    );
+
+    // Phrase phrase-61 (70.53s - 71.94s)
+    tl.fromTo("#phrase-61",
+      { autoAlpha: 0, y: 15, filter: "blur(6px)" },
+      { autoAlpha: 1, y: 0, filter: "blur(0px)", duration: 0.25, ease: "power2.out" },
+      70.53
+    );
+    tl.to("#w-phrase-61-0", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.59,
+      ease: "power1.out"
+    }, 70.53);
+    tl.to("#w-phrase-61-1", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.29,
+      ease: "power1.out"
+    }, 71.12);
+    tl.to("#w-phrase-61-2", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.18,
+      ease: "power1.out"
+    }, 71.41);
+    tl.to("#w-phrase-61-3", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.35,
+      ease: "power1.out"
+    }, 71.59);
+    tl.to("#phrase-61",
+      { autoAlpha: 0, y: -10, filter: "blur(4px)", duration: 0.2, ease: "power1.in" },
+      71.99
+    );
+
+    // Phrase phrase-62 (71.94s - 73.35s)
+    tl.fromTo("#phrase-62",
+      { autoAlpha: 0, y: 15, filter: "blur(6px)" },
+      { autoAlpha: 1, y: 0, filter: "blur(0px)", duration: 0.25, ease: "power2.out" },
+      71.94
+    );
+    tl.to("#w-phrase-62-0", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.23,
+      ease: "power1.out"
+    }, 71.94);
+    tl.to("#w-phrase-62-1", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.65,
+      ease: "power1.out"
+    }, 72.17);
+    tl.to("#w-phrase-62-2", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.24,
+      ease: "power1.out"
+    }, 72.82);
+    tl.to("#w-phrase-62-3", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.29,
+      ease: "power1.out"
+    }, 73.06);
+    tl.to("#phrase-62",
+      { autoAlpha: 0, y: -10, filter: "blur(4px)", duration: 0.2, ease: "power1.in" },
+      73.40
+    );
+
+    // Phrase phrase-63 (73.35s - 74.41s)
+    tl.fromTo("#phrase-63",
+      { autoAlpha: 0, y: 15, filter: "blur(6px)" },
+      { autoAlpha: 1, y: 0, filter: "blur(0px)", duration: 0.25, ease: "power2.out" },
+      73.35
+    );
+    tl.to("#w-phrase-63-0", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.24,
+      ease: "power1.out"
+    }, 73.35);
+    tl.to("#w-phrase-63-1", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.35,
+      ease: "power1.out"
+    }, 73.59);
+    tl.to("#w-phrase-63-2", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.47,
+      ease: "power1.out"
+    }, 73.94);
+    tl.to("#phrase-63",
+      { autoAlpha: 0, y: -10, filter: "blur(4px)", duration: 0.2, ease: "power1.in" },
+      74.46
+    );
+
+    // Phrase phrase-64 (74.41s - 75.53s)
+    tl.fromTo("#phrase-64",
+      { autoAlpha: 0, y: 15, filter: "blur(6px)" },
+      { autoAlpha: 1, y: 0, filter: "blur(0px)", duration: 0.25, ease: "power2.out" },
+      74.41
+    );
+    tl.to("#w-phrase-64-0", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.35,
+      ease: "power1.out"
+    }, 74.41);
+    tl.to("#w-phrase-64-1", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.24,
+      ease: "power1.out"
+    }, 74.76);
+    tl.to("#w-phrase-64-2", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.29,
+      ease: "power1.out"
+    }, 75.00);
+    tl.to("#w-phrase-64-3", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.24,
+      ease: "power1.out"
+    }, 75.29);
+    tl.to("#phrase-64",
+      { autoAlpha: 0, y: -10, filter: "blur(4px)", duration: 0.2, ease: "power1.in" },
+      75.58
+    );
+
+    // Phrase phrase-65 (75.53s - 77.88s)
+    tl.fromTo("#phrase-65",
+      { autoAlpha: 0, y: 15, filter: "blur(6px)" },
+      { autoAlpha: 1, y: 0, filter: "blur(0px)", duration: 0.25, ease: "power2.out" },
+      75.53
+    );
+    tl.to("#w-phrase-65-0", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.58,
+      ease: "power1.out"
+    }, 75.53);
+    tl.to("#w-phrase-65-1", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.36,
+      ease: "power1.out"
+    }, 76.11);
+    tl.to("#w-phrase-65-2", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.59,
+      ease: "power1.out"
+    }, 76.47);
+    tl.to("#w-phrase-65-3", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.82,
+      ease: "power1.out"
+    }, 77.06);
+    tl.to("#phrase-65",
+      { autoAlpha: 0, y: -10, filter: "blur(4px)", duration: 0.2, ease: "power1.in" },
+      77.93
+    );
+
+    // Phrase phrase-66 (78.08s - 79.16s)
+    tl.fromTo("#phrase-66",
+      { autoAlpha: 0, y: 15, filter: "blur(6px)" },
+      { autoAlpha: 1, y: 0, filter: "blur(0px)", duration: 0.25, ease: "power2.out" },
+      78.08
+    );
+    tl.to("#w-phrase-66-0", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.32,
+      ease: "power1.out"
+    }, 78.08);
+    tl.to("#w-phrase-66-1", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.12,
+      ease: "power1.out"
+    }, 78.40);
+    tl.to("#w-phrase-66-2", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.27,
+      ease: "power1.out"
+    }, 78.51);
+    tl.to("#w-phrase-66-3", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.38,
+      ease: "power1.out"
+    }, 78.78);
+    tl.to("#phrase-66",
+      { autoAlpha: 0, y: -10, filter: "blur(4px)", duration: 0.2, ease: "power1.in" },
+      79.21
+    );
+
+    // Phrase phrase-67 (79.16s - 80.55s)
+    tl.fromTo("#phrase-67",
+      { autoAlpha: 0, y: 15, filter: "blur(6px)" },
+      { autoAlpha: 1, y: 0, filter: "blur(0px)", duration: 0.25, ease: "power2.out" },
+      79.16
+    );
+    tl.to("#w-phrase-67-0", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.21,
+      ease: "power1.out"
+    }, 79.16);
+    tl.to("#w-phrase-67-1", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.38,
+      ease: "power1.out"
+    }, 79.37);
+    tl.to("#w-phrase-67-2", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.64,
+      ease: "power1.out"
+    }, 79.75);
+    tl.to("#w-phrase-67-3", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.16,
+      ease: "power1.out"
+    }, 80.39);
+    tl.to("#phrase-67",
+      { autoAlpha: 0, y: -10, filter: "blur(4px)", duration: 0.2, ease: "power1.in" },
+      80.60
+    );
+
+    // Phrase phrase-68 (80.55s - 81.9s)
+    tl.fromTo("#phrase-68",
+      { autoAlpha: 0, y: 15, filter: "blur(6px)" },
+      { autoAlpha: 1, y: 0, filter: "blur(0px)", duration: 0.25, ease: "power2.out" },
+      80.55
+    );
+    tl.to("#w-phrase-68-0", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.38,
+      ease: "power1.out"
+    }, 80.55);
+    tl.to("#w-phrase-68-1", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.27,
+      ease: "power1.out"
+    }, 80.93);
+    tl.to("#w-phrase-68-2", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.27,
+      ease: "power1.out"
+    }, 81.20);
+    tl.to("#w-phrase-68-3", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.43,
+      ease: "power1.out"
+    }, 81.47);
+    tl.to("#phrase-68",
+      { autoAlpha: 0, y: -10, filter: "blur(4px)", duration: 0.2, ease: "power1.in" },
+      81.95
+    );
+
+    // Phrase phrase-69 (81.9s - 83.14s)
+    tl.fromTo("#phrase-69",
+      { autoAlpha: 0, y: 15, filter: "blur(6px)" },
+      { autoAlpha: 1, y: 0, filter: "blur(0px)", duration: 0.25, ease: "power2.out" },
+      81.9
+    );
+    tl.to("#w-phrase-69-0", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.59,
+      ease: "power1.out"
+    }, 81.90);
+    tl.to("#w-phrase-69-1", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.65,
+      ease: "power1.out"
+    }, 82.49);
+    tl.to("#phrase-69",
+      { autoAlpha: 0, y: -10, filter: "blur(4px)", duration: 0.2, ease: "power1.in" },
+      83.19
+    );
+
+    // Phrase phrase-70 (83.14s - 84.59s)
+    tl.fromTo("#phrase-70",
+      { autoAlpha: 0, y: 15, filter: "blur(6px)" },
+      { autoAlpha: 1, y: 0, filter: "blur(0px)", duration: 0.25, ease: "power2.out" },
+      83.14
+    );
+    tl.to("#w-phrase-70-0", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.43,
+      ease: "power1.out"
+    }, 83.14);
+    tl.to("#w-phrase-70-1", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.37,
+      ease: "power1.out"
+    }, 83.57);
+    tl.to("#w-phrase-70-2", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.22,
+      ease: "power1.out"
+    }, 83.94);
+    tl.to("#w-phrase-70-3", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.43,
+      ease: "power1.out"
+    }, 84.16);
+    tl.to("#phrase-70",
+      { autoAlpha: 0, y: -10, filter: "blur(4px)", duration: 0.2, ease: "power1.in" },
+      84.64
+    );
+
+    // Phrase phrase-71 (84.59s - 86.53s)
+    tl.fromTo("#phrase-71",
+      { autoAlpha: 0, y: 15, filter: "blur(6px)" },
+      { autoAlpha: 1, y: 0, filter: "blur(0px)", duration: 0.25, ease: "power2.out" },
+      84.59
+    );
+    tl.to("#w-phrase-71-0", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.48,
+      ease: "power1.out"
+    }, 84.59);
+    tl.to("#w-phrase-71-1", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.22,
+      ease: "power1.out"
+    }, 85.07);
+    tl.to("#w-phrase-71-2", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.70,
+      ease: "power1.out"
+    }, 85.29);
+    tl.to("#w-phrase-71-3", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.54,
+      ease: "power1.out"
+    }, 85.99);
+    tl.to("#phrase-71",
+      { autoAlpha: 0, y: -10, filter: "blur(4px)", duration: 0.2, ease: "power1.in" },
+      86.58
+    );
+
+    // Phrase phrase-72 (86.73s - 88.22s)
+    tl.fromTo("#phrase-72",
+      { autoAlpha: 0, y: 15, filter: "blur(6px)" },
+      { autoAlpha: 1, y: 0, filter: "blur(0px)", duration: 0.25, ease: "power2.out" },
+      86.73
+    );
+    tl.to("#w-phrase-72-0", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.37,
+      ease: "power1.out"
+    }, 86.73);
+    tl.to("#w-phrase-72-1", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.27,
+      ease: "power1.out"
+    }, 87.10);
+    tl.to("#w-phrase-72-2", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.53,
+      ease: "power1.out"
+    }, 87.37);
+    tl.to("#w-phrase-72-3", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.32,
+      ease: "power1.out"
+    }, 87.90);
+    tl.to("#phrase-72",
+      { autoAlpha: 0, y: -10, filter: "blur(4px)", duration: 0.2, ease: "power1.in" },
+      88.27
+    );
+
+    // Phrase phrase-73 (88.22s - 89.76s)
+    tl.fromTo("#phrase-73",
+      { autoAlpha: 0, y: 15, filter: "blur(6px)" },
+      { autoAlpha: 1, y: 0, filter: "blur(0px)", duration: 0.25, ease: "power2.out" },
+      88.22
+    );
+    tl.to("#w-phrase-73-0", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.26,
+      ease: "power1.out"
+    }, 88.22);
+    tl.to("#w-phrase-73-1", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.43,
+      ease: "power1.out"
+    }, 88.48);
+    tl.to("#w-phrase-73-2", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.59,
+      ease: "power1.out"
+    }, 88.91);
+    tl.to("#w-phrase-73-3", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.26,
+      ease: "power1.out"
+    }, 89.50);
+    tl.to("#phrase-73",
+      { autoAlpha: 0, y: -10, filter: "blur(4px)", duration: 0.2, ease: "power1.in" },
+      89.81
+    );
+
+    // Phrase phrase-74 (89.76s - 90.56s)
+    tl.fromTo("#phrase-74",
+      { autoAlpha: 0, y: 15, filter: "blur(6px)" },
+      { autoAlpha: 1, y: 0, filter: "blur(0px)", duration: 0.25, ease: "power2.out" },
+      89.76
+    );
+    tl.to("#w-phrase-74-0", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.37,
+      ease: "power1.out"
+    }, 89.76);
+    tl.to("#w-phrase-74-1", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.43,
+      ease: "power1.out"
+    }, 90.13);
+    tl.to("#phrase-74",
+      { autoAlpha: 0, y: -10, filter: "blur(4px)", duration: 0.2, ease: "power1.in" },
+      90.61
+    );
+
+    // Phrase phrase-75 (90.56s - 91.99s)
+    tl.fromTo("#phrase-75",
+      { autoAlpha: 0, y: 15, filter: "blur(6px)" },
+      { autoAlpha: 1, y: 0, filter: "blur(0px)", duration: 0.25, ease: "power2.out" },
+      90.56
+    );
+    tl.to("#w-phrase-75-0", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.53,
+      ease: "power1.out"
+    }, 90.56);
+    tl.to("#w-phrase-75-1", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.27,
+      ease: "power1.out"
+    }, 91.09);
+    tl.to("#w-phrase-75-2", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.42,
+      ease: "power1.out"
+    }, 91.36);
+    tl.to("#w-phrase-75-3", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.21,
+      ease: "power1.out"
+    }, 91.78);
+    tl.to("#phrase-75",
+      { autoAlpha: 0, y: -10, filter: "blur(4px)", duration: 0.2, ease: "power1.in" },
+      92.04
+    );
+
+    // Phrase phrase-76 (91.99s - 93.27s)
+    tl.fromTo("#phrase-76",
+      { autoAlpha: 0, y: 15, filter: "blur(6px)" },
+      { autoAlpha: 1, y: 0, filter: "blur(0px)", duration: 0.25, ease: "power2.out" },
+      91.99
+    );
+    tl.to("#w-phrase-76-0", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.43,
+      ease: "power1.out"
+    }, 91.99);
+    tl.to("#w-phrase-76-1", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.21,
+      ease: "power1.out"
+    }, 92.42);
+    tl.to("#w-phrase-76-2", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.27,
+      ease: "power1.out"
+    }, 92.63);
+    tl.to("#w-phrase-76-3", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.37,
+      ease: "power1.out"
+    }, 92.90);
+    tl.to("#phrase-76",
+      { autoAlpha: 0, y: -10, filter: "blur(4px)", duration: 0.2, ease: "power1.in" },
+      93.32
+    );
+
+    // Phrase phrase-77 (93.27s - 94.6s)
+    tl.fromTo("#phrase-77",
+      { autoAlpha: 0, y: 15, filter: "blur(6px)" },
+      { autoAlpha: 1, y: 0, filter: "blur(0px)", duration: 0.25, ease: "power2.out" },
+      93.27
+    );
+    tl.to("#w-phrase-77-0", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.12,
+      ease: "power1.out"
+    }, 93.27);
+    tl.to("#w-phrase-77-1", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.26,
+      ease: "power1.out"
+    }, 93.38);
+    tl.to("#w-phrase-77-2", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.32,
+      ease: "power1.out"
+    }, 93.64);
+    tl.to("#w-phrase-77-3", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.64,
+      ease: "power1.out"
+    }, 93.96);
+    tl.to("#phrase-77",
+      { autoAlpha: 0, y: -10, filter: "blur(4px)", duration: 0.2, ease: "power1.in" },
+      94.65
+    );
+
+    // Phrase phrase-78 (94.8s - 95.73s)
+    tl.fromTo("#phrase-78",
+      { autoAlpha: 0, y: 15, filter: "blur(6px)" },
+      { autoAlpha: 1, y: 0, filter: "blur(0px)", duration: 0.25, ease: "power2.out" },
+      94.8
+    );
+    tl.to("#w-phrase-78-0", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.41,
+      ease: "power1.out"
+    }, 94.80);
+    tl.to("#w-phrase-78-1", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.52,
+      ease: "power1.out"
+    }, 95.21);
+    tl.to("#phrase-78",
+      { autoAlpha: 0, y: -10, filter: "blur(4px)", duration: 0.2, ease: "power1.in" },
+      95.78
+    );
+
+    // Phrase phrase-79 (95.73s - 97.12s)
+    tl.fromTo("#phrase-79",
+      { autoAlpha: 0, y: 15, filter: "blur(6px)" },
+      { autoAlpha: 1, y: 0, filter: "blur(0px)", duration: 0.25, ease: "power2.out" },
+      95.73
+    );
+    tl.to("#w-phrase-79-0", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.36,
+      ease: "power1.out"
+    }, 95.73);
+    tl.to("#w-phrase-79-1", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.31,
+      ease: "power1.out"
+    }, 96.09);
+    tl.to("#w-phrase-79-2", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.46,
+      ease: "power1.out"
+    }, 96.40);
+    tl.to("#w-phrase-79-3", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.26,
+      ease: "power1.out"
+    }, 96.86);
+    tl.to("#phrase-79",
+      { autoAlpha: 0, y: -10, filter: "blur(4px)", duration: 0.2, ease: "power1.in" },
+      97.17
+    );
+
+    // Phrase phrase-80 (97.12s - 98.3s)
+    tl.fromTo("#phrase-80",
+      { autoAlpha: 0, y: 15, filter: "blur(6px)" },
+      { autoAlpha: 1, y: 0, filter: "blur(0px)", duration: 0.25, ease: "power2.out" },
+      97.12
+    );
+    tl.to("#w-phrase-80-0", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.30,
+      ease: "power1.out"
+    }, 97.12);
+    tl.to("#w-phrase-80-1", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.31,
+      ease: "power1.out"
+    }, 97.42);
+    tl.to("#w-phrase-80-2", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.31,
+      ease: "power1.out"
+    }, 97.73);
+    tl.to("#w-phrase-80-3", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.26,
+      ease: "power1.out"
+    }, 98.04);
+    tl.to("#phrase-80",
+      { autoAlpha: 0, y: -10, filter: "blur(4px)", duration: 0.2, ease: "power1.in" },
+      98.35
+    );
+
+    // Phrase phrase-81 (98.3s - 99.07s)
+    tl.fromTo("#phrase-81",
+      { autoAlpha: 0, y: 15, filter: "blur(6px)" },
+      { autoAlpha: 1, y: 0, filter: "blur(0px)", duration: 0.25, ease: "power2.out" },
+      98.3
+    );
+    tl.to("#w-phrase-81-0", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.77,
+      ease: "power1.out"
+    }, 98.30);
+    tl.to("#phrase-81",
+      { autoAlpha: 0, y: -10, filter: "blur(4px)", duration: 0.2, ease: "power1.in" },
+      99.12
+    );
+
+    // Phrase phrase-82 (99.07s - 100.61s)
+    tl.fromTo("#phrase-82",
+      { autoAlpha: 0, y: 15, filter: "blur(6px)" },
+      { autoAlpha: 1, y: 0, filter: "blur(0px)", duration: 0.25, ease: "power2.out" },
+      99.07
+    );
+    tl.to("#w-phrase-82-0", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.46,
+      ease: "power1.out"
+    }, 99.07);
+    tl.to("#w-phrase-82-1", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.31,
+      ease: "power1.out"
+    }, 99.53);
+    tl.to("#w-phrase-82-2", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.21,
+      ease: "power1.out"
+    }, 99.84);
+    tl.to("#w-phrase-82-3", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.56,
+      ease: "power1.out"
+    }, 100.05);
+    tl.to("#phrase-82",
+      { autoAlpha: 0, y: -10, filter: "blur(4px)", duration: 0.2, ease: "power1.in" },
+      100.66
+    );
+
+    // Phrase phrase-83 (100.61s - 101.69s)
+    tl.fromTo("#phrase-83",
+      { autoAlpha: 0, y: 15, filter: "blur(6px)" },
+      { autoAlpha: 1, y: 0, filter: "blur(0px)", duration: 0.25, ease: "power2.out" },
+      100.61
+    );
+    tl.to("#w-phrase-83-0", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.12,
+      ease: "power1.out"
+    }, 100.61);
+    tl.to("#w-phrase-83-1", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.25,
+      ease: "power1.out"
+    }, 100.72);
+    tl.to("#w-phrase-83-2", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.31,
+      ease: "power1.out"
+    }, 100.97);
+    tl.to("#w-phrase-83-3", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.41,
+      ease: "power1.out"
+    }, 101.28);
+    tl.to("#phrase-83",
+      { autoAlpha: 0, y: -10, filter: "blur(4px)", duration: 0.2, ease: "power1.in" },
+      101.74
+    );
+
+    // Phrase phrase-84 (101.69s - 102.88s)
+    tl.fromTo("#phrase-84",
+      { autoAlpha: 0, y: 15, filter: "blur(6px)" },
+      { autoAlpha: 1, y: 0, filter: "blur(0px)", duration: 0.25, ease: "power2.out" },
+      101.69
+    );
+    tl.to("#w-phrase-84-0", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.26,
+      ease: "power1.out"
+    }, 101.69);
+    tl.to("#w-phrase-84-1", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.21,
+      ease: "power1.out"
+    }, 101.95);
+    tl.to("#w-phrase-84-2", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.41,
+      ease: "power1.out"
+    }, 102.16);
+    tl.to("#w-phrase-84-3", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.31,
+      ease: "power1.out"
+    }, 102.57);
+    tl.to("#phrase-84",
+      { autoAlpha: 0, y: -10, filter: "blur(4px)", duration: 0.2, ease: "power1.in" },
+      102.93
+    );
+
+    // Phrase phrase-85 (102.88s - 103.96s)
+    tl.fromTo("#phrase-85",
+      { autoAlpha: 0, y: 15, filter: "blur(6px)" },
+      { autoAlpha: 1, y: 0, filter: "blur(0px)", duration: 0.25, ease: "power2.out" },
+      102.88
+    );
+    tl.to("#w-phrase-85-0", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.12,
+      ease: "power1.out"
+    }, 102.88);
+    tl.to("#w-phrase-85-1", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.36,
+      ease: "power1.out"
+    }, 102.98);
+    tl.to("#w-phrase-85-2", {
+      color: "#C59B27",
+      textShadow: "0 0 16px rgba(197, 155, 39, 0.6)",
+      scale: 1.06,
+      duration: 0.62,
+      ease: "power1.out"
+    }, 103.34);
+    tl.to("#phrase-85",
+      { autoAlpha: 0, y: -10, filter: "blur(4px)", duration: 0.2, ease: "power1.in" },
+      104.01
+    );
+
+    tl.seek(0);
+  </script>
+</body>
+</html>

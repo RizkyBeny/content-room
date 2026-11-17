@@ -44,4 +44,6 @@ hyperframes-workspace/*/assets/
 *.mp3
 .temp-*
 **/audio-chunks/
+**/keyframes/beat-*.jpg
+**/keyframes/short-shot-*.jpg
 

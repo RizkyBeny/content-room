@@ -2,7 +2,6 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { execFileSync } from 'node:child_process';
 import dotenv from 'dotenv';
-import { flowClient } from '../lib/flowMcp/client';
 import { groupWordsIntoPhrases, CaptionWord } from '../lib/orchestrator/audio/noirAudioPipeline';
 import { generateNoirHyperframesHtml } from '../lib/orchestrator/video/noirVideoTemplate';
 import { renderHyperframes } from '../lib/hyperframes/renderEngine';
@@ -37,179 +36,123 @@ const SENTENCES = [
     shot: 1,
     id: 's1',
     text: 'Pintu kamar nomor tujuh belas terkunci rapat dengan gembok dari arah luar, tapi di dalamnya... sebuah tragedi yang mengguncang nurani bangsa baru saja terjadi.',
-    sourceImage: 'shot-02.jpg',
   },
   {
     shot: 2,
     id: 's2',
     text: 'Dua rekan kerja curiga korban tak kunjung keluar mes untuk bekerja, hingga setelah pintu didobrak paksa, jasad karyawati berusia delapan belas tahun ditemukan tak bernyawa.',
-    sourceImage: 'shot-03.jpg',
   },
   {
     shot: 3,
     id: 's3',
     text: 'Di samping kasur, polisi mendapati benda yang sangat ganjil: sebuah cangkul proyek bergagang kayu panjang yang berlumuran darah pekat.',
-    sourceImage: 'shot-05.jpg',
   },
   {
     shot: 4,
     id: 's4',
     text: 'Tim Identifikasi Inafis menyisir lokasi kejadian, menemukan jejak sidik jari pada kayu cangkul dan tapak kaki berlumpur mengarah ke luar rawa-rawa Dadap.',
-    sourceImage: 'shot-06.jpg',
   },
   {
     shot: 5,
     id: 's5',
     text: 'Titik terang bermula dari riwayat pesan singkat tengah malam pukul dua puluh tiga lewat tiga puluh, dari seorang remaja pria berinisial RAL.',
-    sourceImage: 'shot-09.jpg',
   },
   {
     shot: 6,
     id: 's6',
     text: 'Ajakan asusila RAL ditolak mentah-mentah oleh korban, memicu amarah sang remaja yang kemudian berpapasan dengan dua pria lain yang memendam sakit hati mendalam.',
-    sourceImage: 'shot-11.jpg',
   },
   {
     shot: 7,
     id: 's7',
     text: 'Tiga pria yang awalnya tak saling kenal ini bersatu dalam dendam, menyambar cangkul dari bedeng proyek bangunan dan mendobrak masuk kembali ke kamar mes.',
-    sourceImage: 'shot-15.jpg',
   },
   {
     shot: 8,
     id: 's8',
     text: 'Di dalam kamar yang sunyi, penganiayaan keji dilakukan secara membabi buta tanpa ada yang sempat mendengar jeritan minta tolong sang karyawati.',
-    sourceImage: 'shot-16.jpg',
   },
   {
     shot: 9,
     id: 's9',
     text: 'Usai melampiaskan kebiadaban, para pelaku merampas ponsel korban, mencuci tangan di parit, dan membuang pakaian berlumuran darah ke rawa Dadap.',
-    sourceImage: 'shot-17.jpg',
   },
   {
     shot: 10,
     id: 's10',
     text: 'Namun jejak mereka tak pernah hilang: Tim Cyber Crime Polda Metro Jaya berhasil melacak koordinat pemancar BTS saat ponsel korban diaktifkan kembali.',
-    sourceImage: 'shot-18.jpg',
   },
   {
     shot: 11,
     id: 's11',
     text: 'Kurang dari dua puluh empat jam, Tim Resmob meringkus ketiga pelaku, hingga Majelis Hakim Pengadilan Negeri Tangerang menjatuhkan vonis hukuman mati.',
-    sourceImage: 'shot-20.jpg',
   },
 ];
 
-const COVER_PROMPT = "A dramatic high-CTR YouTube Shorts vertical 9:16 cover and thumbnail illustration (1080x1920), Graphic Novel Neo-Noir Forensic style. Heavy weathered wooden door of room 17 in factory workers mess, cold steel padlock securely locked from outside with iron hasp, yellow police caution tape 'GARIS POLISI - DILARANG MELINTAS' stretching across the concrete corridor, harsh tactical flashlight beam, deep charcoal slate (#0D1117) with antique bronze highlights (#C59B27). Bold distressed integrated typography: 'MISTERI GEMBOK KAMAR 17' in warm broken-white stencil and 'TEROR DI MES KARYAWATI' in dried crimson ribbon (#8B2635). Full bleed, zero border.";
-
-// Strict Charon voice synthesis using multi-tier Gemini TTS fallback pool
-async function synthesizeCharonSentence(text: string, idx: number): Promise<{ wavPath: string; durationSec: number }> {
-  const key = process.env.GEMINI_API_KEY;
-  if (!key) throw new Error('GEMINI_API_KEY missing in .env.local');
-
-  const pcmPath = path.join(AUDIO_DIR, `short-sentence-${idx}.pcm`);
-  const wavPath = path.join(AUDIO_DIR, `short-sentence-${idx}.wav`);
-
-  if (fs.existsSync(wavPath) && fs.statSync(wavPath).size > 10000) {
-    const dur = execFileSync(ffprobe, ['-v', 'error', '-show_entries', 'format=duration', '-of', 'default=noprint_wrappers=1:nokey=1', wavPath]).toString().trim();
-    console.log(`   [VO ${idx}/11] File cache ditemukan (${dur}s): ${wavPath}`);
-    return { wavPath, durationSec: parseFloat(dur) || 3.0 };
-  }
-
-  console.log(`[VO ${idx}/11] Mensintesis dengan Charon (Gemini TTS pool)...`);
-
-  const models = [
-    'gemini-3.8-flash-lite-tts',
-    'gemini-3.1-flash-tts-preview',
-    'gemini-2.5-flash-preview-tts',
-    'gemini-3.8-flash-tts',
-  ];
-
-  let audioData: string | undefined;
-
-  for (const model of models) {
-    for (let attempt = 1; attempt <= 3; attempt++) {
-      try {
-        const res = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent?key=${key}`, {
-          method: 'POST',
-          headers: { 'content-type': 'application/json' },
-          body: JSON.stringify({
-            contents: [{ parts: [{ text }] }],
-            generationConfig: {
-              responseModalities: ['AUDIO'],
-              speechConfig: {
-                voiceConfig: {
-                  prebuiltVoiceConfig: { voiceName: 'Charon' },
-                },
-              },
-            },
-          }),
-        });
-
-        if (res.status === 429) {
-          const errText = await res.text().catch(() => '');
-          if (errText.includes('per day limit exceeded') || errText.includes('Quota exceeded for metric')) {
-            console.warn(`[VO ${idx}/11] Model ${model} kena daily quota limit. Beralih ke model berikutnya...`);
-            break;
-          }
-          console.warn(`[VO ${idx}/11] Model ${model} rate limit 429 per-menit. Menunggu 15 detik (percobaan ${attempt}/3)...`);
-          await new Promise((r) => setTimeout(r, 15000));
-          continue;
-        }
-
-        if (res.status === 503) {
-          console.warn(`[VO ${idx}/11] Model ${model} server 503 busy. Menunggu 5 detik...`);
-          await new Promise((r) => setTimeout(r, 5000));
-          continue;
-        }
-
-        if (!res.ok) {
-          const errText = await res.text().catch(() => '');
-          console.warn(`[VO ${idx}/11] Model ${model} error ${res.status}: ${errText.slice(0, 100)}. Beralih model...`);
-          break;
-        }
-
-        const data = (await res.json()) as any;
-        audioData = data.candidates?.[0]?.content?.parts?.[0]?.inlineData?.data;
-        if (audioData) {
-          console.log(`[VO ${idx}/11] Berhasil dengan model ${model} (suara: Charon)`);
-          break;
-        }
-      } catch (e: any) {
-        console.warn(`[VO ${idx}/11] Network error pada ${model}: ${e.message}`);
-        await new Promise((r) => setTimeout(r, 3000));
-      }
-    }
-    if (audioData) break;
-  }
-
-  if (!audioData) {
-    throw new Error(`Gagal mendapatkan data audio TTS Charon untuk kalimat ${idx}`);
-  }
-
-  fs.writeFileSync(pcmPath, Buffer.from(audioData, 'base64'));
-
-  execFileSync(ffmpeg, [
-    '-y',
-    '-f', 's16le',
-    '-ar', '24000',
-    '-ac', '1',
-    '-i', pcmPath,
-    '-af', 'highpass=f=75,lowpass=f=7800,volume=1.05',
-    '-ar', '48000',
-    '-ac', '2',
-    wavPath,
-  ]);
-
-  const dur = execFileSync(ffprobe, ['-v', 'error', '-show_entries', 'format=duration', '-of', 'default=noprint_wrappers=1:nokey=1', wavPath]).toString().trim();
-  return { wavPath, durationSec: parseFloat(dur) || 3.0 };
-}
+// Rapid-Fire Narrative Frame Mapping (Cuts every 1.5s - 2.5s for Rigid Pacing)
+// Uses existing 21 high-detail Flow MCP keyframes
+const RAPID_SCENE_SEQUENCE = [
+  // Scene 1: Locked-Room Hook (0s - 10s)
+  'shot-02.jpg', // Gembok pintu kamar 17
+  'shot-01.jpg', // Barak mes berkabut
+  'shot-02.jpg', // Macro gembok besi
+  'shot-03.jpg', // Pintu terbuka & lorong
+  // Scene 2: Dobrak & Penemuan Jasad (10s - 20s)
+  'shot-03.jpg', // Pintu didobrak paksa
+  'shot-04.jpg', // Detektif & olah TKP
+  'shot-03.jpg', // Sudut kamar 17
+  'shot-04.jpg', // Lampu UV ALS Inafis
+  // Scene 3: Bukti Cangkul Proyek (20s - 28s)
+  'shot-05.jpg', // Cangkul bukti 01
+  'shot-06.jpg', // Kaca pembesar sidik jari gagang
+  'shot-05.jpg', // Bilah besi berdarah
+  'shot-06.jpg', // Garis ukur forensik merah
+  // Scene 4: Jejak Kaki & Rawa (28s - 36s)
+  'shot-07.jpg', // Jejak kaki berlumpur
+  'shot-08.jpg', // Kotak HP kosong & kabel charger
+  'shot-07.jpg', // Arah lorong menuju rawa
+  'shot-08.jpg', // Meja rias berdebu
+  // Scene 5: SMS 23.30 & Jam Dinding (36s - 44s)
+  'shot-09.jpg', // Layar HP SMS 23.30
+  'shot-10.jpg', // Siluet RAL lampu jalan
+  'shot-09.jpg', // Jarum jam 23.30
+  'shot-10.jpg', // Wajah dingin bertopi
+  // Scene 6: Penolakan & Konspirasi (44s - 53s)
+  'shot-11.jpg', // Pintu tertutup menolak
+  'shot-12.jpg', // Sketsa tersangka Arifin
+  'shot-13.jpg', // Sketsa tersangka Imam
+  'shot-14.jpg', // 3 siluet berbisik di gang
+  // Scene 7: Sambaran Cangkul & Dobrak (53s - 61s)
+  'shot-15.jpg', // Tangan menyambar gagang cangkul
+  'shot-14.jpg', // Bayangan 3 pria
+  'shot-15.jpg', // Bilah besi berkilau
+  'shot-16.jpg', // Jendela teralis kamar 17
+  // Scene 8: Eksekusi Kamar Sunyi (61s - 70s)
+  'shot-16.jpg', // Siluet mencekam di jendela
+  'shot-03.jpg', // Kamar 17 gelap
+  'shot-16.jpg', // Malam kelam di Kosambi
+  'shot-05.jpg', // Cangkul tergeletak
+  // Scene 9: Buang Barang Bukti ke Rawa (70s - 78s)
+  'shot-17.jpg', // 3 orang lari ke rawa-rawa
+  'shot-07.jpg', // Jejak kaki di parit
+  'shot-17.jpg', // Melempar pakaian berdarah
+  'shot-08.jpg', // Ponsel raib
+  // Scene 10: Cyber Crime Tracking BTS (78s - 86s)
+  'shot-18.jpg', // Radar BTS Cyber Crime
+  'shot-18.jpg', // Peta koordinat Tangerang
+  'shot-19.jpg', // Tim Resmob bersiap
+  'shot-18.jpg', // Sinyal terdeteksi
+  // Scene 11: Penggerebekan & Vonis Mati (86s - end)
+  'shot-19.jpg', // Penggerebekan subuh
+  'shot-19.jpg', // Tersangka diborgol
+  'shot-20.jpg', // Palu vonis hakim PN Tangerang
+  'shot-20.jpg', // Timbangan keadilan vonis mati
+];
 
 async function main() {
   console.log('========================================================================');
-  console.log('  ⚡ RE-CUT 1.5 MENIT (90s): TRAGEDI CANGKUL DADAP / ENO FARIHAH');
-  console.log('     (Viral Locked-Room Hook • 11 Shots • Authentic Charon VO)');
+  console.log('  ⚡ RE-CUT 1.5 MENIT: RIGID PACING (1.5-2.5s CUTS) & IMMEDIATE COVER VO');
+  console.log('     (Tragedi Cangkul Eno Farihah • 40 Rapid Beats • Charon VO)');
   console.log('========================================================================\n');
 
   fs.mkdirSync(PUBLIC_DIR, { recursive: true });
@@ -217,45 +160,59 @@ async function main() {
   fs.mkdirSync(KEYFRAMES_DIR, { recursive: true });
   fs.mkdirSync(path.join(HF_WORKSPACE, 'assets'), { recursive: true });
 
-  // 1. Synthesize 11 Sentences with Charon
-  console.log('1. Mensintesis 11 Kalimat Voice Over (Charon - Gemini TTS Pool)...');
-  const sentenceTimings: Array<{ id: string; shot: number; text: string; wavPath: string; durationSec: number; start: number; end: number; sourceImage: string }> = [];
+  // 1. Prepare accelerated Voice Over (1.08x tempo for punchy ~90s delivery)
+  console.log('1. Memproses Voice Over Charon (Pacing Cepat ~90s, Mulai Langsung dari Cover)...');
+  const sentenceTimings: Array<{ id: string; shot: number; text: string; wavPath: string; durationSec: number; start: number; end: number }> = [];
 
-  let currentCursor = 1.30; // 1.3s for Cover Hook
+  let currentCursor = 0.08; // VO starts immediately at 0.08s (on Cover Hook)
 
   for (let i = 0; i < SENTENCES.length; i++) {
     const s = SENTENCES[i];
-    const res = await synthesizeCharonSentence(s.text, s.shot);
+    const rawWav = path.join(AUDIO_DIR, `short-sentence-${s.shot}.wav`);
+    const punchyWav = path.join(AUDIO_DIR, `punchy-sentence-${s.shot}.wav`);
+
+    if (!fs.existsSync(rawWav)) {
+      throw new Error(`Raw wav tidak ditemukan: ${rawWav}`);
+    }
+
+    // Process with slight speed-up (atempo=1.08) for tighter, non-laggy speech
+    execFileSync(ffmpeg, [
+      '-y',
+      '-i', rawWav,
+      '-filter:a', 'atempo=1.08',
+      punchyWav,
+    ]);
+
+    const durStr = execFileSync(ffprobe, ['-v', 'error', '-show_entries', 'format=duration', '-of', 'default=noprint_wrappers=1:nokey=1', punchyWav]).toString().trim();
+    const durationSec = parseFloat(durStr) || 8.0;
+
     const start = Number(currentCursor.toFixed(2));
-    const end = Number((currentCursor + res.durationSec).toFixed(2));
+    const end = Number((currentCursor + durationSec).toFixed(2));
+
     sentenceTimings.push({
       id: s.id,
       shot: s.shot,
       text: s.text,
-      wavPath: res.wavPath,
-      durationSec: res.durationSec,
+      wavPath: punchyWav,
+      durationSec,
       start,
       end,
-      sourceImage: s.sourceImage,
     });
-    console.log(`   [Kalimat ${i + 1}/11] (${res.durationSec.toFixed(2)}s) -> Timing: ${start}s - ${end}s`);
-    currentCursor = end + 0.30; // 300ms dramatic silence gap between sentences
 
-    if (i < SENTENCES.length - 1) {
-      await new Promise((r) => setTimeout(r, 4000));
-    }
+    console.log(`   [Kalimat ${i + 1}/11] (${durationSec.toFixed(2)}s) -> Timing: ${start}s - ${end}s`);
+    currentCursor = end + 0.20; // 200ms crisp dramatic pause
   }
 
-  // Prepend 1.30s silence for the cover hook
-  const coverSilenceWav = path.join(AUDIO_DIR, 'cover-silence.wav');
-  execFileSync(ffmpeg, ['-y', '-f', 'lavfi', '-i', 'anullsrc=r=48000:cl=stereo', '-t', '1.30', coverSilenceWav]);
+  // Prepend minimal 0.08s buffer so player codecs don't eat the first phoneme
+  const introSilenceWav = path.join(AUDIO_DIR, 'intro-silence.wav');
+  execFileSync(ffmpeg, ['-y', '-f', 'lavfi', '-i', 'anullsrc=r=48000:cl=stereo', '-t', '0.08', introSilenceWav]);
 
   // Inter-sentence silence
   const silenceWav = path.join(AUDIO_DIR, 'silence.wav');
-  execFileSync(ffmpeg, ['-y', '-f', 'lavfi', '-i', 'anullsrc=r=48000:cl=stereo', '-t', '0.30', silenceWav]);
+  execFileSync(ffmpeg, ['-y', '-f', 'lavfi', '-i', 'anullsrc=r=48000:cl=stereo', '-t', '0.20', silenceWav]);
 
   const concatListTxt = path.join(AUDIO_DIR, 'concat_vo.txt');
-  let concatLines = `file '${coverSilenceWav}'\n`;
+  let concatLines = `file '${introSilenceWav}'\n`;
   sentenceTimings.forEach((st) => {
     concatLines += `file '${st.wavPath}'\n`;
     concatLines += `file '${silenceWav}'\n`;
@@ -265,50 +222,80 @@ async function main() {
   const cleanVoPath = path.join(AUDIO_DIR, 'clean-vo.mp3');
   execFileSync(ffmpeg, ['-y', '-f', 'concat', '-safe', '0', '-i', concatListTxt, '-c:a', 'libmp3lame', '-b:a', '192k', cleanVoPath]);
 
-  const totalDuration = Number((currentCursor + 0.5).toFixed(2));
+  const totalDuration = Number((currentCursor + 0.4).toFixed(2));
   console.log(`\n✅ Voice Over Selesai: Total Durasi ${totalDuration}s (~${(totalDuration / 60).toFixed(1)} menit) di ${cleanVoPath}`);
 
-  // 2. Transition Timings & Shot Timings (1:1 with 11 sentences)
-  const transitionTimes: number[] = [1.3]; // Cut from Shot 00 to Shot 01
+  // 2. Build 42 Rapid-Fire Visual Beats (Cutting every 1.8s - 2.5s)
+  console.log('\n2. Membangun 42 Rapid-Fire Visual Beats (1.8s - 2.5s per cut)...');
+  const coverDuration = 1.30;
+  const remainingTime = totalDuration - coverDuration;
+  const numBeats = RAPID_SCENE_SEQUENCE.length;
+  const avgBeatDuration = remainingTime / numBeats;
+
   const shotTimings: Array<{ shot: number; startSec: number; endSec: number; durationSec: number; imageFile: string }> = [];
+  const transitionTimes: number[] = [1.3]; // Cut from Cover to Beat 1
+  const shotImages: Array<{ shot: number; imagePath: string }> = [];
 
-  sentenceTimings.forEach((st, idx) => {
-    const isLast = idx === sentenceTimings.length - 1;
-    const start = st.start;
-    const end = isLast ? totalDuration : Number((st.end + 0.30).toFixed(2));
-    const durationSec = Number((end - start).toFixed(2));
+  let beatCursor = coverDuration;
+  for (let b = 0; b < numBeats; b++) {
+    const shotNum = b + 1;
+    const isLast = b === numBeats - 1;
+    const bStart = Number(beatCursor.toFixed(2));
+    const bEnd = isLast ? totalDuration : Number((beatCursor + avgBeatDuration).toFixed(2));
+    const bDur = Number((bEnd - bStart).toFixed(2));
 
-    if (start > 0.1 && !transitionTimes.includes(start)) {
-      transitionTimes.push(start);
+    const sourceImageName = RAPID_SCENE_SEQUENCE[b];
+    const sourceImagePath = path.join(KEYFRAMES_DIR, sourceImageName);
+
+    // Save as rapid-beat asset
+    const beatAssetName = `beat-${String(shotNum).padStart(2, '0')}.jpg`;
+    const beatPub = path.join(KEYFRAMES_DIR, beatAssetName);
+    const beatHf = path.join(HF_WORKSPACE, 'assets', beatAssetName);
+
+    if (fs.existsSync(sourceImagePath)) {
+      fs.copyFileSync(sourceImagePath, beatPub);
+      fs.copyFileSync(sourceImagePath, beatHf);
     }
 
+    shotImages.push({ shot: shotNum, imagePath: beatPub });
+
     shotTimings.push({
-      shot: st.shot,
-      startSec: start,
-      endSec: end,
-      durationSec,
-      imageFile: `short-shot-${String(st.shot).padStart(2, '0')}.jpg`,
+      shot: shotNum,
+      startSec: bStart,
+      endSec: bEnd,
+      durationSec: bDur,
+      imageFile: beatAssetName,
     });
-  });
+
+    if (bStart > 0.1 && !transitionTimes.includes(bStart)) {
+      transitionTimes.push(bStart);
+    }
+
+    beatCursor = bEnd;
+  }
 
   transitionTimes.sort((a, b) => a - b);
+  console.log(`   Dihasilkan ${shotTimings.length} visual beats! (Rata-rata ${avgBeatDuration.toFixed(2)} detik per cut)`);
 
-  // 3. Mixing Master Audio (VO + Looped BGM ducked 20% + 11x SFX Glitch)
-  console.log('\n2. Mixing Audio Master (Charon VO + Looped BGM 20% + 11x SFX Glitch)...');
+  // 3. Mixing Master Audio (VO + Looped BGM ducked 20% + Dynamic SFX Glitches)
+  console.log('\n3. Mixing Audio Master Track...');
   const sfxPath = path.join(ROOT_DIR, 'public', 'renders', 'mujianto-serial-killer', 'audio-chunks', 'forensic-glitch-sfx.wav');
   const localBgm = path.join(ROOT_DIR, 'public', 'renders', 'mujianto-serial-killer', 'bgm-crime-tension.mp3');
   const bgmFadeOutStart = Math.max(0, totalDuration - 2.5);
 
+  // Trigger SFX on major narrative scene transitions
+  const majorGlitchTimes = [1.3, 10.0, 20.0, 28.0, 36.0, 44.0, 53.0, 61.0, 70.0, 78.0, 86.0].filter((t) => t < totalDuration - 2.0);
+
   let filterStr = `[0:a]volume=1.0[vo];[2:a]volume=0.20,afade=t=in:ss=0:d=1.5,afade=t=out:st=${bgmFadeOutStart.toFixed(1)}:d=2.5[bgm_bed];`;
   const delayedInputs: string[] = [];
 
-  transitionTimes.forEach((t, i) => {
+  majorGlitchTimes.forEach((t, i) => {
     const delayMs = Math.round(t * 1000);
-    filterStr += `[1:a]adelay=${delayMs}|${delayMs},volume=0.65[sfx_${i}];`;
+    filterStr += `[1:a]adelay=${delayMs}|${delayMs},volume=0.60[sfx_${i}];`;
     delayedInputs.push(`[sfx_${i}]`);
   });
 
-  filterStr += `[vo][bgm_bed]${delayedInputs.join('')}amix=inputs=${transitionTimes.length + 2}:dropout_transition=0,loudnorm=I=-16:TP=-1.5:LRA=11[out]`;
+  filterStr += `[vo][bgm_bed]${delayedInputs.join('')}amix=inputs=${majorGlitchTimes.length + 2}:dropout_transition=0,loudnorm=I=-16:TP=-1.5:LRA=11[out]`;
 
   const masterAudioPath = path.join(PUBLIC_DIR, 'master-audio.mp3');
   execFileSync(ffmpeg, [
@@ -327,7 +314,7 @@ async function main() {
   console.log(`✅ Master Audio Tersimpan: ${masterAudioPath}`);
 
   // 4. Calculate word timings for discrete karaoke captions
-  console.log('\n3. Menghitung Word Timings & Discrete Phrases (Maks 4 kata)...');
+  console.log('\n4. Menghitung Word Timings & Discrete Phrases (Maks 4 kata)...');
   const allWords: CaptionWord[] = [];
   sentenceTimings.forEach((st) => {
     const rawWords = st.text.split(/\s+/).filter(Boolean);
@@ -353,7 +340,7 @@ async function main() {
 
   // Save storyboard data
   const storyboardData = {
-    title: 'MISTERI GEMBOK KAMAR 17 - Tragedi Eno Farihah (Cut 1.5 Menit)',
+    title: 'MISTERI GEMBOK KAMAR 17 - Tragedi Eno Farihah (Rigid 1.5-2.5s Cut)',
     totalDurationSec: totalDuration,
     transitionTimes,
     shotTimings,
@@ -362,52 +349,15 @@ async function main() {
   };
   fs.writeFileSync(path.join(PUBLIC_DIR, 'storyboard-data.json'), JSON.stringify(storyboardData, null, 2));
 
-  // 5. Generate / Copy Visual Assets
-  console.log('\n4. Menyiapkan Aset Visual untuk 11 Shots + Cover Baru...');
-  
-  // Cover Hook (Generate baru via Flow MCP untuk judul 'MISTERI GEMBOK KAMAR 17')
+  // 5. Ensure Cover Image is in place
   const coverPub = path.join(KEYFRAMES_DIR, 'cover-shot-00.jpg');
   const coverHf = path.join(HF_WORKSPACE, 'assets', 'cover-shot-00.jpg');
-  console.log('   Generating New Cover via Flow MCP: MISTERI GEMBOK KAMAR 17...');
-  try {
-    const res = await flowClient.generate({
-      project: PROJECT_ID,
-      prompt: COVER_PROMPT,
-      type: 'image',
-      aspect: '9:16',
-      max_credits: 0,
-    });
-    if (res.task_id) {
-      console.log(`   Cover task ${res.task_id} queued. Menunggu render...`);
-      const waitRes = await flowClient.waitForJob(res.task_id, 180);
-      if (waitRes.finished && waitRes.files?.[0] && fs.existsSync(waitRes.files[0])) {
-        fs.copyFileSync(waitRes.files[0], coverPub);
-        fs.copyFileSync(waitRes.files[0], coverHf);
-        console.log('   ✅ New Cover Flow MCP selesai!');
-      }
-    }
-  } catch (err: any) {
-    console.warn(`   ⚠️ Flow MCP cover fallback: ${err.message}`);
-  }
-
-  // Copy 11 shots from existing keyframes
-  const shotImages: Array<{ shot: number; imagePath: string }> = [];
-  for (let i = 0; i < SENTENCES.length; i++) {
-    const s = SENTENCES[i];
-    const src = path.join(KEYFRAMES_DIR, s.sourceImage);
-    const destName = `short-shot-${String(s.shot).padStart(2, '0')}.jpg`;
-    const destPub = path.join(KEYFRAMES_DIR, destName);
-    const destHf = path.join(HF_WORKSPACE, 'assets', destName);
-
-    if (fs.existsSync(src)) {
-      fs.copyFileSync(src, destPub);
-      fs.copyFileSync(src, destHf);
-    }
-    shotImages.push({ shot: s.shot, imagePath: destPub });
+  if (fs.existsSync(coverPub)) {
+    fs.copyFileSync(coverPub, coverHf);
   }
 
   // 6. Generate HyperFrames index.html & hyperframes.json
-  console.log('\n5. Generating HyperFrames Composition (HTML + GSAP)...');
+  console.log('\n5. Generating HyperFrames Composition (42 Rapid Beats, HTML + GSAP)...');
   generateNoirHyperframesHtml({
     jobId: PROJECT_ID,
     title: 'MISTERI GEMBOK KAMAR 17 - Tragedi Eno Farihah',
@@ -462,7 +412,7 @@ async function main() {
     { sec: '0.8', name: 'preview-01s-hook.jpg' },
     { sec: '5.0', name: 'preview-05s-locked-room.jpg' },
     { sec: '22.0', name: 'preview-22s-cangkul.jpg' },
-    { sec: '50.0', name: 'preview-50s-tiga-pelaku.jpg' },
+    { sec: '48.0', name: 'preview-50s-tiga-pelaku.jpg' },
     { sec: '75.0', name: 'preview-75s-cyber-bts.jpg' },
   ];
 
@@ -629,8 +579,8 @@ async function main() {
     }
     .gallery-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
-      gap: 16px;
+      grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+      gap: 12px;
       margin-top: 16px;
     }
     .gallery-item {
@@ -646,8 +596,8 @@ async function main() {
       display: block;
     }
     .gallery-caption {
-      padding: 10px;
-      font-size: 11px;
+      padding: 8px;
+      font-size: 10px;
       color: var(--text-muted);
       text-align: center;
     }
@@ -656,7 +606,7 @@ async function main() {
 <body>
   <div class="container">
     <header>
-      <span class="tag">HIGH RETENTION RE-CUT • 1.5 MENIT (90s)</span>
+      <span class="tag">RIGID FAST-PACED RE-CUT • 1.5-2.5s PER SHOT</span>
       <h1>MISTERI GEMBOK KAMAR 17</h1>
       <p class="subtitle">Tragedi Cangkul Mes Karyawati Dadap, Kosambi, Tangerang</p>
     </header>
@@ -676,12 +626,12 @@ async function main() {
             <div class="stat-lbl">Durasi Video</div>
           </div>
           <div class="stat-box">
-            <div class="stat-val">11 Shots</div>
-            <div class="stat-lbl">Fast Pacing</div>
+            <div class="stat-val">${shotTimings.length} Beats</div>
+            <div class="stat-lbl">Rapid Cuts (1.8s)</div>
           </div>
           <div class="stat-box">
-            <div class="stat-val">Charon VO</div>
-            <div class="stat-lbl">Voice Over</div>
+            <div class="stat-val">Frame 0s</div>
+            <div class="stat-lbl">VO Start</div>
           </div>
         </div>
 
@@ -712,18 +662,18 @@ Pintu terkunci gembok dari luar, barang bukti cangkul ganjil berlumuran darah, d
     </div>
 
     <div class="gallery">
-      <h2 class="section-title">SNAPSHOT TIMELINE (11 SHOTS RE-CUT)</h2>
+      <h2 class="section-title">TIMELINE 42 VISUAL BEATS (CUT SETIAP 1.8 - 2.5 DETIK)</h2>
       <div class="gallery-grid">
         <div class="gallery-item">
           <img src="keyframes/cover-shot-00.jpg" alt="Cover Hook">
-          <div class="gallery-caption">Shot 00: Cover Full-Bleed</div>
+          <div class="gallery-caption">Cover (0s - 1.3s)</div>
         </div>
         ${shotTimings
           .map(
             (st) => `
         <div class="gallery-item">
-          <img src="keyframes/${st.imageFile}" alt="Shot ${st.shot}">
-          <div class="gallery-caption">Shot ${String(st.shot).padStart(2, '0')} (${st.durationSec}s)</div>
+          <img src="keyframes/${st.imageFile}" alt="Beat ${st.shot}">
+          <div class="gallery-caption">Beat ${String(st.shot).padStart(2, '0')} (${st.durationSec}s)</div>
         </div>`
           )
           .join('')}
@@ -737,7 +687,7 @@ Pintu terkunci gembok dari luar, barang bukti cangkul ganjil berlumuran darah, d
   console.log(`✅ Review Portal Terpublikasi: ${path.join(PUBLIC_DIR, 'index.html')}`);
 
   console.log('\n========================================================================');
-  console.log('🎉 RE-CUT 1.5 MENIT SELESAI!');
+  console.log('🎉 RIGID FAST-PACED RE-CUT SELESAI!');
   console.log(`👉 Buka Review Portal: http://localhost:3000/renders/${PROJECT_ID}/index.html`);
   console.log('========================================================================\n');
 }

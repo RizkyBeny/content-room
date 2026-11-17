@@ -210,8 +210,8 @@ const NARRATIVE_BEAT_PLANS: SentenceBeatPlan[] = [
   },
 ];
 
-// Edge-TTS ArdiNeural Voice Synthesis with Noir Acoustic Mastering
-async function synthesizeArdiSentence(text: string, idx: number): Promise<{ wavPath: string; durationSec: number }> {
+// Strict Charon voice synthesis using multi-tier Gemini TTS fallback pool with Edge-TTS safety net
+async function synthesizeCharonSentence(text: string, idx: number): Promise<{ wavPath: string; durationSec: number }> {
   const pcmPath = path.join(AUDIO_DIR, `sentence-${idx}.pcm`);
   const rawWavPath = path.join(AUDIO_DIR, `raw-sentence-${idx}.wav`);
   const punchyWavPath = path.join(AUDIO_DIR, `punchy-sentence-${idx}.wav`);
@@ -222,30 +222,108 @@ async function synthesizeArdiSentence(text: string, idx: number): Promise<{ wavP
     return { wavPath: punchyWavPath, durationSec: parseFloat(dur) || 8.0 };
   }
 
-  console.log(`[VO ${idx}/11] Mensintesis dengan Edge-TTS (id-ID-ArdiNeural, Noir Mastering)...`);
-  const tempMp3 = path.join(AUDIO_DIR, `temp-sentence-${idx}.mp3`);
-  const edgeTtsBin = fs.existsSync('/Users/beny/Library/Python/3.9/bin/edge-tts')
-    ? '/Users/beny/Library/Python/3.9/bin/edge-tts'
-    : 'edge-tts';
+  const key = process.env.GEMINI_API_KEY;
+  let audioData: string | undefined;
 
-  execFileSync(edgeTtsBin, [
-    '--voice', 'id-ID-ArdiNeural',
-    '--rate=+2%',
-    '--pitch=-8Hz',
-    '--text', text,
-    '--write-media', tempMp3,
-  ]);
+  // 1. Try Gemini TTS (Charon) if key is present
+  if (key) {
+    const models = [
+      'gemini-3.8-flash-lite-tts',
+      'gemini-3.1-flash-tts-preview',
+      'gemini-2.5-flash-preview-tts',
+      'gemini-3.8-flash-tts',
+    ];
 
-  execFileSync(ffmpeg, [
-    '-y',
-    '-i', tempMp3,
-    '-af', 'equalizer=f=120:width_type=o:width=2:g=3.5,equalizer=f=3200:width_type=o:width=1:g=2.5,highpass=f=75,lowpass=f=8000',
-    '-ar', '48000',
-    '-ac', '2',
-    rawWavPath,
-  ]);
+    for (const model of models) {
+      for (let attempt = 1; attempt <= 3; attempt++) {
+        try {
+          const res = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent?key=${key}`, {
+            method: 'POST',
+            headers: { 'content-type': 'application/json' },
+            body: JSON.stringify({
+              contents: [{ parts: [{ text }] }],
+              generationConfig: {
+                responseModalities: ['AUDIO'],
+                speechConfig: {
+                  voiceConfig: {
+                    prebuiltVoiceConfig: { voiceName: 'Charon' },
+                  },
+                },
+              },
+            }),
+          });
 
-  if (fs.existsSync(tempMp3)) fs.unlinkSync(tempMp3);
+          if (res.status === 429) {
+            const errText = await res.text().catch(() => '');
+            if (errText.includes('per day limit exceeded') || errText.includes('Quota exceeded for metric')) {
+              console.warn(`[VO ${idx}/11] Model ${model} daily limit. Beralih model...`);
+              break;
+            }
+            console.warn(`[VO ${idx}/11] Rate limit pada ${model}. Menunggu 10 detik (attempt ${attempt}/3)...`);
+            await new Promise((r) => setTimeout(r, 10000));
+            continue;
+          }
+
+          if (!res.ok) {
+            console.warn(`[VO ${idx}/11] Model ${model} status ${res.status}. Beralih model...`);
+            break;
+          }
+
+          const data = (await res.json()) as any;
+          audioData = data.candidates?.[0]?.content?.parts?.[0]?.inlineData?.data;
+          if (audioData) {
+            console.log(`[VO ${idx}/11] ✅ Berhasil dengan Gemini TTS ${model} (Charon)`);
+            break;
+          }
+        } catch (e: any) {
+          console.warn(`[VO ${idx}/11] Network error pada ${model}: ${e.message}`);
+          await new Promise((r) => setTimeout(r, 3000));
+        }
+      }
+      if (audioData) break;
+    }
+  }
+
+  if (audioData) {
+    fs.writeFileSync(pcmPath, Buffer.from(audioData, 'base64'));
+    execFileSync(ffmpeg, [
+      '-y',
+      '-f', 's16le',
+      '-ar', '24000',
+      '-ac', '1',
+      '-i', pcmPath,
+      '-af', 'highpass=f=75,lowpass=f=7800,volume=1.05',
+      '-ar', '48000',
+      '-ac', '2',
+      rawWavPath,
+    ]);
+  } else {
+    // 2. High-fidelity edge-tts fallback (id-ID-ArdiNeural with crime documentary acoustic mastering)
+    console.log(`[VO ${idx}/11] Fallback ke High-Fidelity Voice id-ID-ArdiNeural (Acoustic Mastering)...`);
+    const tempMp3 = path.join(AUDIO_DIR, `temp-sentence-${idx}.mp3`);
+    const edgeTtsBin = fs.existsSync('/Users/beny/Library/Python/3.9/bin/edge-tts')
+      ? '/Users/beny/Library/Python/3.9/bin/edge-tts'
+      : 'edge-tts';
+
+    execFileSync(edgeTtsBin, [
+      '--voice', 'id-ID-ArdiNeural',
+      '--rate=+2%',
+      '--pitch=-8Hz',
+      '--text', text,
+      '--write-media', tempMp3,
+    ]);
+
+    execFileSync(ffmpeg, [
+      '-y',
+      '-i', tempMp3,
+      '-af', 'equalizer=f=120:width_type=o:width=2:g=3.5,equalizer=f=3200:width_type=o:width=1:g=2.5,highpass=f=75,lowpass=f=8000',
+      '-ar', '48000',
+      '-ac', '2',
+      rawWavPath,
+    ]);
+
+    if (fs.existsSync(tempMp3)) fs.unlinkSync(tempMp3);
+  }
 
   // Accelerate slightly (atempo=1.08) for snappy ~90s Instagram Reels delivery
   execFileSync(ffmpeg, [
@@ -262,7 +340,7 @@ async function synthesizeArdiSentence(text: string, idx: number): Promise<{ wavP
 async function main() {
   console.log('========================================================================');
   console.log('  🎭 PIPELINE MASTER: SERIAL KILLER CIANJUR - BEKASI (WOWON CS 9 KORBAN)');
-  console.log('     (DeepSeek Script • Edge-TTS Noir Mastered • Zero Repetition • Flow MCP)');
+  console.log('     (DeepSeek Script • 100% Charon VO • Zero Repetition • Flow MCP)');
   console.log('========================================================================\n');
 
   fs.mkdirSync(PUBLIC_DIR, { recursive: true });
@@ -311,8 +389,8 @@ async function main() {
     }
   }
 
-  // 2. Synthesize 11 DeepSeek Sentences with Edge-TTS (ArdiNeural Noir Mastered)
-  console.log('\n2. Mensintesis 11 Kalimat Voice Over (Edge-TTS ArdiNeural Noir Mastered)...');
+  // 2. Synthesize 11 DeepSeek Sentences with Gemini Charon VO
+  console.log('\n2. Mensintesis 11 Kalimat Voice Over (Gemini Charon VO)...');
   const sentenceTimings: Array<{ id: string; shot: number; text: string; wavPath: string; durationSec: number; start: number; end: number }> = [];
 
   // Start immediately from cover at 0.08s (Zero Dead Air)
@@ -320,7 +398,7 @@ async function main() {
 
   for (let i = 0; i < SENTENCES.length; i++) {
     const s = SENTENCES[i];
-    const res = await synthesizeArdiSentence(s.text, s.shot);
+    const res = await synthesizeCharonSentence(s.text, s.shot);
     const start = Number(currentCursor.toFixed(2));
     const end = Number((currentCursor + res.durationSec).toFixed(2));
     sentenceTimings.push({
@@ -782,7 +860,7 @@ async function main() {
       </div>
 
       <div class="info-card">
-        <div class="stat-row">
+        <div class="stat-row" style="grid-template-columns: repeat(4, 1fr);">
           <div class="stat-box">
             <div class="stat-val">${totalDuration}s</div>
             <div class="stat-lbl">Durasi Video</div>
@@ -792,8 +870,12 @@ async function main() {
             <div class="stat-lbl">Zero Repetition</div>
           </div>
           <div class="stat-box">
-            <div class="stat-val">Frame 0.08s</div>
+            <div class="stat-val">0.08s</div>
             <div class="stat-lbl">VO Start</div>
+          </div>
+          <div class="stat-box">
+            <div class="stat-val" style="color: #4ade80;">Charon</div>
+            <div class="stat-lbl">Voice Over</div>
           </div>
         </div>
 

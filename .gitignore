@@ -34,6 +34,7 @@ yarn-error.log*
 next-env.d.ts
 
 # render cache & large media files
+tools/voicebox/
 hyperframes-workspace/renders
 hyperframes-workspace/*/assets/
 *.mp4

@@ -41,7 +41,7 @@ const SENTENCES = [
   {
     shot: 2,
     id: 's2',
-    text: 'Semua bermula pada Kamis malam tanggal 12 Mei 2016, ketika tersangka RAM, remaja 15 tahun, janjian bertemu di kamar korban dan merayu Eno untuk bersetubuh, namun ditolak mentah-mentah karena korban takut hamil.',
+    text: 'Semua bermula pada Kamis malam tanggal 12 Mei 2016, ketika tersangka RAM janjian bertemu di kamar mess korban, namun ajakannya ditolak mentah-mentah oleh Eno hingga memicu perselisihan sengit.',
   },
   {
     shot: 3,
@@ -208,28 +208,54 @@ const NARRATIVE_BEAT_PLANS: Array<{ images: Array<{ file: string; weight: number
   },
 ];
 
-// Strict Charon voice synthesis using multi-tier Gemini TTS fallback pool with Edge-TTS safety net
+// Strict Charon voice synthesis using multi-tier Gemini TTS fallback pool (100% Authentic Charon, Zero Fallback to Other Voices)
 async function synthesizeCharonSentence(text: string, idx: number): Promise<{ wavPath: string; durationSec: number }> {
   const pcmPath = path.join(AUDIO_DIR, `sentence-${idx}.pcm`);
   const rawWavPath = path.join(AUDIO_DIR, `raw-sentence-${idx}.wav`);
   const punchyWavPath = path.join(AUDIO_DIR, `punchy-sentence-${idx}.wav`);
 
-  if (fs.existsSync(punchyWavPath) && fs.statSync(punchyWavPath).size > 10000) {
+  // If both punchy wav and pcm exist, verify and reuse
+  if (fs.existsSync(punchyWavPath) && fs.existsSync(pcmPath) && fs.statSync(punchyWavPath).size > 10000) {
     const dur = execFileSync(ffprobe, ['-v', 'error', '-show_entries', 'format=duration', '-of', 'default=noprint_wrappers=1:nokey=1', punchyWavPath]).toString().trim();
-    console.log(`   [VO ${idx}/11] File cache ditemukan (${dur}s): ${punchyWavPath}`);
+    console.log(`   [VO ${idx}/11] ✅ Cache Charon ditemukan (${dur}s): ${punchyWavPath}`);
+    return { wavPath: punchyWavPath, durationSec: parseFloat(dur) || 8.0 };
+  }
+
+  // If PCM already exists (e.g. freshly generated), convert to punchy WAV
+  if (fs.existsSync(pcmPath) && fs.statSync(pcmPath).size > 10000) {
+    console.log(`   [VO ${idx}/11] ⚡ Mengonversi PCM Charon ke WAV...`);
+    execFileSync(ffmpeg, [
+      '-y',
+      '-f', 's16le',
+      '-ar', '24000',
+      '-ac', '1',
+      '-i', pcmPath,
+      '-af', 'highpass=f=75,lowpass=f=7800,volume=1.05',
+      '-ar', '48000',
+      '-ac', '2',
+      rawWavPath,
+    ]);
+
+    execFileSync(ffmpeg, [
+      '-y',
+      '-i', rawWavPath,
+      '-filter:a', 'atempo=1.08',
+      punchyWavPath,
+    ]);
+
+    const dur = execFileSync(ffprobe, ['-v', 'error', '-show_entries', 'format=duration', '-of', 'default=noprint_wrappers=1:nokey=1', punchyWavPath]).toString().trim();
     return { wavPath: punchyWavPath, durationSec: parseFloat(dur) || 8.0 };
   }
 
   const key = process.env.GEMINI_API_KEY;
   let audioData: string | undefined;
 
-  // 1. Try Gemini TTS (Charon) if key is present
   if (key) {
     const models = [
-      'gemini-3.8-flash-lite-tts',
-      'gemini-3.1-flash-tts-preview',
       'gemini-2.5-flash-preview-tts',
       'gemini-3.8-flash-tts',
+      'gemini-3.1-flash-tts-preview',
+      'gemini-3.8-flash-lite-tts',
     ];
 
     for (const model of models) {
@@ -240,6 +266,12 @@ async function synthesizeCharonSentence(text: string, idx: number): Promise<{ wa
             headers: { 'content-type': 'application/json' },
             body: JSON.stringify({
               contents: [{ parts: [{ text }] }],
+              safetySettings: [
+                { category: 'HARM_CATEGORY_HARASSMENT', threshold: 'BLOCK_NONE' },
+                { category: 'HARM_CATEGORY_HATE_SPEECH', threshold: 'BLOCK_NONE' },
+                { category: 'HARM_CATEGORY_SEXUALLY_EXPLICIT', threshold: 'BLOCK_NONE' },
+                { category: 'HARM_CATEGORY_DANGEROUS_CONTENT', threshold: 'BLOCK_NONE' },
+              ],
               generationConfig: {
                 responseModalities: ['AUDIO'],
                 speechConfig: {
@@ -252,11 +284,6 @@ async function synthesizeCharonSentence(text: string, idx: number): Promise<{ wa
           });
 
           if (res.status === 429) {
-            const errText = await res.text().catch(() => '');
-            if (errText.includes('per day limit exceeded') || errText.includes('Quota exceeded for metric')) {
-              console.warn(`[VO ${idx}/11] Model ${model} daily limit. Beralih model...`);
-              break;
-            }
             console.warn(`[VO ${idx}/11] Rate limit pada ${model}. Menunggu 10 detik (attempt ${attempt}/3)...`);
             await new Promise((r) => setTimeout(r, 10000));
             continue;
@@ -282,48 +309,23 @@ async function synthesizeCharonSentence(text: string, idx: number): Promise<{ wa
     }
   }
 
-  if (audioData) {
-    fs.writeFileSync(pcmPath, Buffer.from(audioData, 'base64'));
-    execFileSync(ffmpeg, [
-      '-y',
-      '-f', 's16le',
-      '-ar', '24000',
-      '-ac', '1',
-      '-i', pcmPath,
-      '-af', 'highpass=f=75,lowpass=f=7800,volume=1.05',
-      '-ar', '48000',
-      '-ac', '2',
-      rawWavPath,
-    ]);
-  } else {
-    // 2. High-fidelity edge-tts fallback (id-ID-ArdiNeural with crime documentary acoustic mastering)
-    console.log(`[VO ${idx}/11] Fallback ke High-Fidelity Voice id-ID-ArdiNeural (Acoustic Mastering)...`);
-    const tempMp3 = path.join(AUDIO_DIR, `temp-sentence-${idx}.mp3`);
-    const edgeTtsBin = fs.existsSync('/Users/beny/Library/Python/3.9/bin/edge-tts')
-      ? '/Users/beny/Library/Python/3.9/bin/edge-tts'
-      : 'edge-tts';
-
-    execFileSync(edgeTtsBin, [
-      '--voice', 'id-ID-ArdiNeural',
-      '--rate=+2%',
-      '--pitch=-8Hz',
-      '--text', text,
-      '--write-media', tempMp3,
-    ]);
-
-    execFileSync(ffmpeg, [
-      '-y',
-      '-i', tempMp3,
-      '-af', 'equalizer=f=120:width_type=o:width=2:g=3.5,equalizer=f=3200:width_type=o:width=1:g=2.5,highpass=f=75,lowpass=f=8000',
-      '-ar', '48000',
-      '-ac', '2',
-      rawWavPath,
-    ]);
-
-    if (fs.existsSync(tempMp3)) fs.unlinkSync(tempMp3);
+  if (!audioData) {
+    throw new Error(`[VO ${idx}/11] ❌ FATAL: Gagal mendapatkan audio Gemini Charon untuk kalimat ${idx}`);
   }
 
-  // Accelerate slightly (atempo=1.08) for snappy ~95-110s Instagram Reels delivery
+  fs.writeFileSync(pcmPath, Buffer.from(audioData, 'base64'));
+  execFileSync(ffmpeg, [
+    '-y',
+    '-f', 's16le',
+    '-ar', '24000',
+    '-ac', '1',
+    '-i', pcmPath,
+    '-af', 'highpass=f=75,lowpass=f=7800,volume=1.05',
+    '-ar', '48000',
+    '-ac', '2',
+    rawWavPath,
+  ]);
+
   execFileSync(ffmpeg, [
     '-y',
     '-i', rawWavPath,

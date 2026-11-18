@@ -1,0 +1,298 @@
+{
+  "version": 1,
+  "historyId": "a99f6e00-f8c8-4f36-b1a5-c8909d9ad671",
+  "currentRevision": null,
+  "pendingChanges": false,
+  "files": {
+    "assets/beat-01.jpg": {
+      "hash": "6d747e7716dc109cdb5bb008c9a6814623f735296c6bc9c5da1b7b9eb4d4711e",
+      "content": "/Users/beny/.cache/hyperframes/history/a99f6e00-f8c8-4f36-b1a5-c8909d9ad671/blobs/6d/6d747e7716dc109cdb5bb008c9a6814623f735296c6bc9c5da1b7b9eb4d4711e"
+    },
+    "assets/beat-02.jpg": {
+      "hash": "811f18db674f8b55b5bf4302966433a6ebfed2ced57c776a98e38fb4d36cbe59",
+      "content": "/Users/beny/.cache/hyperframes/history/a99f6e00-f8c8-4f36-b1a5-c8909d9ad671/blobs/81/811f18db674f8b55b5bf4302966433a6ebfed2ced57c776a98e38fb4d36cbe59"
+    },
+    "assets/beat-03.jpg": {
+      "hash": "4f96836c22b74089865f01da9eed17c1e3ac33d34af469c01bd10797cf4a6e17",
+      "content": "/Users/beny/.cache/hyperframes/history/a99f6e00-f8c8-4f36-b1a5-c8909d9ad671/blobs/4f/4f96836c22b74089865f01da9eed17c1e3ac33d34af469c01bd10797cf4a6e17"
+    },
+    "assets/beat-04.jpg": {
+      "hash": "4f29769e7152d28a6c53e4c787a75c377697d04c50e831c9402fd975b792336f",
+      "content": "/Users/beny/.cache/hyperframes/history/a99f6e00-f8c8-4f36-b1a5-c8909d9ad671/blobs/4f/4f29769e7152d28a6c53e4c787a75c377697d04c50e831c9402fd975b792336f"
+    },
+    "assets/beat-05.jpg": {
+      "hash": "4f96836c22b74089865f01da9eed17c1e3ac33d34af469c01bd10797cf4a6e17",
+      "content": "/Users/beny/.cache/hyperframes/history/a99f6e00-f8c8-4f36-b1a5-c8909d9ad671/blobs/4f/4f96836c22b74089865f01da9eed17c1e3ac33d34af469c01bd10797cf4a6e17"
+    },
+    "assets/beat-06.jpg": {
+      "hash": "4f96836c22b74089865f01da9eed17c1e3ac33d34af469c01bd10797cf4a6e17",
+      "content": "/Users/beny/.cache/hyperframes/history/a99f6e00-f8c8-4f36-b1a5-c8909d9ad671/blobs/4f/4f96836c22b74089865f01da9eed17c1e3ac33d34af469c01bd10797cf4a6e17"
+    },
+    "assets/beat-09.jpg": {
+      "hash": "811f18db674f8b55b5bf4302966433a6ebfed2ced57c776a98e38fb4d36cbe59",
+      "content": "/Users/beny/.cache/hyperframes/history/a99f6e00-f8c8-4f36-b1a5-c8909d9ad671/blobs/81/811f18db674f8b55b5bf4302966433a6ebfed2ced57c776a98e38fb4d36cbe59"
+    },
+    "assets/beat-10.jpg": {
+      "hash": "811f18db674f8b55b5bf4302966433a6ebfed2ced57c776a98e38fb4d36cbe59",
+      "content": "/Users/beny/.cache/hyperframes/history/a99f6e00-f8c8-4f36-b1a5-c8909d9ad671/blobs/81/811f18db674f8b55b5bf4302966433a6ebfed2ced57c776a98e38fb4d36cbe59"
+    },
+    "assets/beat-11.jpg": {
+      "hash": "e474e1b1d5f9f0e321f688fb362c97fe0188fc2816a400300c1001f5ba307308",
+      "content": "/Users/beny/.cache/hyperframes/history/a99f6e00-f8c8-4f36-b1a5-c8909d9ad671/blobs/e4/e474e1b1d5f9f0e321f688fb362c97fe0188fc2816a400300c1001f5ba307308"
+    },
+    "assets/beat-12.jpg": {
+      "hash": "e474e1b1d5f9f0e321f688fb362c97fe0188fc2816a400300c1001f5ba307308",
+      "content": "/Users/beny/.cache/hyperframes/history/a99f6e00-f8c8-4f36-b1a5-c8909d9ad671/blobs/e4/e474e1b1d5f9f0e321f688fb362c97fe0188fc2816a400300c1001f5ba307308"
+    },
+    "assets/beat-13.jpg": {
+      "hash": "811f18db674f8b55b5bf4302966433a6ebfed2ced57c776a98e38fb4d36cbe59",
+      "content": "/Users/beny/.cache/hyperframes/history/a99f6e00-f8c8-4f36-b1a5-c8909d9ad671/blobs/81/811f18db674f8b55b5bf4302966433a6ebfed2ced57c776a98e38fb4d36cbe59"
+    },
+    "assets/beat-14.jpg": {
+      "hash": "b3f27f45d36f58a302b9784c184f7e9b3e1757ea09881578362dc58f94655942",
+      "content": "/Users/beny/.cache/hyperframes/history/a99f6e00-f8c8-4f36-b1a5-c8909d9ad671/blobs/b3/b3f27f45d36f58a302b9784c184f7e9b3e1757ea09881578362dc58f94655942"
+    },
+    "assets/beat-15.jpg": {
+      "hash": "f4583900f8412baf5d24d3c799ce9991341acd8836d1e188eda569a2316ca03f",
+      "content": "/Users/beny/.cache/hyperframes/history/a99f6e00-f8c8-4f36-b1a5-c8909d9ad671/blobs/f4/f4583900f8412baf5d24d3c799ce9991341acd8836d1e188eda569a2316ca03f"
+    },
+    "assets/beat-16.jpg": {
+      "hash": "f4583900f8412baf5d24d3c799ce9991341acd8836d1e188eda569a2316ca03f",
+      "content": "/Users/beny/.cache/hyperframes/history/a99f6e00-f8c8-4f36-b1a5-c8909d9ad671/blobs/f4/f4583900f8412baf5d24d3c799ce9991341acd8836d1e188eda569a2316ca03f"
+    },
+    "assets/beat-17.jpg": {
+      "hash": "ba787c854a6c77e15f6aac30dcc4a6b8b7441b9c80ba95d078edabf0a2770722",
+      "content": "/Users/beny/.cache/hyperframes/history/a99f6e00-f8c8-4f36-b1a5-c8909d9ad671/blobs/ba/ba787c854a6c77e15f6aac30dcc4a6b8b7441b9c80ba95d078edabf0a2770722"
+    },
+    "assets/beat-18.jpg": {
+      "hash": "ba787c854a6c77e15f6aac30dcc4a6b8b7441b9c80ba95d078edabf0a2770722",
+      "content": "/Users/beny/.cache/hyperframes/history/a99f6e00-f8c8-4f36-b1a5-c8909d9ad671/blobs/ba/ba787c854a6c77e15f6aac30dcc4a6b8b7441b9c80ba95d078edabf0a2770722"
+    },
+    "assets/beat-19.jpg": {
+      "hash": "29c26a5921903b3ec39b9548feea53abeb2cc498f69ba6cbffc7a2cff63a65d8",
+      "content": "/Users/beny/.cache/hyperframes/history/a99f6e00-f8c8-4f36-b1a5-c8909d9ad671/blobs/29/29c26a5921903b3ec39b9548feea53abeb2cc498f69ba6cbffc7a2cff63a65d8"
+    },
+    "assets/beat-20.jpg": {
+      "hash": "13eb8bcb86796c933c78885f2402338e00436a3da32c7d061880d60c25898b66",
+      "content": "/Users/beny/.cache/hyperframes/history/a99f6e00-f8c8-4f36-b1a5-c8909d9ad671/blobs/13/13eb8bcb86796c933c78885f2402338e00436a3da32c7d061880d60c25898b66"
+    },
+    "assets/beat-24.jpg": {
+      "hash": "717b81cd400e1bce2c44edcd9c35d6228530875c7aa4911b2e8286c789e5cf7e",
+      "content": "/Users/beny/.cache/hyperframes/history/a99f6e00-f8c8-4f36-b1a5-c8909d9ad671/blobs/71/717b81cd400e1bce2c44edcd9c35d6228530875c7aa4911b2e8286c789e5cf7e"
+    },
+    "assets/beat-25.jpg": {
+      "hash": "6d747e7716dc109cdb5bb008c9a6814623f735296c6bc9c5da1b7b9eb4d4711e",
+      "content": "/Users/beny/.cache/hyperframes/history/a99f6e00-f8c8-4f36-b1a5-c8909d9ad671/blobs/6d/6d747e7716dc109cdb5bb008c9a6814623f735296c6bc9c5da1b7b9eb4d4711e"
+    },
+    "assets/bekasi-hideout-dawn.jpg": {
+      "hash": "13eb8bcb86796c933c78885f2402338e00436a3da32c7d061880d60c25898b66",
+      "content": "/Users/beny/.cache/hyperframes/history/a99f6e00-f8c8-4f36-b1a5-c8909d9ad671/blobs/13/13eb8bcb86796c933c78885f2402338e00436a3da32c7d061880d60c25898b66"
+    },
+    "assets/cover-shot-00.jpg": {
+      "hash": "6d747e7716dc109cdb5bb008c9a6814623f735296c6bc9c5da1b7b9eb4d4711e",
+      "content": "/Users/beny/.cache/hyperframes/history/a99f6e00-f8c8-4f36-b1a5-c8909d9ad671/blobs/6d/6d747e7716dc109cdb5bb008c9a6814623f735296c6bc9c5da1b7b9eb4d4711e"
+    },
+    "assets/dodi-arrival-ambush.jpg": {
+      "hash": "e474e1b1d5f9f0e321f688fb362c97fe0188fc2816a400300c1001f5ba307308",
+      "content": "/Users/beny/.cache/hyperframes/history/a99f6e00-f8c8-4f36-b1a5-c8909d9ad671/blobs/e4/e474e1b1d5f9f0e321f688fb362c97fe0188fc2816a400300c1001f5ba307308"
+    },
+    "assets/door-break-crowbar.jpg": {
+      "hash": "ba787c854a6c77e15f6aac30dcc4a6b8b7441b9c80ba95d078edabf0a2770722",
+      "content": "/Users/beny/.cache/hyperframes/history/a99f6e00-f8c8-4f36-b1a5-c8909d9ad671/blobs/ba/ba787c854a6c77e15f6aac30dcc4a6b8b7441b9c80ba95d078edabf0a2770722"
+    },
+    "assets/ertiga-gate-entry.jpg": {
+      "hash": "4f29769e7152d28a6c53e4c787a75c377697d04c50e831c9402fd975b792336f",
+      "content": "/Users/beny/.cache/hyperframes/history/a99f6e00-f8c8-4f36-b1a5-c8909d9ad671/blobs/4f/4f29769e7152d28a6c53e4c787a75c377697d04c50e831c9402fd975b792336f"
+    },
+    "assets/forensic-rescue-morning.jpg": {
+      "hash": "29c26a5921903b3ec39b9548feea53abeb2cc498f69ba6cbffc7a2cff63a65d8",
+      "content": "/Users/beny/.cache/hyperframes/history/a99f6e00-f8c8-4f36-b1a5-c8909d9ad671/blobs/29/29c26a5921903b3ec39b9548feea53abeb2cc498f69ba6cbffc7a2cff63a65d8"
+    },
+    "assets/four-suspects-walking.jpg": {
+      "hash": "4f96836c22b74089865f01da9eed17c1e3ac33d34af469c01bd10797cf4a6e17",
+      "content": "/Users/beny/.cache/hyperframes/history/a99f6e00-f8c8-4f36-b1a5-c8909d9ad671/blobs/4f/4f96836c22b74089865f01da9eed17c1e3ac33d34af469c01bd10797cf4a6e17"
+    },
+    "assets/gavel-justice-memorial.jpg": {
+      "hash": "717b81cd400e1bce2c44edcd9c35d6228530875c7aa4911b2e8286c789e5cf7e",
+      "content": "/Users/beny/.cache/hyperframes/history/a99f6e00-f8c8-4f36-b1a5-c8909d9ad671/blobs/71/717b81cd400e1bce2c44edcd9c35d6228530875c7aa4911b2e8286c789e5cf7e"
+    },
+    "assets/narrow-bathroom-door.jpg": {
+      "hash": "811f18db674f8b55b5bf4302966433a6ebfed2ced57c776a98e38fb4d36cbe59",
+      "content": "/Users/beny/.cache/hyperframes/history/a99f6e00-f8c8-4f36-b1a5-c8909d9ad671/blobs/81/811f18db674f8b55b5bf4302966433a6ebfed2ced57c776a98e38fb4d36cbe59"
+    },
+    "assets/rolex-money-loot.jpg": {
+      "hash": "f4583900f8412baf5d24d3c799ce9991341acd8836d1e188eda569a2316ca03f",
+      "content": "/Users/beny/.cache/hyperframes/history/a99f6e00-f8c8-4f36-b1a5-c8909d9ad671/blobs/f4/f4583900f8412baf5d24d3c799ce9991341acd8836d1e188eda569a2316ca03f"
+    },
+    "assets/shot-01.jpg": {
+      "hash": "6d747e7716dc109cdb5bb008c9a6814623f735296c6bc9c5da1b7b9eb4d4711e",
+      "content": "/Users/beny/.cache/hyperframes/history/a99f6e00-f8c8-4f36-b1a5-c8909d9ad671/blobs/6d/6d747e7716dc109cdb5bb008c9a6814623f735296c6bc9c5da1b7b9eb4d4711e"
+    },
+    "assets/shot-02.jpg": {
+      "hash": "811f18db674f8b55b5bf4302966433a6ebfed2ced57c776a98e38fb4d36cbe59",
+      "content": "/Users/beny/.cache/hyperframes/history/a99f6e00-f8c8-4f36-b1a5-c8909d9ad671/blobs/81/811f18db674f8b55b5bf4302966433a6ebfed2ced57c776a98e38fb4d36cbe59"
+    },
+    "assets/shot-03.jpg": {
+      "hash": "4f96836c22b74089865f01da9eed17c1e3ac33d34af469c01bd10797cf4a6e17",
+      "content": "/Users/beny/.cache/hyperframes/history/a99f6e00-f8c8-4f36-b1a5-c8909d9ad671/blobs/4f/4f96836c22b74089865f01da9eed17c1e3ac33d34af469c01bd10797cf4a6e17"
+    },
+    "assets/shot-04.jpg": {
+      "hash": "4f29769e7152d28a6c53e4c787a75c377697d04c50e831c9402fd975b792336f",
+      "content": "/Users/beny/.cache/hyperframes/history/a99f6e00-f8c8-4f36-b1a5-c8909d9ad671/blobs/4f/4f29769e7152d28a6c53e4c787a75c377697d04c50e831c9402fd975b792336f"
+    },
+    "assets/shot-05.jpg": {
+      "hash": "4f96836c22b74089865f01da9eed17c1e3ac33d34af469c01bd10797cf4a6e17",
+      "content": "/Users/beny/.cache/hyperframes/history/a99f6e00-f8c8-4f36-b1a5-c8909d9ad671/blobs/4f/4f96836c22b74089865f01da9eed17c1e3ac33d34af469c01bd10797cf4a6e17"
+    },
+    "assets/shot-06.jpg": {
+      "hash": "4f96836c22b74089865f01da9eed17c1e3ac33d34af469c01bd10797cf4a6e17",
+      "content": "/Users/beny/.cache/hyperframes/history/a99f6e00-f8c8-4f36-b1a5-c8909d9ad671/blobs/4f/4f96836c22b74089865f01da9eed17c1e3ac33d34af469c01bd10797cf4a6e17"
+    },
+    "assets/shot-09.jpg": {
+      "hash": "811f18db674f8b55b5bf4302966433a6ebfed2ced57c776a98e38fb4d36cbe59",
+      "content": "/Users/beny/.cache/hyperframes/history/a99f6e00-f8c8-4f36-b1a5-c8909d9ad671/blobs/81/811f18db674f8b55b5bf4302966433a6ebfed2ced57c776a98e38fb4d36cbe59"
+    },
+    "assets/shot-10.jpg": {
+      "hash": "811f18db674f8b55b5bf4302966433a6ebfed2ced57c776a98e38fb4d36cbe59",
+      "content": "/Users/beny/.cache/hyperframes/history/a99f6e00-f8c8-4f36-b1a5-c8909d9ad671/blobs/81/811f18db674f8b55b5bf4302966433a6ebfed2ced57c776a98e38fb4d36cbe59"
+    },
+    "assets/shot-11.jpg": {
+      "hash": "e474e1b1d5f9f0e321f688fb362c97fe0188fc2816a400300c1001f5ba307308",
+      "content": "/Users/beny/.cache/hyperframes/history/a99f6e00-f8c8-4f36-b1a5-c8909d9ad671/blobs/e4/e474e1b1d5f9f0e321f688fb362c97fe0188fc2816a400300c1001f5ba307308"
+    },
+    "assets/shot-12.jpg": {
+      "hash": "e474e1b1d5f9f0e321f688fb362c97fe0188fc2816a400300c1001f5ba307308",
+      "content": "/Users/beny/.cache/hyperframes/history/a99f6e00-f8c8-4f36-b1a5-c8909d9ad671/blobs/e4/e474e1b1d5f9f0e321f688fb362c97fe0188fc2816a400300c1001f5ba307308"
+    },
+    "assets/shot-13.jpg": {
+      "hash": "811f18db674f8b55b5bf4302966433a6ebfed2ced57c776a98e38fb4d36cbe59",
+      "content": "/Users/beny/.cache/hyperframes/history/a99f6e00-f8c8-4f36-b1a5-c8909d9ad671/blobs/81/811f18db674f8b55b5bf4302966433a6ebfed2ced57c776a98e38fb4d36cbe59"
+    },
+    "assets/shot-14.jpg": {
+      "hash": "b3f27f45d36f58a302b9784c184f7e9b3e1757ea09881578362dc58f94655942",
+      "content": "/Users/beny/.cache/hyperframes/history/a99f6e00-f8c8-4f36-b1a5-c8909d9ad671/blobs/b3/b3f27f45d36f58a302b9784c184f7e9b3e1757ea09881578362dc58f94655942"
+    },
+    "assets/shot-15.jpg": {
+      "hash": "f4583900f8412baf5d24d3c799ce9991341acd8836d1e188eda569a2316ca03f",
+      "content": "/Users/beny/.cache/hyperframes/history/a99f6e00-f8c8-4f36-b1a5-c8909d9ad671/blobs/f4/f4583900f8412baf5d24d3c799ce9991341acd8836d1e188eda569a2316ca03f"
+    },
+    "assets/shot-16.jpg": {
+      "hash": "f4583900f8412baf5d24d3c799ce9991341acd8836d1e188eda569a2316ca03f",
+      "content": "/Users/beny/.cache/hyperframes/history/a99f6e00-f8c8-4f36-b1a5-c8909d9ad671/blobs/f4/f4583900f8412baf5d24d3c799ce9991341acd8836d1e188eda569a2316ca03f"
+    },
+    "assets/shot-17.jpg": {
+      "hash": "ba787c854a6c77e15f6aac30dcc4a6b8b7441b9c80ba95d078edabf0a2770722",
+      "content": "/Users/beny/.cache/hyperframes/history/a99f6e00-f8c8-4f36-b1a5-c8909d9ad671/blobs/ba/ba787c854a6c77e15f6aac30dcc4a6b8b7441b9c80ba95d078edabf0a2770722"
+    },
+    "assets/shot-18.jpg": {
+      "hash": "ba787c854a6c77e15f6aac30dcc4a6b8b7441b9c80ba95d078edabf0a2770722",
+      "content": "/Users/beny/.cache/hyperframes/history/a99f6e00-f8c8-4f36-b1a5-c8909d9ad671/blobs/ba/ba787c854a6c77e15f6aac30dcc4a6b8b7441b9c80ba95d078edabf0a2770722"
+    },
+    "assets/shot-19.jpg": {
+      "hash": "29c26a5921903b3ec39b9548feea53abeb2cc498f69ba6cbffc7a2cff63a65d8",
+      "content": "/Users/beny/.cache/hyperframes/history/a99f6e00-f8c8-4f36-b1a5-c8909d9ad671/blobs/29/29c26a5921903b3ec39b9548feea53abeb2cc498f69ba6cbffc7a2cff63a65d8"
+    },
+    "assets/shot-20.jpg": {
+      "hash": "13eb8bcb86796c933c78885f2402338e00436a3da32c7d061880d60c25898b66",
+      "content": "/Users/beny/.cache/hyperframes/history/a99f6e00-f8c8-4f36-b1a5-c8909d9ad671/blobs/13/13eb8bcb86796c933c78885f2402338e00436a3da32c7d061880d60c25898b66"
+    },
+    "assets/shot-24.jpg": {
+      "hash": "717b81cd400e1bce2c44edcd9c35d6228530875c7aa4911b2e8286c789e5cf7e",
+      "content": "/Users/beny/.cache/hyperframes/history/a99f6e00-f8c8-4f36-b1a5-c8909d9ad671/blobs/71/717b81cd400e1bce2c44edcd9c35d6228530875c7aa4911b2e8286c789e5cf7e"
+    },
+    "assets/shot-25.jpg": {
+      "hash": "6d747e7716dc109cdb5bb008c9a6814623f735296c6bc9c5da1b7b9eb4d4711e",
+      "content": "/Users/beny/.cache/hyperframes/history/a99f6e00-f8c8-4f36-b1a5-c8909d9ad671/blobs/6d/6d747e7716dc109cdb5bb008c9a6814623f735296c6bc9c5da1b7b9eb4d4711e"
+    },
+    "assets/water-faucet-broken-lock.jpg": {
+      "hash": "b3f27f45d36f58a302b9784c184f7e9b3e1757ea09881578362dc58f94655942",
+      "content": "/Users/beny/.cache/hyperframes/history/a99f6e00-f8c8-4f36-b1a5-c8909d9ad671/blobs/b3/b3f27f45d36f58a302b9784c184f7e9b3e1757ea09881578362dc58f94655942"
+    },
+    "hyperframes.json": {
+      "hash": "12bb941b1e4060ce7418673e6ecf96e5aec4b3032a6640b3842a7f519534b7a2",
+      "content": "/Users/beny/.cache/hyperframes/history/a99f6e00-f8c8-4f36-b1a5-c8909d9ad671/blobs/12/12bb941b1e4060ce7418673e6ecf96e5aec4b3032a6640b3842a7f519534b7a2"
+    },
+    "index.html": {
+      "hash": "3549ce96415c1c54f8ec70b6b786373eccfeedaf4d07ae948eb3ccfb90bd5397",
+      "content": "/Users/beny/.cache/hyperframes/history/a99f6e00-f8c8-4f36-b1a5-c8909d9ad671/blobs/35/3549ce96415c1c54f8ec70b6b786373eccfeedaf4d07ae948eb3ccfb90bd5397"
+    },
+    "assets/beat-07.jpg": {
+      "hash": "b5a11bf52ef7efec7e725df6f7d5f69f57b0ba7b64f0de52576d4dea1a715359",
+      "content": "/Users/beny/.cache/hyperframes/history/a99f6e00-f8c8-4f36-b1a5-c8909d9ad671/blobs/b5/b5a11bf52ef7efec7e725df6f7d5f69f57b0ba7b64f0de52576d4dea1a715359"
+    },
+    "assets/beat-08.jpg": {
+      "hash": "b5a11bf52ef7efec7e725df6f7d5f69f57b0ba7b64f0de52576d4dea1a715359",
+      "content": "/Users/beny/.cache/hyperframes/history/a99f6e00-f8c8-4f36-b1a5-c8909d9ad671/blobs/b5/b5a11bf52ef7efec7e725df6f7d5f69f57b0ba7b64f0de52576d4dea1a715359"
+    },
+    "assets/beat-21.jpg": {
+      "hash": "fdd7b67654a464eff981c6c81d0dc4930356e1e5cca94b297b394bbcdb0faf4c",
+      "content": "/Users/beny/.cache/hyperframes/history/a99f6e00-f8c8-4f36-b1a5-c8909d9ad671/blobs/fd/fdd7b67654a464eff981c6c81d0dc4930356e1e5cca94b297b394bbcdb0faf4c"
+    },
+    "assets/beat-22.jpg": {
+      "hash": "42b4d59f5edd11afa6c8c9cf8ad60ed51f43a86ee969c79ad42f062e3a51a241",
+      "content": "/Users/beny/.cache/hyperframes/history/a99f6e00-f8c8-4f36-b1a5-c8909d9ad671/blobs/42/42b4d59f5edd11afa6c8c9cf8ad60ed51f43a86ee969c79ad42f062e3a51a241"
+    },
+    "assets/beat-23.jpg": {
+      "hash": "3294b255048378df3daa65df496db1e91b428125cdd12aa39f2284dd35f780ba",
+      "content": "/Users/beny/.cache/hyperframes/history/a99f6e00-f8c8-4f36-b1a5-c8909d9ad671/blobs/32/3294b255048378df3daa65df496db1e91b428125cdd12aa39f2284dd35f780ba"
+    },
+    "assets/cctv-living-room-intimidation.jpg": {
+      "hash": "b5a11bf52ef7efec7e725df6f7d5f69f57b0ba7b64f0de52576d4dea1a715359",
+      "content": "/Users/beny/.cache/hyperframes/history/a99f6e00-f8c8-4f36-b1a5-c8909d9ad671/blobs/b5/b5a11bf52ef7efec7e725df6f7d5f69f57b0ba7b64f0de52576d4dea1a715359"
+    },
+    "assets/gunfight-ambush.jpg": {
+      "hash": "fdd7b67654a464eff981c6c81d0dc4930356e1e5cca94b297b394bbcdb0faf4c",
+      "content": "/Users/beny/.cache/hyperframes/history/a99f6e00-f8c8-4f36-b1a5-c8909d9ad671/blobs/fd/fdd7b67654a464eff981c6c81d0dc4930356e1e5cca94b297b394bbcdb0faf4c"
+    },
+    "assets/polda-press-conference.jpg": {
+      "hash": "3294b255048378df3daa65df496db1e91b428125cdd12aa39f2284dd35f780ba",
+      "content": "/Users/beny/.cache/hyperframes/history/a99f6e00-f8c8-4f36-b1a5-c8909d9ad671/blobs/32/3294b255048378df3daa65df496db1e91b428125cdd12aa39f2284dd35f780ba"
+    },
+    "assets/ramlan-apprehension.jpg": {
+      "hash": "42b4d59f5edd11afa6c8c9cf8ad60ed51f43a86ee969c79ad42f062e3a51a241",
+      "content": "/Users/beny/.cache/hyperframes/history/a99f6e00-f8c8-4f36-b1a5-c8909d9ad671/blobs/42/42b4d59f5edd11afa6c8c9cf8ad60ed51f43a86ee969c79ad42f062e3a51a241"
+    },
+    "assets/shot-07.jpg": {
+      "hash": "b5a11bf52ef7efec7e725df6f7d5f69f57b0ba7b64f0de52576d4dea1a715359",
+      "content": "/Users/beny/.cache/hyperframes/history/a99f6e00-f8c8-4f36-b1a5-c8909d9ad671/blobs/b5/b5a11bf52ef7efec7e725df6f7d5f69f57b0ba7b64f0de52576d4dea1a715359"
+    },
+    "assets/shot-08.jpg": {
+      "hash": "b5a11bf52ef7efec7e725df6f7d5f69f57b0ba7b64f0de52576d4dea1a715359",
+      "content": "/Users/beny/.cache/hyperframes/history/a99f6e00-f8c8-4f36-b1a5-c8909d9ad671/blobs/b5/b5a11bf52ef7efec7e725df6f7d5f69f57b0ba7b64f0de52576d4dea1a715359"
+    },
+    "assets/shot-21.jpg": {
+      "hash": "fdd7b67654a464eff981c6c81d0dc4930356e1e5cca94b297b394bbcdb0faf4c",
+      "content": "/Users/beny/.cache/hyperframes/history/a99f6e00-f8c8-4f36-b1a5-c8909d9ad671/blobs/fd/fdd7b67654a464eff981c6c81d0dc4930356e1e5cca94b297b394bbcdb0faf4c"
+    },
+    "assets/shot-22.jpg": {
+      "hash": "42b4d59f5edd11afa6c8c9cf8ad60ed51f43a86ee969c79ad42f062e3a51a241",
+      "content": "/Users/beny/.cache/hyperframes/history/a99f6e00-f8c8-4f36-b1a5-c8909d9ad671/blobs/42/42b4d59f5edd11afa6c8c9cf8ad60ed51f43a86ee969c79ad42f062e3a51a241"
+    },
+    "assets/shot-23.jpg": {
+      "hash": "3294b255048378df3daa65df496db1e91b428125cdd12aa39f2284dd35f780ba",
+      "content": "/Users/beny/.cache/hyperframes/history/a99f6e00-f8c8-4f36-b1a5-c8909d9ad671/blobs/32/3294b255048378df3daa65df496db1e91b428125cdd12aa39f2284dd35f780ba"
+    }
+  },
+  "revisions": {},
+  "checks": {
+    "latest": null,
+    "revisions": {},
+    "unversioned": []
+  },
+  "snapshots": {
+    "latest": null,
+    "revisions": {},
+    "unversioned": []
+  },
+  "renders": {
+    "latest": {
+      "id": "8cda49d1-e059-4fac-960a-46da6e7f9480",
+      "completedAt": 1794970627023,
+      "output": "/Users/beny/Documents/Project-self/Content-automation/public/renders/pulomas-perampokan-sadis/temp-visual-timeline.mp4",
+      "status": "completed",
+      "revision": null
+    },
+    "retainedRevisions": []
+  },
+  "pendingArtifactCleanup": []
+}

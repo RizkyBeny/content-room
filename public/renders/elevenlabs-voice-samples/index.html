@@ -1,0 +1,641 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Perbandingan Suara Narator: Gemini Charon vs ElevenLabs</title>
+  <style>
+    :root {
+      --bg: #0D1117;
+      --card: #161B22;
+      --border: #30363D;
+      --accent: #E5A93C;
+      --danger: #DA3633;
+      --success: #2EA043;
+      --text: #C9D1D9;
+      --text-muted: #8B949E;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background-color: var(--bg);
+      color: var(--text);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      padding: 40px 20px;
+    }
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    header {
+      margin-bottom: 32px;
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 20px;
+    }
+    .badge {
+      display: inline-block;
+      background: var(--accent);
+      color: #000;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      padding: 4px 10px;
+      border-radius: 4px;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+    h1 {
+      font-size: 26px;
+      color: #FFF;
+      margin-bottom: 6px;
+    }
+    .subtitle {
+      font-size: 14px;
+      color: var(--text-muted);
+    }
+    .sample-text-box {
+      background: #000;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 16px;
+      margin-bottom: 30px;
+      font-size: 14px;
+      line-height: 1.5;
+    }
+    .sample-text-box strong {
+      color: var(--accent);
+      display: block;
+      margin-bottom: 4px;
+      font-size: 12px;
+      text-transform: uppercase;
+    }
+    .ref-card {
+      background: rgba(218, 54, 51, 0.1);
+      border: 1px solid var(--danger);
+      border-radius: 10px;
+      padding: 20px;
+      margin-bottom: 32px;
+    }
+    .ref-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 12px;
+    }
+    .ref-title {
+      font-weight: 700;
+      color: #FF7B72;
+      font-size: 16px;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 16px;
+    }
+    .voice-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 20px;
+      transition: border-color 0.2s, transform 0.2s;
+    }
+    .voice-card:hover {
+      border-color: var(--accent);
+    }
+    .voice-card.recommended {
+      border: 1.5px solid var(--accent);
+      background: linear-gradient(180deg, rgba(229, 169, 60, 0.05) 0%, var(--card) 100%);
+    }
+    .voice-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 12px;
+    }
+    .voice-name {
+      font-size: 18px;
+      font-weight: 700;
+      color: #FFF;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .rec-tag {
+      background: var(--accent);
+      color: #000;
+      font-size: 10px;
+      font-weight: 800;
+      padding: 2px 8px;
+      border-radius: 4px;
+      text-transform: uppercase;
+    }
+    .voice-id {
+      font-family: monospace;
+      font-size: 12px;
+      color: var(--text-muted);
+      margin-top: 2px;
+    }
+    .voice-desc {
+      font-size: 13px;
+      color: var(--text);
+      margin-bottom: 14px;
+      line-height: 1.4;
+    }
+    .similarity-note {
+      font-size: 12px;
+      color: #58A6FF;
+      margin-bottom: 14px;
+      background: rgba(56, 139, 253, 0.1);
+      padding: 8px 12px;
+      border-radius: 6px;
+      border-left: 3px solid #58A6FF;
+    }
+    audio {
+      width: 100%;
+      height: 40px;
+      outline: none;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <span class="badge">A/B Voice Audition</span>
+      <h1>Pemilihan Narator ElevenLabs (Alternatif Gemini Charon)</h1>
+      <p class="subtitle">Dengarkan dan bandingkan karakter suara narator untuk tema True Crime Documentary.</p>
+    </header>
+
+    <div class="sample-text-box">
+      <strong>Naskah Uji Kalimat:</strong>
+      "Di balik dinding sunyi mess karyawan Kosambi, Tangerang, penyelidikan membongkar kenyataan kelam: kejahatan ini adalah persekongkolan sadis tiga pria yang saling berbagi peran."
+    </div>
+
+    <!-- SECTION BARU: AUDISI NATIVE INDONESIA (ZERO BULE ACCENT) -->
+    <div style="background: linear-gradient(180deg, #16202C 0%, #0D1117 100%); border: 2.5px solid #388BFD; border-radius: 14px; padding: 28px; margin-bottom: 36px; box-shadow: 0 15px 35px rgba(56, 139, 253, 0.2);">
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; flex-wrap: wrap; gap: 10px;">
+        <span class="badge" style="background: #388BFD; color: #FFF; font-size: 13px; font-weight: 800; padding: 6px 16px;">🇮🇩 NATIVE INDONESIAN VOICES (100% BEBAS AKSEN BULE)</span>
+        <span style="font-size: 13px; color: #58A6FF; font-weight: 700;">Artikulasi Asli Indonesia • Logat Fasih • True Crime Atmosferik</span>
+      </div>
+      <h2 style="font-size: 24px; color: #FFF; margin-bottom: 8px;">Perbandingan Narator Asli Indonesia untuk Kasus Eno Farihah</h2>
+      <p style="font-size: 14px; color: var(--text-muted); line-height: 1.5; margin-bottom: 24px;">
+        Dua profil suara penutur asli bahasa Indonesia dengan kalibrasi tempo lambat (<code style="color: #388BFD;">rate: -8%</code>), nada rendah (<code style="color: #388BFD;">pitch: -3Hz</code>), dan mastering bass EBU R128 (-15.3 LUFS). Bebas dari aksen penutur asing.
+      </p>
+
+      <div style="display: flex; flex-direction: column; gap: 20px;">
+        <!-- Card Ardi -->
+        <div style="background: #0D1520; border: 2px solid #388BFD; border-radius: 10px; padding: 22px;">
+          <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 10px; flex-wrap: wrap; gap: 8px;">
+            <div>
+              <div style="font-size: 19px; font-weight: 800; color: #58A6FF;">⭐ Pilihan 1: Ardi (id-ID-ArdiNeural) - Pria Baritone Misteri Indonesia</div>
+              <div style="font-size: 12.5px; color: var(--text-muted); margin-top: 3px;">
+                Tempo: <strong>Lambat & Dingin</strong> • Logat: <strong>100% Native Indonesia</strong> • Karakter: <strong>Pencerita Dokumenter / RJL 5 / Klenik Malam</strong>
+              </div>
+            </div>
+            <span class="rec-tag" style="background: #388BFD; color: #FFF; font-size: 11px; padding: 4px 10px;">Rekomendasi Utama Pria</span>
+          </div>
+          <div style="background: #060A10; padding: 14px 18px; border-radius: 6px; font-size: 14px; line-height: 1.6; color: #F0F6FC; margin-bottom: 16px; border-left: 4px solid #388BFD;">
+            "Cangkul itu... bukan tergeletak di gudang. Tapi tertancap... di atas kasur seorang karyawati pabrik di Tangerang. Dan pelakunya... bukan satu orang. Melainkan tiga pria... yang saling berbagi peran."
+          </div>
+          <div>
+            <span style="font-size: 12px; color: #58A6FF; font-weight: 700; display: block; margin-bottom: 6px;">🎬 CINEMATIC MIX (Vokal Ardi Asli Indonesia + Dark Drone BGM + EBU R128):</span>
+            <audio controls preload="metadata" style="width: 100%; height: 42px;">
+              <source src="ardi-cinematic-mix.mp3" type="audio/mpeg">
+            </audio>
+          </div>
+        </div>
+
+        <!-- Card Gadis -->
+        <div style="background: #0D1520; border: 1px solid var(--border); border-radius: 10px; padding: 22px;">
+          <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 10px; flex-wrap: wrap; gap: 8px;">
+            <div>
+              <div style="font-size: 18px; font-weight: 700; color: #FFF;">Pilihan 2: Gadis (id-ID-GadisNeural) - Wanita Misteri Mencekam</div>
+              <div style="font-size: 12.5px; color: var(--text-muted); margin-top: 3px;">
+                Tempo: <strong>Santai & Mengendap</strong> • Logat: <strong>100% Native Indonesia</strong> • Karakter: <strong>Berbisik Dingin & Intim (Nessie Judge Style)</strong>
+              </div>
+            </div>
+            <span class="rec-tag" style="background: #A371F7; color: #FFF; font-size: 11px; padding: 4px 10px;">Pilihan Wanita</span>
+          </div>
+          <div style="background: #060A10; padding: 14px 18px; border-radius: 6px; font-size: 14px; line-height: 1.6; color: #F0F6FC; margin-bottom: 16px; border-left: 4px solid #A371F7;">
+            "Cangkul itu... bukan tergeletak di gudang. Tapi tertancap... di atas kasur seorang karyawati pabrik di Tangerang. Dan pelakunya... bukan satu orang. Melainkan tiga pria... yang saling berbagi peran."
+          </div>
+          <div>
+            <span style="font-size: 12px; color: #A371F7; font-weight: 700; display: block; margin-bottom: 6px;">🎬 CINEMATIC MIX (Vokal Gadis Asli Indonesia + Dark Drone BGM + EBU R128):</span>
+            <audio controls preload="metadata" style="width: 100%; height: 42px;">
+              <source src="gadis-cinematic-mix.mp3" type="audio/mpeg">
+            </audio>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SECTION UTAMA: AUDISI BRIAN DENGAN INTONASI KLENIK MALAM -->
+    <div style="background: linear-gradient(180deg, #1C1917 0%, #0C0A09 100%); border: 2.5px solid #E5A93C; border-radius: 14px; padding: 28px; margin-bottom: 36px; box-shadow: 0 15px 35px rgba(229, 169, 60, 0.15);">
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; flex-wrap: wrap; gap: 10px;">
+        <span class="badge" style="background: #E5A93C; color: #000; font-size: 13px; font-weight: 800; padding: 6px 16px;">⭐ HASIL TUNING: BRIAN (INTONASI ALA KLENIK MALAM)</span>
+        <span style="font-size: 13px; color: #4ADE80; font-weight: 700;">Deep Baritone • Pacing Santai • Jeda Hening Dramatis</span>
+      </div>
+      <h2 style="font-size: 24px; color: #FFF; margin-bottom: 8px;">3 Variasi Intonasi Vokal Brian untuk Kasus Eno Farihah</h2>
+      <p style="font-size: 14px; color: var(--text-muted); line-height: 1.5; margin-bottom: 24px;">
+        Vokal <strong>Brian</strong> telah disetel parameter stabilitasnya (<code style="color: #E5A93C;">stability: 0.65 - 0.72</code>) dan rekayasa tanda baca titik-koma/elipsis (<code style="color: #E5A93C;">...</code>) agar intonasi bicaranya menjadi dingin, datar, lambat, dan berbobot ala <em>@klenik_malam</em>.
+      </p>
+
+      <div style="display: flex; flex-direction: column; gap: 20px;">
+        <!-- Card 1: Cold & Detached Suspense -->
+        <div style="background: #171412; border: 2px solid #E5A93C; border-radius: 10px; padding: 22px;">
+          <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 10px; flex-wrap: wrap; gap: 8px;">
+            <div>
+              <div style="font-size: 19px; font-weight: 800; color: #E5A93C;">⭐ Variasi 1: Cold & Detached Suspense (Paling Mirip Klenik Malam)</div>
+              <div style="font-size: 12.5px; color: var(--text-muted); margin-top: 3px;">
+                Tempo: <strong>95 WPM (Lambat & Mengendap)</strong> • Karakter: <strong>Dingin, Tenang, Tanpa Emosi Melodramatis</strong>
+              </div>
+            </div>
+            <span class="rec-tag" style="background: #E5A93C; color: #000; font-size: 11px; padding: 4px 10px;">Rekomendasi Terbaik</span>
+          </div>
+          <div style="background: #0A0807; padding: 14px 18px; border-radius: 6px; font-size: 14px; line-height: 1.6; color: #F5EBE6; margin-bottom: 16px; border-left: 4px solid #E5A93C;">
+            "Kamar nomor tujuh itu... terkunci rapat dari luar. Di lorong mess karyawan yang basah oleh hujan tengah malam... tak ada suara. Tiga pria... baru saja berbagi peran. Dan di sudut kasur itu... sebuah cangkul teronggok berdarah."
+          </div>
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
+            <div>
+              <span style="font-size: 12px; color: #E5A93C; font-weight: 700; display: block; margin-bottom: 6px;">🎬 CINEMATIC MIX (Vokal Brian + Drone BGM -17% + EBU R128):</span>
+              <audio controls preload="metadata" style="width: 100%; height: 40px;">
+                <source src="brian-klenik-1-cinematic-mix.mp3" type="audio/mpeg">
+              </audio>
+            </div>
+            <div>
+              <span style="font-size: 12px; color: var(--text-muted); font-weight: 700; display: block; margin-bottom: 6px;">🎙️ CLEAN VOCALS (Hanya Vokal Brian Ter-mastering):</span>
+              <audio controls preload="metadata" style="width: 100%; height: 40px;">
+                <source src="brian-klenik-1-mastered.wav" type="audio/wav">
+              </audio>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 2: Intimate Low-End Whisper -->
+        <div style="background: #171412; border: 1px solid var(--border); border-radius: 10px; padding: 22px;">
+          <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 10px; flex-wrap: wrap; gap: 8px;">
+            <div>
+              <div style="font-size: 18px; font-weight: 700; color: #FFF;">Variasi 2: Intimate Low-End Whisper (Suara Berat Berbisik)</div>
+              <div style="font-size: 12.5px; color: var(--text-muted); margin-top: 3px;">
+                Penekanan pada nada bass dada yang tebal, gaya penceritaan dekat di mikrofon (proximity effect) dengan napas tertahan.
+              </div>
+            </div>
+          </div>
+          <div style="background: #0A0807; padding: 14px 18px; border-radius: 6px; font-size: 14px; line-height: 1.6; color: #F5EBE6; margin-bottom: 16px; border-left: 4px solid #58A6FF;">
+            "Semua bermula saat ajakan tersangka ditolak mentah-mentah. Sakit hati itu... menyulut bara. Di kegelapan malam, mereka masuk tanpa suara. Imam membekap dengan bantal, Arifin meminta senjata, dan RAM... menemukan cangkul itu di pekarangan."
+          </div>
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
+            <div>
+              <span style="font-size: 12px; color: #E5A93C; font-weight: 700; display: block; margin-bottom: 6px;">🎬 CINEMATIC MIX:</span>
+              <audio controls preload="metadata" style="width: 100%; height: 40px;">
+                <source src="brian-klenik-2-cinematic-mix.mp3" type="audio/mpeg">
+              </audio>
+            </div>
+            <div>
+              <span style="font-size: 12px; color: var(--text-muted); font-weight: 700; display: block; margin-bottom: 6px;">🎙️ CLEAN VOCALS:</span>
+              <audio controls preload="metadata" style="width: 100%; height: 40px;">
+                <source src="brian-klenik-2-mastered.wav" type="audio/wav">
+              </audio>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 3: Slow Mounting Tension -->
+        <div style="background: #171412; border: 1px solid var(--border); border-radius: 10px; padding: 22px;">
+          <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 10px; flex-wrap: wrap; gap: 8px;">
+            <div>
+              <div style="font-size: 18px; font-weight: 700; color: #FFF;">Variasi 3: Slow Mounting Tension (Tensi Bertahap ala Creepypasta)</div>
+              <div style="font-size: 12.5px; color: var(--text-muted); margin-top: 3px;">
+                Membuka perlahan dan hening, lalu perlahan menaikkan tensi di setiap frasa hingga klimaks.
+              </div>
+            </div>
+          </div>
+          <div style="background: #0A0807; padding: 14px 18px; border-radius: 6px; font-size: 14px; line-height: 1.6; color: #F5EBE6; margin-bottom: 16px; border-left: 4px solid #F87171;">
+            "Dua puluh meter dari pintu mess yang sunyi... satu cangkul tergeletak di tanah pekarangan. Malam itu... benda yang biasa dipakai untuk menggali tanah, berubah menjadi saksi bisu kebiadaban tiga rekan kerja."
+          </div>
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
+            <div>
+              <span style="font-size: 12px; color: #E5A93C; font-weight: 700; display: block; margin-bottom: 6px;">🎬 CINEMATIC MIX:</span>
+              <audio controls preload="metadata" style="width: 100%; height: 40px;">
+                <source src="brian-klenik-3-cinematic-mix.mp3" type="audio/mpeg">
+              </audio>
+            </div>
+            <div>
+              <span style="font-size: 12px; color: var(--text-muted); font-weight: 700; display: block; margin-bottom: 6px;">🎙️ CLEAN VOCALS:</span>
+              <audio controls preload="metadata" style="width: 100%; height: 40px;">
+                <source src="brian-klenik-3-mastered.wav" type="audio/wav">
+              </audio>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SECTION KHUSUS: AUDISI SAMPEL NYATA NASKAH ENO FARIHAH -->
+    <div style="background: linear-gradient(180deg, #1A1F29 0%, #11141A 100%); border: 2px solid #E5A93C; border-radius: 14px; padding: 28px; margin-bottom: 36px; box-shadow: 0 10px 30px rgba(0,0,0,0.5);">
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; flex-wrap: wrap; gap: 10px;">
+        <span class="badge" style="background: #E5A93C; color: #000; font-size: 12px; padding: 6px 14px;">🔥 REVIEW KHUSUS: SAMPEL REAL NARASI ENO FARIHAH</span>
+        <span style="font-size: 13px; color: #4ADE80; font-weight: 700;">ElevenLabs Multilingual v2 • Mastering EBU R128</span>
+      </div>
+      <h2 style="font-size: 24px; color: #FFF; margin-bottom: 8px;">Dengarkan & Tentukan Suara Storyteller Pilihan Anda</h2>
+      <p style="font-size: 14px; color: var(--text-muted); line-height: 1.5; margin-bottom: 24px;">
+        Berikut adalah 4 sampel vokal menggunakan naskah investigasi nyata kasus Eno Farihah dengan gaya pencerita misteri dingin ala <em>@klenik_malam</em>. Tersedia versi <strong>Cinematic Mix (dengan BGM Drone Misteri)</strong> dan <strong>Clean Vocals</strong>.
+      </p>
+
+      <div style="display: flex; flex-direction: column; gap: 20px;">
+        <!-- Card 1: Lily - Hook Kamar No. 7 -->
+        <div style="background: #161B22; border: 1.5px solid #4ADE80; border-radius: 10px; padding: 20px;">
+          <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 10px; flex-wrap: wrap; gap: 8px;">
+            <div>
+              <div style="font-size: 18px; font-weight: 700; color: #4ADE80;">⭐ Opsi 1: Lily — Hook "Kamar No. 7 & Pintu Terkunci" (Rekomendasi Utama)</div>
+              <div style="font-family: monospace; font-size: 12px; color: var(--text-muted); margin-top: 2px;">Voice ID: pFZP5JQG7iQjIQuC4Bku • Karakter: Velvety Whisper, Cold & Haunting Storyteller</div>
+            </div>
+            <span class="rec-tag" style="background: #4ADE80; color: #000; font-size: 11px;">Paling Mirip Klenik Malam</span>
+          </div>
+          <div style="background: #0D1117; padding: 12px 16px; border-radius: 6px; font-size: 13.5px; line-height: 1.6; color: #E6EDF3; margin-bottom: 14px; border-left: 3px solid #4ADE80;">
+            "Kamar nomor tujuh itu terkunci rapat dari luar. Di lorong mess karyawan Kosambi yang basah oleh hujan tengah malam, tak ada yang menyangka... tiga pria yang saling berbagi peran baru saja meninggalkan sebuah cangkul di sudut lantai yang sunyi."
+          </div>
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
+            <div>
+              <span style="font-size: 12px; color: #E5A93C; font-weight: 700; display: block; margin-bottom: 6px;">🎬 CINEMATIC MIX (Vokal + Ambient Crime Drone -18%):</span>
+              <audio controls preload="metadata" style="width: 100%; height: 38px;">
+                <source src="sample-1-lily-cinematic-mix.mp3" type="audio/mpeg">
+              </audio>
+            </div>
+            <div>
+              <span style="font-size: 12px; color: var(--text-muted); font-weight: 700; display: block; margin-bottom: 6px;">🎙️ CLEAN VOCALS (Hanya Vokal Ter-mastering):</span>
+              <audio controls preload="metadata" style="width: 100%; height: 38px;">
+                <source src="sample-1-lily-mastered.wav" type="audio/wav">
+              </audio>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 2: Lily - Rekonstruksi Pembagian Peran -->
+        <div style="background: #161B22; border: 1px solid var(--border); border-radius: 10px; padding: 20px;">
+          <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 10px;">
+            <div>
+              <div style="font-size: 18px; font-weight: 700; color: #FFF;">Opsi 2: Lily — Rekonstruksi Pembagian Peran (Jeda Dramatis)</div>
+              <div style="font-family: monospace; font-size: 12px; color: var(--text-muted); margin-top: 2px;">Voice ID: pFZP5JQG7iQjIQuC4Bku • Pacing Bertahap & Tensi Perlahan</div>
+            </div>
+          </div>
+          <div style="background: #0D1117; padding: 12px 16px; border-radius: 6px; font-size: 13.5px; line-height: 1.6; color: #E6EDF3; margin-bottom: 14px; border-left: 3px solid var(--accent);">
+            "Semua bermula saat ajakan seorang remaja ditolak mentah-mentah. Sakit hati itu menyulut bara. Di kegelapan malam, mereka masuk tanpa suara. Imam membekap dengan bantal, Arifin meminta senjata, dan RAM... menemukan cangkul itu teronggok di sudut pekarangan."
+          </div>
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
+            <div>
+              <span style="font-size: 12px; color: #E5A93C; font-weight: 700; display: block; margin-bottom: 6px;">🎬 CINEMATIC MIX (Vokal + BGM):</span>
+              <audio controls preload="metadata" style="width: 100%; height: 38px;">
+                <source src="sample-2-lily-cinematic-mix.mp3" type="audio/mpeg">
+              </audio>
+            </div>
+            <div>
+              <span style="font-size: 12px; color: var(--text-muted); font-weight: 700; display: block; margin-bottom: 6px;">🎙️ CLEAN VOCALS:</span>
+              <audio controls preload="metadata" style="width: 100%; height: 38px;">
+                <source src="sample-2-lily-mastered.wav" type="audio/wav">
+              </audio>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 3: Sarah - Hook Kamar No. 7 -->
+        <div style="background: #161B22; border: 1px solid var(--border); border-radius: 10px; padding: 20px;">
+          <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 10px;">
+            <div>
+              <div style="font-size: 18px; font-weight: 700; color: #FFF;">Opsi 3: Sarah — Hook "Kamar No. 7" (Gaya Intimate Storyteller)</div>
+              <div style="font-family: monospace; font-size: 12px; color: var(--text-muted); margin-top: 2px;">Voice ID: EXAVITQu4vr4xnSDxMaL • Karakter: Lembut, Dekat, Artikulasi Jelas</div>
+            </div>
+          </div>
+          <div style="background: #0D1117; padding: 12px 16px; border-radius: 6px; font-size: 13.5px; line-height: 1.6; color: #E6EDF3; margin-bottom: 14px; border-left: 3px solid #58A6FF;">
+            "Kamar nomor tujuh itu terkunci rapat dari luar. Di lorong mess karyawan Kosambi yang basah oleh hujan tengah malam, tak ada yang menyangka... tiga pria yang saling berbagi peran baru saja meninggalkan sebuah cangkul di sudut lantai yang sunyi."
+          </div>
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
+            <div>
+              <span style="font-size: 12px; color: #E5A93C; font-weight: 700; display: block; margin-bottom: 6px;">🎬 CINEMATIC MIX (Vokal + BGM):</span>
+              <audio controls preload="metadata" style="width: 100%; height: 38px;">
+                <source src="sample-3-sarah-cinematic-mix.mp3" type="audio/mpeg">
+              </audio>
+            </div>
+            <div>
+              <span style="font-size: 12px; color: var(--text-muted); font-weight: 700; display: block; margin-bottom: 6px;">🎙️ CLEAN VOCALS:</span>
+              <audio controls preload="metadata" style="width: 100%; height: 38px;">
+                <source src="sample-3-sarah-mastered.wav" type="audio/wav">
+              </audio>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 4: Sarah - Rekonstruksi Pembagian Peran -->
+        <div style="background: #161B22; border: 1px solid var(--border); border-radius: 10px; padding: 20px;">
+          <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 10px;">
+            <div>
+              <div style="font-size: 18px; font-weight: 700; color: #FFF;">Opsi 4: Sarah — Rekonstruksi Pembagian Peran (Gaya Intimate)</div>
+              <div style="font-family: monospace; font-size: 12px; color: var(--text-muted); margin-top: 2px;">Voice ID: EXAVITQu4vr4xnSDxMaL • Penceritaan Naratif Mengalir</div>
+            </div>
+          </div>
+          <div style="background: #0D1117; padding: 12px 16px; border-radius: 6px; font-size: 13.5px; line-height: 1.6; color: #E6EDF3; margin-bottom: 14px; border-left: 3px solid #58A6FF;">
+            "Semua bermula saat ajakan seorang remaja ditolak mentah-mentah. Sakit hati itu menyulut bara. Di kegelapan malam, mereka masuk tanpa suara. Imam membekap dengan bantal, Arifin meminta senjata, dan RAM... menemukan cangkul itu teronggok di sudut pekarangan."
+          </div>
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
+            <div>
+              <span style="font-size: 12px; color: #E5A93C; font-weight: 700; display: block; margin-bottom: 6px;">🎬 CINEMATIC MIX (Vokal + BGM):</span>
+              <audio controls preload="metadata" style="width: 100%; height: 38px;">
+                <source src="sample-4-sarah-cinematic-mix.mp3" type="audio/mpeg">
+              </audio>
+            </div>
+            <div>
+              <span style="font-size: 12px; color: var(--text-muted); font-weight: 700; display: block; margin-bottom: 6px;">🎙️ CLEAN VOCALS:</span>
+              <audio controls preload="metadata" style="width: 100%; height: 38px;">
+                <source src="sample-4-sarah-mastered.wav" type="audio/wav">
+              </audio>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Reel Showcase -->
+    <div style="background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 24px; margin-bottom: 32px;">
+      <div style="display: flex; gap: 24px; flex-wrap: wrap;">
+        <div style="width: 260px; flex-shrink: 0;">
+          <video controls playsinline preload="metadata" style="width: 100%; aspect-ratio: 9/16; border-radius: 8px; background: #000; border: 1px solid var(--border);">
+            <source src="klenik_reel.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div style="flex: 1; min-width: 280px; display: flex; flex-direction: column; justify-content: center;">
+          <span class="badge" style="background: #DA3633; color: #FFF; width: fit-content;">Studi Komparasi Reel</span>
+          <h2 style="font-size: 20px; color: #FFF; margin: 8px 0;">@klenik_malam: "Lampu Itu Selalu Naik, Tidak Pernah Turun"</h2>
+          <p style="font-size: 13px; color: var(--text-muted); line-height: 1.5; margin-bottom: 16px;">
+            Durasi: <strong>110.5 detik</strong> • Resolusi: <strong>720x1280 (9:16)</strong> • Gaya: <strong>Minimalist Silhouette Vector Animation</strong>
+          </p>
+          <div style="background: #0D1117; padding: 14px; border-radius: 8px; border: 1px solid var(--border); font-size: 13px; color: var(--text); line-height: 1.5;">
+            <strong style="color: var(--accent);">Sinopsis & Premis Cerita:</strong><br>
+            "Dua puluh tahun, setiap tengah malam, satu lampu senter naik di jalur yang sudah lama ditutup. Sampai malam ini, lampu itu berhenti dan menyorot ke arah pos. 🕯️ Part 1 dari 3."
+          </div>
+          <div style="margin-top: 14px;">
+            <span style="font-size: 12px; color: var(--text-muted); display: block; margin-bottom: 6px;">Audio Track Terpisah:</span>
+            <audio controls preload="metadata" style="width: 100%; height: 36px;">
+              <source src="klenik_audio.mp3" type="audio/mpeg">
+            </audio>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Female Storyteller Candidates (Pilihan Khusus ala Klenik Malam) -->
+    <div style="background: rgba(229, 169, 60, 0.08); border: 2px solid var(--accent); border-radius: 12px; padding: 24px; margin-bottom: 32px;">
+      <span class="badge" style="background: var(--accent); color: #000;">PILIHAN TERBARU: SUARA PEREMPUAN ALA KLENIK MALAM</span>
+      <h2 style="font-size: 20px; color: #FFF; margin: 8px 0 16px;">Kandidat Narator Perempuan (ElevenLabs Multilingual v2)</h2>
+      <p style="font-size: 13px; color: var(--text-muted); margin-bottom: 20px;">
+        Sesuai request Anda untuk mencari suara perempuan berkarakter, tenang, dan dingin ala @klenik_malam:
+      </p>
+
+      <div class="grid">
+        <!-- 1. Lily (Top Pick) -->
+        <div class="voice-card recommended" style="border-color: #4ade80;">
+          <div class="voice-header">
+            <div>
+              <div class="voice-name" style="color: #4ade80;">⭐ 1. Lily (Haunting & Atmospheric Storyteller) <span class="rec-tag" style="background: #4ade80; color: #000;">Rekomendasi Utama</span></div>
+              <div class="voice-id">Voice ID: pFZP5JQG7iQjIQuC4Bku</div>
+            </div>
+          </div>
+          <div class="similarity-note" style="border-color: #4ade80; background: rgba(74, 222, 128, 0.1); color: #4ade80;">
+            🕯️ <strong>Karakteristik ala Klenik:</strong> Nada berbisik halus (velvety whisper), tenang, berjarak, dan dingin. Sangat menghipnotis untuk menceritakan misteri kelam, horor atmosferik, dan tragedi kriminal tanpa terkesan berteriak.
+          </div>
+          <audio controls preload="metadata">
+            <source src="female-lily-pFZP5JQG7iQjIQuC4Bku.mp3" type="audio/mpeg">
+          </audio>
+        </div>
+
+        <!-- 2. Sarah -->
+        <div class="voice-card">
+          <div class="voice-header">
+            <div>
+              <div class="voice-name">2. Sarah (Soft & Intimate Storyteller)</div>
+              <div class="voice-id">Voice ID: EXAVITQu4vr4xnSDxMaL</div>
+            </div>
+          </div>
+          <div class="similarity-note">
+            🕯️ <strong>Karakteristik:</strong> Suara lembut, hangat, artikulatif, gaya penceritaan personal dan dekat di telinga penonton (intimate storytelling).
+          </div>
+          <audio controls preload="metadata">
+            <source src="female-sarah-EXAVITQu4vr4xnSDxMaL.mp3" type="audio/mpeg">
+          </audio>
+        </div>
+      </div>
+    </div>
+
+    <!-- Reference Charon -->
+    <div class="ref-card">
+      <div class="ref-header">
+        <span class="ref-title">🔴 BENCHMARK: Gemini TTS (Charon)</span>
+        <span style="font-size: 12px; color: var(--text-muted);">Suara Asli Kasus Pulomas / Ryan Jombang</span>
+      </div>
+      <p style="font-size: 13px; color: var(--text-muted); margin-bottom: 12px;">
+        Karakteristik: Bariton berat, ritme tenang, datar, berwibawa, atmosfer kelam investigatif.
+      </p>
+      <audio controls preload="metadata">
+        <source src="charon-reference-gemini.wav" type="audio/wav">
+      </audio>
+    </div>
+
+    <h2 style="font-size: 18px; margin-bottom: 16px; color: #FFF;">Kandidat ElevenLabs (Model: eleven_multilingual_v2):</h2>
+
+    <div class="grid">
+      <!-- 1. Brian (Top Recommended) -->
+      <div class="voice-card recommended">
+        <div class="voice-header">
+          <div>
+            <div class="voice-name">1. Brian <span class="rec-tag">Paling Mirip Charon ⭐</span></div>
+            <div class="voice-id">Voice ID: nPczCjzI2devNBz1zQrb</div>
+          </div>
+        </div>
+        <div class="similarity-note">
+          🎯 <strong>Kenapa mirip Charon:</strong> Memiliki resonansi bass/bariton yang paling tebal dan dalam di ElevenLabs. Nadanya tenang, berbobot, dan sangat pas membawakan kasus kriminal tanpa terdengar melodramatis.
+        </div>
+        <audio controls preload="metadata">
+          <source src="brian-nPczCjzI2devNBz1zQrb.mp3" type="audio/mpeg">
+        </audio>
+      </div>
+
+      <!-- 2. Daniel -->
+      <div class="voice-card">
+        <div class="voice-header">
+          <div>
+            <div class="voice-name">2. Daniel <span style="font-size: 11px; color: var(--accent); font-weight: normal;">(Authoritative Broadcaster)</span></div>
+            <div class="voice-id">Voice ID: onwK4e9ZLuTAKqWW03F9</div>
+          </div>
+        </div>
+        <div class="similarity-note">
+          🎯 <strong>Karakter:</strong> Artikulasi tajam, tegas, berwibawa layaknya presenter berita investigasi kriminal senior. Terdengar sangat formal dan dingin.
+        </div>
+        <audio controls preload="metadata">
+          <source src="daniel-onwK4e9ZLuTAKqWW03F9.mp3" type="audio/mpeg">
+        </audio>
+      </div>
+
+      <!-- 3. Adam -->
+      <div class="voice-card">
+        <div class="voice-header">
+          <div>
+            <div class="voice-name">3. Adam <span style="font-size: 11px; color: var(--text-muted); font-weight: normal;">(Dominant & Firm)</span></div>
+            <div class="voice-id">Voice ID: pNInz6obpgDQGcFmaJgB</div>
+          </div>
+        </div>
+        <div class="similarity-note">
+          🎯 <strong>Karakter:</strong> Suara standar ElevenLabs untuk narasi pria Amerika. Jelas, tegas, dan stabil, namun sedikit lebih modern/punchy dibanding Charon.
+        </div>
+        <audio controls preload="metadata">
+          <source src="adam-pNInz6obpgDQGcFmaJgB.mp3" type="audio/mpeg">
+        </audio>
+      </div>
+
+      <!-- 4. George -->
+      <div class="voice-card">
+        <div class="voice-header">
+          <div>
+            <div class="voice-name">4. George <span style="font-size: 11px; color: var(--text-muted); font-weight: normal;">(Warm & Raspy)</span></div>
+            <div class="voice-id">Voice ID: JBFqnCBsd6RMkjVDRZzb</div>
+          </div>
+        </div>
+        <div class="similarity-note">
+          🎯 <strong>Karakter:</strong> Tekstur serak basah (raspy) yang dalam. Sangat kuat untuk membangun suasana misteri atau penceritaan malam hari.
+        </div>
+        <audio controls preload="metadata">
+          <source src="george-JBFqnCBsd6RMkjVDRZzb.mp3" type="audio/mpeg">
+        </audio>
+      </div>
+
+      <!-- 5. Callum -->
+      <div class="voice-card">
+        <div class="voice-header">
+          <div>
+            <div class="voice-name">5. Callum <span style="font-size: 11px; color: var(--text-muted); font-weight: normal;">(Husky & Intense)</span></div>
+            <div class="voice-id">Voice ID: N2lVS1w4EtoT3dr4eOWO</div>
+          </div>
+        </div>
+        <div class="similarity-note">
+          🎯 <strong>Karakter:</strong> Husky dan memiliki tensi dramatis yang kental. Cocok untuk adegan klimaks perampokan atau pembunuhan.
+        </div>
+        <audio controls preload="metadata">
+          <source src="callum-N2lVS1w4EtoT3dr4eOWO.mp3" type="audio/mpeg">
+        </audio>
+      </div>
+
+      <!-- 6. Bill -->
+      <div class="voice-card">
+        <div class="voice-header">
+          <div>
+            <div class="voice-name">6. Bill <span style="font-size: 11px; color: var(--text-muted); font-weight: normal;">(Grave & Senior)</span></div>
+            <div class="voice-id">Voice ID: pqHfZKP75CvOlQylNhV4</div>
+          </div>
+        </div>
+        <div class="similarity-note">
+          🎯 <strong>Karakter:</strong> Suara pria paruh baya yang matang, bijak, dan berat. Memberikan kesan dokumenter sejarah atau arsip lama.
+        </div>
+        <audio controls preload="metadata">
+          <source src="bill-pqHfZKP75CvOlQylNhV4.mp3" type="audio/mpeg">
+        </audio>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

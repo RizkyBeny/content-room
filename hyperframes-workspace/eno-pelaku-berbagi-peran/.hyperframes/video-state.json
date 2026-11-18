@@ -1,7 +1,7 @@
 {
   "version": 1,
   "historyId": "e2311f28-ea2b-4c10-9615-33126ef2556e",
-  "currentRevision": "8216b140-86f3-4be7-822d-67ac2580de2b",
+  "currentRevision": "f8bc5078-8164-4339-8ba7-bdbfd8f7c62a",
   "pendingChanges": false,
   "files": {
     "assets/beat-01.jpg": {
@@ -249,8 +249,8 @@
       "content": "/Users/beny/.cache/hyperframes/history/e2311f28-ea2b-4c10-9615-33126ef2556e/blobs/12/12bb941b1e4060ce7418673e6ecf96e5aec4b3032a6640b3842a7f519534b7a2"
     },
     "index.html": {
-      "hash": "9c34fe7081c50d13b52f270c97aa63f4514166d6036fb54baa5e7e6eefc88065",
-      "content": "/Users/beny/.cache/hyperframes/history/e2311f28-ea2b-4c10-9615-33126ef2556e/blobs/9c/9c34fe7081c50d13b52f270c97aa63f4514166d6036fb54baa5e7e6eefc88065"
+      "hash": "d9188e6c113c9681ece3ac34cc78d201caf2f0181d6fc41d6080b26dd21df451",
+      "content": "/Users/beny/.cache/hyperframes/history/e2311f28-ea2b-4c10-9615-33126ef2556e/blobs/d9/d9188e6c113c9681ece3ac34cc78d201caf2f0181d6fc41d6080b26dd21df451"
     },
     "assets/backyard-cangkul.jpg": {
       "hash": "1b947f3bf46ecb4b110b52df910f5b0ef30a425f71a229c0dbb3c44526246c3c",
@@ -271,6 +271,22 @@
     "assets/shot-14.jpg": {
       "hash": "1b947f3bf46ecb4b110b52df910f5b0ef30a425f71a229c0dbb3c44526246c3c",
       "content": "/Users/beny/.cache/hyperframes/history/e2311f28-ea2b-4c10-9615-33126ef2556e/blobs/1b/1b947f3bf46ecb4b110b52df910f5b0ef30a425f71a229c0dbb3c44526246c3c"
+    },
+    "assets/beat-02.mp4": {
+      "hash": "d3477c8dd2a632216057c0711912cd3215540d420b8eaf7ebf96703743b294b8",
+      "content": "/Users/beny/.cache/hyperframes/history/e2311f28-ea2b-4c10-9615-33126ef2556e/blobs/d3/d3477c8dd2a632216057c0711912cd3215540d420b8eaf7ebf96703743b294b8"
+    },
+    "assets/beat-14.mp4": {
+      "hash": "a7579873d4281e14f0f95bc078360ede7bd281d20c120989e37f6141ded501f9",
+      "content": "/Users/beny/.cache/hyperframes/history/e2311f28-ea2b-4c10-9615-33126ef2556e/blobs/a7/a7579873d4281e14f0f95bc078360ede7bd281d20c120989e37f6141ded501f9"
+    },
+    "assets/shot-02.mp4": {
+      "hash": "d3477c8dd2a632216057c0711912cd3215540d420b8eaf7ebf96703743b294b8",
+      "content": "/Users/beny/.cache/hyperframes/history/e2311f28-ea2b-4c10-9615-33126ef2556e/blobs/d3/d3477c8dd2a632216057c0711912cd3215540d420b8eaf7ebf96703743b294b8"
+    },
+    "assets/shot-14.mp4": {
+      "hash": "a7579873d4281e14f0f95bc078360ede7bd281d20c120989e37f6141ded501f9",
+      "content": "/Users/beny/.cache/hyperframes/history/e2311f28-ea2b-4c10-9615-33126ef2556e/blobs/a7/a7579873d4281e14f0f95bc078360ede7bd281d20c120989e37f6141ded501f9"
     }
   },
   "revisions": {
@@ -288,6 +304,52 @@
           "after": "/Users/beny/.cache/hyperframes/history/e2311f28-ea2b-4c10-9615-33126ef2556e/blobs/9c/9c34fe7081c50d13b52f270c97aa63f4514166d6036fb54baa5e7e6eefc88065"
         }
       }
+    },
+    "f953ac66-7c41-43af-a6cc-1dcb7035e1f7": {
+      "actor": {
+        "kind": "outside",
+        "name": "Outside"
+      },
+      "label": "Changed outside the app",
+      "startedAt": 1795005651290,
+      "endedAt": 1795005651293,
+      "files": {
+        "index.html": {
+          "before": "/Users/beny/.cache/hyperframes/history/e2311f28-ea2b-4c10-9615-33126ef2556e/blobs/9c/9c34fe7081c50d13b52f270c97aa63f4514166d6036fb54baa5e7e6eefc88065",
+          "after": "/Users/beny/.cache/hyperframes/history/e2311f28-ea2b-4c10-9615-33126ef2556e/blobs/ce/ce93127b6f0cc00b63a28f9285b5db9989010e691a5e3ee25f27d6eb050a9a7f"
+        }
+      }
+    },
+    "f8bc5078-8164-4339-8ba7-bdbfd8f7c62a": {
+      "actor": {
+        "kind": "outside",
+        "name": "Outside"
+      },
+      "label": "Changed outside the app",
+      "startedAt": 1795009492653,
+      "endedAt": 1795009493194,
+      "files": {
+        "assets/beat-02.mp4": {
+          "before": null,
+          "after": "/Users/beny/.cache/hyperframes/history/e2311f28-ea2b-4c10-9615-33126ef2556e/blobs/d3/d3477c8dd2a632216057c0711912cd3215540d420b8eaf7ebf96703743b294b8"
+        },
+        "assets/beat-14.mp4": {
+          "before": null,
+          "after": "/Users/beny/.cache/hyperframes/history/e2311f28-ea2b-4c10-9615-33126ef2556e/blobs/a7/a7579873d4281e14f0f95bc078360ede7bd281d20c120989e37f6141ded501f9"
+        },
+        "assets/shot-02.mp4": {
+          "before": null,
+          "after": "/Users/beny/.cache/hyperframes/history/e2311f28-ea2b-4c10-9615-33126ef2556e/blobs/d3/d3477c8dd2a632216057c0711912cd3215540d420b8eaf7ebf96703743b294b8"
+        },
+        "assets/shot-14.mp4": {
+          "before": null,
+          "after": "/Users/beny/.cache/hyperframes/history/e2311f28-ea2b-4c10-9615-33126ef2556e/blobs/a7/a7579873d4281e14f0f95bc078360ede7bd281d20c120989e37f6141ded501f9"
+        },
+        "index.html": {
+          "before": "/Users/beny/.cache/hyperframes/history/e2311f28-ea2b-4c10-9615-33126ef2556e/blobs/ce/ce93127b6f0cc00b63a28f9285b5db9989010e691a5e3ee25f27d6eb050a9a7f",
+          "after": "/Users/beny/.cache/hyperframes/history/e2311f28-ea2b-4c10-9615-33126ef2556e/blobs/d9/d9188e6c113c9681ece3ac34cc78d201caf2f0181d6fc41d6080b26dd21df451"
+        }
+      }
     }
   },
   "checks": {
@@ -302,13 +364,14 @@
   },
   "renders": {
     "latest": {
-      "id": "c68f46d7-110d-4d60-8ccb-fae9c066de10",
-      "completedAt": 1794964806231,
+      "id": "7253e470-b6e7-475e-a36c-18118afd2ac3",
+      "completedAt": 1795010465402,
       "output": "/Users/beny/Documents/Project-self/Content-automation/public/renders/eno-pelaku-berbagi-peran/temp-visual-timeline.mp4",
       "status": "completed",
-      "revision": "8216b140-86f3-4be7-822d-67ac2580de2b"
+      "revision": "f8bc5078-8164-4339-8ba7-bdbfd8f7c62a"
     },
     "retainedRevisions": [
+      "f8bc5078-8164-4339-8ba7-bdbfd8f7c62a",
       "8216b140-86f3-4be7-822d-67ac2580de2b"
     ]
   },

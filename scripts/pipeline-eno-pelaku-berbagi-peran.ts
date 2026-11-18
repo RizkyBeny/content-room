@@ -6,6 +6,7 @@ import { flowClient } from '../lib/flowMcp/client';
 import { groupWordsIntoPhrases, CaptionWord } from '../lib/orchestrator/audio/noirAudioPipeline';
 import { generateNoirHyperframesHtml } from '../lib/orchestrator/video/noirVideoTemplate';
 import { renderHyperframes } from '../lib/hyperframes/renderEngine';
+import { synthesizeElevenLabsSentence } from '../lib/elevenlabs/client';
 
 // Force IPv4 first to prevent Node.js 22 fetch timeout on macOS
 import dns from 'node:dns';
@@ -31,62 +32,73 @@ function resolveFfmpegBin(): { ffmpeg: string; ffprobe: string } {
 
 const { ffmpeg, ffprobe } = resolveFfmpegBin();
 
-// 11 DeepSeek Viral Sentences for Instagram Reels (~95 - 110s) based on JPNN Kronologi & Peran Pelaku
+// 11 Klenik Malam Atmospheric Storyteller Sentences (~95 - 110s) with Dynamic Hook (Skor 96/100) & Dual-Layer Keywords
 const SENTENCES = [
   {
     shot: 1,
     id: 's1',
-    text: 'Di balik dinding sunyi mess karyawan Kosambi, Tangerang, penyelidikan atas kematian tragis Eno Farihah membongkar kenyataan kelam: kejahatan ini bukan aksi spontan seorang pelaku, melainkan persekongkolan sadis tiga pria yang saling berbagi peran demi menuntaskan dendam asmara.',
+    text: 'Cangkul itu... bukan tergeletak di gudang. Tapi tertancap... di atas kasur seorang karyawati pabrik di Tangerang... Dan pelakunya... bukan satu orang. Melainkan tiga pria... yang saling berbagi peran.',
+    topKeyword: 'CANGKUL DI KASUR',
   },
   {
     shot: 2,
     id: 's2',
-    text: 'Semua bermula pada Kamis malam tanggal 12 Mei 2016, ketika tersangka RAM janjian bertemu di kamar mess korban, namun ajakannya ditolak mentah-mentah oleh Eno hingga memicu perselisihan sengit.',
+    text: 'Semua bermula... Kamis malam, 12 Mei 2016. Seorang remaja 15 tahun... mengetuk pintu mess kamar nomor tujuh... Mengajak berhubungan badan... tapi ditolak mentah-mentah.',
+    topKeyword: 'KAMAR NO. 7',
   },
   {
     shot: 3,
     id: 's3',
-    text: 'Terbakar amarah penolakan, RAM keluar kamar dan berpapasan dengan Rahmad Arifin serta Imam Hapriadi, dua rekan kerja yang rupanya juga memendam bara kebencian serupa terhadap korban.',
+    text: 'Terbakar amarah... dia melangkah keluar. Di lorong gelap itu... dua pria dewasa sudah menunggu. Arifin... dan Imam. Dua rekan kerja... yang menyimpan bara dendam serupa.',
+    topKeyword: '2 PRIA DI LORONG',
   },
   {
     shot: 4,
     id: 's4',
-    text: 'Ketiganya disatukan oleh motif sakit hati: Arifin dendam karena kerap diejek berwajah pahit dan jelek, Imam murka karena pendekatan cintanya selalu diabaikan, sementara RAM kalap ditolak di atas kasur.',
+    text: 'Satu sakit hati karena diejek jelek dan berwajah pahit... Satu murka karena cintanya tak pernah digubris... Dan satu lagi... kalap karena ditolak di atas kasur. Tiga motif konyol... yang melahirkan petaka.',
+    topKeyword: '3 MOTIF SAKIT HATI',
   },
   {
     shot: 5,
     id: 's5',
-    text: 'Dengan niat jahat melampiaskan syahwat secara paksa, ketiga pria itu merangsek masuk ke kamar Eno yang tengah tertidur lelap tanpa daya.',
+    text: 'Tengah malam itu... pintu kamar didorong perlahan. Di atas kasur busa tipis... Eno sedang tertidur pulas. Tanpa menyadari... maut sudah berdiri di hadapannya.',
+    topKeyword: 'TERTIDUR PULAS',
   },
   {
     shot: 6,
     id: 's6',
-    text: 'Imam langsung mengambil peran pertama, membekap wajah Eno dengan bantal agar korban tidak berteriak, sembari memerintahkan RAM mencari senjata tajam ke dapur.',
+    text: 'Peran pertama dimulai. Imam membekap wajah Eno dengan bantal sekuat tenaga... Jeritan korban tertahan di kegelapan. Dan perintah dingin itu keluar: cari senjata... sekarang.',
+    topKeyword: 'BEKAP BANTAL',
   },
   {
     shot: 7,
     id: 's7',
-    text: 'Karena tak menemukan pisau di dapur, RAM keluar kamar dan menemukan sebuah cangkul teronggok di sudut pekarangan, yang kemudian ia serahkan ke dalam kamar maut tersebut.',
+    text: 'Tak ada pisau di dapur. Tapi di sudut pekarangan basah... ada cangkul teronggok di dekat pohon. Benda itu diambil... dan diserahkan ke dalam kamar maut.',
+    topKeyword: 'CANGKUL PEKARANGAN',
   },
   {
     shot: 8,
     id: 's8',
-    text: 'Di bawah perintah para pelaku senior, RAM menghantamkan mata cangkul ke wajah korban, sebelum akhirnya Arifin menyetubuhi Eno yang sekarat dan Imam menyayat pipi korban menggunakan garpu makan.',
+    text: 'Mata cangkul dihantamkan ke wajah... Korban terkapar sekarat. Bukannya berhenti... kebiadaban berlanjut. Arifin menyetubuhinya... sementara garpu makan... disayatkan ke pipi korban.',
+    topKeyword: 'KEBIADABAN BERLANJUT',
   },
   {
     shot: 9,
     id: 's9',
-    text: 'Puncak kebiadaban terjadi saat Arifin menyuruh RAM memegangi kedua kaki korban, lalu dengan keji menancapkan gagang cangkul hingga merenggut napas terakhir sang karyawati pabrik.',
+    text: 'Dan puncak kebiadaban itu... terjadi di detik-detik terakhir. Kaki korban dipegangi... Dan gagang cangkul itu... ditancapkan sedalam-dalamnya. Menghentikan detak jantung Eno... selamanya.',
+    topKeyword: 'GAGANG CANGKUL',
   },
   {
     shot: 10,
     id: 's10',
-    text: 'Usai menutupi jasad korban dengan kain baju dan menggondol ponselnya, para pelaku mengunci engsel kamar mess lainnya dari luar untuk mengelabui penghuni lain sebelum melarikan diri ke kegelapan malam.',
+    text: 'Jasadnya ditutupi tumpukan kain... Ponselnya digondol. Agar tak ada yang curiga... engsel kamar dikunci gembok dari luar. Mereka menghilang... ditelan pekatnya malam.',
+    topKeyword: 'DIKUNCI DARI LUAR',
   },
   {
     shot: 11,
     id: 's11',
-    text: 'Pelarian mereka tak bertahan lama; Tim Ditreskrimum Polda Metro Jaya meringkus ketiganya dalam hitungan hari, menyeret para eksekutor ke meja hijau hingga majelis hakim menjatuhkan vonis mati dan kurungan maksimal atas persekongkolan paling biadab dalam sejarah kriminal Indonesia.',
+    text: 'Tapi darah tak bisa berbohong. Dalam hitungan hari... tim buser membekuk ketiganya. Palu hakim diketuk keras. Vonis mati... dan kurungan maksimal dijatuhkan... atas salah satu kejahatan paling kelam di tanah air.',
+    topKeyword: 'VONIS MATI',
   },
 ];
 
@@ -124,59 +136,59 @@ const NEW_KEYFRAME_PROMPTS: Record<string, string> = {
     "Graphic novel neo-noir cinematic vertical illustration 9:16 (1080x1920). Inside a solemn Indonesian courtroom. Heavy polished wooden judge gavel (palu sidang) struck down on its wooden block in the foreground. In the blurry dark background, three convicted perpetrators sitting with heads bowed behind the defendant bench, flanked by courtroom police. Dramatic shaft of courtroom window light cutting across the dust, full bleed.",
 };
 
-// Narrative Beat Plans: 32 visual beats with zero repetition across 11 spoken sentences
+// Narrative Beat Plans: 32 visual beats with zero repetition across 11 spoken sentences (with 2 Moving Keyframe Videos)
 const NARRATIVE_BEAT_PLANS: Array<{ images: Array<{ file: string; weight: number }> }> = [
-  // Sentence 1 (~0.08s - ~15.5s): Cover Hook & Persekongkolan Sadis 3 Pelaku
+  // Sentence 1: Cover Hook & Moving Pintu Mess No. 7 Creeping Dolly-in
   {
     images: [
-      { file: 'cover-shot-00.jpg', weight: 1.4 },
-      { file: 'hallway-secret-meeting.jpg', weight: 1.1 },
+      { file: 'cover-shot-00.jpg', weight: 1.3 },
+      { file: 'moving-door-night.mp4', weight: 1.6 },
       { file: 'trio-profiles-motives.jpg', weight: 1.2 },
     ],
   },
-  // Sentence 2 (~15.5s - ~27.0s): Pertemuan RAM & Penolakan Bersetubuh
+  // Sentence 2: Pertemuan RAM & Penolakan Bersetubuh
   {
     images: [
       { file: 'mess-room-night.jpg', weight: 1.2 },
       { file: 'ram-eno-conversation.jpg', weight: 1.5 },
     ],
   },
-  // Sentence 3 (~27.0s - ~39.0s): RAM Keluar & Bertemu Arifin dan Imam
+  // Sentence 3: RAM Keluar & Bertemu Arifin dan Imam
   {
     images: [
       { file: 'hallway-secret-meeting.jpg', weight: 1.3 },
       { file: 'door-break-in.jpg', weight: 1.2 },
     ],
   },
-  // Sentence 4 (~39.0s - ~50.5s): Motif Ketiga Pelaku (Pahit, Penolakan, Diabaikan)
+  // Sentence 4: Motif Ketiga Pelaku (Pahit, Penolakan, Diabaikan)
   {
     images: [
       { file: 'trio-profiles-motives.jpg', weight: 1.6 },
       { file: 'door-break-in.jpg', weight: 1.1 },
     ],
   },
-  // Sentence 5 (~50.5s - ~60.0s): Penyusupan ke Dalam Kamar Saat Eno Tertidur
+  // Sentence 5: Penyusupan ke Dalam Kamar Saat Eno Tertidur
   {
     images: [
       { file: 'door-break-in.jpg', weight: 1.2 },
       { file: 'pillow-suffocation.jpg', weight: 1.4 },
     ],
   },
-  // Sentence 6 (~60.0s - ~71.0s): Peran Imam Membekap Bantal & Memerintahkan Senjata
+  // Sentence 6: Peran Imam Membekap Bantal & Memerintahkan Senjata
   {
     images: [
       { file: 'pillow-suffocation.jpg', weight: 1.5 },
       { file: 'backyard-cangkul.jpg', weight: 1.2 },
     ],
   },
-  // Sentence 7 (~71.0s - ~82.0s): RAM Menemukan Cangkul di Sudut Pekarangan
+  // Sentence 7: RAM Menemukan Cangkul di Sudut Pekarangan (Moving Video!)
   {
     images: [
-      { file: 'backyard-cangkul.jpg', weight: 1.4 },
+      { file: 'moving-cangkul-backyard.mp4', weight: 1.6 },
       { file: 'cangkul-delivered.jpg', weight: 1.3 },
     ],
   },
-  // Sentence 8 (~82.0s - ~94.0s): Pukulan Cangkul, Persetubuhan Arifin, & Sayatan Garpu Imam
+  // Sentence 8: Pukulan Cangkul, Persetubuhan Arifin, & Sayatan Garpu Imam
   {
     images: [
       { file: 'cangkul-delivered.jpg', weight: 1.2 },
@@ -184,21 +196,21 @@ const NARRATIVE_BEAT_PLANS: Array<{ images: Array<{ file: string; weight: number
       { file: 'crime-scene-curtain.jpg', weight: 1.2 },
     ],
   },
-  // Sentence 9 (~94.0s - ~105.0s): Kekejaman Puncak Gagang Cangkul Merenggut Nyawa
+  // Sentence 9: Kekejaman Puncak Gagang Cangkul Merenggut Nyawa
   {
     images: [
       { file: 'crime-scene-curtain.jpg', weight: 1.3 },
       { file: 'cloth-covering-scene.jpg', weight: 1.4 },
     ],
   },
-  // Sentence 10 (~105.0s - ~116.0s): Menutupi Jasad, Mengambil Ponsel, Kunci Engsel Mess
+  // Sentence 10: Menutupi Jasad, Mengambil Ponsel, Kunci Engsel Mess
   {
     images: [
       { file: 'cloth-covering-scene.jpg', weight: 1.2 },
       { file: 'padlock-corridor-escape.jpg', weight: 1.6 },
     ],
   },
-  // Sentence 11 (~116.0s - ~128.0s): Penangkapan Polda Metro Jaya & Vonis Hakim Pengadilan
+  // Sentence 11: Penangkapan Polda Metro Jaya & Vonis Hakim Pengadilan
   {
     images: [
       { file: 'polda-arrest-dawn.jpg', weight: 1.4 },
@@ -208,139 +220,32 @@ const NARRATIVE_BEAT_PLANS: Array<{ images: Array<{ file: string; weight: number
   },
 ];
 
-// Strict Charon voice synthesis using multi-tier Gemini TTS fallback pool (100% Authentic Charon, Zero Fallback to Other Voices)
-async function synthesizeCharonSentence(text: string, idx: number): Promise<{ wavPath: string; durationSec: number }> {
-  const pcmPath = path.join(AUDIO_DIR, `sentence-${idx}.pcm`);
-  const rawWavPath = path.join(AUDIO_DIR, `raw-sentence-${idx}.wav`);
-  const punchyWavPath = path.join(AUDIO_DIR, `punchy-sentence-${idx}.wav`);
+// Broadcast-standard voice synthesis using ElevenLabs Multilingual v2 (Brian Variasi 2: Intimate Low-End Whisper)
+async function synthesizeSentence(text: string, idx: number): Promise<{ wavPath: string; durationSec: number }> {
+  const brianWavPath = path.join(AUDIO_DIR, `brian-klenik-sentence-${idx}.wav`);
 
-  // If both punchy wav and pcm exist, verify and reuse
-  if (fs.existsSync(punchyWavPath) && fs.existsSync(pcmPath) && fs.statSync(punchyWavPath).size > 10000) {
-    const dur = execFileSync(ffprobe, ['-v', 'error', '-show_entries', 'format=duration', '-of', 'default=noprint_wrappers=1:nokey=1', punchyWavPath]).toString().trim();
-    console.log(`   [VO ${idx}/11] ✅ Cache Charon ditemukan (${dur}s): ${punchyWavPath}`);
-    return { wavPath: punchyWavPath, durationSec: parseFloat(dur) || 8.0 };
+  if (fs.existsSync(brianWavPath) && fs.statSync(brianWavPath).size > 10000) {
+    const dur = execFileSync(ffprobe, ['-v', 'error', '-show_entries', 'format=duration', '-of', 'default=noprint_wrappers=1:nokey=1', brianWavPath]).toString().trim();
+    console.log(`   [VO ${idx}/11] ✅ Cache ElevenLabs Brian ditemukan (${dur}s): ${brianWavPath}`);
+    return { wavPath: brianWavPath, durationSec: parseFloat(dur) || 8.0 };
   }
 
-  // If PCM already exists (e.g. freshly generated), convert to punchy WAV
-  if (fs.existsSync(pcmPath) && fs.statSync(pcmPath).size > 10000) {
-    console.log(`   [VO ${idx}/11] ⚡ Mengonversi PCM Charon ke WAV...`);
-    execFileSync(ffmpeg, [
-      '-y',
-      '-f', 's16le',
-      '-ar', '24000',
-      '-ac', '1',
-      '-i', pcmPath,
-      '-af', 'highpass=f=75,lowpass=f=7800,volume=1.05',
-      '-ar', '48000',
-      '-ac', '2',
-      rawWavPath,
-    ]);
-
-    execFileSync(ffmpeg, [
-      '-y',
-      '-i', rawWavPath,
-      '-filter:a', 'atempo=1.08',
-      punchyWavPath,
-    ]);
-
-    const dur = execFileSync(ffprobe, ['-v', 'error', '-show_entries', 'format=duration', '-of', 'default=noprint_wrappers=1:nokey=1', punchyWavPath]).toString().trim();
-    return { wavPath: punchyWavPath, durationSec: parseFloat(dur) || 8.0 };
-  }
-
-  const key = process.env.GEMINI_API_KEY;
-  let audioData: string | undefined;
-
-  if (key) {
-    const models = [
-      'gemini-2.5-flash-preview-tts',
-      'gemini-3.8-flash-tts',
-      'gemini-3.1-flash-tts-preview',
-      'gemini-3.8-flash-lite-tts',
-    ];
-
-    for (const model of models) {
-      for (let attempt = 1; attempt <= 3; attempt++) {
-        try {
-          const res = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent?key=${key}`, {
-            method: 'POST',
-            headers: { 'content-type': 'application/json' },
-            body: JSON.stringify({
-              contents: [{ parts: [{ text }] }],
-              safetySettings: [
-                { category: 'HARM_CATEGORY_HARASSMENT', threshold: 'BLOCK_NONE' },
-                { category: 'HARM_CATEGORY_HATE_SPEECH', threshold: 'BLOCK_NONE' },
-                { category: 'HARM_CATEGORY_SEXUALLY_EXPLICIT', threshold: 'BLOCK_NONE' },
-                { category: 'HARM_CATEGORY_DANGEROUS_CONTENT', threshold: 'BLOCK_NONE' },
-              ],
-              generationConfig: {
-                responseModalities: ['AUDIO'],
-                speechConfig: {
-                  voiceConfig: {
-                    prebuiltVoiceConfig: { voiceName: 'Charon' },
-                  },
-                },
-              },
-            }),
-          });
-
-          if (res.status === 429) {
-            console.warn(`[VO ${idx}/11] Rate limit pada ${model}. Menunggu 10 detik (attempt ${attempt}/3)...`);
-            await new Promise((r) => setTimeout(r, 10000));
-            continue;
-          }
-
-          if (!res.ok) {
-            console.warn(`[VO ${idx}/11] Model ${model} status ${res.status}. Beralih model...`);
-            break;
-          }
-
-          const data = (await res.json()) as any;
-          audioData = data.candidates?.[0]?.content?.parts?.[0]?.inlineData?.data;
-          if (audioData) {
-            console.log(`[VO ${idx}/11] ✅ Berhasil dengan Gemini TTS ${model} (Charon)`);
-            break;
-          }
-        } catch (e: any) {
-          console.warn(`[VO ${idx}/11] Network error pada ${model}: ${e.message}`);
-          await new Promise((r) => setTimeout(r, 3000));
-        }
-      }
-      if (audioData) break;
-    }
-  }
-
-  if (!audioData) {
-    throw new Error(`[VO ${idx}/11] ❌ FATAL: Gagal mendapatkan audio Gemini Charon untuk kalimat ${idx}`);
-  }
-
-  fs.writeFileSync(pcmPath, Buffer.from(audioData, 'base64'));
-  execFileSync(ffmpeg, [
-    '-y',
-    '-f', 's16le',
-    '-ar', '24000',
-    '-ac', '1',
-    '-i', pcmPath,
-    '-af', 'highpass=f=75,lowpass=f=7800,volume=1.05',
-    '-ar', '48000',
-    '-ac', '2',
-    rawWavPath,
-  ]);
-
-  execFileSync(ffmpeg, [
-    '-y',
-    '-i', rawWavPath,
-    '-filter:a', 'atempo=1.08',
-    punchyWavPath,
-  ]);
-
-  const dur = execFileSync(ffprobe, ['-v', 'error', '-show_entries', 'format=duration', '-of', 'default=noprint_wrappers=1:nokey=1', punchyWavPath]).toString().trim();
-  return { wavPath: punchyWavPath, durationSec: parseFloat(dur) || 8.0 };
+  console.log(`   [VO ${idx}/11] 🎙️ Mensintesis via ElevenLabs (Brian Variasi 2 Klenik Whisper)...`);
+  const res = await synthesizeElevenLabsSentence(text, {
+    outputWavPath: brianWavPath,
+    voiceId: 'nPczCjzI2devNBz1zQrb', // Brian Variasi 2
+    stability: 0.65,
+    similarityBoost: 0.90,
+    speed: 1.00,
+  });
+  console.log(`   [VO ${idx}/11] ✅ Berhasil ElevenLabs Brian (${res.durationSec.toFixed(2)}s)`);
+  return res;
 }
 
 async function main() {
   console.log('========================================================================');
   console.log('  🎭 PIPELINE MASTER: TRAGEDI ENO FARIHAH (3 PELAKU BERBAGI PERAN)');
-  console.log('     (JPNN Kronologi • 100% Charon VO • Zero Repetition • Flow MCP)');
+  console.log('     (Klenik Malam Storyteller • Brian Variasi 2 VO • Dual-Layer Typography • 2 Moving Keyframes)');
   console.log('========================================================================\n');
 
   fs.mkdirSync(PUBLIC_DIR, { recursive: true });
@@ -348,8 +253,8 @@ async function main() {
   fs.mkdirSync(KEYFRAMES_DIR, { recursive: true });
   fs.mkdirSync(path.join(HF_WORKSPACE, 'assets'), { recursive: true });
 
-  // 1. Generate 15 forensic keyframes via Google Flow MCP
-  console.log('1. Men-generate 15 forensic keyframes via Google Flow MCP...');
+  // 1. Generate 15 forensic keyframes via Google Flow MCP (if not already cached)
+  console.log('1. Memeriksa 15 forensic keyframes via Google Flow MCP...');
   for (const [filename, prompt] of Object.entries(NEW_KEYFRAME_PROMPTS)) {
     const destPub = path.join(KEYFRAMES_DIR, filename);
     const destHf = path.join(HF_WORKSPACE, 'assets', filename);
@@ -389,38 +294,39 @@ async function main() {
     }
   }
 
-  // 2. Synthesize 11 DeepSeek Sentences with Gemini Charon VO
-  console.log('\n2. Mensintesis 11 Kalimat Voice Over (Gemini Charon VO)...');
-  const sentenceTimings: Array<{ id: string; shot: number; text: string; wavPath: string; durationSec: number; start: number; end: number }> = [];
+  // 2. Synthesize 11 Klenik Malam Storyteller Sentences with Brian Variasi 2 VO
+  console.log('\n2. Mensintesis 11 Kalimat Voice Over (Brian Variasi 2 Klenik Whisper)...');
+  const sentenceTimings: Array<{ id: string; shot: number; text: string; topKeyword: string; wavPath: string; durationSec: number; start: number; end: number }> = [];
 
   // Start immediately from cover at 0.08s (Zero Dead Air)
   let currentCursor = 0.08;
 
   for (let i = 0; i < SENTENCES.length; i++) {
     const s = SENTENCES[i];
-    const res = await synthesizeCharonSentence(s.text, s.shot);
+    const res = await synthesizeSentence(s.text, s.shot);
     const start = Number(currentCursor.toFixed(2));
     const end = Number((currentCursor + res.durationSec).toFixed(2));
     sentenceTimings.push({
       id: s.id,
       shot: s.shot,
       text: s.text,
+      topKeyword: s.topKeyword,
       wavPath: res.wavPath,
       durationSec: res.durationSec,
       start,
       end,
     });
-    console.log(`   [Kalimat ${i + 1}/11] (${res.durationSec.toFixed(2)}s) -> Timing: ${start}s - ${end}s`);
-    currentCursor = end + 0.20; // 200ms crisp dramatic pause
+    console.log(`   [Kalimat ${i + 1}/11] (${res.durationSec.toFixed(2)}s) -> Timing: ${start}s - ${end}s | Top: "${s.topKeyword}"`);
+    currentCursor = end + 0.40; // 400ms atmospheric breathing pause ala Klenik Malam
   }
 
   // Prepend minimal 0.08s buffer so player codecs don't swallow first syllable
   const introSilenceWav = path.join(AUDIO_DIR, 'intro-silence.wav');
   execFileSync(ffmpeg, ['-y', '-f', 'lavfi', '-i', 'anullsrc=r=48000:cl=stereo', '-t', '0.08', introSilenceWav]);
 
-  // Inter-sentence silence
+  // Inter-sentence silence: 400ms atmospheric breathing pause
   const silenceWav = path.join(AUDIO_DIR, 'silence.wav');
-  execFileSync(ffmpeg, ['-y', '-f', 'lavfi', '-i', 'anullsrc=r=48000:cl=stereo', '-t', '0.20', silenceWav]);
+  execFileSync(ffmpeg, ['-y', '-f', 'lavfi', '-i', 'anullsrc=r=48000:cl=stereo', '-t', '0.40', silenceWav]);
 
   const concatListTxt = path.join(AUDIO_DIR, 'concat_vo.txt');
   let concatLines = `file '${introSilenceWav}'\n`;
@@ -436,8 +342,8 @@ async function main() {
   const totalDuration = Number((currentCursor + 0.4).toFixed(2));
   console.log(`\n✅ Voice Over Selesai: Total Durasi ${totalDuration}s (~${(totalDuration / 60).toFixed(1)} menit) di ${cleanVoPath}`);
 
-  // 3. Build Narrative-Synchronized Visual Beats (Rhythmic Cadence, Zero Repetition)
-  console.log('\n3. Membangun Narrative-Synchronized Visual Beats (Rhythmic Cadence, Zero Repetition)...');
+  // 3. Build Narrative-Synchronized Visual Beats (Rhythmic Cadence, Moving Video Clips Support)
+  console.log('\n3. Membangun Narrative-Synchronized Visual Beats (2 Moving Keyframes + 13 Stills)...');
   const coverDuration = 1.30;
   const shotTimings: Array<{ shot: number; startSec: number; endSec: number; durationSec: number; imageFile: string }> = [];
   const transitionTimes: number[] = [coverDuration]; // Cut from Cover to Beat 1
@@ -472,8 +378,10 @@ async function main() {
 
       const sourceImageName = imgInfo.file;
       const sourceImagePath = path.join(KEYFRAMES_DIR, sourceImageName);
+      const isVideo = sourceImageName.endsWith('.mp4');
+      const ext = isVideo ? '.mp4' : '.jpg';
 
-      const beatAssetName = `beat-${String(globalShotCounter).padStart(2, '0')}.jpg`;
+      const beatAssetName = `beat-${String(globalShotCounter).padStart(2, '0')}${ext}`;
       const beatPub = path.join(KEYFRAMES_DIR, beatAssetName);
       const beatHf = path.join(HF_WORKSPACE, 'assets', beatAssetName);
 
@@ -573,19 +481,32 @@ async function main() {
   const phrases = groupWordsIntoPhrases(allWords, 4);
   console.log(`   Dihasilkan ${allWords.length} kata, dikelompokkan ke dalam ${phrases.length} frasa pendek.`);
 
+  // Build Top Giant Keywords for Dual-Layer Typography
+  const topKeywords: Array<{ id: string; text: string; start: number; end: number }> = [];
+  sentenceTimings.forEach((st) => {
+    topKeywords.push({
+      id: st.id,
+      text: st.topKeyword,
+      start: Number((st.start + 0.1).toFixed(2)),
+      end: Number((Math.min(st.end, st.start + 3.8)).toFixed(2)),
+    });
+  });
+
   // Save storyboard data
   const storyboardData = {
     title: 'TRAGEDI ENO FARIHAH: 3 Pelaku Berbagi Peran',
+    voiceEngine: 'ElevenLabs (Brian - Intimate Low-End Whisper)',
     totalDurationSec: totalDuration,
     transitionTimes,
     shotTimings,
     sentences: sentenceTimings,
+    topKeywords,
     phrases,
   };
   fs.writeFileSync(path.join(PUBLIC_DIR, 'storyboard-data.json'), JSON.stringify(storyboardData, null, 2));
 
   // 6. Generate HyperFrames index.html & hyperframes.json
-  console.log('\n6. Generating HyperFrames Composition (HTML + GSAP + Camera Motions)...');
+  console.log('\n6. Generating HyperFrames Composition (Dual-Layer Typography + Moving Video Clips)...');
   const coverPub = path.join(KEYFRAMES_DIR, 'cover-shot-00.jpg');
   const coverHf = path.join(HF_WORKSPACE, 'assets', 'cover-shot-00.jpg');
   if (fs.existsSync(coverPub)) {
@@ -600,6 +521,7 @@ async function main() {
     shotImages,
     shotTimings,
     phrases,
+    topKeywords,
     outputDir: HF_WORKSPACE,
   });
 
@@ -875,27 +797,27 @@ async function main() {
             <div class="stat-lbl">VO Start</div>
           </div>
           <div class="stat-box">
-            <div class="stat-val" style="color: #4ade80;">Charon</div>
-            <div class="stat-lbl">Voice Over</div>
+            <div class="stat-val" style="color: #4ade80;">Brian Whisper</div>
+            <div class="stat-lbl">Klenik Malam VO</div>
           </div>
         </div>
 
         <div>
           <h2 class="section-title">DISTRIBUSI SOSMED (VIRAL INSTAGRAM REELS KIT)</h2>
           
-          <p style="font-size: 12px; color: var(--accent); margin-bottom: 6px; font-weight: 600;">📱 FORMAT INSTAGRAM REELS (INVESTIGASI JPNN):</p>
+          <p style="font-size: 12px; color: var(--accent); margin-bottom: 6px; font-weight: 600;">📱 FORMAT INSTAGRAM REELS (ATMOSPHERIC STORYTELLER):</p>
           <div class="caption-box">
             <button class="copy-btn" onclick="navigator.clipboard.writeText(this.nextElementSibling.innerText); alert('Copied!');">SALIN</button>
-            <span>Bukan aksi spontan satu orang, melainkan persekongkolan sadis tiga pria yang saling berbagi peran! 🚨⛓️
+            <span>Cangkul itu... bukan tergeletak di gudang. Tapi tertancap di kasur mess kamar nomor tujuh... 🚨⛓️
 
-Penyidikan Polda Metro Jaya mengungkap detail mengerikan di balik tragedi kematian karyawati pabrik Tangerang, Eno Farihah:
-1. RAM (15 th): Murka ajakan bersetubuh ditolak karena korban takut hamil, mengambil cangkul, menghantamkannya ke wajah, dan memegangi kaki korban.
-2. Rahmad Arifin (24 th): Menyimpan dendam karena kerap diejek berwajah "pahit", menyetubuhi korban saat sekarat, dan menancapkan gagang cangkul.
-3. Imam Hapriadi (24 th): Sakit hati karena pendekatan cintanya selalu diabaikan, membekap wajah Eno dengan bantal, dan menyayat pipi korban dengan garpu makan.
+Bukan aksi spontan satu orang, melainkan persekongkolan sadis tiga pria yang saling berbagi peran demi menuntaskan dendam asmara:
+1. RAM (15 th): Murka ajakan ditolak karena korban takut hamil, mengambil cangkul, menghantamkannya ke wajah, dan memegangi kaki korban.
+2. Rahmad Arifin (24 th): Dendam karena diejek berwajah "pahit", menyetubuhi korban saat sekarat, dan menancapkan gagang cangkul.
+3. Imam Hapriadi (24 th): Sakit hati karena cintanya diabaikan, membekap wajah Eno dengan bantal, dan menyayat pipi korban dengan garpu makan.
 
-Simak kronologi lengkap dan pembuktian ilmiah kepolisian atas salah satu kasus paling mengguncang nurani bangsa!
+Darah tak bisa berbohong. Simak kronologi lengkap dan pertanggungjawaban hukum atas salah satu kejahatan paling kelam dalam sejarah kriminal Indonesia.
 
-#TragediEno #EnoFarihah #KasusKriminal #PembagianPeran #KronologiKejahatan #TrueCrimeIndonesia #PoldaMetroJaya #Forensik #JPNN #InstagramReels #viral #fyp</span>
+#TragediEno #EnoFarihah #KasusKriminal #PembagianPeran #KronologiKejahatan #TrueCrimeIndonesia #KlenikMalam #PoldaMetroJaya #Forensik #JPNN #InstagramReels #viral #fyp</span>
           </div>
 
           <p style="font-size: 12px; color: var(--accent); margin-top: 14px; margin-bottom: 6px; font-weight: 600;">📺 FORMAT YOUTUBE SHORTS / TIKTOK:</p>

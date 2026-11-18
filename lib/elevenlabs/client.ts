@@ -38,11 +38,11 @@ export async function synthesizeElevenLabsSentence(
     throw new Error('ELEVENLABS_API_KEY belum diset di .env.local!');
   }
 
-  const voiceId = options.voiceId || process.env.ELEVENLABS_VOICE_ID || 'pNInz6obpgDQGcFmaJgB'; // Adam as default
+  const voiceId = options.voiceId || process.env.ELEVENLABS_VOICE_ID || 'nPczCjzI2devNBz1zQrb'; // Brian as default (Klenik Malam Intimate Low-End Whisper)
   const modelId = options.modelId || process.env.ELEVENLABS_MODEL_ID || 'eleven_multilingual_v2';
-  const stability = options.stability ?? 0.5;
-  const similarityBoost = options.similarityBoost ?? 0.8;
-  const speed = options.speed ?? 1.05;
+  const stability = options.stability ?? 0.65;
+  const similarityBoost = options.similarityBoost ?? 0.90;
+  const speed = options.speed ?? 1.00;
 
   const url = `https://api.elevenlabs.io/v1/text-to-speech/${voiceId}`;
   const response = await fetch(url, {
@@ -58,6 +58,7 @@ export async function synthesizeElevenLabsSentence(
       voice_settings: {
         stability,
         similarity_boost: similarityBoost,
+        style: 0.10,
       },
     }),
   });
@@ -74,11 +75,11 @@ export async function synthesizeElevenLabsSentence(
   const targetWav = options.outputWavPath || tempMp3.replace('.mp3', '.wav');
 
   try {
-    // Acoustic mastering filter chain for true crime documentaries (Broadcast EBU R128)
+    // Acoustic mastering filter chain for Klenik Malam True Crime (Warmth Bass + Proximity Clarity + EBU R128)
     execFileSync(ffmpeg, [
       '-y',
       '-i', tempMp3,
-      '-af', `equalizer=f=120:width_type=o:width=2:g=3.0,equalizer=f=3200:width_type=o:width=1:g=2.0,highpass=f=75,lowpass=f=8000,atempo=${speed}`,
+      '-af', `equalizer=f=110:width_type=o:width=1.8:g=4.0,equalizer=f=3000:width_type=o:width=1.2:g=2.2,highpass=f=75,lowpass=f=7800,atempo=${speed}`,
       '-ar', '48000',
       '-ac', '2',
       targetWav,

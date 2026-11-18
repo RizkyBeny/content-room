@@ -2,6 +2,13 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { CaptionPhrase, ShotTiming } from '../audio/noirAudioPipeline';
 
+export interface TopKeyword {
+  id: string;
+  text: string;
+  start: number;
+  end: number;
+}
+
 export interface NoirVideoConfig {
   jobId: string;
   title: string;
@@ -10,11 +17,12 @@ export interface NoirVideoConfig {
   shotImages: Array<{ shot: number; imagePath: string }>;
   shotTimings: ShotTiming[];
   phrases: CaptionPhrase[];
+  topKeywords?: TopKeyword[];
   outputDir: string;
 }
 
 export function generateNoirHyperframesHtml(config: NoirVideoConfig): string {
-  const { totalDurationSec, phrases, shotTimings, coverImagePath, shotImages, outputDir } = config;
+  const { totalDurationSec, phrases, shotTimings, coverImagePath, shotImages, topKeywords = [], outputDir } = config;
   fs.mkdirSync(outputDir, { recursive: true });
   const assetsDir = path.join(outputDir, 'assets');
   fs.mkdirSync(assetsDir, { recursive: true });
@@ -26,15 +34,23 @@ export function generateNoirHyperframesHtml(config: NoirVideoConfig): string {
     fs.copyFileSync(coverImagePath, coverDestPath);
   }
 
-  // 2. Copy Shot Images
-  const shotsWithLocalAssets: Array<{ shot: number; assetName: string; timing: ShotTiming }> = [];
-  shotTimings.forEach((timing, idx) => {
+  // 2. Copy Shot Images / Videos
+  const shotsWithLocalAssets: Array<{
+    shot: number;
+    assetName: string;
+    isVideo: boolean;
+    timing: ShotTiming;
+  }> = [];
+
+  shotTimings.forEach((timing) => {
     const shotNum = timing.shot;
     const shotNumStr = String(shotNum).padStart(2, '0');
-    const assetName = `shot-${shotNumStr}.jpg`;
+    const source = shotImages.find((s) => s.shot === shotNum)?.imagePath || '';
+    const isVideo = source.endsWith('.mp4') || source.endsWith('.webm');
+    const ext = isVideo ? path.extname(source) : '.jpg';
+    const assetName = `shot-${shotNumStr}${ext}`;
     const destPath = path.join(assetsDir, assetName);
 
-    const source = shotImages.find((s) => s.shot === shotNum)?.imagePath || '';
     if (source && fs.existsSync(source)) {
       fs.copyFileSync(source, destPath);
     }
@@ -42,6 +58,7 @@ export function generateNoirHyperframesHtml(config: NoirVideoConfig): string {
     shotsWithLocalAssets.push({
       shot: shotNum,
       assetName,
+      isVideo,
       timing,
     });
   });
@@ -70,17 +87,20 @@ export function generateNoirHyperframesHtml(config: NoirVideoConfig): string {
     { from: { scale: 1.06, x: 0, y: 0 }, to: { scale: 1.01, x: 0, y: 0 } },
   ];
 
-  // 5. Build HTML DOM for Shots
+  // 5. Build HTML DOM for Shots (Handles both images and videos)
   const shotsHtml = shotsWithLocalAssets
-    .map(
-      (s) => `
-    <!-- Shot ${String(s.shot).padStart(2, '0')} -->
+    .map((s) => {
+      const mediaTag = s.isVideo
+        ? `<video src="assets/${s.assetName}" class="shot-bg" id="bg-${s.shot}" autoplay muted loop playsinline></video>`
+        : `<img src="assets/${s.assetName}" class="shot-bg" id="bg-${s.shot}" alt="Shot ${s.shot}">`;
+      return `
+    <!-- Shot ${String(s.shot).padStart(2, '0')}${s.isVideo ? ' (Moving Video)' : ''} -->
     <div class="shot-scene" id="shot-${s.shot}">
       <div class="shot-media-wrapper">
-        <img src="assets/${s.assetName}" class="shot-bg" id="bg-${s.shot}" alt="Shot ${s.shot}">
+        ${mediaTag}
       </div>
-    </div>`
-    )
+    </div>`;
+    })
     .join('\n');
 
   // 6. Build Caption Phrases DOM
@@ -95,7 +115,16 @@ export function generateNoirHyperframesHtml(config: NoirVideoConfig): string {
     })
     .join('\n');
 
-  // 7. Build GSAP Camera & Caption Animation Script
+  // 7. Build Top Giant Keyword DOM
+  const topKeywordsHtml = topKeywords
+    .map(
+      (tk) => `      <div class="top-keyword-badge" id="tk-${tk.id}">
+        <span class="top-keyword-text">${escapeHtml(tk.text)}</span>
+      </div>`
+    )
+    .join('\n');
+
+  // 8. Build GSAP Camera & Caption Animation Script
   const shotsJs = shotsWithLocalAssets
     .map((s, idx) => {
       const motion = cameraMotions[idx % cameraMotions.length];
@@ -146,6 +175,24 @@ ${wordTweens}
     tl.to("#${p.id}",
       { autoAlpha: 0, y: -10, filter: "blur(4px)", duration: 0.2, ease: "power1.in" },
       ${(p.end + 0.05).toFixed(2)}
+    );`;
+    })
+    .join('\n');
+
+  const topKeywordsJs = topKeywords
+    .map((tk) => {
+      const start = tk.start;
+      const end = tk.end;
+      return `
+    // Top Keyword: ${tk.text} (${start}s - ${end}s)
+    tl.fromTo("#tk-${tk.id}",
+      { autoAlpha: 0, scale: 0.88, y: -15, filter: "blur(8px)" },
+      { autoAlpha: 1, scale: 1.0, y: 0, filter: "blur(0px)", duration: 0.3, ease: "back.out(1.5)" },
+      ${start}
+    );
+    tl.to("#tk-${tk.id}",
+      { autoAlpha: 0, scale: 1.04, y: -10, filter: "blur(6px)", duration: 0.22, ease: "power1.in" },
+      ${Math.max(start + 0.1, end - 0.22).toFixed(2)}
     );`;
     })
     .join('\n');
@@ -225,6 +272,43 @@ ${wordTweens}
       pointer-events: none;
       z-index: 20;
     }
+    /* Dual-Layer Typography: Top Giant Keyword Flash */
+    #top-keyword-container {
+      position: absolute;
+      top: 140px;
+      left: 60px;
+      right: 60px;
+      height: 140px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      z-index: 28;
+      pointer-events: none;
+    }
+    .top-keyword-badge {
+      position: absolute;
+      padding: 12px 32px;
+      background: rgba(13, 17, 23, 0.78);
+      border: 2px solid rgba(197, 155, 39, 0.65);
+      box-shadow: 0 0 35px rgba(197, 155, 39, 0.35), inset 0 0 20px rgba(139, 38, 53, 0.35);
+      border-radius: 8px;
+      backdrop-filter: blur(8px);
+      opacity: 0;
+      visibility: hidden;
+      transform-origin: center center;
+    }
+    .top-keyword-text {
+      font-family: "Montserrat", sans-serif;
+      font-weight: 900;
+      font-size: 50px;
+      letter-spacing: 0.10em;
+      text-transform: uppercase;
+      color: #FFFFFF;
+      text-shadow: 0 0 25px rgba(229, 169, 60, 0.9), 0 4px 12px rgba(0, 0, 0, 0.95);
+      line-height: 1.1;
+      white-space: nowrap;
+    }
     /* Clean Bottom Safe Area Autocaption Container */
     #caption-container {
       position: absolute;
@@ -297,6 +381,11 @@ ${shotsHtml}
     <!-- Noir Forensic Glitch Overlay -->
     <div id="forensic-glitch"></div>
 
+    <!-- Dual-Layer Typography: Top Giant Keyword Flash -->
+    <div id="top-keyword-container">
+${topKeywordsHtml}
+    </div>
+
     <!-- Pure Autocaption in Bottom Safe Area -->
     <div id="caption-container">
 ${phrasesHtml}
@@ -339,6 +428,9 @@ ${shotsJs}
 
     // --- AUTOCAPTION PHRASE BLOCKS & KARAOKE WORD HIGHLIGHTS ---
 ${phrasesJs}
+
+    // --- DUAL-LAYER TYPOGRAPHY: TOP KEYWORDS FLASH ---
+${topKeywordsJs}
 
     tl.seek(0);
   </script>

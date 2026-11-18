@@ -34,6 +34,8 @@ export interface FlowGenerateInput {
   model?: string;
   max_credits?: number;
   reference_images?: string[];
+  first_frame?: string;
+  last_frame?: string;
 }
 
 export interface FlowGenerateResult {

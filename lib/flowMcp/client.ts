@@ -95,15 +95,25 @@ export class FlowMcpClient {
    */
   async generate(input: FlowGenerateInput & { project?: string }): Promise<FlowGenerateResult> {
     const project = input.project ?? 'content-automation';
-    const scene = {
+    const scene: Record<string, unknown> = {
       prompt: input.prompt,
       type: input.type,
       aspect_ratio: input.aspect ?? '9:16',
-      duration: input.duration ?? 6,
-      model: input.model,
       max_credits: input.max_credits ?? 25,
       reference_images: input.reference_images,
     };
+    if (input.duration !== undefined) {
+      scene.duration = input.duration;
+    }
+    if (input.model) {
+      scene.model = input.model;
+    }
+    if (input.first_frame) {
+      scene.first_frame = input.first_frame;
+    }
+    if (input.last_frame) {
+      scene.last_frame = input.last_frame;
+    }
 
     const data = await this.callTool<{ output_dir: string; jobs: FlowJobView[] }>('generate', {
       project,

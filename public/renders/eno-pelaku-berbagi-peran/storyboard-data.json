@@ -1,208 +1,208 @@
 {
   "title": "TRAGEDI ENO FARIHAH: 3 Pelaku Berbagi Peran",
   "voiceEngine": "ElevenLabs (Brian - Intimate Low-End Whisper)",
-  "totalDurationSec": 148.41,
+  "totalDurationSec": 162.33,
   "transitionTimes": [
     1.3,
-    6.22,
-    12.28,
-    16.82,
-    22.57,
-    29.76,
-    36.12,
-    42,
-    50.95,
-    57.11,
-    62.27,
-    68.28,
-    75.34,
-    80.99,
-    87.02,
-    91.92,
-    96.23,
-    101.61,
-    105.92,
-    113.13,
-    120.9,
-    126.3,
-    133.5,
-    138.47,
-    144.15
+    6.47,
+    12.83,
+    17.61,
+    24.45,
+    33.01,
+    41.23,
+    48.81,
+    59.12,
+    66.21,
+    72.32,
+    79.45,
+    86.38,
+    91.93,
+    98.11,
+    103.13,
+    107.57,
+    113.12,
+    117.57,
+    124.7,
+    132.37,
+    138.39,
+    146.41,
+    151.72,
+    157.78
   ],
   "shotTimings": [
     {
       "shot": 1,
       "startSec": 1.3,
-      "endSec": 6.22,
-      "durationSec": 4.92,
+      "endSec": 6.47,
+      "durationSec": 5.17,
       "imageFile": "beat-01.jpg"
     },
     {
       "shot": 2,
-      "startSec": 6.22,
-      "endSec": 12.28,
-      "durationSec": 6.06,
+      "startSec": 6.47,
+      "endSec": 12.83,
+      "durationSec": 6.36,
       "imageFile": "beat-02.mp4"
     },
     {
       "shot": 3,
-      "startSec": 12.28,
-      "endSec": 16.82,
-      "durationSec": 4.54,
+      "startSec": 12.83,
+      "endSec": 17.6,
+      "durationSec": 4.77,
       "imageFile": "beat-03.jpg"
     },
     {
       "shot": 4,
-      "startSec": 16.82,
-      "endSec": 22.57,
-      "durationSec": 5.75,
+      "startSec": 17.61,
+      "endSec": 24.45,
+      "durationSec": 6.84,
       "imageFile": "beat-04.jpg"
     },
     {
       "shot": 5,
-      "startSec": 22.57,
-      "endSec": 29.76,
-      "durationSec": 7.19,
+      "startSec": 24.45,
+      "endSec": 33.01,
+      "durationSec": 8.56,
       "imageFile": "beat-05.jpg"
     },
     {
       "shot": 6,
-      "startSec": 29.76,
-      "endSec": 36.12,
-      "durationSec": 6.36,
+      "startSec": 33.01,
+      "endSec": 41.23,
+      "durationSec": 8.22,
       "imageFile": "beat-06.jpg"
     },
     {
       "shot": 7,
-      "startSec": 36.12,
-      "endSec": 42,
-      "durationSec": 5.88,
+      "startSec": 41.23,
+      "endSec": 48.81,
+      "durationSec": 7.58,
       "imageFile": "beat-07.jpg"
     },
     {
       "shot": 8,
-      "startSec": 42,
-      "endSec": 50.95,
-      "durationSec": 8.95,
+      "startSec": 48.81,
+      "endSec": 59.12,
+      "durationSec": 10.31,
       "imageFile": "beat-08.jpg"
     },
     {
       "shot": 9,
-      "startSec": 50.95,
-      "endSec": 57.11,
-      "durationSec": 6.16,
+      "startSec": 59.12,
+      "endSec": 66.21,
+      "durationSec": 7.09,
       "imageFile": "beat-09.jpg"
     },
     {
       "shot": 10,
-      "startSec": 57.11,
-      "endSec": 62.27,
-      "durationSec": 5.16,
+      "startSec": 66.21,
+      "endSec": 72.32,
+      "durationSec": 6.11,
       "imageFile": "beat-10.jpg"
     },
     {
       "shot": 11,
-      "startSec": 62.27,
-      "endSec": 68.28,
-      "durationSec": 6.01,
+      "startSec": 72.32,
+      "endSec": 79.45,
+      "durationSec": 7.13,
       "imageFile": "beat-11.jpg"
     },
     {
       "shot": 12,
-      "startSec": 68.28,
-      "endSec": 75.34,
-      "durationSec": 7.06,
+      "startSec": 79.45,
+      "endSec": 86.38,
+      "durationSec": 6.93,
       "imageFile": "beat-12.jpg"
     },
     {
       "shot": 13,
-      "startSec": 75.34,
-      "endSec": 80.99,
-      "durationSec": 5.65,
+      "startSec": 86.38,
+      "endSec": 91.93,
+      "durationSec": 5.55,
       "imageFile": "beat-13.jpg"
     },
     {
       "shot": 14,
-      "startSec": 80.99,
-      "endSec": 87.02,
-      "durationSec": 6.03,
+      "startSec": 91.93,
+      "endSec": 98.11,
+      "durationSec": 6.18,
       "imageFile": "beat-14.mp4"
     },
     {
       "shot": 15,
-      "startSec": 87.02,
-      "endSec": 91.92,
-      "durationSec": 4.9,
+      "startSec": 98.11,
+      "endSec": 103.13,
+      "durationSec": 5.02,
       "imageFile": "beat-15.jpg"
     },
     {
       "shot": 16,
-      "startSec": 91.92,
-      "endSec": 96.23,
-      "durationSec": 4.31,
+      "startSec": 103.13,
+      "endSec": 107.57,
+      "durationSec": 4.44,
       "imageFile": "beat-16.jpg"
     },
     {
       "shot": 17,
-      "startSec": 96.23,
-      "endSec": 101.61,
-      "durationSec": 5.38,
+      "startSec": 107.57,
+      "endSec": 113.12,
+      "durationSec": 5.55,
       "imageFile": "beat-17.jpg"
     },
     {
       "shot": 18,
-      "startSec": 101.61,
-      "endSec": 105.92,
-      "durationSec": 4.31,
+      "startSec": 113.12,
+      "endSec": 117.56,
+      "durationSec": 4.44,
       "imageFile": "beat-18.jpg"
     },
     {
       "shot": 19,
-      "startSec": 105.92,
-      "endSec": 113.13,
-      "durationSec": 7.21,
+      "startSec": 117.57,
+      "endSec": 124.7,
+      "durationSec": 7.13,
       "imageFile": "beat-19.jpg"
     },
     {
       "shot": 20,
-      "startSec": 113.13,
-      "endSec": 120.9,
-      "durationSec": 7.77,
+      "startSec": 124.7,
+      "endSec": 132.37,
+      "durationSec": 7.67,
       "imageFile": "beat-20.jpg"
     },
     {
       "shot": 21,
-      "startSec": 120.9,
-      "endSec": 126.3,
-      "durationSec": 5.4,
+      "startSec": 132.37,
+      "endSec": 138.39,
+      "durationSec": 6.02,
       "imageFile": "beat-21.jpg"
     },
     {
       "shot": 22,
-      "startSec": 126.3,
-      "endSec": 133.5,
-      "durationSec": 7.2,
+      "startSec": 138.39,
+      "endSec": 146.41,
+      "durationSec": 8.02,
       "imageFile": "beat-22.jpg"
     },
     {
       "shot": 23,
-      "startSec": 133.5,
-      "endSec": 138.47,
-      "durationSec": 4.97,
+      "startSec": 146.41,
+      "endSec": 151.72,
+      "durationSec": 5.31,
       "imageFile": "beat-23.jpg"
     },
     {
       "shot": 24,
-      "startSec": 138.47,
-      "endSec": 144.15,
-      "durationSec": 5.68,
+      "startSec": 151.72,
+      "endSec": 157.78,
+      "durationSec": 6.06,
       "imageFile": "beat-24.jpg"
     },
     {
       "shot": 25,
-      "startSec": 144.15,
-      "endSec": 148.41,
-      "durationSec": 4.26,
+      "startSec": 157.78,
+      "endSec": 162.33,
+      "durationSec": 4.55,
       "imageFile": "beat-25.jpg"
     }
   ],
@@ -212,110 +212,110 @@
       "shot": 1,
       "text": "Cangkul itu... bukan tergeletak di gudang. Tapi tertancap... di atas kasur seorang karyawati pabrik di Tangerang... Dan pelakunya... bukan satu orang. Melainkan tiga pria... yang saling berbagi peran.",
       "topKeyword": "CANGKUL DI KASUR",
-      "wavPath": "/Users/beny/Documents/Project-self/Content-automation/public/renders/eno-pelaku-berbagi-peran/audio/brian-klenik-sentence-1.wav",
-      "durationSec": 16.338958,
+      "wavPath": "/Users/beny/Documents/Project-self/Content-automation/public/renders/eno-pelaku-berbagi-peran/audio/charon-klenik-sentence-1.wav",
+      "durationSec": 17.130958,
       "start": 0.08,
-      "end": 16.42
+      "end": 17.21
     },
     {
       "id": "s2",
       "shot": 2,
-      "text": "Semua bermula... Kamis malam, 12 Mei 2016. Seorang remaja 15 tahun... mengetuk pintu mess kamar nomor tujuh... Mengajak berhubungan badan... tapi ditolak mentah-mentah.",
+      "text": "Semua bermula... Kamis malam, 12 Mei 2016. Seorang remaja 15 tahun... mengetuk pintu mess kamar nomor tujuh... Namun kedatangannya... ditolak mentah-mentah.",
       "topKeyword": "KAMAR NO. 7",
-      "wavPath": "/Users/beny/Documents/Project-self/Content-automation/public/renders/eno-pelaku-berbagi-peran/audio/brian-klenik-sentence-2.wav",
-      "durationSec": 12.536875,
-      "start": 16.82,
-      "end": 29.36
+      "wavPath": "/Users/beny/Documents/Project-self/Content-automation/public/renders/eno-pelaku-berbagi-peran/audio/charon-klenik-sentence-2.wav",
+      "durationSec": 15.000583,
+      "start": 17.61,
+      "end": 32.61
     },
     {
       "id": "s3",
       "shot": 3,
       "text": "Terbakar amarah... dia melangkah keluar. Di lorong gelap itu... dua pria dewasa sudah menunggu. Arifin... dan Imam. Dua rekan kerja... yang menyimpan bara dendam serupa.",
       "topKeyword": "2 PRIA DI LORONG",
-      "wavPath": "/Users/beny/Documents/Project-self/Content-automation/public/renders/eno-pelaku-berbagi-peran/audio/brian-klenik-sentence-3.wav",
-      "durationSec": 11.836229,
-      "start": 29.76,
-      "end": 41.6
+      "wavPath": "/Users/beny/Documents/Project-self/Content-automation/public/renders/eno-pelaku-berbagi-peran/audio/charon-klenik-sentence-3.wav",
+      "durationSec": 15.400583,
+      "start": 33.01,
+      "end": 48.41
     },
     {
       "id": "s4",
       "shot": 4,
       "text": "Satu sakit hati karena diejek jelek dan berwajah pahit... Satu murka karena cintanya tak pernah digubris... Dan satu lagi... kalap karena ditolak di atas kasur. Tiga motif konyol... yang melahirkan petaka.",
       "topKeyword": "3 MOTIF SAKIT HATI",
-      "wavPath": "/Users/beny/Documents/Project-self/Content-automation/public/renders/eno-pelaku-berbagi-peran/audio/brian-klenik-sentence-4.wav",
-      "durationSec": 14.714104,
-      "start": 42,
-      "end": 56.71
+      "wavPath": "/Users/beny/Documents/Project-self/Content-automation/public/renders/eno-pelaku-berbagi-peran/audio/charon-klenik-sentence-4.wav",
+      "durationSec": 17.000583,
+      "start": 48.81,
+      "end": 65.81
     },
     {
       "id": "s5",
       "shot": 5,
       "text": "Tengah malam itu... pintu kamar didorong perlahan. Di atas kasur busa tipis... Eno sedang tertidur pulas. Tanpa menyadari... maut sudah berdiri di hadapannya.",
       "topKeyword": "TERTIDUR PULAS",
-      "wavPath": "/Users/beny/Documents/Project-self/Content-automation/public/renders/eno-pelaku-berbagi-peran/audio/brian-klenik-sentence-5.wav",
-      "durationSec": 10.771208,
-      "start": 57.11,
-      "end": 67.88
+      "wavPath": "/Users/beny/Documents/Project-self/Content-automation/public/renders/eno-pelaku-berbagi-peran/audio/charon-klenik-sentence-5.wav",
+      "durationSec": 12.840583,
+      "start": 66.21,
+      "end": 79.05
     },
     {
       "id": "s6",
       "shot": 6,
       "text": "Peran pertama dimulai. Imam membekap wajah Eno dengan bantal sekuat tenaga... Jeritan korban tertahan di kegelapan. Dan perintah dingin itu keluar: cari senjata... sekarang.",
       "topKeyword": "BEKAP BANTAL",
-      "wavPath": "/Users/beny/Documents/Project-self/Content-automation/public/renders/eno-pelaku-berbagi-peran/audio/brian-klenik-sentence-6.wav",
-      "durationSec": 12.306021,
-      "start": 68.28,
-      "end": 80.59
+      "wavPath": "/Users/beny/Documents/Project-self/Content-automation/public/renders/eno-pelaku-berbagi-peran/audio/charon-klenik-sentence-6.wav",
+      "durationSec": 12.080583,
+      "start": 79.45,
+      "end": 91.53
     },
     {
       "id": "s7",
       "shot": 7,
       "text": "Tak ada pisau di dapur. Tapi di sudut pekarangan basah... ada cangkul teronggok di dekat pohon. Benda itu diambil... dan diserahkan ke dalam kamar maut.",
       "topKeyword": "CANGKUL PEKARANGAN",
-      "wavPath": "/Users/beny/Documents/Project-self/Content-automation/public/renders/eno-pelaku-berbagi-peran/audio/brian-klenik-sentence-7.wav",
-      "durationSec": 10.534083,
-      "start": 80.99,
-      "end": 91.52
+      "wavPath": "/Users/beny/Documents/Project-self/Content-automation/public/renders/eno-pelaku-berbagi-peran/audio/charon-klenik-sentence-7.wav",
+      "durationSec": 10.800583,
+      "start": 91.93,
+      "end": 102.73
     },
     {
       "id": "s8",
       "shot": 8,
-      "text": "Mata cangkul dihantamkan ke wajah... Korban terkapar sekarat. Bukannya berhenti... kebiadaban berlanjut. Arifin menyetubuhinya... sementara garpu makan... disayatkan ke pipi korban.",
+      "text": "Mata cangkul dihantamkan ke arah korban... Memastikan sasaran tak lagi berdaya. Bukannya berhenti... kebiadaban berlanjut... Sebuah garpu makan disambar... untuk melampiaskan amarah mereka.",
       "topKeyword": "KEBIADABAN BERLANJUT",
-      "wavPath": "/Users/beny/Documents/Project-self/Content-automation/public/renders/eno-pelaku-berbagi-peran/audio/brian-klenik-sentence-8.wav",
-      "durationSec": 13.599917,
-      "start": 91.92,
-      "end": 105.52
+      "wavPath": "/Users/beny/Documents/Project-self/Content-automation/public/renders/eno-pelaku-berbagi-peran/audio/charon-klenik-sentence-8.wav",
+      "durationSec": 14.040583,
+      "start": 103.13,
+      "end": 117.17
     },
     {
       "id": "s9",
       "shot": 9,
-      "text": "Dan puncak kebiadaban itu... terjadi di detik-detik terakhir. Kaki korban dipegangi... Dan gagang cangkul itu... ditancapkan sedalam-dalamnya. Menghentikan detak jantung Eno... selamanya.",
+      "text": "Dan puncak tragedi kelam itu... terjadi di detik-detik terakhir. Tiga pelaku saling berbagi peran... Menggunakan cangkul pekarangan... hingga menghentikan detak jantung Eno... selamanya.",
       "topKeyword": "GAGANG CANGKUL",
-      "wavPath": "/Users/beny/Documents/Project-self/Content-automation/public/renders/eno-pelaku-berbagi-peran/audio/brian-klenik-sentence-9.wav",
-      "durationSec": 14.578458,
-      "start": 105.92,
-      "end": 120.5
+      "wavPath": "/Users/beny/Documents/Project-self/Content-automation/public/renders/eno-pelaku-berbagi-peran/audio/charon-klenik-sentence-9.wav",
+      "durationSec": 14.400583,
+      "start": 117.57,
+      "end": 131.97
     },
     {
       "id": "s10",
       "shot": 10,
       "text": "Jasadnya ditutupi tumpukan kain... Ponselnya digondol. Agar tak ada yang curiga... engsel kamar dikunci gembok dari luar. Mereka menghilang... ditelan pekatnya malam.",
       "topKeyword": "DIKUNCI DARI LUAR",
-      "wavPath": "/Users/beny/Documents/Project-self/Content-automation/public/renders/eno-pelaku-berbagi-peran/audio/brian-klenik-sentence-10.wav",
-      "durationSec": 12.204563,
-      "start": 120.9,
-      "end": 133.1
+      "wavPath": "/Users/beny/Documents/Project-self/Content-automation/public/renders/eno-pelaku-berbagi-peran/audio/charon-klenik-sentence-10.wav",
+      "durationSec": 13.640583,
+      "start": 132.37,
+      "end": 146.01
     },
     {
       "id": "s11",
       "shot": 11,
       "text": "Tapi darah tak bisa berbohong. Dalam hitungan hari... tim buser membekuk ketiganya. Palu hakim diketuk keras. Vonis mati... dan kurungan maksimal dijatuhkan... atas salah satu kejahatan paling kelam di tanah air.",
       "topKeyword": "VONIS MATI",
-      "wavPath": "/Users/beny/Documents/Project-self/Content-automation/public/renders/eno-pelaku-berbagi-peran/audio/brian-klenik-sentence-11.wav",
-      "durationSec": 14.110875,
-      "start": 133.5,
-      "end": 147.61
+      "wavPath": "/Users/beny/Documents/Project-self/Content-automation/public/renders/eno-pelaku-berbagi-peran/audio/charon-klenik-sentence-11.wav",
+      "durationSec": 15.120583,
+      "start": 146.41,
+      "end": 161.53
     }
   ],
   "topKeywords": [
@@ -328,62 +328,62 @@
     {
       "id": "s2",
       "text": "KAMAR NO. 7",
-      "start": 16.92,
-      "end": 20.62
+      "start": 17.71,
+      "end": 21.41
     },
     {
       "id": "s3",
       "text": "2 PRIA DI LORONG",
-      "start": 29.86,
-      "end": 33.56
+      "start": 33.11,
+      "end": 36.81
     },
     {
       "id": "s4",
       "text": "3 MOTIF SAKIT HATI",
-      "start": 42.1,
-      "end": 45.8
+      "start": 48.91,
+      "end": 52.61
     },
     {
       "id": "s5",
       "text": "TERTIDUR PULAS",
-      "start": 57.21,
-      "end": 60.91
+      "start": 66.31,
+      "end": 70.01
     },
     {
       "id": "s6",
       "text": "BEKAP BANTAL",
-      "start": 68.38,
-      "end": 72.08
+      "start": 79.55,
+      "end": 83.25
     },
     {
       "id": "s7",
       "text": "CANGKUL PEKARANGAN",
-      "start": 81.09,
-      "end": 84.79
+      "start": 92.03,
+      "end": 95.73
     },
     {
       "id": "s8",
       "text": "KEBIADABAN BERLANJUT",
-      "start": 92.02,
-      "end": 95.72
+      "start": 103.23,
+      "end": 106.93
     },
     {
       "id": "s9",
       "text": "GAGANG CANGKUL",
-      "start": 106.02,
-      "end": 109.72
+      "start": 117.67,
+      "end": 121.37
     },
     {
       "id": "s10",
       "text": "DIKUNCI DARI LUAR",
-      "start": 121,
-      "end": 124.7
+      "start": 132.47,
+      "end": 136.17
     },
     {
       "id": "s11",
       "text": "VONIS MATI",
-      "start": 133.6,
-      "end": 137.3
+      "start": 146.51,
+      "end": 150.21
     }
   ],
   "phrases": [
@@ -393,2046 +393,2065 @@
         {
           "word": "Cangkul",
           "start": 0.08,
-          "end": 0.66
+          "end": 0.69
         },
         {
           "word": "itu...",
-          "start": 0.66,
-          "end": 1.41
+          "start": 0.69,
+          "end": 1.47
         }
       ],
       "start": 0.08,
-      "end": 1.41
+      "end": 1.47
     },
     {
       "id": "phrase-1",
       "words": [
         {
           "word": "bukan",
-          "start": 1.41,
-          "end": 1.82
+          "start": 1.47,
+          "end": 1.91
         },
         {
           "word": "tergeletak",
-          "start": 1.82,
-          "end": 2.65
+          "start": 1.91,
+          "end": 2.78
         },
         {
           "word": "di",
-          "start": 2.65,
-          "end": 2.82
+          "start": 2.78,
+          "end": 2.95
         },
         {
           "word": "gudang.",
-          "start": 2.82,
-          "end": 3.65
+          "start": 2.95,
+          "end": 3.82
         }
       ],
-      "start": 1.41,
-      "end": 3.65
+      "start": 1.47,
+      "end": 3.82
     },
     {
       "id": "phrase-2",
       "words": [
         {
           "word": "Tapi",
-          "start": 3.65,
-          "end": 3.98
+          "start": 3.82,
+          "end": 4.17
         },
         {
           "word": "tertancap...",
-          "start": 3.98,
-          "end": 5.22
+          "start": 4.17,
+          "end": 5.47
         }
       ],
-      "start": 3.65,
-      "end": 5.22
+      "start": 3.82,
+      "end": 5.47
     },
     {
       "id": "phrase-3",
       "words": [
         {
           "word": "di",
-          "start": 5.22,
-          "end": 5.39
+          "start": 5.47,
+          "end": 5.65
         },
         {
           "word": "atas",
-          "start": 5.39,
-          "end": 5.72
+          "start": 5.65,
+          "end": 5.99
         },
         {
           "word": "kasur",
-          "start": 5.72,
-          "end": 6.13
+          "start": 5.99,
+          "end": 6.43
         },
         {
           "word": "seorang",
-          "start": 6.13,
-          "end": 6.72
+          "start": 6.43,
+          "end": 7.04
         }
       ],
-      "start": 5.22,
-      "end": 6.72
+      "start": 5.47,
+      "end": 7.04
     },
     {
       "id": "phrase-4",
       "words": [
         {
           "word": "karyawati",
-          "start": 6.72,
-          "end": 7.46
+          "start": 7.04,
+          "end": 7.82
         },
         {
           "word": "pabrik",
-          "start": 7.46,
-          "end": 7.96
+          "start": 7.82,
+          "end": 8.34
         },
         {
           "word": "di",
-          "start": 7.96,
-          "end": 8.13
+          "start": 8.34,
+          "end": 8.52
         },
         {
           "word": "Tangerang...",
-          "start": 8.13,
-          "end": 9.37
+          "start": 8.52,
+          "end": 9.82
         }
       ],
-      "start": 6.72,
-      "end": 9.37
+      "start": 7.04,
+      "end": 9.82
     },
     {
       "id": "phrase-5",
       "words": [
         {
           "word": "Dan",
-          "start": 9.37,
-          "end": 9.62
+          "start": 9.82,
+          "end": 10.08
         },
         {
           "word": "pelakunya...",
-          "start": 9.62,
-          "end": 10.86
+          "start": 10.08,
+          "end": 11.38
         }
       ],
-      "start": 9.37,
-      "end": 10.86
+      "start": 9.82,
+      "end": 11.38
     },
     {
       "id": "phrase-6",
       "words": [
         {
           "word": "bukan",
-          "start": 10.86,
-          "end": 11.28
+          "start": 11.38,
+          "end": 11.82
         },
         {
           "word": "satu",
-          "start": 11.28,
-          "end": 11.61
+          "start": 11.82,
+          "end": 12.17
         },
         {
           "word": "orang.",
-          "start": 11.61,
-          "end": 12.35
+          "start": 12.17,
+          "end": 12.95
         }
       ],
-      "start": 10.86,
-      "end": 12.35
+      "start": 11.38,
+      "end": 12.95
     },
     {
       "id": "phrase-7",
       "words": [
         {
           "word": "Melainkan",
-          "start": 12.35,
-          "end": 13.1
+          "start": 12.95,
+          "end": 13.73
         },
         {
           "word": "tiga",
-          "start": 13.1,
-          "end": 13.43
+          "start": 13.73,
+          "end": 14.08
         },
         {
           "word": "pria...",
-          "start": 13.43,
-          "end": 14.26
+          "start": 14.08,
+          "end": 14.95
         }
       ],
-      "start": 12.35,
-      "end": 14.26
+      "start": 12.95,
+      "end": 14.95
     },
     {
       "id": "phrase-8",
       "words": [
         {
           "word": "yang",
-          "start": 14.26,
-          "end": 14.59
+          "start": 14.95,
+          "end": 15.3
         },
         {
           "word": "saling",
-          "start": 14.59,
-          "end": 15.09
+          "start": 15.3,
+          "end": 15.82
         },
         {
           "word": "berbagi",
-          "start": 15.09,
-          "end": 15.67
+          "start": 15.82,
+          "end": 16.43
         },
         {
           "word": "peran.",
-          "start": 15.67,
-          "end": 16.42
+          "start": 16.43,
+          "end": 17.21
         }
       ],
-      "start": 14.26,
-      "end": 16.42
+      "start": 14.95,
+      "end": 17.21
     },
     {
       "id": "phrase-9",
       "words": [
         {
           "word": "Semua",
-          "start": 16.82,
-          "end": 17.2
+          "start": 17.61,
+          "end": 18.09
         },
         {
           "word": "bermula...",
-          "start": 17.2,
-          "end": 18.17
+          "start": 18.09,
+          "end": 19.33
         }
       ],
-      "start": 16.82,
-      "end": 18.17
+      "start": 17.61,
+      "end": 19.33
     },
     {
       "id": "phrase-10",
       "words": [
         {
           "word": "Kamis",
-          "start": 18.17,
-          "end": 18.55
+          "start": 19.33,
+          "end": 19.81
         },
         {
           "word": "malam,",
-          "start": 18.55,
-          "end": 19.22
+          "start": 19.81,
+          "end": 20.67
         }
       ],
-      "start": 18.17,
-      "end": 19.22
+      "start": 19.33,
+      "end": 20.67
     },
     {
       "id": "phrase-11",
       "words": [
         {
           "word": "12",
-          "start": 19.22,
-          "end": 19.37
+          "start": 20.67,
+          "end": 20.86
         },
         {
           "word": "Mei",
-          "start": 19.37,
-          "end": 19.6
+          "start": 20.86,
+          "end": 21.15
         },
         {
           "word": "2016.",
-          "start": 19.6,
-          "end": 20.2
+          "start": 21.15,
+          "end": 21.91
         }
       ],
-      "start": 19.22,
-      "end": 20.2
+      "start": 20.67,
+      "end": 21.91
     },
     {
       "id": "phrase-12",
       "words": [
         {
           "word": "Seorang",
-          "start": 20.2,
-          "end": 20.72
+          "start": 21.91,
+          "end": 22.58
         },
         {
           "word": "remaja",
-          "start": 20.72,
-          "end": 21.17
+          "start": 22.58,
+          "end": 23.15
         },
         {
           "word": "15",
-          "start": 21.17,
-          "end": 21.32
+          "start": 23.15,
+          "end": 23.34
         },
         {
           "word": "tahun...",
-          "start": 21.32,
-          "end": 22.15
+          "start": 23.34,
+          "end": 24.39
         }
       ],
-      "start": 20.2,
-      "end": 22.15
+      "start": 21.91,
+      "end": 24.39
     },
     {
       "id": "phrase-13",
       "words": [
         {
           "word": "mengetuk",
-          "start": 22.15,
-          "end": 22.75
+          "start": 24.39,
+          "end": 25.16
         },
         {
           "word": "pintu",
-          "start": 22.75,
-          "end": 23.13
+          "start": 25.16,
+          "end": 25.64
         },
         {
           "word": "mess",
-          "start": 23.13,
-          "end": 23.43
+          "start": 25.64,
+          "end": 26.02
         },
         {
           "word": "kamar",
-          "start": 23.43,
-          "end": 23.8
+          "start": 26.02,
+          "end": 26.5
         }
       ],
-      "start": 22.15,
-      "end": 23.8
+      "start": 24.39,
+      "end": 26.5
     },
     {
       "id": "phrase-14",
       "words": [
         {
           "word": "nomor",
-          "start": 23.8,
-          "end": 24.18
+          "start": 26.5,
+          "end": 26.97
         },
         {
           "word": "tujuh...",
-          "start": 24.18,
-          "end": 25
+          "start": 26.97,
+          "end": 28.02
         }
       ],
-      "start": 23.8,
-      "end": 25
+      "start": 26.5,
+      "end": 28.02
     },
     {
       "id": "phrase-15",
       "words": [
         {
-          "word": "Mengajak",
-          "start": 25,
-          "end": 25.6
+          "word": "Namun",
+          "start": 28.02,
+          "end": 28.5
         },
         {
-          "word": "berhubungan",
-          "start": 25.6,
-          "end": 26.43
-        },
-        {
-          "word": "badan...",
-          "start": 26.43,
-          "end": 27.25
+          "word": "kedatangannya...",
+          "start": 28.5,
+          "end": 30.32
         }
       ],
-      "start": 25,
-      "end": 27.25
+      "start": 28.02,
+      "end": 30.32
     },
     {
       "id": "phrase-16",
       "words": [
         {
-          "word": "tapi",
-          "start": 27.25,
-          "end": 27.56
-        },
-        {
           "word": "ditolak",
-          "start": 27.56,
-          "end": 28.08
+          "start": 30.32,
+          "end": 30.99
         },
         {
           "word": "mentah-mentah.",
-          "start": 28.08,
-          "end": 29.36
+          "start": 30.99,
+          "end": 32.61
         }
       ],
-      "start": 27.25,
-      "end": 29.36
+      "start": 30.32,
+      "end": 32.61
     },
     {
       "id": "phrase-17",
       "words": [
         {
           "word": "Terbakar",
-          "start": 29.76,
-          "end": 30.32
+          "start": 33.01,
+          "end": 33.74
         },
         {
           "word": "amarah...",
-          "start": 30.32,
-          "end": 31.16
+          "start": 33.74,
+          "end": 34.83
         }
       ],
-      "start": 29.76,
-      "end": 31.16
+      "start": 33.01,
+      "end": 34.83
     },
     {
       "id": "phrase-18",
       "words": [
         {
           "word": "dia",
-          "start": 31.16,
-          "end": 31.37
+          "start": 34.83,
+          "end": 35.11
         },
         {
           "word": "melangkah",
-          "start": 31.37,
-          "end": 32
+          "start": 35.11,
+          "end": 35.93
         },
         {
           "word": "keluar.",
-          "start": 32,
-          "end": 32.7
+          "start": 35.93,
+          "end": 36.84
         }
       ],
-      "start": 31.16,
-      "end": 32.7
+      "start": 34.83,
+      "end": 36.84
     },
     {
       "id": "phrase-19",
       "words": [
         {
           "word": "Di",
-          "start": 32.7,
-          "end": 32.84
+          "start": 36.84,
+          "end": 37.02
         },
         {
           "word": "lorong",
-          "start": 32.84,
-          "end": 33.26
+          "start": 37.02,
+          "end": 37.57
         },
         {
           "word": "gelap",
-          "start": 33.26,
-          "end": 33.61
+          "start": 37.57,
+          "end": 38.02
         },
         {
           "word": "itu...",
-          "start": 33.61,
-          "end": 34.24
+          "start": 38.02,
+          "end": 38.84
         }
       ],
-      "start": 32.7,
-      "end": 34.24
+      "start": 36.84,
+      "end": 38.84
     },
     {
       "id": "phrase-20",
       "words": [
         {
           "word": "dua",
-          "start": 34.24,
-          "end": 34.45
+          "start": 38.84,
+          "end": 39.12
         },
         {
           "word": "pria",
-          "start": 34.45,
-          "end": 34.73
+          "start": 39.12,
+          "end": 39.48
         },
         {
           "word": "dewasa",
-          "start": 34.73,
-          "end": 35.15
+          "start": 39.48,
+          "end": 40.03
         },
         {
           "word": "sudah",
-          "start": 35.15,
-          "end": 35.5
+          "start": 40.03,
+          "end": 40.48
         }
       ],
-      "start": 34.24,
-      "end": 35.5
+      "start": 38.84,
+      "end": 40.48
     },
     {
       "id": "phrase-21",
       "words": [
         {
           "word": "menunggu.",
-          "start": 35.5,
-          "end": 36.34
+          "start": 40.48,
+          "end": 41.58
         }
       ],
-      "start": 35.5,
-      "end": 36.34
+      "start": 40.48,
+      "end": 41.58
     },
     {
       "id": "phrase-22",
       "words": [
         {
           "word": "Arifin...",
-          "start": 36.34,
-          "end": 37.18
+          "start": 41.58,
+          "end": 42.67
         }
       ],
-      "start": 36.34,
-      "end": 37.18
+      "start": 41.58,
+      "end": 42.67
     },
     {
       "id": "phrase-23",
       "words": [
         {
           "word": "dan",
-          "start": 37.18,
-          "end": 37.39
+          "start": 42.67,
+          "end": 42.94
         },
         {
           "word": "Imam.",
-          "start": 37.39,
-          "end": 37.95
+          "start": 42.94,
+          "end": 43.67
         }
       ],
-      "start": 37.18,
-      "end": 37.95
+      "start": 42.67,
+      "end": 43.67
     },
     {
       "id": "phrase-24",
       "words": [
         {
           "word": "Dua",
-          "start": 37.95,
-          "end": 38.16
+          "start": 43.67,
+          "end": 43.95
         },
         {
           "word": "rekan",
-          "start": 38.16,
-          "end": 38.51
+          "start": 43.95,
+          "end": 44.4
         },
         {
           "word": "kerja...",
-          "start": 38.51,
-          "end": 39.29
+          "start": 44.4,
+          "end": 45.4
         }
       ],
-      "start": 37.95,
-      "end": 39.29
+      "start": 43.67,
+      "end": 45.4
     },
     {
       "id": "phrase-25",
       "words": [
         {
           "word": "yang",
-          "start": 39.29,
-          "end": 39.57
+          "start": 45.4,
+          "end": 45.77
         },
         {
           "word": "menyimpan",
-          "start": 39.57,
-          "end": 40.2
+          "start": 45.77,
+          "end": 46.59
         },
         {
           "word": "bara",
-          "start": 40.2,
-          "end": 40.48
+          "start": 46.59,
+          "end": 46.95
         },
         {
           "word": "dendam",
-          "start": 40.48,
-          "end": 40.9
+          "start": 46.95,
+          "end": 47.5
         }
       ],
-      "start": 39.29,
-      "end": 40.9
+      "start": 45.4,
+      "end": 47.5
     },
     {
       "id": "phrase-26",
       "words": [
         {
           "word": "serupa.",
-          "start": 40.9,
-          "end": 41.6
+          "start": 47.5,
+          "end": 48.41
         }
       ],
-      "start": 40.9,
-      "end": 41.6
+      "start": 47.5,
+      "end": 48.41
     },
     {
       "id": "phrase-27",
       "words": [
         {
           "word": "Satu",
-          "start": 42,
-          "end": 42.3
+          "start": 48.81,
+          "end": 49.16
         },
         {
           "word": "sakit",
-          "start": 42.3,
-          "end": 42.69
+          "start": 49.16,
+          "end": 49.6
         },
         {
           "word": "hati",
-          "start": 42.69,
-          "end": 42.99
+          "start": 49.6,
+          "end": 49.96
         },
         {
           "word": "karena",
-          "start": 42.99,
-          "end": 43.45
+          "start": 49.96,
+          "end": 50.48
         }
       ],
-      "start": 42,
-      "end": 43.45
+      "start": 48.81,
+      "end": 50.48
     },
     {
       "id": "phrase-28",
       "words": [
         {
           "word": "diejek",
-          "start": 43.45,
-          "end": 43.91
+          "start": 50.48,
+          "end": 51.01
         },
         {
           "word": "jelek",
-          "start": 43.91,
-          "end": 44.29
+          "start": 51.01,
+          "end": 51.45
         },
         {
           "word": "dan",
-          "start": 44.29,
-          "end": 44.52
+          "start": 51.45,
+          "end": 51.72
         },
         {
           "word": "berwajah",
-          "start": 44.52,
-          "end": 45.13
+          "start": 51.72,
+          "end": 52.42
         }
       ],
-      "start": 43.45,
-      "end": 45.13
+      "start": 50.48,
+      "end": 52.42
     },
     {
       "id": "phrase-29",
       "words": [
         {
           "word": "pahit...",
-          "start": 45.13,
-          "end": 45.96
+          "start": 52.42,
+          "end": 53.39
         }
       ],
-      "start": 45.13,
-      "end": 45.96
+      "start": 52.42,
+      "end": 53.39
     },
     {
       "id": "phrase-30",
       "words": [
         {
           "word": "Satu",
-          "start": 45.96,
-          "end": 46.27
+          "start": 53.39,
+          "end": 53.74
         },
         {
           "word": "murka",
-          "start": 46.27,
-          "end": 46.65
+          "start": 53.74,
+          "end": 54.18
         },
         {
           "word": "karena",
-          "start": 46.65,
-          "end": 47.11
+          "start": 54.18,
+          "end": 54.71
         },
         {
           "word": "cintanya",
-          "start": 47.11,
-          "end": 47.72
+          "start": 54.71,
+          "end": 55.42
         }
       ],
-      "start": 45.96,
-      "end": 47.72
+      "start": 53.39,
+      "end": 55.42
     },
     {
       "id": "phrase-31",
       "words": [
         {
           "word": "tak",
-          "start": 47.72,
-          "end": 47.95
+          "start": 55.42,
+          "end": 55.68
         },
         {
           "word": "pernah",
-          "start": 47.95,
-          "end": 48.4
+          "start": 55.68,
+          "end": 56.21
         },
         {
           "word": "digubris...",
-          "start": 48.4,
-          "end": 49.47
+          "start": 56.21,
+          "end": 57.44
         }
       ],
-      "start": 47.72,
-      "end": 49.47
+      "start": 55.42,
+      "end": 57.44
     },
     {
       "id": "phrase-32",
       "words": [
         {
           "word": "Dan",
-          "start": 49.47,
-          "end": 49.7
+          "start": 57.44,
+          "end": 57.71
         },
         {
           "word": "satu",
-          "start": 49.7,
-          "end": 50.01
+          "start": 57.71,
+          "end": 58.06
         },
         {
           "word": "lagi...",
-          "start": 50.01,
-          "end": 50.77
+          "start": 58.06,
+          "end": 58.94
         }
       ],
-      "start": 49.47,
-      "end": 50.77
+      "start": 57.44,
+      "end": 58.94
     },
     {
       "id": "phrase-33",
       "words": [
         {
           "word": "kalap",
-          "start": 50.77,
-          "end": 51.15
+          "start": 58.94,
+          "end": 59.38
         },
         {
           "word": "karena",
-          "start": 51.15,
-          "end": 51.61
+          "start": 59.38,
+          "end": 59.91
         },
         {
           "word": "ditolak",
-          "start": 51.61,
-          "end": 52.14
+          "start": 59.91,
+          "end": 60.53
         },
         {
           "word": "di",
-          "start": 52.14,
-          "end": 52.29
+          "start": 60.53,
+          "end": 60.7
         }
       ],
-      "start": 50.77,
-      "end": 52.29
+      "start": 58.94,
+      "end": 60.7
     },
     {
       "id": "phrase-34",
       "words": [
         {
           "word": "atas",
-          "start": 52.29,
-          "end": 52.6
+          "start": 60.7,
+          "end": 61.05
         },
         {
           "word": "kasur.",
-          "start": 52.6,
-          "end": 53.28
+          "start": 61.05,
+          "end": 61.85
         }
       ],
-      "start": 52.29,
-      "end": 53.28
+      "start": 60.7,
+      "end": 61.85
     },
     {
       "id": "phrase-35",
       "words": [
         {
           "word": "Tiga",
-          "start": 53.28,
-          "end": 53.59
+          "start": 61.85,
+          "end": 62.2
         },
         {
           "word": "motif",
-          "start": 53.59,
-          "end": 53.97
+          "start": 62.2,
+          "end": 62.64
         },
         {
           "word": "konyol...",
-          "start": 53.97,
-          "end": 54.88
+          "start": 62.64,
+          "end": 63.7
         }
       ],
-      "start": 53.28,
-      "end": 54.88
+      "start": 61.85,
+      "end": 63.7
     },
     {
       "id": "phrase-36",
       "words": [
         {
           "word": "yang",
-          "start": 54.88,
-          "end": 55.19
+          "start": 63.7,
+          "end": 64.05
         },
         {
           "word": "melahirkan",
-          "start": 55.19,
-          "end": 55.95
+          "start": 64.05,
+          "end": 64.93
         },
         {
           "word": "petaka.",
-          "start": 55.95,
-          "end": 56.71
+          "start": 64.93,
+          "end": 65.81
         }
       ],
-      "start": 54.88,
-      "end": 56.71
+      "start": 63.7,
+      "end": 65.81
     },
     {
       "id": "phrase-37",
       "words": [
         {
           "word": "Tengah",
-          "start": 57.11,
-          "end": 57.53
+          "start": 66.21,
+          "end": 66.71
         },
         {
           "word": "malam",
-          "start": 57.53,
-          "end": 57.88
+          "start": 66.71,
+          "end": 67.13
         },
         {
           "word": "itu...",
-          "start": 57.88,
-          "end": 58.51
+          "start": 67.13,
+          "end": 67.88
         }
       ],
-      "start": 57.11,
-      "end": 58.51
+      "start": 66.21,
+      "end": 67.88
     },
     {
       "id": "phrase-38",
       "words": [
         {
           "word": "pintu",
-          "start": 58.51,
-          "end": 58.86
+          "start": 67.88,
+          "end": 68.29
         },
         {
           "word": "kamar",
-          "start": 58.86,
-          "end": 59.21
+          "start": 68.29,
+          "end": 68.71
         },
         {
           "word": "didorong",
-          "start": 59.21,
-          "end": 59.77
+          "start": 68.71,
+          "end": 69.38
         },
         {
           "word": "perlahan.",
-          "start": 59.77,
-          "end": 60.61
+          "start": 69.38,
+          "end": 70.38
         }
       ],
-      "start": 58.51,
-      "end": 60.61
+      "start": 67.88,
+      "end": 70.38
     },
     {
       "id": "phrase-39",
       "words": [
         {
           "word": "Di",
-          "start": 60.61,
-          "end": 60.75
+          "start": 70.38,
+          "end": 70.55
         },
         {
           "word": "atas",
-          "start": 60.75,
-          "end": 61.03
+          "start": 70.55,
+          "end": 70.88
         },
         {
           "word": "kasur",
-          "start": 61.03,
-          "end": 61.38
+          "start": 70.88,
+          "end": 71.3
         },
         {
           "word": "busa",
-          "start": 61.38,
-          "end": 61.66
+          "start": 71.3,
+          "end": 71.63
         }
       ],
-      "start": 60.61,
-      "end": 61.66
+      "start": 70.38,
+      "end": 71.63
     },
     {
       "id": "phrase-40",
       "words": [
         {
           "word": "tipis...",
-          "start": 61.66,
-          "end": 62.43
+          "start": 71.63,
+          "end": 72.55
         }
       ],
-      "start": 61.66,
-      "end": 62.43
+      "start": 71.63,
+      "end": 72.55
     },
     {
       "id": "phrase-41",
       "words": [
         {
           "word": "Eno",
-          "start": 62.43,
-          "end": 62.64
+          "start": 72.55,
+          "end": 72.8
         },
         {
           "word": "sedang",
-          "start": 62.64,
-          "end": 63.06
+          "start": 72.8,
+          "end": 73.3
         },
         {
           "word": "tertidur",
-          "start": 63.06,
-          "end": 63.61
+          "start": 73.3,
+          "end": 73.96
         },
         {
           "word": "pulas.",
-          "start": 63.61,
-          "end": 64.24
+          "start": 73.96,
+          "end": 74.71
         }
       ],
-      "start": 62.43,
-      "end": 64.24
+      "start": 72.55,
+      "end": 74.71
     },
     {
       "id": "phrase-42",
       "words": [
         {
           "word": "Tanpa",
-          "start": 64.24,
-          "end": 64.59
+          "start": 74.71,
+          "end": 75.13
         },
         {
           "word": "menyadari...",
-          "start": 64.59,
-          "end": 65.64
+          "start": 75.13,
+          "end": 76.38
         }
       ],
-      "start": 64.24,
-      "end": 65.64
+      "start": 74.71,
+      "end": 76.38
     },
     {
       "id": "phrase-43",
       "words": [
         {
           "word": "maut",
-          "start": 65.64,
-          "end": 65.92
+          "start": 76.38,
+          "end": 76.72
         },
         {
           "word": "sudah",
-          "start": 65.92,
-          "end": 66.27
+          "start": 76.72,
+          "end": 77.13
         },
         {
           "word": "berdiri",
-          "start": 66.27,
-          "end": 66.76
+          "start": 77.13,
+          "end": 77.72
         },
         {
           "word": "di",
-          "start": 66.76,
-          "end": 66.9
+          "start": 77.72,
+          "end": 77.88
         }
       ],
-      "start": 65.64,
-      "end": 66.9
+      "start": 76.38,
+      "end": 77.88
     },
     {
       "id": "phrase-44",
       "words": [
         {
           "word": "hadapannya.",
-          "start": 66.9,
-          "end": 67.88
+          "start": 77.88,
+          "end": 79.05
         }
       ],
-      "start": 66.9,
-      "end": 67.88
+      "start": 77.88,
+      "end": 79.05
     },
     {
       "id": "phrase-45",
       "words": [
         {
           "word": "Peran",
-          "start": 68.28,
-          "end": 68.65
+          "start": 79.45,
+          "end": 79.82
         },
         {
           "word": "pertama",
-          "start": 68.65,
-          "end": 69.17
+          "start": 79.82,
+          "end": 80.33
         },
         {
           "word": "dimulai.",
-          "start": 69.17,
-          "end": 70
+          "start": 80.33,
+          "end": 81.13
         }
       ],
-      "start": 68.28,
-      "end": 70
+      "start": 79.45,
+      "end": 81.13
     },
     {
       "id": "phrase-46",
       "words": [
         {
           "word": "Imam",
-          "start": 70,
-          "end": 70.29
+          "start": 81.13,
+          "end": 81.43
         },
         {
           "word": "membekap",
-          "start": 70.29,
-          "end": 70.89
+          "start": 81.43,
+          "end": 82.01
         },
         {
           "word": "wajah",
-          "start": 70.89,
-          "end": 71.26
+          "start": 82.01,
+          "end": 82.38
         },
         {
           "word": "Eno",
-          "start": 71.26,
-          "end": 71.49
+          "start": 82.38,
+          "end": 82.6
         }
       ],
-      "start": 70,
-      "end": 71.49
+      "start": 81.13,
+      "end": 82.6
     },
     {
       "id": "phrase-47",
       "words": [
         {
           "word": "dengan",
-          "start": 71.49,
-          "end": 71.93
+          "start": 82.6,
+          "end": 83.04
         },
         {
           "word": "bantal",
-          "start": 71.93,
-          "end": 72.38
+          "start": 83.04,
+          "end": 83.48
         },
         {
           "word": "sekuat",
-          "start": 72.38,
-          "end": 72.83
+          "start": 83.48,
+          "end": 83.92
         },
         {
           "word": "tenaga...",
-          "start": 72.83,
-          "end": 73.72
+          "start": 83.92,
+          "end": 84.79
         }
       ],
-      "start": 71.49,
-      "end": 73.72
+      "start": 82.6,
+      "end": 84.79
     },
     {
       "id": "phrase-48",
       "words": [
         {
           "word": "Jeritan",
-          "start": 73.72,
-          "end": 74.25
+          "start": 84.79,
+          "end": 85.31
         },
         {
           "word": "korban",
-          "start": 74.25,
-          "end": 74.69
+          "start": 85.31,
+          "end": 85.75
         },
         {
           "word": "tertahan",
-          "start": 74.69,
-          "end": 75.29
+          "start": 85.75,
+          "end": 86.33
         },
         {
           "word": "di",
-          "start": 75.29,
-          "end": 75.44
+          "start": 86.33,
+          "end": 86.48
         }
       ],
-      "start": 73.72,
-      "end": 75.44
+      "start": 84.79,
+      "end": 86.48
     },
     {
       "id": "phrase-49",
       "words": [
         {
           "word": "kegelapan.",
-          "start": 75.44,
-          "end": 76.41
+          "start": 86.48,
+          "end": 87.43
         }
       ],
-      "start": 75.44,
-      "end": 76.41
+      "start": 86.48,
+      "end": 87.43
     },
     {
       "id": "phrase-50",
       "words": [
         {
           "word": "Dan",
-          "start": 76.41,
-          "end": 76.63
+          "start": 87.43,
+          "end": 87.65
         },
         {
           "word": "perintah",
-          "start": 76.63,
-          "end": 77.23
+          "start": 87.65,
+          "end": 88.24
         },
         {
           "word": "dingin",
-          "start": 77.23,
-          "end": 77.68
+          "start": 88.24,
+          "end": 88.68
         },
         {
           "word": "itu",
-          "start": 77.68,
-          "end": 77.9
+          "start": 88.68,
+          "end": 88.89
         }
       ],
-      "start": 76.41,
-      "end": 77.9
+      "start": 87.43,
+      "end": 88.89
     },
     {
       "id": "phrase-51",
       "words": [
         {
           "word": "keluar:",
-          "start": 77.9,
-          "end": 78.42
+          "start": 88.89,
+          "end": 89.41
         }
       ],
-      "start": 77.9,
-      "end": 78.42
+      "start": 88.89,
+      "end": 89.41
     },
     {
       "id": "phrase-52",
       "words": [
         {
           "word": "cari",
-          "start": 78.42,
-          "end": 78.72
+          "start": 89.41,
+          "end": 89.7
         },
         {
           "word": "senjata...",
-          "start": 78.72,
-          "end": 79.69
+          "start": 89.7,
+          "end": 90.65
         }
       ],
-      "start": 78.42,
-      "end": 79.69
+      "start": 89.41,
+      "end": 90.65
     },
     {
       "id": "phrase-53",
       "words": [
         {
           "word": "sekarang.",
-          "start": 79.69,
-          "end": 80.59
+          "start": 90.65,
+          "end": 91.53
         }
       ],
-      "start": 79.69,
-      "end": 80.59
+      "start": 90.65,
+      "end": 91.53
     },
     {
       "id": "phrase-54",
       "words": [
         {
           "word": "Tak",
-          "start": 80.99,
-          "end": 81.21
+          "start": 91.93,
+          "end": 92.16
         },
         {
           "word": "ada",
-          "start": 81.21,
-          "end": 81.43
+          "start": 92.16,
+          "end": 92.38
         },
         {
           "word": "pisau",
-          "start": 81.43,
-          "end": 81.8
+          "start": 92.38,
+          "end": 92.76
         },
         {
           "word": "di",
-          "start": 81.8,
-          "end": 81.95
+          "start": 92.76,
+          "end": 92.91
         }
       ],
-      "start": 80.99,
-      "end": 81.95
+      "start": 91.93,
+      "end": 92.91
     },
     {
       "id": "phrase-55",
       "words": [
         {
           "word": "dapur.",
-          "start": 81.95,
-          "end": 82.61
+          "start": 92.91,
+          "end": 93.59
         }
       ],
-      "start": 81.95,
-      "end": 82.61
+      "start": 92.91,
+      "end": 93.59
     },
     {
       "id": "phrase-56",
       "words": [
         {
           "word": "Tapi",
-          "start": 82.61,
-          "end": 82.91
+          "start": 93.59,
+          "end": 93.89
         },
         {
           "word": "di",
-          "start": 82.91,
-          "end": 83.05
+          "start": 93.89,
+          "end": 94.04
         },
         {
           "word": "sudut",
-          "start": 83.05,
-          "end": 83.42
+          "start": 94.04,
+          "end": 94.42
         },
         {
           "word": "pekarangan",
-          "start": 83.42,
-          "end": 84.16
+          "start": 94.42,
+          "end": 95.18
         }
       ],
-      "start": 82.61,
-      "end": 84.16
+      "start": 93.59,
+      "end": 95.18
     },
     {
       "id": "phrase-57",
       "words": [
         {
           "word": "basah...",
-          "start": 84.16,
-          "end": 84.97
+          "start": 95.18,
+          "end": 96.01
         }
       ],
-      "start": 84.16,
-      "end": 84.97
+      "start": 95.18,
+      "end": 96.01
     },
     {
       "id": "phrase-58",
       "words": [
         {
           "word": "ada",
-          "start": 84.97,
-          "end": 85.19
+          "start": 96.01,
+          "end": 96.24
         },
         {
           "word": "cangkul",
-          "start": 85.19,
-          "end": 85.7
+          "start": 96.24,
+          "end": 96.76
         },
         {
           "word": "teronggok",
-          "start": 85.7,
-          "end": 86.37
+          "start": 96.76,
+          "end": 97.44
         },
         {
           "word": "di",
-          "start": 86.37,
-          "end": 86.51
+          "start": 97.44,
+          "end": 97.59
         }
       ],
-      "start": 84.97,
-      "end": 86.51
+      "start": 96.01,
+      "end": 97.59
     },
     {
       "id": "phrase-59",
       "words": [
         {
           "word": "dekat",
-          "start": 86.51,
-          "end": 86.88
+          "start": 97.59,
+          "end": 97.97
         },
         {
           "word": "pohon.",
-          "start": 86.88,
-          "end": 87.55
+          "start": 97.97,
+          "end": 98.65
         }
       ],
-      "start": 86.51,
-      "end": 87.55
+      "start": 97.59,
+      "end": 98.65
     },
     {
       "id": "phrase-60",
       "words": [
         {
           "word": "Benda",
-          "start": 87.55,
-          "end": 87.91
+          "start": 98.65,
+          "end": 99.03
         },
         {
           "word": "itu",
-          "start": 87.91,
-          "end": 88.14
+          "start": 99.03,
+          "end": 99.26
         },
         {
           "word": "diambil...",
-          "start": 88.14,
-          "end": 89.09
+          "start": 99.26,
+          "end": 100.24
         }
       ],
-      "start": 87.55,
-      "end": 89.09
+      "start": 98.65,
+      "end": 100.24
     },
     {
       "id": "phrase-61",
       "words": [
         {
           "word": "dan",
-          "start": 89.09,
-          "end": 89.31
+          "start": 100.24,
+          "end": 100.46
         },
         {
           "word": "diserahkan",
-          "start": 89.31,
-          "end": 90.05
+          "start": 100.46,
+          "end": 101.22
         },
         {
           "word": "ke",
-          "start": 90.05,
-          "end": 90.2
+          "start": 101.22,
+          "end": 101.37
         },
         {
           "word": "dalam",
-          "start": 90.2,
-          "end": 90.57
+          "start": 101.37,
+          "end": 101.75
         }
       ],
-      "start": 89.09,
-      "end": 90.57
+      "start": 100.24,
+      "end": 101.75
     },
     {
       "id": "phrase-62",
       "words": [
         {
           "word": "kamar",
-          "start": 90.57,
-          "end": 90.93
+          "start": 101.75,
+          "end": 102.13
         },
         {
           "word": "maut.",
-          "start": 90.93,
-          "end": 91.52
+          "start": 102.13,
+          "end": 102.73
         }
       ],
-      "start": 90.57,
-      "end": 91.52
+      "start": 101.75,
+      "end": 102.73
     },
     {
       "id": "phrase-63",
       "words": [
         {
           "word": "Mata",
-          "start": 91.92,
-          "end": 92.22
+          "start": 103.13,
+          "end": 103.43
         },
         {
           "word": "cangkul",
-          "start": 92.22,
-          "end": 92.74
+          "start": 103.43,
+          "end": 103.96
         },
         {
           "word": "dihantamkan",
-          "start": 92.74,
-          "end": 93.56
+          "start": 103.96,
+          "end": 104.8
         },
         {
           "word": "ke",
-          "start": 93.56,
-          "end": 93.71
+          "start": 104.8,
+          "end": 104.95
         }
       ],
-      "start": 91.92,
-      "end": 93.71
+      "start": 103.13,
+      "end": 104.95
     },
     {
       "id": "phrase-64",
       "words": [
         {
-          "word": "wajah...",
-          "start": 93.71,
-          "end": 94.54
+          "word": "arah",
+          "start": 104.95,
+          "end": 105.26
+        },
+        {
+          "word": "korban...",
+          "start": 105.26,
+          "end": 106.17
         }
       ],
-      "start": 93.71,
-      "end": 94.54
+      "start": 104.95,
+      "end": 106.17
     },
     {
       "id": "phrase-65",
       "words": [
         {
-          "word": "Korban",
-          "start": 94.54,
-          "end": 94.98
+          "word": "Memastikan",
+          "start": 106.17,
+          "end": 106.92
         },
         {
-          "word": "terkapar",
-          "start": 94.98,
-          "end": 95.58
+          "word": "sasaran",
+          "start": 106.92,
+          "end": 107.46
         },
         {
-          "word": "sekarat.",
-          "start": 95.58,
-          "end": 96.4
+          "word": "tak",
+          "start": 107.46,
+          "end": 107.68
+        },
+        {
+          "word": "lagi",
+          "start": 107.68,
+          "end": 107.99
         }
       ],
-      "start": 94.54,
-      "end": 96.4
+      "start": 106.17,
+      "end": 107.99
     },
     {
       "id": "phrase-66",
       "words": [
         {
-          "word": "Bukannya",
-          "start": 96.4,
-          "end": 97
-        },
-        {
-          "word": "berhenti...",
-          "start": 97,
-          "end": 98.05
+          "word": "berdaya.",
+          "start": 107.99,
+          "end": 108.82
         }
       ],
-      "start": 96.4,
-      "end": 98.05
+      "start": 107.99,
+      "end": 108.82
     },
     {
       "id": "phrase-67",
       "words": [
         {
-          "word": "kebiadaban",
-          "start": 98.05,
-          "end": 98.79
+          "word": "Bukannya",
+          "start": 108.82,
+          "end": 109.43
         },
         {
-          "word": "berlanjut.",
-          "start": 98.79,
-          "end": 99.77
+          "word": "berhenti...",
+          "start": 109.43,
+          "end": 110.49
         }
       ],
-      "start": 98.05,
-      "end": 99.77
+      "start": 108.82,
+      "end": 110.49
     },
     {
       "id": "phrase-68",
       "words": [
         {
-          "word": "Arifin",
-          "start": 99.77,
-          "end": 100.21
+          "word": "kebiadaban",
+          "start": 110.49,
+          "end": 111.25
         },
         {
-          "word": "menyetubuhinya...",
-          "start": 100.21,
-          "end": 101.71
+          "word": "berlanjut...",
+          "start": 111.25,
+          "end": 112.39
         }
       ],
-      "start": 99.77,
-      "end": 101.71
+      "start": 110.49,
+      "end": 112.39
     },
     {
       "id": "phrase-69",
       "words": [
         {
-          "word": "sementara",
-          "start": 101.71,
-          "end": 102.38
+          "word": "Sebuah",
+          "start": 112.39,
+          "end": 112.84
         },
         {
           "word": "garpu",
-          "start": 102.38,
-          "end": 102.76
+          "start": 112.84,
+          "end": 113.22
         },
         {
-          "word": "makan...",
-          "start": 102.76,
-          "end": 103.58
+          "word": "makan",
+          "start": 113.22,
+          "end": 113.6
+        },
+        {
+          "word": "disambar...",
+          "start": 113.6,
+          "end": 114.67
         }
       ],
-      "start": 101.71,
-      "end": 103.58
+      "start": 112.39,
+      "end": 114.67
     },
     {
       "id": "phrase-70",
       "words": [
         {
-          "word": "disayatkan",
-          "start": 103.58,
-          "end": 104.32
+          "word": "untuk",
+          "start": 114.67,
+          "end": 115.05
         },
         {
-          "word": "ke",
-          "start": 104.32,
-          "end": 104.47
+          "word": "melampiaskan",
+          "start": 115.05,
+          "end": 115.96
         },
         {
-          "word": "pipi",
-          "start": 104.47,
-          "end": 104.77
+          "word": "amarah",
+          "start": 115.96,
+          "end": 116.41
         },
         {
-          "word": "korban.",
-          "start": 104.77,
-          "end": 105.52
+          "word": "mereka.",
+          "start": 116.41,
+          "end": 117.17
         }
       ],
-      "start": 103.58,
-      "end": 105.52
+      "start": 114.67,
+      "end": 117.17
     },
     {
       "id": "phrase-71",
       "words": [
         {
           "word": "Dan",
-          "start": 105.92,
-          "end": 106.15
+          "start": 117.57,
+          "end": 117.81
         },
         {
           "word": "puncak",
-          "start": 106.15,
-          "end": 106.62
+          "start": 117.81,
+          "end": 118.28
         },
         {
-          "word": "kebiadaban",
-          "start": 106.62,
-          "end": 107.4
+          "word": "tragedi",
+          "start": 118.28,
+          "end": 118.84
         },
         {
-          "word": "itu...",
-          "start": 107.4,
-          "end": 108.1
+          "word": "kelam",
+          "start": 118.84,
+          "end": 119.23
         }
       ],
-      "start": 105.92,
-      "end": 108.1
+      "start": 117.57,
+      "end": 119.23
     },
     {
       "id": "phrase-72",
       "words": [
         {
-          "word": "terjadi",
-          "start": 108.1,
-          "end": 108.65
-        },
-        {
-          "word": "di",
-          "start": 108.65,
-          "end": 108.8
-        },
-        {
-          "word": "detik-detik",
-          "start": 108.8,
-          "end": 109.66
-        },
-        {
-          "word": "terakhir.",
-          "start": 109.66,
-          "end": 110.6
+          "word": "itu...",
+          "start": 119.23,
+          "end": 119.94
         }
       ],
-      "start": 108.1,
-      "end": 110.6
+      "start": 119.23,
+      "end": 119.94
     },
     {
       "id": "phrase-73",
       "words": [
         {
-          "word": "Kaki",
-          "start": 110.6,
-          "end": 110.91
+          "word": "terjadi",
+          "start": 119.94,
+          "end": 120.5
         },
         {
-          "word": "korban",
-          "start": 110.91,
-          "end": 111.38
+          "word": "di",
+          "start": 120.5,
+          "end": 120.66
         },
         {
-          "word": "dipegangi...",
-          "start": 111.38,
-          "end": 112.55
+          "word": "detik-detik",
+          "start": 120.66,
+          "end": 121.53
+        },
+        {
+          "word": "terakhir.",
+          "start": 121.53,
+          "end": 122.48
         }
       ],
-      "start": 110.6,
-      "end": 112.55
+      "start": 119.94,
+      "end": 122.48
     },
     {
       "id": "phrase-74",
       "words": [
         {
-          "word": "Dan",
-          "start": 112.55,
-          "end": 112.78
+          "word": "Tiga",
+          "start": 122.48,
+          "end": 122.79
         },
         {
-          "word": "gagang",
-          "start": 112.78,
-          "end": 113.25
+          "word": "pelaku",
+          "start": 122.79,
+          "end": 123.27
         },
         {
-          "word": "cangkul",
-          "start": 113.25,
-          "end": 113.79
+          "word": "saling",
+          "start": 123.27,
+          "end": 123.74
         },
         {
-          "word": "itu...",
-          "start": 113.79,
-          "end": 114.5
+          "word": "berbagi",
+          "start": 123.74,
+          "end": 124.3
         }
       ],
-      "start": 112.55,
-      "end": 114.5
+      "start": 122.48,
+      "end": 124.3
     },
     {
       "id": "phrase-75",
       "words": [
         {
-          "word": "ditancapkan",
-          "start": 114.5,
-          "end": 115.35
-        },
-        {
-          "word": "sedalam-dalamnya.",
-          "start": 115.35,
-          "end": 116.91
+          "word": "peran...",
+          "start": 124.3,
+          "end": 125.17
         }
       ],
-      "start": 114.5,
-      "end": 116.91
+      "start": 124.3,
+      "end": 125.17
     },
     {
       "id": "phrase-76",
       "words": [
         {
-          "word": "Menghentikan",
-          "start": 116.91,
-          "end": 117.85
+          "word": "Menggunakan",
+          "start": 125.17,
+          "end": 126.04
         },
         {
-          "word": "detak",
-          "start": 117.85,
-          "end": 118.24
+          "word": "cangkul",
+          "start": 126.04,
+          "end": 126.59
         },
         {
-          "word": "jantung",
-          "start": 118.24,
-          "end": 118.78
-        },
-        {
-          "word": "Eno...",
-          "start": 118.78,
-          "end": 119.48
+          "word": "pekarangan...",
+          "start": 126.59,
+          "end": 127.86
         }
       ],
-      "start": 116.91,
-      "end": 119.48
+      "start": 125.17,
+      "end": 127.86
     },
     {
       "id": "phrase-77",
       "words": [
         {
-          "word": "selamanya.",
-          "start": 119.48,
-          "end": 120.5
+          "word": "hingga",
+          "start": 127.86,
+          "end": 128.33
+        },
+        {
+          "word": "menghentikan",
+          "start": 128.33,
+          "end": 129.28
+        },
+        {
+          "word": "detak",
+          "start": 129.28,
+          "end": 129.68
+        },
+        {
+          "word": "jantung",
+          "start": 129.68,
+          "end": 130.23
         }
       ],
-      "start": 119.48,
-      "end": 120.5
+      "start": 127.86,
+      "end": 130.23
     },
     {
       "id": "phrase-78",
       "words": [
         {
-          "word": "Jasadnya",
-          "start": 120.9,
-          "end": 121.5
-        },
-        {
-          "word": "ditutupi",
-          "start": 121.5,
-          "end": 122.1
-        },
-        {
-          "word": "tumpukan",
-          "start": 122.1,
-          "end": 122.7
-        },
-        {
-          "word": "kain...",
-          "start": 122.7,
-          "end": 123.45
+          "word": "Eno...",
+          "start": 130.23,
+          "end": 130.94
         }
       ],
-      "start": 120.9,
-      "end": 123.45
+      "start": 130.23,
+      "end": 130.94
     },
     {
       "id": "phrase-79",
       "words": [
         {
-          "word": "Ponselnya",
-          "start": 123.45,
-          "end": 124.12
-        },
-        {
-          "word": "digondol.",
-          "start": 124.12,
-          "end": 125.02
+          "word": "selamanya.",
+          "start": 130.94,
+          "end": 131.97
         }
       ],
-      "start": 123.45,
-      "end": 125.02
+      "start": 130.94,
+      "end": 131.97
     },
     {
       "id": "phrase-80",
       "words": [
         {
-          "word": "Agar",
-          "start": 125.02,
-          "end": 125.32
+          "word": "Jasadnya",
+          "start": 132.37,
+          "end": 133.04
         },
         {
-          "word": "tak",
-          "start": 125.32,
-          "end": 125.54
+          "word": "ditutupi",
+          "start": 133.04,
+          "end": 133.71
         },
         {
-          "word": "ada",
-          "start": 125.54,
-          "end": 125.77
+          "word": "tumpukan",
+          "start": 133.71,
+          "end": 134.38
         },
         {
-          "word": "yang",
-          "start": 125.77,
-          "end": 126.07
+          "word": "kain...",
+          "start": 134.38,
+          "end": 135.22
         }
       ],
-      "start": 125.02,
-      "end": 126.07
+      "start": 132.37,
+      "end": 135.22
     },
     {
       "id": "phrase-81",
       "words": [
         {
-          "word": "curiga...",
-          "start": 126.07,
-          "end": 126.96
+          "word": "Ponselnya",
+          "start": 135.22,
+          "end": 135.97
+        },
+        {
+          "word": "digondol.",
+          "start": 135.97,
+          "end": 136.97
         }
       ],
-      "start": 126.07,
-      "end": 126.96
+      "start": 135.22,
+      "end": 136.97
     },
     {
       "id": "phrase-82",
       "words": [
         {
-          "word": "engsel",
-          "start": 126.96,
-          "end": 127.41
+          "word": "Agar",
+          "start": 136.97,
+          "end": 137.31
         },
         {
-          "word": "kamar",
-          "start": 127.41,
-          "end": 127.79
+          "word": "tak",
+          "start": 137.31,
+          "end": 137.56
         },
         {
-          "word": "dikunci",
-          "start": 127.79,
-          "end": 128.31
+          "word": "ada",
+          "start": 137.56,
+          "end": 137.81
         },
         {
-          "word": "gembok",
-          "start": 128.31,
-          "end": 128.76
+          "word": "yang",
+          "start": 137.81,
+          "end": 138.14
         }
       ],
-      "start": 126.96,
-      "end": 128.76
+      "start": 136.97,
+      "end": 138.14
     },
     {
       "id": "phrase-83",
       "words": [
         {
-          "word": "dari",
-          "start": 128.76,
-          "end": 129.06
-        },
-        {
-          "word": "luar.",
-          "start": 129.06,
-          "end": 129.66
+          "word": "curiga...",
+          "start": 138.14,
+          "end": 139.15
         }
       ],
-      "start": 128.76,
-      "end": 129.66
+      "start": 138.14,
+      "end": 139.15
     },
     {
       "id": "phrase-84",
       "words": [
         {
-          "word": "Mereka",
-          "start": 129.66,
-          "end": 130.11
+          "word": "engsel",
+          "start": 139.15,
+          "end": 139.65
         },
         {
-          "word": "menghilang...",
-          "start": 130.11,
-          "end": 131.31
+          "word": "kamar",
+          "start": 139.65,
+          "end": 140.07
+        },
+        {
+          "word": "dikunci",
+          "start": 140.07,
+          "end": 140.65
+        },
+        {
+          "word": "gembok",
+          "start": 140.65,
+          "end": 141.16
         }
       ],
-      "start": 129.66,
-      "end": 131.31
+      "start": 139.15,
+      "end": 141.16
     },
     {
       "id": "phrase-85",
       "words": [
         {
-          "word": "ditelan",
-          "start": 131.31,
-          "end": 131.83
+          "word": "dari",
+          "start": 141.16,
+          "end": 141.49
         },
         {
-          "word": "pekatnya",
-          "start": 131.83,
-          "end": 132.43
-        },
-        {
-          "word": "malam.",
-          "start": 132.43,
-          "end": 133.1
+          "word": "luar.",
+          "start": 141.49,
+          "end": 142.16
         }
       ],
-      "start": 131.31,
-      "end": 133.1
+      "start": 141.16,
+      "end": 142.16
     },
     {
       "id": "phrase-86",
       "words": [
         {
-          "word": "Tapi",
-          "start": 133.5,
-          "end": 133.78
+          "word": "Mereka",
+          "start": 142.16,
+          "end": 142.66
         },
         {
-          "word": "darah",
-          "start": 133.78,
-          "end": 134.13
-        },
-        {
-          "word": "tak",
-          "start": 134.13,
-          "end": 134.33
-        },
-        {
-          "word": "bisa",
-          "start": 134.33,
-          "end": 134.61
+          "word": "menghilang...",
+          "start": 142.66,
+          "end": 144
         }
       ],
-      "start": 133.5,
-      "end": 134.61
+      "start": 142.16,
+      "end": 144
     },
     {
       "id": "phrase-87",
       "words": [
         {
-          "word": "berbohong.",
-          "start": 134.61,
-          "end": 135.52
+          "word": "ditelan",
+          "start": 144,
+          "end": 144.59
+        },
+        {
+          "word": "pekatnya",
+          "start": 144.59,
+          "end": 145.26
+        },
+        {
+          "word": "malam.",
+          "start": 145.26,
+          "end": 146.01
         }
       ],
-      "start": 134.61,
-      "end": 135.52
+      "start": 144,
+      "end": 146.01
     },
     {
       "id": "phrase-88",
       "words": [
         {
-          "word": "Dalam",
-          "start": 135.52,
-          "end": 135.86
+          "word": "Tapi",
+          "start": 146.41,
+          "end": 146.71
         },
         {
-          "word": "hitungan",
-          "start": 135.86,
-          "end": 136.42
+          "word": "darah",
+          "start": 146.71,
+          "end": 147.08
         },
         {
-          "word": "hari...",
-          "start": 136.42,
-          "end": 137.11
+          "word": "tak",
+          "start": 147.08,
+          "end": 147.3
+        },
+        {
+          "word": "bisa",
+          "start": 147.3,
+          "end": 147.6
         }
       ],
-      "start": 135.52,
-      "end": 137.11
+      "start": 146.41,
+      "end": 147.6
     },
     {
       "id": "phrase-89",
       "words": [
         {
-          "word": "tim",
-          "start": 137.11,
-          "end": 137.32
-        },
-        {
-          "word": "buser",
-          "start": 137.32,
-          "end": 137.67
-        },
-        {
-          "word": "membekuk",
-          "start": 137.67,
-          "end": 138.23
-        },
-        {
-          "word": "ketiganya.",
-          "start": 138.23,
-          "end": 139.13
+          "word": "berbohong.",
+          "start": 147.6,
+          "end": 148.57
         }
       ],
-      "start": 137.11,
-      "end": 139.13
+      "start": 147.6,
+      "end": 148.57
     },
     {
       "id": "phrase-90",
       "words": [
         {
-          "word": "Palu",
-          "start": 139.13,
-          "end": 139.41
+          "word": "Dalam",
+          "start": 148.57,
+          "end": 148.94
         },
         {
-          "word": "hakim",
-          "start": 139.41,
-          "end": 139.76
+          "word": "hitungan",
+          "start": 148.94,
+          "end": 149.54
         },
         {
-          "word": "diketuk",
-          "start": 139.76,
-          "end": 140.24
-        },
-        {
-          "word": "keras.",
-          "start": 140.24,
-          "end": 140.87
+          "word": "hari...",
+          "start": 149.54,
+          "end": 150.28
         }
       ],
-      "start": 139.13,
-      "end": 140.87
+      "start": 148.57,
+      "end": 150.28
     },
     {
       "id": "phrase-91",
       "words": [
         {
-          "word": "Vonis",
-          "start": 140.87,
-          "end": 141.22
+          "word": "tim",
+          "start": 150.28,
+          "end": 150.51
         },
         {
-          "word": "mati...",
-          "start": 141.22,
-          "end": 141.91
+          "word": "buser",
+          "start": 150.51,
+          "end": 150.88
+        },
+        {
+          "word": "membekuk",
+          "start": 150.88,
+          "end": 151.48
+        },
+        {
+          "word": "ketiganya.",
+          "start": 151.48,
+          "end": 152.44
         }
       ],
-      "start": 140.87,
-      "end": 141.91
+      "start": 150.28,
+      "end": 152.44
     },
     {
       "id": "phrase-92",
       "words": [
         {
-          "word": "dan",
-          "start": 141.91,
-          "end": 142.12
+          "word": "Palu",
+          "start": 152.44,
+          "end": 152.74
         },
         {
-          "word": "kurungan",
-          "start": 142.12,
-          "end": 142.68
+          "word": "hakim",
+          "start": 152.74,
+          "end": 153.11
         },
         {
-          "word": "maksimal",
-          "start": 142.68,
-          "end": 143.23
+          "word": "diketuk",
+          "start": 153.11,
+          "end": 153.64
         },
         {
-          "word": "dijatuhkan...",
-          "start": 143.23,
-          "end": 144.34
+          "word": "keras.",
+          "start": 153.64,
+          "end": 154.31
         }
       ],
-      "start": 141.91,
-      "end": 144.34
+      "start": 152.44,
+      "end": 154.31
     },
     {
       "id": "phrase-93",
       "words": [
         {
-          "word": "atas",
-          "start": 144.34,
-          "end": 144.62
+          "word": "Vonis",
+          "start": 154.31,
+          "end": 154.68
         },
         {
-          "word": "salah",
-          "start": 144.62,
-          "end": 144.97
-        },
-        {
-          "word": "satu",
-          "start": 144.97,
-          "end": 145.25
-        },
-        {
-          "word": "kejahatan",
-          "start": 145.25,
-          "end": 145.87
+          "word": "mati...",
+          "start": 154.68,
+          "end": 155.42
         }
       ],
-      "start": 144.34,
-      "end": 145.87
+      "start": 154.31,
+      "end": 155.42
     },
     {
       "id": "phrase-94",
       "words": [
         {
-          "word": "paling",
-          "start": 145.87,
-          "end": 146.29
+          "word": "dan",
+          "start": 155.42,
+          "end": 155.65
         },
         {
-          "word": "kelam",
-          "start": 146.29,
-          "end": 146.64
+          "word": "kurungan",
+          "start": 155.65,
+          "end": 156.24
         },
         {
-          "word": "di",
-          "start": 146.64,
-          "end": 146.78
+          "word": "maksimal",
+          "start": 156.24,
+          "end": 156.84
         },
         {
-          "word": "tanah",
-          "start": 146.78,
-          "end": 147.12
+          "word": "dijatuhkan...",
+          "start": 156.84,
+          "end": 158.03
         }
       ],
-      "start": 145.87,
-      "end": 147.12
+      "start": 155.42,
+      "end": 158.03
     },
     {
       "id": "phrase-95",
       "words": [
         {
-          "word": "air.",
-          "start": 147.12,
-          "end": 147.61
+          "word": "atas",
+          "start": 158.03,
+          "end": 158.33
+        },
+        {
+          "word": "salah",
+          "start": 158.33,
+          "end": 158.7
+        },
+        {
+          "word": "satu",
+          "start": 158.7,
+          "end": 159
+        },
+        {
+          "word": "kejahatan",
+          "start": 159,
+          "end": 159.67
         }
       ],
-      "start": 147.12,
-      "end": 147.61
+      "start": 158.03,
+      "end": 159.67
+    },
+    {
+      "id": "phrase-96",
+      "words": [
+        {
+          "word": "paling",
+          "start": 159.67,
+          "end": 160.12
+        },
+        {
+          "word": "kelam",
+          "start": 160.12,
+          "end": 160.49
+        },
+        {
+          "word": "di",
+          "start": 160.49,
+          "end": 160.64
+        },
+        {
+          "word": "tanah",
+          "start": 160.64,
+          "end": 161.01
+        }
+      ],
+      "start": 159.67,
+      "end": 161.01
+    },
+    {
+      "id": "phrase-97",
+      "words": [
+        {
+          "word": "air.",
+          "start": 161.01,
+          "end": 161.53
+        }
+      ],
+      "start": 161.01,
+      "end": 161.53
     }
   ]
 }

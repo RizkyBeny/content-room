@@ -43,7 +43,7 @@ const SENTENCES = [
   {
     shot: 2,
     id: 's2',
-    text: 'Semua bermula... Kamis malam, 12 Mei 2016. Seorang remaja 15 tahun... mengetuk pintu mess kamar nomor tujuh... Mengajak berhubungan badan... tapi ditolak mentah-mentah.',
+    text: 'Semua bermula... Kamis malam, 12 Mei 2016. Seorang remaja 15 tahun... mengetuk pintu mess kamar nomor tujuh... Namun kedatangannya... ditolak mentah-mentah.',
     topKeyword: 'KAMAR NO. 7',
   },
   {
@@ -79,13 +79,13 @@ const SENTENCES = [
   {
     shot: 8,
     id: 's8',
-    text: 'Mata cangkul dihantamkan ke wajah... Korban terkapar sekarat. Bukannya berhenti... kebiadaban berlanjut. Arifin menyetubuhinya... sementara garpu makan... disayatkan ke pipi korban.',
+    text: 'Mata cangkul dihantamkan ke arah korban... Memastikan sasaran tak lagi berdaya. Bukannya berhenti... kebiadaban berlanjut... Sebuah garpu makan disambar... untuk melampiaskan amarah mereka.',
     topKeyword: 'KEBIADABAN BERLANJUT',
   },
   {
     shot: 9,
     id: 's9',
-    text: 'Dan puncak kebiadaban itu... terjadi di detik-detik terakhir. Kaki korban dipegangi... Dan gagang cangkul itu... ditancapkan sedalam-dalamnya. Menghentikan detak jantung Eno... selamanya.',
+    text: 'Dan puncak tragedi kelam itu... terjadi di detik-detik terakhir. Tiga pelaku saling berbagi peran... Menggunakan cangkul pekarangan... hingga menghentikan detak jantung Eno... selamanya.',
     topKeyword: 'GAGANG CANGKUL',
   },
   {
@@ -220,26 +220,86 @@ const NARRATIVE_BEAT_PLANS: Array<{ images: Array<{ file: string; weight: number
   },
 ];
 
-// Broadcast-standard voice synthesis using ElevenLabs Multilingual v2 (Brian Variasi 2: Intimate Low-End Whisper)
+// Broadcast-standard voice synthesis using Google Gemini TTS Charon with Klenik Low-End Warmth EQ
 async function synthesizeSentence(text: string, idx: number): Promise<{ wavPath: string; durationSec: number }> {
-  const brianWavPath = path.join(AUDIO_DIR, `brian-klenik-sentence-${idx}.wav`);
+  const charonWavPath = path.join(AUDIO_DIR, `charon-klenik-sentence-${idx}.wav`);
 
-  if (fs.existsSync(brianWavPath) && fs.statSync(brianWavPath).size > 10000) {
-    const dur = execFileSync(ffprobe, ['-v', 'error', '-show_entries', 'format=duration', '-of', 'default=noprint_wrappers=1:nokey=1', brianWavPath]).toString().trim();
-    console.log(`   [VO ${idx}/11] ✅ Cache ElevenLabs Brian ditemukan (${dur}s): ${brianWavPath}`);
-    return { wavPath: brianWavPath, durationSec: parseFloat(dur) || 8.0 };
+  if (fs.existsSync(charonWavPath) && fs.statSync(charonWavPath).size > 10000) {
+    const dur = execFileSync(ffprobe, ['-v', 'error', '-show_entries', 'format=duration', '-of', 'default=noprint_wrappers=1:nokey=1', charonWavPath]).toString().trim();
+    console.log(`   [VO ${idx}/11] ✅ Cache Charon Gemini ditemukan (${dur}s): ${charonWavPath}`);
+    return { wavPath: charonWavPath, durationSec: parseFloat(dur) || 8.0 };
   }
 
-  console.log(`   [VO ${idx}/11] 🎙️ Mensintesis via ElevenLabs (Brian Variasi 2 Klenik Whisper)...`);
-  const res = await synthesizeElevenLabsSentence(text, {
-    outputWavPath: brianWavPath,
-    voiceId: 'nPczCjzI2devNBz1zQrb', // Brian Variasi 2
-    stability: 0.65,
-    similarityBoost: 0.90,
-    speed: 1.00,
-  });
-  console.log(`   [VO ${idx}/11] ✅ Berhasil ElevenLabs Brian (${res.durationSec.toFixed(2)}s)`);
-  return res;
+  const key = process.env.GEMINI_API_KEY;
+  if (!key) throw new Error('GEMINI_API_KEY belum diset di .env.local!');
+
+  console.log(`   [VO ${idx}/11] 🎙️ Mensintesis via Gemini TTS Charon (Klenik Low-End Warmth EQ)...`);
+  const models = [
+    'gemini-3.8-flash-tts',
+    'gemini-3.8-flash-lite-tts',
+    'gemini-3.1-flash-tts-preview',
+    'gemini-2.5-flash-preview-tts',
+  ];
+
+  let rawPcm: Buffer | undefined;
+  for (const model of models) {
+    try {
+      const res = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent?key=${key}`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          contents: [{ parts: [{ text }] }],
+          generationConfig: {
+            responseModalities: ['AUDIO'],
+            speechConfig: {
+              voiceConfig: {
+                prebuiltVoiceConfig: { voiceName: 'Charon' },
+              },
+            },
+          },
+        }),
+      });
+
+      if (!res.ok) continue;
+      const data = (await res.json()) as any;
+      const b64 = data.candidates?.[0]?.content?.parts?.[0]?.inlineData?.data;
+      if (b64) {
+        rawPcm = Buffer.from(b64, 'base64');
+        break;
+      }
+    } catch {
+      // try next model
+    }
+  }
+
+  if (!rawPcm) {
+    throw new Error(`Gagal sintesis audio Charon untuk kalimat ${idx}`);
+  }
+
+  const tempPcm = path.join(AUDIO_DIR, `.temp-charon-${idx}.pcm`);
+  fs.writeFileSync(tempPcm, rawPcm);
+
+  try {
+    // Gemini returns 24kHz Mono 16-bit PCM. Convert & master to 48kHz Stereo with Klenik Low-End Warmth EQ
+    execFileSync(ffmpeg, [
+      '-y',
+      '-f', 's16le',
+      '-ar', '24000',
+      '-ac', '1',
+      '-i', tempPcm,
+      '-af', 'equalizer=f=110:width_type=o:width=1.8:g=4.0,equalizer=f=3000:width_type=o:width=1.2:g=2.2,highpass=f=75,lowpass=f=7800',
+      '-ar', '48000',
+      '-ac', '2',
+      charonWavPath,
+    ]);
+
+    const dur = execFileSync(ffprobe, ['-v', 'error', '-show_entries', 'format=duration', '-of', 'default=noprint_wrappers=1:nokey=1', charonWavPath]).toString().trim();
+    const durSec = parseFloat(dur) || 8.0;
+    console.log(`   [VO ${idx}/11] ✅ Berhasil Charon Gemini (${durSec.toFixed(2)}s)`);
+    return { wavPath: charonWavPath, durationSec: durSec };
+  } finally {
+    if (fs.existsSync(tempPcm)) fs.unlinkSync(tempPcm);
+  }
 }
 
 async function main() {
@@ -294,8 +354,8 @@ async function main() {
     }
   }
 
-  // 2. Synthesize 11 Klenik Malam Storyteller Sentences with Brian Variasi 2 VO
-  console.log('\n2. Mensintesis 11 Kalimat Voice Over (Brian Variasi 2 Klenik Whisper)...');
+  // 2. Synthesize 11 Klenik Malam Storyteller Sentences with Charon Gemini VO
+  console.log('\n2. Mensintesis 11 Kalimat Voice Over (Charon Gemini TTS + Klenik Low-End Warmth EQ)...');
   const sentenceTimings: Array<{ id: string; shot: number; text: string; topKeyword: string; wavPath: string; durationSec: number; start: number; end: number }> = [];
 
   // Start immediately from cover at 0.08s (Zero Dead Air)
@@ -318,6 +378,7 @@ async function main() {
     });
     console.log(`   [Kalimat ${i + 1}/11] (${res.durationSec.toFixed(2)}s) -> Timing: ${start}s - ${end}s | Top: "${s.topKeyword}"`);
     currentCursor = end + 0.40; // 400ms atmospheric breathing pause ala Klenik Malam
+    await new Promise((r) => setTimeout(r, 600));
   }
 
   // Prepend minimal 0.08s buffer so player codecs don't swallow first syllable
@@ -797,8 +858,8 @@ async function main() {
             <div class="stat-lbl">VO Start</div>
           </div>
           <div class="stat-box">
-            <div class="stat-val" style="color: #4ade80;">Brian Whisper</div>
-            <div class="stat-lbl">Klenik Malam VO</div>
+            <div class="stat-val" style="color: #4ade80;">Charon Gemini</div>
+            <div class="stat-lbl">Klenik Warmth VO</div>
           </div>
         </div>
 

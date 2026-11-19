@@ -1,0 +1,55 @@
+{
+  "version": 1,
+  "historyId": "f1770e07-2ace-45fe-8389-1064b033aa4d",
+  "currentRevision": null,
+  "pendingChanges": false,
+  "files": {
+    "artwork-noir.jpg": {
+      "hash": "9c4c8e6fd8918933dcadd0ac377761c46b0b71fc99ae628acbc80d884323a6bf",
+      "content": "/Users/beny/.cache/hyperframes/history/f1770e07-2ace-45fe-8389-1064b033aa4d/blobs/9c/9c4c8e6fd8918933dcadd0ac377761c46b0b71fc99ae628acbc80d884323a6bf"
+    },
+    "hyperframes.json": {
+      "hash": "12bb941b1e4060ce7418673e6ecf96e5aec4b3032a6640b3842a7f519534b7a2",
+      "content": "/Users/beny/.cache/hyperframes/history/f1770e07-2ace-45fe-8389-1064b033aa4d/blobs/12/12bb941b1e4060ce7418673e6ecf96e5aec4b3032a6640b3842a7f519534b7a2"
+    },
+    "index.html": {
+      "hash": "57f999cf721f32e90861703618f52a9fb0f071a8cea8aee11d356a414772f832",
+      "content": "/Users/beny/.cache/hyperframes/history/f1770e07-2ace-45fe-8389-1064b033aa4d/blobs/57/57f999cf721f32e90861703618f52a9fb0f071a8cea8aee11d356a414772f832"
+    }
+  },
+  "revisions": {},
+  "checks": {
+    "latest": null,
+    "revisions": {},
+    "unversioned": []
+  },
+  "snapshots": {
+    "latest": {
+      "revision": null,
+      "id": "68b1dae9-f5d6-43d3-9181-2b5731d7c069-0"
+    },
+    "revisions": {},
+    "unversioned": [
+      {
+        "scope": "full",
+        "id": "68b1dae9-f5d6-43d3-9181-2b5731d7c069-0",
+        "image": "/Users/beny/Documents/Project-self/Content-automation/hyperframes-workspace/hook-keyframe-kumparan-ruu-perampasan-aset-hook-1/snapshots/frame-00-at-1s.png",
+        "time": 1,
+        "metadata": {
+          "width": 1080,
+          "height": 1920,
+          "zoomScale": 1,
+          "browserGpuMode": "auto",
+          "warnings": [],
+          "partial": false
+        },
+        "createdAt": 1795061145913,
+        "contentHash": "5346a638c16002cbf5c0fbcb8a9e5cc13609e84f578924130f4384a9f4477c95",
+        "revision": null,
+        "inputFingerprint": "69b62e3c008c67bc9576df5c5bfa09258b604fbad6db5dd6973ff202b22ed496",
+        "inputScope": "local-project-files",
+        "attribution": "inputs-changed"
+      }
+    ]
+  }
+}

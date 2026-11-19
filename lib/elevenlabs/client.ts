@@ -38,7 +38,7 @@ export async function synthesizeElevenLabsSentence(
     throw new Error('ELEVENLABS_API_KEY belum diset di .env.local!');
   }
 
-  const voiceId = options.voiceId || process.env.ELEVENLABS_VOICE_ID || 'nPczCjzI2devNBz1zQrb'; // Brian as default (Klenik Malam Intimate Low-End Whisper)
+  const voiceId = options.voiceId || process.env.ELEVENLABS_VOICE_ID || 'ACRfKVNOAnzVitkYerdl'; // Charon Cloned (Klenik Malam Intimate Low-End Whisper)
   const modelId = options.modelId || process.env.ELEVENLABS_MODEL_ID || 'eleven_multilingual_v2';
   const stability = options.stability ?? 0.65;
   const similarityBoost = options.similarityBoost ?? 0.90;

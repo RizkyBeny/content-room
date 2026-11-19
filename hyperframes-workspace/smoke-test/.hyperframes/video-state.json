@@ -20,9 +20,33 @@
     "unversioned": []
   },
   "snapshots": {
-    "latest": null,
+    "latest": {
+      "revision": null,
+      "id": "c8491351-0be8-45f6-8bef-1ab88bc681f7-0"
+    },
     "revisions": {},
-    "unversioned": []
+    "unversioned": [
+      {
+        "scope": "full",
+        "id": "c8491351-0be8-45f6-8bef-1ab88bc681f7-0",
+        "image": "/Users/beny/Documents/Project-self/Content-automation/public/renders/smoke-test/snapshots/frame-00-at-2s.png",
+        "time": 2,
+        "metadata": {
+          "width": 1080,
+          "height": 1920,
+          "zoomScale": 1,
+          "browserGpuMode": "auto",
+          "warnings": [],
+          "partial": false
+        },
+        "createdAt": 1795059356611,
+        "contentHash": "c231caa65210819108651aabb7193f0740494be62d143c3f2941c23f4c238cf2",
+        "revision": null,
+        "inputFingerprint": "e48172ee3ca80c9def1ea36e9179e633cd6b3e0e1ac047639bfbdf1b7b4c252a",
+        "inputScope": "local-project-files",
+        "attribution": "unversioned"
+      }
+    ]
   },
   "renders": {
     "latest": {

@@ -1,7 +1,7 @@
 {
   "version": 1,
   "historyId": "e2311f28-ea2b-4c10-9615-33126ef2556e",
-  "currentRevision": "f8bc5078-8164-4339-8ba7-bdbfd8f7c62a",
+  "currentRevision": "8382a1bf-f523-4de1-a341-2fda4fd8d0de",
   "pendingChanges": false,
   "files": {
     "assets/beat-01.jpg": {
@@ -249,8 +249,8 @@
       "content": "/Users/beny/.cache/hyperframes/history/e2311f28-ea2b-4c10-9615-33126ef2556e/blobs/12/12bb941b1e4060ce7418673e6ecf96e5aec4b3032a6640b3842a7f519534b7a2"
     },
     "index.html": {
-      "hash": "d9188e6c113c9681ece3ac34cc78d201caf2f0181d6fc41d6080b26dd21df451",
-      "content": "/Users/beny/.cache/hyperframes/history/e2311f28-ea2b-4c10-9615-33126ef2556e/blobs/d9/d9188e6c113c9681ece3ac34cc78d201caf2f0181d6fc41d6080b26dd21df451"
+      "hash": "b583d7c3191d22cab0272c5ce6f77b780ae15e823c9fdc9d05f3edbb2fefc47e",
+      "content": "/Users/beny/.cache/hyperframes/history/e2311f28-ea2b-4c10-9615-33126ef2556e/blobs/b5/b583d7c3191d22cab0272c5ce6f77b780ae15e823c9fdc9d05f3edbb2fefc47e"
     },
     "assets/backyard-cangkul.jpg": {
       "hash": "1b947f3bf46ecb4b110b52df910f5b0ef30a425f71a229c0dbb3c44526246c3c",
@@ -350,6 +350,21 @@
           "after": "/Users/beny/.cache/hyperframes/history/e2311f28-ea2b-4c10-9615-33126ef2556e/blobs/d9/d9188e6c113c9681ece3ac34cc78d201caf2f0181d6fc41d6080b26dd21df451"
         }
       }
+    },
+    "8382a1bf-f523-4de1-a341-2fda4fd8d0de": {
+      "actor": {
+        "kind": "outside",
+        "name": "Outside"
+      },
+      "label": "Changed outside the app",
+      "startedAt": 1795012530348,
+      "endedAt": 1795012530351,
+      "files": {
+        "index.html": {
+          "before": "/Users/beny/.cache/hyperframes/history/e2311f28-ea2b-4c10-9615-33126ef2556e/blobs/d9/d9188e6c113c9681ece3ac34cc78d201caf2f0181d6fc41d6080b26dd21df451",
+          "after": "/Users/beny/.cache/hyperframes/history/e2311f28-ea2b-4c10-9615-33126ef2556e/blobs/b5/b583d7c3191d22cab0272c5ce6f77b780ae15e823c9fdc9d05f3edbb2fefc47e"
+        }
+      }
     }
   },
   "checks": {
@@ -364,15 +379,15 @@
   },
   "renders": {
     "latest": {
-      "id": "7253e470-b6e7-475e-a36c-18118afd2ac3",
-      "completedAt": 1795010465402,
+      "id": "4abc8da1-74e2-42ef-9050-a5790da5877c",
+      "completedAt": 1795013564684,
       "output": "/Users/beny/Documents/Project-self/Content-automation/public/renders/eno-pelaku-berbagi-peran/temp-visual-timeline.mp4",
       "status": "completed",
-      "revision": "f8bc5078-8164-4339-8ba7-bdbfd8f7c62a"
+      "revision": "8382a1bf-f523-4de1-a341-2fda4fd8d0de"
     },
     "retainedRevisions": [
-      "f8bc5078-8164-4339-8ba7-bdbfd8f7c62a",
-      "8216b140-86f3-4be7-822d-67ac2580de2b"
+      "8382a1bf-f523-4de1-a341-2fda4fd8d0de",
+      "f8bc5078-8164-4339-8ba7-bdbfd8f7c62a"
     ]
   },
   "pendingArtifactCleanup": []

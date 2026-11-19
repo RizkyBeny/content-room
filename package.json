@@ -15,7 +15,8 @@
     "test:flow": "tsx scripts/test-flow-mcp.ts",
     "test:hyperframes": "tsx scripts/test-hyperframes.ts",
     "test:deepseek": "tsx scripts/test-deepseek.ts",
-    "test:voice": "tsx scripts/test-voiceover.ts"
+    "test:voice": "tsx scripts/test-voiceover.ts",
+    "test:hook": "tsx scripts/run-hook-engine.ts"
   },
   "dependencies": {
     "cheerio": "^1.0.0",

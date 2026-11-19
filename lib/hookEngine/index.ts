@@ -1,36 +1,62 @@
-import { CaseDossierInput, HookSimulatorSession, HookCandidate } from './types';
+import fs from 'node:fs';
+import path from 'node:path';
+import { CaseDossierInput, HookSimulatorSession, HookCandidate, ContentSegmentKey, ProductDossierInput } from './types';
 import { generateHookCandidates } from './hookGenerator';
 import { scoreHookCandidate } from './empiricalScorer';
 import { synthesizeHookMedia } from './flowMediaSynthesizer';
 import { HISTORICAL_BENCHMARKS, getBenchmarkById } from './caseLibrary';
 import { extractCrimeCaseDossier } from '../orchestrator/agents/caseExtractor';
+import { extractEcommerceProductDossier } from './ecommerceParser';
 
 export * from './types';
 export * from './archetypes';
+export * from './segments';
 export * from './caseLibrary';
 export * from './empiricalScorer';
 export * from './hookGenerator';
 export * from './flowMediaSynthesizer';
+export * from './ecommerceParser';
 
 /**
  * Hook Successor Engine Facade
  */
 export class HookSuccessorEngine {
   /**
-   * Initializes a new Hook Simulator Session from URL, Case ID, or raw brief
+   * Initializes a new Hook Simulator Session from URL, Case ID, Product Data, or raw brief
    */
   async createSession(input: {
     sourceUrl?: string;
     caseId?: string;
     rawBrief?: string;
+    segment?: ContentSegmentKey;
+    productData?: ProductDossierInput;
     synthesizeMedia?: boolean;
   }): Promise<HookSimulatorSession> {
     let dossier: CaseDossierInput;
 
-    if (input.caseId) {
+    if (input.productData) {
+      const p = input.productData;
+      dossier = {
+        caseId: `ugc-${Date.now()}`,
+        segment: 'commerce_ugc',
+        title: p.productName,
+        location: 'TikTok Shop / Shopee',
+        victim: p.targetPersona || 'Konsumen',
+        suspect: 'Solusi / Skincare Lama yang Tidak Efektif',
+        keyEvidence: p.uspBenefit,
+        coreConflict: p.painPoint,
+        rawBrief: `${p.productName} - ${p.uspBenefit}. Promo: ${p.offerPrice || '-'}`,
+        sourceUrl: p.productUrl,
+        productData: p,
+      };
+    } else if (input.caseId) {
       const benchmark = getBenchmarkById(input.caseId);
       if (benchmark) {
-        dossier = { ...benchmark };
+        dossier = {
+          ...benchmark,
+          segment: input.segment || benchmark.segment || 'video_reels',
+          productData: benchmark.productData,
+        };
       } else {
         dossier = {
           caseId: input.caseId,
@@ -41,26 +67,38 @@ export class HookSuccessorEngine {
           keyEvidence: 'Barang Bukti Forensik',
           coreConflict: 'Konflik investigasi utama',
           rawBrief: input.rawBrief,
+          segment: input.segment || 'video_reels',
         };
       }
     } else if (input.sourceUrl) {
-      console.log(`🌐 Mengambil & menganalisis artikel dari URL: ${input.sourceUrl}...`);
-      const extracted = await extractCrimeCaseDossier(input.sourceUrl);
-      const slug = (extracted.headline || 'investigasi')
-        .toLowerCase()
-        .replace(/[^a-z0-9]+/g, '-')
-        .slice(0, 30);
-      dossier = {
-        caseId: `url-${slug}`,
-        title: extracted.headline || 'Investigasi Perkara Kriminal',
-        location: extracted.location || 'Indonesia',
-        victim: extracted.victims?.join(', ') || 'Korban',
-        suspect: extracted.suspects?.join(', ') || 'Pelaku',
-        keyEvidence: extracted.keyEvidence?.join(', ') || 'Barang Bukti',
-        coreConflict: extracted.chronologySummary || 'Konflik kejahatan',
-        sourceUrl: input.sourceUrl,
-        rawBrief: extracted.hookIdea,
-      };
+      const isEcommerce =
+        input.segment === 'commerce_ugc' ||
+        /(shopee|tokopedia|tiktok\.com|lazada|blibli|zalora|product|shop)/i.test(input.sourceUrl);
+
+      if (isEcommerce) {
+        console.log(`🛍️ [Hook Engine] Mendeteksi URL E-Commerce: ${input.sourceUrl}...`);
+        const ecom = await extractEcommerceProductDossier(input.sourceUrl);
+        dossier = ecom.dossier;
+      } else {
+        console.log(`🌐 Mengambil & menganalisis artikel dari URL: ${input.sourceUrl}...`);
+        const extracted = await extractCrimeCaseDossier(input.sourceUrl);
+        const slug = (extracted.headline || 'investigasi')
+          .toLowerCase()
+          .replace(/[^a-z0-9]+/g, '-')
+          .slice(0, 30);
+        dossier = {
+          caseId: `url-${slug}`,
+          title: extracted.headline || 'Investigasi Perkara Kriminal',
+          location: extracted.location || 'Indonesia',
+          victim: extracted.victims?.join(', ') || 'Korban',
+          suspect: extracted.suspects?.join(', ') || 'Pelaku',
+          keyEvidence: extracted.keyEvidence?.join(', ') || 'Barang Bukti',
+          coreConflict: extracted.chronologySummary || 'Konflik kejahatan',
+          sourceUrl: input.sourceUrl,
+          rawBrief: extracted.hookIdea,
+          segment: input.segment || 'video_reels',
+        };
+      }
     } else {
       dossier = {
         caseId: `brief-${Date.now()}`,
@@ -71,6 +109,7 @@ export class HookSuccessorEngine {
         keyEvidence: 'Bukti Kunci',
         coreConflict: input.rawBrief || 'Konflik perkara',
         rawBrief: input.rawBrief,
+        segment: input.segment || 'video_reels',
       };
     }
 
@@ -90,6 +129,27 @@ export class HookSuccessorEngine {
           cand.media = media;
         } catch (err: any) {
           console.warn(`⚠️ Gagal mensintesis media untuk ${cand.id}:`, err.message);
+        }
+      }
+    }
+
+    // Auto-attach pre-synthesized media from disk if available
+    for (const cand of candidates) {
+      if (!cand.media && dossier.caseId) {
+        const outDir = path.resolve(process.cwd(), 'public', 'renders', 'hook-simulator', dossier.caseId, cand.id);
+        const videoSnippetPath = path.join(outDir, 'hook-preview.mp4');
+        const audioPath = path.join(outDir, 'hook-audio.wav');
+        const imagePath = path.join(outDir, 'hook-visual.jpg');
+        if (fs.existsSync(videoSnippetPath)) {
+          cand.media = {
+            audioPath,
+            audioUrl: `/renders/hook-simulator/${dossier.caseId}/${cand.id}/hook-audio.wav`,
+            imagePath,
+            imageUrl: `/renders/hook-simulator/${dossier.caseId}/${cand.id}/hook-visual.jpg`,
+            videoSnippetPath,
+            videoSnippetUrl: `/renders/hook-simulator/${dossier.caseId}/${cand.id}/hook-preview.mp4`,
+            durationSec: 6.0,
+          };
         }
       }
     }

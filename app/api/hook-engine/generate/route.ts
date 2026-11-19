@@ -8,6 +8,8 @@ export async function POST(req: NextRequest) {
       sourceUrl: body.sourceUrl,
       caseId: body.caseId,
       rawBrief: body.rawBrief,
+      segment: body.segment,
+      productData: body.productData,
       synthesizeMedia: body.synthesizeMedia ?? false,
     });
 

@@ -20,6 +20,22 @@ const { ffmpeg } = resolveFfmpegBin();
 function resolveNoirArtwork(candidate: HookCandidate, dossier: CaseDossierInput): string {
   const caseId = dossier.caseId || '';
 
+  // E-Commerce Real Product Artwork (NO NOIR!)
+  if (dossier.segment === 'commerce_ugc' || caseId.includes('shopee') || caseId.includes('obermain') || caseId.includes('ugc')) {
+    // Check specific Obermain / Shopee real product image
+    const obermainReal = path.resolve(process.cwd(), 'public', 'renders', 'shopee-obermain', 'real-product.jpg');
+    if (fs.existsSync(obermainReal)) return obermainReal;
+
+    // Check ecommerce-products directory for downloaded CDN image
+    const ecomDir = path.resolve(process.cwd(), 'public', 'renders', 'ecommerce-products');
+    if (fs.existsSync(ecomDir)) {
+      const files = fs.readdirSync(ecomDir).filter((f) => f.endsWith('.jpg') || f.endsWith('.png'));
+      if (files.length > 0) {
+        return path.join(ecomDir, files[0]);
+      }
+    }
+  }
+
   // 1. If Candidate 2 of RUU Perampasan Aset (The Odd Specific Detail / Draft Bill Article 47)
   const draftBillVisual = path.resolve(
     process.cwd(),
@@ -87,7 +103,7 @@ function resolveNoirArtwork(candidate: HookCandidate, dossier: CaseDossierInput)
   if (fs.existsSync(caseKeyframe)) return caseKeyframe;
 
   // Defaults based on archetype
-  if ((candidate.archetype === 'odd_specific_detail' || candidate.archetype === 'The Odd Specific Detail') && fs.existsSync(draftBillVisual)) {
+  if ((candidate.archetype === 'odd_specific_detail' || (candidate.archetype as string) === 'The Odd Specific Detail') && fs.existsSync(draftBillVisual)) {
     return draftBillVisual;
   }
   if (candidate.archetype === 'micro_story_countdown' && fs.existsSync(corkboardAsset)) {
@@ -141,15 +157,27 @@ export async function generateKeyframeImage(params: {
     fs.copyFileSync(rawBgPath, localBgPath);
   }
 
-  const kickerText = `DOSSIER FORENSIK // INVESTIGASI KHUSUS`;
+  const isUGC = dossier.segment === 'commerce_ugc';
+  const kickerText = isUGC
+    ? (dossier.productData?.category === 'beauty_skincare' ? '✨ BEAUTY HACK // RACUN TIKTOK' : '🔥 SPILL PRODUK // REVIEW JUJUR')
+    : `DOSSIER FORENSIK // INVESTIGASI KHUSUS`;
+  const caseStampText = isUGC
+    ? (dossier.productData?.offerPrice || 'DISKON SPESIAL HARI INI')
+    : (dossier.caseId || 'CRIME ARCHIVE').toUpperCase();
+  const brandTagText = isUGC
+    ? (dossier.productData?.productName || dossier.title).toUpperCase()
+    : 'TRUE CRIME EXPLAINER';
+  const brandSubText = isUGC
+    ? '⭐ 4.9/5 (10K+ TERJUAL) • PROMO TERBATAS'
+    : '9:16 VERTICAL CINEMATIC';
 
-  // FLAGSHIP GRAPHIC NOVEL NEO-NOIR FORENSIC CANVAS (1080x1920 Vertikal)
+  // FLAGSHIP GRAPHIC NOVEL NEO-NOIR FORENSIC CANVAS / NATIVE UGC CANVAS (1080x1920 Vertikal)
   const htmlContent = `<!doctype html>
 <html lang="id" data-resolution="portrait">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=1080, height=1920" />
-  <title>Graphic Noir Keyframe - ${candidate.topGiantKeyword}</title>
+  <title>${isUGC ? 'Native UGC TikTok' : 'Graphic Noir'} Keyframe - ${candidate.topGiantKeyword}</title>
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.15.0/dist/gsap.min.js"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -165,7 +193,7 @@ export async function generateKeyframeImage(params: {
       width: 1080px;
       height: 1920px;
       overflow: hidden;
-      background-color: #0A0D12;
+      background-color: ${isUGC ? '#0D1117' : '#0A0D12'};
       color: #E6EDF3;
       font-family: 'Inter', sans-serif;
     }
@@ -174,13 +202,13 @@ export async function generateKeyframeImage(params: {
       height: 1920px;
       position: relative;
       overflow: hidden;
-      background: #0A0D12;
+      background: ${isUGC ? 'linear-gradient(180deg, #0F172A 0%, #0D1117 100%)' : '#0A0D12'};
     }
     .shot-media-wrapper {
       position: absolute;
       inset: 0;
-      width: 100%;
-      height: 100%;
+      width: 1080px;
+      height: 1920px;
       overflow: hidden;
       z-index: 1;
     }
@@ -191,12 +219,17 @@ export async function generateKeyframeImage(params: {
       object-fit: cover;
       object-position: center;
       transform-origin: center center;
+      filter: ${isUGC ? 'brightness(0.85) contrast(1.15)' : 'none'};
     }
     /* Chiaroscuro Atmospheric Film Grain & Radial Vignette Overlay */
     .vignette-overlay {
       position: absolute;
       inset: 0;
-      background: radial-gradient(circle at 50% 45%, rgba(10, 13, 18, 0.15) 35%, rgba(10, 13, 18, 0.88) 100%);
+      background: ${
+        isUGC
+          ? 'radial-gradient(circle at 50% 50%, rgba(13, 17, 23, 0.2) 20%, rgba(13, 17, 23, 0.85) 100%)'
+          : 'radial-gradient(circle at 50% 45%, rgba(10, 13, 18, 0.15) 35%, rgba(10, 13, 18, 0.88) 100%)'
+      };
       pointer-events: none;
       z-index: 2;
     }
@@ -223,26 +256,27 @@ export async function generateKeyframeImage(params: {
       z-index: 30;
     }
     .kicker-noir {
-      background: #8B2635;
+      background: ${isUGC ? '#FF004F' : '#8B2635'};
       color: #FFFFFF;
       font-family: 'Montserrat', sans-serif;
       font-weight: 900;
       font-size: 20px;
-      letter-spacing: 0.15em;
+      letter-spacing: 0.12em;
       text-transform: uppercase;
       padding: 10px 24px;
       display: inline-block;
-      border-left: 6px solid #E5A93C;
+      border-left: ${isUGC ? '6px solid #FEE500' : '6px solid #E5A93C'};
       box-shadow: 0 4px 20px rgba(0,0,0,0.8);
+      border-radius: ${isUGC ? '6px' : '0px'};
     }
     .case-stamp {
       font-family: 'Montserrat', sans-serif;
       font-weight: 800;
       font-size: 18px;
-      letter-spacing: 0.18em;
-      color: #C59B27;
+      letter-spacing: 0.14em;
+      color: ${isUGC ? '#FEE500' : '#C59B27'};
       text-transform: uppercase;
-      opacity: 0.85;
+      opacity: 0.95;
     }
     /* Dual-Layer Typography: Top Giant Keyword Flash */
     #top-keyword-container {
@@ -260,21 +294,22 @@ export async function generateKeyframeImage(params: {
     }
     .top-keyword-badge {
       padding: 16px 36px;
-      background: rgba(13, 17, 23, 0.88);
-      border: 2px solid rgba(197, 155, 39, 0.75);
-      box-shadow: 0 0 40px rgba(197, 155, 39, 0.45), inset 0 0 25px rgba(139, 38, 53, 0.4);
-      border-radius: 12px;
+      background: ${isUGC ? '#FEE500' : 'rgba(13, 17, 23, 0.88)'};
+      border: ${isUGC ? 'none' : '2px solid rgba(197, 155, 39, 0.75)'};
+      box-shadow: ${isUGC ? '0 12px 36px rgba(0, 0, 0, 0.75)' : '0 0 40px rgba(197, 155, 39, 0.45), inset 0 0 25px rgba(139, 38, 53, 0.4)'};
+      border-radius: ${isUGC ? '12px' : '12px'};
       backdrop-filter: blur(12px);
+      transform: ${isUGC ? 'rotate(-1.5deg)' : 'none'};
       transform-origin: center center;
     }
     .top-keyword-text {
       font-family: 'Montserrat', sans-serif;
       font-weight: 900;
       font-size: 48px;
-      letter-spacing: 0.08em;
+      letter-spacing: 0.06em;
       text-transform: uppercase;
-      color: #FFFFFF;
-      text-shadow: 0 0 30px rgba(229, 169, 60, 0.95), 0 4px 14px rgba(0, 0, 0, 0.95);
+      color: ${isUGC ? '#000000' : '#FFFFFF'};
+      text-shadow: ${isUGC ? 'none' : '0 0 30px rgba(229, 169, 60, 0.95), 0 4px 14px rgba(0, 0, 0, 0.95)'};
       line-height: 1.15;
       white-space: nowrap;
     }
@@ -293,17 +328,13 @@ export async function generateKeyframeImage(params: {
       pointer-events: none;
     }
     .caption-phrase {
-      font-size: 46px;
+      font-size: 44px;
       font-weight: 800;
       line-height: 1.35;
       letter-spacing: -0.01em;
       color: #FFFFFF;
       text-shadow: 0 4px 20px rgba(0, 0, 0, 0.98), 0 2px 8px rgba(0, 0, 0, 0.95);
       padding: 0 20px;
-    }
-    .caption-highlight {
-      color: #FCD34D;
-      text-shadow: 0 0 20px rgba(229, 169, 60, 0.8);
     }
     /* Brand Watermark / Bottom Footer */
     .footer-bar {
@@ -315,36 +346,87 @@ export async function generateKeyframeImage(params: {
       justify-content: space-between;
       align-items: center;
       z-index: 25;
-      border-top: 1px solid rgba(197, 155, 39, 0.25);
+      border-top: 1px solid ${isUGC ? 'rgba(254, 229, 0, 0.3)' : 'rgba(197, 155, 39, 0.25)'};
       padding-top: 20px;
     }
     .brand-tag {
       font-family: 'Montserrat', sans-serif;
       font-weight: 900;
       font-size: 20px;
-      letter-spacing: 0.2em;
-      color: rgba(229, 169, 60, 0.7);
+      letter-spacing: 0.15em;
+      color: ${isUGC ? '#FEE500' : 'rgba(229, 169, 60, 0.7)'};
       text-transform: uppercase;
     }
     .brand-sub {
       font-size: 18px;
-      color: rgba(255, 255, 255, 0.5);
+      color: rgba(255, 255, 255, 0.7);
       font-weight: 600;
       letter-spacing: 0.1em;
+    }
+    /* E-Commerce Real Product Showcase Stage */
+    .product-stage {
+      position: absolute;
+      top: 360px;
+      left: 0;
+      right: 0;
+      height: 700px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 10;
+    }
+    .product-ambient-glow {
+      position: absolute;
+      width: 600px;
+      height: 600px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(254, 229, 0, 0.15) 0%, rgba(15, 23, 42, 0) 70%);
+      pointer-events: none;
+    }
+    .product-card-frame {
+      width: 660px;
+      height: 660px;
+      border-radius: 32px;
+      background: #FFFFFF;
+      box-shadow: 0 30px 80px rgba(0, 0, 0, 0.8), 0 0 40px rgba(254, 229, 0, 0.12);
+      border: 4px solid rgba(255, 255, 255, 0.2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+      overflow: hidden;
+    }
+    .real-product-img {
+      max-width: 100%;
+      max-height: 100%;
+      object-fit: contain;
     }
   </style>
 </head>
 <body>
   <div id="root" data-composition-id="main" data-start="0" data-duration="5" data-width="1080" data-height="1920">
+    ${
+      isUGC
+        ? `
+    <div class="product-stage">
+      <div class="product-ambient-glow"></div>
+      <div class="product-card-frame">
+        <img class="real-product-img" src="./${localBgName}" alt="Real Product" />
+      </div>
+    </div>
+    `
+        : `
     <div class="shot-media-wrapper">
-      <img class="shot-bg" src="./${localBgName}" alt="Noir Artwork" />
+      <img class="shot-bg" src="./${localBgName}" alt="Keyframe Visual" />
     </div>
     <div class="vignette-overlay"></div>
+    `
+    }
     <div class="bottom-caption-scrim"></div>
 
     <div class="header-bar">
       <span class="kicker-noir">${kickerText}</span>
-      <span class="case-stamp">${(dossier.caseId || 'CRIME ARCHIVE').toUpperCase()}</span>
+      <span class="case-stamp">${caseStampText}</span>
     </div>
 
     <div id="top-keyword-container">
@@ -360,8 +442,8 @@ export async function generateKeyframeImage(params: {
     </div>
 
     <div class="footer-bar">
-      <span class="brand-tag">TRUE CRIME EXPLAINER</span>
-      <span class="brand-sub">9:16 VERTICAL CINEMATIC</span>
+      <span class="brand-tag">${brandTagText}</span>
+      <span class="brand-sub">${brandSubText}</span>
     </div>
   </div>
   <script>

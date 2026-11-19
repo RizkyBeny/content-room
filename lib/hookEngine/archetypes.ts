@@ -28,6 +28,33 @@ export const HOOK_ARCHETYPES: Record<HookArchetypeKey, HookArchetypeDefinition> 
     example:
       'Malam sebelum ketukan palu di Senayan... sebuah draf rahasia diselipkan. Mulai detik ini... 30 hari adalah vonis mati bagi aset mencurigakan.',
   },
+  ugc_negative_warning: {
+    key: 'ugc_negative_warning',
+    name: 'The Negative Warning (Stop Doing This)',
+    description: 'Menabrak kesalahan fatal konsumen yang membuat masalah mereka makin parah. Mengadopsi prinsip Loss Aversion & Fear of Mistake.',
+    psychologicalTrigger: 'Loss Aversion, Mistake Prevention & Shocking Contrast',
+    formula: '["STOP" / "JANGAN BELI"] + [Kebiasaan Sia-sia Konsumen] + [Konsekuensi Buruk] + [Solusi Alternatif]',
+    example:
+      'Stop buang duit jutaan buat facial... kalau bekas jerawat kamu masih dibiarin kayak gini. Kulit kamu itu butuh retinol encapsulated... bukan racikan abal-abal.',
+  },
+  ugc_gatekept_secret: {
+    key: 'ugc_gatekept_secret',
+    name: 'The Gatekept Secret & Specific Hack',
+    description: 'Mengungkap 1 bahan aktif atau fitur unik tersembunyi layaknya rahasia orang dalam industri.',
+    psychologicalTrigger: 'Information-Gap Theory & Insider Privilege',
+    formula: '["Kenapa gak ada yang ngasih tahu..."] + [Satu Fitur / Kandungan Rahasia] + [Hasil Nyata Terlalu Bagus]',
+    example:
+      'Kenapa gak ada dokter kulit yang ngasih tahu hack ini? Cuma modal satu tetes serum encapsulated sebelum tidur... flek hitam menahun bisa samar dalam seminggu.',
+  },
+  ugc_before_after_countdown: {
+    key: 'ugc_before_after_countdown',
+    name: 'The Micro-Story Transformation & Urgent FOMO',
+    description: 'Menceritakan momen titik terendah / panik H-1 sebelum menemukan produk, dipadukan batas waktu promo.',
+    psychologicalTrigger: 'Empathy, Transformation Proof & Time Scarcity FOMO',
+    formula: '[Momen Panik H-1 / Titik Terendah] + [Momen Penemuan Tak Terduga] + [Transformasi / Batas Promo]',
+    example:
+      'H-3 wisuda muka break-out parah sampai gak berani keluar kamar... Untung langsung checkout botol ini. Sekarang kulit glowing natural tanpa dempul bedak tebal.',
+  },
   whispered_crime_scene: {
     key: 'whispered_crime_scene',
     name: 'The Whispered Crime Scene',
@@ -64,4 +91,13 @@ export const CANONICAL_3_ARCHETYPE_KEYS: HookArchetypeKey[] = [
   'cognitive_dissonance_paradox',
   'odd_specific_detail',
   'micro_story_countdown',
+];
+
+/**
+ * The 3 canonical hook archetypes used for UGC / Commerce
+ */
+export const CANONICAL_UGC_ARCHETYPE_KEYS: HookArchetypeKey[] = [
+  'ugc_negative_warning',
+  'ugc_gatekept_secret',
+  'ugc_before_after_countdown',
 ];

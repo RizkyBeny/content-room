@@ -20,9 +20,9 @@ async function main() {
     console.log(`   Copy: "${c.hookText}"`);
     console.log(`   Ringkasan: ${c.conciseSummary || c.psychologicalReason}`);
     if (c.media) {
-      console.log(`   🎨 Keyframe: ${c.media.imagePath} (exists: ${fs.existsSync(c.media.imagePath)})`);
-      console.log(`   🎙️ Audio: ${c.media.audioPath} (${c.media.durationSec?.toFixed(1)}s)`);
-      console.log(`   🎬 Video: ${c.media.videoSnippetPath} (size: ${fs.statSync(c.media.videoSnippetPath).size} bytes)`);
+      console.log(`   🎨 Keyframe: ${c.media.imagePath} (exists: ${c.media.imagePath ? fs.existsSync(c.media.imagePath) : false})`);
+      console.log(`   🎙️ Audio: ${c.media.audioPath} (${c.durationSecEstimate?.toFixed(1)}s)`);
+      console.log(`   🎬 Video: ${c.media.videoSnippetPath} (size: ${c.media.videoSnippetPath ? fs.statSync(c.media.videoSnippetPath).size : 0} bytes)`);
     } else {
       console.log(`   ❌ No media synthesized!`);
     }

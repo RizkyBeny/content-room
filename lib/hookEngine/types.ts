@@ -1,7 +1,18 @@
+export type ContentSegmentKey =
+  | 'video_reels'
+  | 'commerce_ugc'
+  | 'news_anchor'
+  | 'carousel_swipe'
+  | 'article_blog'
+  | 'single_image_post';
+
 export type HookArchetypeKey =
   | 'cognitive_dissonance_paradox'
   | 'odd_specific_detail'
   | 'micro_story_countdown'
+  | 'ugc_negative_warning'
+  | 'ugc_gatekept_secret'
+  | 'ugc_before_after_countdown'
   | 'whispered_crime_scene'
   | 'multi_motive_escalation'
   | 'cold_forensic_warning';
@@ -102,8 +113,28 @@ export interface HookCandidate {
   };
 }
 
+export type CommerceNicheCategory =
+  | 'beauty_skincare'
+  | 'gadget_tech'
+  | 'fashion_apparel'
+  | 'fnb_culinary'
+  | 'home_living'
+  | 'general';
+
+export interface ProductDossierInput {
+  productName: string;
+  category: CommerceNicheCategory;
+  targetPersona?: string;
+  painPoint: string;
+  uspBenefit: string;
+  offerPrice?: string;
+  productUrl?: string;
+  voicePersona?: 'female_creator' | 'male_creator' | 'auto';
+}
+
 export interface CaseDossierInput {
   caseId?: string;
+  segment?: ContentSegmentKey;
   title: string;
   location: string;
   victim: string;
@@ -112,6 +143,7 @@ export interface CaseDossierInput {
   coreConflict: string;
   sourceUrl?: string;
   rawBrief?: string;
+  productData?: ProductDossierInput;
 }
 
 export interface HookSimulatorSession {

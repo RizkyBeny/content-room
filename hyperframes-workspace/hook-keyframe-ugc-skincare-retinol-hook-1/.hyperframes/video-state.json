@@ -1,0 +1,55 @@
+{
+  "version": 1,
+  "historyId": "cde20f6f-3659-4a8b-b6f5-9e6aee2a8fc4",
+  "currentRevision": null,
+  "pendingChanges": false,
+  "files": {
+    "artwork-noir.jpg": {
+      "hash": "9c4c8e6fd8918933dcadd0ac377761c46b0b71fc99ae628acbc80d884323a6bf",
+      "content": "/Users/beny/.cache/hyperframes/history/cde20f6f-3659-4a8b-b6f5-9e6aee2a8fc4/blobs/9c/9c4c8e6fd8918933dcadd0ac377761c46b0b71fc99ae628acbc80d884323a6bf"
+    },
+    "hyperframes.json": {
+      "hash": "12bb941b1e4060ce7418673e6ecf96e5aec4b3032a6640b3842a7f519534b7a2",
+      "content": "/Users/beny/.cache/hyperframes/history/cde20f6f-3659-4a8b-b6f5-9e6aee2a8fc4/blobs/12/12bb941b1e4060ce7418673e6ecf96e5aec4b3032a6640b3842a7f519534b7a2"
+    },
+    "index.html": {
+      "hash": "39269a4bc94b25195c02383117e861793fc5441f7cde449c1960458c93cd5a35",
+      "content": "/Users/beny/.cache/hyperframes/history/cde20f6f-3659-4a8b-b6f5-9e6aee2a8fc4/blobs/39/39269a4bc94b25195c02383117e861793fc5441f7cde449c1960458c93cd5a35"
+    }
+  },
+  "revisions": {},
+  "checks": {
+    "latest": null,
+    "revisions": {},
+    "unversioned": []
+  },
+  "snapshots": {
+    "latest": {
+      "revision": null,
+      "id": "270aed9a-636c-478b-b32e-91a9b9dd00e7-0"
+    },
+    "revisions": {},
+    "unversioned": [
+      {
+        "scope": "full",
+        "id": "270aed9a-636c-478b-b32e-91a9b9dd00e7-0",
+        "image": "/Users/beny/Documents/Project-self/Content-automation/hyperframes-workspace/hook-keyframe-ugc-skincare-retinol-hook-1/snapshots/frame-00-at-1s.png",
+        "time": 1,
+        "metadata": {
+          "width": 1080,
+          "height": 1920,
+          "zoomScale": 1,
+          "browserGpuMode": "auto",
+          "warnings": [],
+          "partial": false
+        },
+        "createdAt": 1795069664624,
+        "contentHash": "c541b496b8d27197afa487733c0221c678d3f8deee23377be5786769f24d226b",
+        "revision": null,
+        "inputFingerprint": "0353919d2447c81ee0db18e1d2ecac160beb55dbb06073c86b6fdd8ac8342161",
+        "inputScope": "local-project-files",
+        "attribution": "inputs-changed"
+      }
+    ]
+  }
+}

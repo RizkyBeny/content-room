@@ -73,7 +73,7 @@ export function scoreHookCandidate(params: {
   }
 
   const hasSensoryWords =
-    /(hujan|dingin|darah|terbakar|hangus|tertawa|senyum|terkunci|jeritan|racun|kopi|palu|ketukan|tuli|bungkam|sita)/i.test(
+    /(hujan|dingin|darah|terbakar|hangus|tertawa|senyum|terkunci|jeritan|racun|kopi|palu|ketukan|tuli|bungkam|sita|stop|jangan|buang|facial|jerawat|kusam|glowing|flek|bising|budek|copet|rahasia|promo|diskon|checkout)/i.test(
       hookText
     );
   if (hasSensoryWords) {
@@ -129,7 +129,7 @@ export function scoreHookCandidate(params: {
   }
 
   const hasSpecificMystery =
-    /(pasal|rekening|kamar|nomor|cangkul|pelat|senyum|kepingan|bengkel|dua ratus|fraksi|senayan|vonis|ganjil)/i.test(
+    /(pasal|rekening|kamar|nomor|cangkul|pelat|senyum|kepingan|bengkel|dua ratus|fraksi|senayan|vonis|ganjil|retinol|serum|earbud|resleting|tws|facial|botol|diskon|kantor)/i.test(
       hookText
     );
   if (hasSpecificMystery) {

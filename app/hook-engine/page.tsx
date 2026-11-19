@@ -5,10 +5,22 @@ import {
   HookSimulatorSession,
   HookCandidate,
   HistoricalBenchmarkCase,
-} from '@/lib/hookEngine/types';
+  ContentSegmentKey,
+  ProductDossierInput,
+} from '@/lib/hookEngine';
+
+const SEGMENT_OPTIONS: { key: ContentSegmentKey; label: string; icon: string; shortBadge: string }[] = [
+  { key: 'video_reels', label: 'Short Video (9:16)', icon: '📱', shortBadge: 'Reels / TikTok' },
+  { key: 'commerce_ugc', label: 'Commerce & UGC', icon: '🛍️', shortBadge: 'Ad Video' },
+  { key: 'news_anchor', label: 'News Anchor', icon: '🎙️', shortBadge: 'Investigasi' },
+  { key: 'carousel_swipe', label: 'Carousel (Slide 1)', icon: '📑', shortBadge: 'Cover Post' },
+  { key: 'article_blog', label: 'SEO Article', icon: '✍️', shortBadge: 'H1 & Lead' },
+  { key: 'single_image_post', label: 'Feed Post', icon: '🖼️', shortBadge: 'Post + Caption' },
+];
 
 export default function HookEnginePage() {
   const [activeTab, setActiveTab] = useState<'url' | 'benchmark' | 'brief'>('benchmark');
+  const [selectedSegment, setSelectedSegment] = useState<ContentSegmentKey>('video_reels');
   const [sourceUrl, setSourceUrl] = useState(
     'https://kumparan.com/kumparannews/pemerintah-dpr-sepakati-ruu-perampasan-aset-dibawa-ke-paripurna-untuk-disahkan-jadi-uu-28b45xHQ7o7'
   );
@@ -23,6 +35,29 @@ export default function HookEnginePage() {
   const [editKeyword, setEditKeyword] = useState('');
   const [promotedWinner, setPromotedWinner] = useState<HookCandidate | null>(null);
 
+  // Dedicated Product Form for Commerce & UGC
+  const [productForm, setProductForm] = useState<ProductDossierInput>({
+    productName: 'GlowMatrix Retinol Encapsulated 1%',
+    category: 'beauty_skincare',
+    targetPersona: 'Wanita 20-35 tahun pejuang jerawat & flek hitam',
+    painPoint: 'Bekas jerawat hitam gak hilang-hilang meski udah beli skincare jutaan',
+    uspBenefit: 'Formula Encapsulated slow-release, samarkan flek dalam 14 hari tanpa purging',
+    offerPrice: 'Diskon 45% + Gratis Re-fill pouch khusus hari ini',
+    productUrl: 'https://shopee.co.id/glowmatrix-retinol-serum',
+  });
+
+  // Switch default selected case when changing segment
+  const handleSelectSegment = (seg: ContentSegmentKey) => {
+    setSelectedSegment(seg);
+    if (seg === 'commerce_ugc') {
+      const ugcCase = benchmarkCases.find((b) => b.caseId === 'ugc-skincare-retinol');
+      if (ugcCase) setSelectedCaseId(ugcCase.caseId);
+    } else {
+      const nonUgc = benchmarkCases.find((b) => b.caseId === 'kumparan-ruu-perampasan-aset');
+      if (nonUgc) setSelectedCaseId(nonUgc.caseId);
+    }
+  };
+
   // Load benchmark cases on mount
   useEffect(() => {
     fetch('/api/hook-engine/cases')
@@ -30,23 +65,33 @@ export default function HookEnginePage() {
       .then((data) => {
         if (data.cases) {
           setBenchmarkCases(data.cases);
-          const kumparan = data.cases.find((c: any) => c.caseId === 'kumparan-ruu-perampasan-aset');
-          if (kumparan) {
-            setSelectedCaseId(kumparan.caseId);
+          const defaultCase = selectedSegment === 'commerce_ugc'
+            ? data.cases.find((c: any) => c.caseId === 'ugc-skincare-retinol')
+            : data.cases.find((c: any) => c.caseId === 'kumparan-ruu-perampasan-aset');
+          if (defaultCase) {
+            setSelectedCaseId(defaultCase.caseId);
           }
         }
       })
       .catch(console.error);
-  }, []);
+  }, [selectedSegment]);
 
   const handleGenerate = async () => {
     setLoading(true);
     setPromotedWinner(null);
     try {
-      const payload: any = { synthesizeMedia: true };
-      if (activeTab === 'url') payload.sourceUrl = sourceUrl;
-      else if (activeTab === 'benchmark') payload.caseId = selectedCaseId;
-      else payload.rawBrief = rawBrief;
+      const payload: any = { synthesizeMedia: true, segment: selectedSegment };
+      if (activeTab === 'url') {
+        payload.sourceUrl = sourceUrl;
+      } else if (activeTab === 'benchmark') {
+        payload.caseId = selectedCaseId;
+      } else {
+        if (selectedSegment === 'commerce_ugc') {
+          payload.productData = productForm;
+        } else {
+          payload.rawBrief = rawBrief;
+        }
+      }
 
       const res = await fetch('/api/hook-engine/generate', {
         method: 'POST',
@@ -181,7 +226,7 @@ export default function HookEnginePage() {
                     : 'text-[#8A8F98] hover:text-white'
                 }`}
               >
-                Benchmark Kasus
+                {selectedSegment === 'commerce_ugc' ? 'Preset Produk UGC' : 'Benchmark Kasus'}
               </button>
               <button
                 onClick={() => setActiveTab('url')}
@@ -191,7 +236,7 @@ export default function HookEnginePage() {
                     : 'text-[#8A8F98] hover:text-white'
                 }`}
               >
-                Input URL Berita
+                {selectedSegment === 'commerce_ugc' ? 'Link Produk / Toko' : 'Input URL Berita'}
               </button>
               <button
                 onClick={() => setActiveTab('brief')}
@@ -201,71 +246,204 @@ export default function HookEnginePage() {
                     : 'text-[#8A8F98] hover:text-white'
                 }`}
               >
-                Custom Brief
+                {selectedSegment === 'commerce_ugc' ? 'Form Produk' : 'Custom Brief'}
               </button>
             </div>
           </div>
 
-          {/* Form Controls */}
-          <div className="flex flex-col md:flex-row gap-3">
-            {activeTab === 'benchmark' && (
-              <div className="flex-1 bg-[#0E1013] border border-white/[0.07] focus-within:border-white/[0.2] rounded-xl px-3 py-2 flex items-center transition-colors">
-                <select
-                  value={selectedCaseId}
-                  onChange={(e) => setSelectedCaseId(e.target.value)}
-                  className="bg-transparent text-xs text-[#F7F8F8] outline-none w-full cursor-pointer"
-                >
-                  {benchmarkCases.map((b) => (
-                    <option key={b.caseId} value={b.caseId} className="bg-[#121316] text-[#F7F8F8]">
-                      {b.title} (Benchmark HSI: {b.benchmarkHSI})
-                    </option>
-                  ))}
-                </select>
-              </div>
-            )}
-
-            {activeTab === 'url' && (
-              <div className="flex-1 bg-[#0E1013] border border-white/[0.07] focus-within:border-white/[0.2] rounded-xl px-3.5 py-2 flex items-center transition-colors">
-                <input
-                  type="url"
-                  placeholder="Paste URL artikel investigasi / berita (misal: kumparan.com / radar)..."
-                  value={sourceUrl}
-                  onChange={(e) => setSourceUrl(e.target.value)}
-                  className="bg-transparent text-xs text-[#F7F8F8] placeholder:text-[#62666D] outline-none w-full"
-                />
-              </div>
-            )}
-
-            {activeTab === 'brief' && (
-              <div className="flex-1 bg-[#0E1013] border border-white/[0.07] focus-within:border-white/[0.2] rounded-xl px-3.5 py-2 flex items-center transition-colors">
-                <input
-                  type="text"
-                  placeholder="Tuliskan pokok konflik atau barang bukti kunci perkara..."
-                  value={rawBrief}
-                  onChange={(e) => setRawBrief(e.target.value)}
-                  className="bg-transparent text-xs text-[#F7F8F8] placeholder:text-[#62666D] outline-none w-full"
-                />
-              </div>
-            )}
-
-            <button
-              onClick={handleGenerate}
-              disabled={loading}
-              className="bg-[#F7F8F8] hover:bg-white text-[#08090A] font-semibold text-xs px-5 py-2 rounded-xl transition-all active:scale-[0.98] shadow-sm flex items-center justify-center gap-2 disabled:opacity-50"
-            >
-              {loading ? (
-                <>
-                  <span className="w-3.5 h-3.5 border-2 border-black/30 border-t-black rounded-full animate-spin"></span>
-                  <span>Mensintesis 3 Opsi...</span>
-                </>
-              ) : (
-                <>
-                  <span>⚡</span>
-                  <span>Formulasikan 3 Hook</span>
-                </>
-              )}
-            </button>
+          {/* Target Content Segment Selector */}
+          <div className="flex flex-col gap-2 pt-2 border-t border-white/[0.05]">
+            <div className="flex items-center justify-between">
+              <span className="text-[11px] font-mono text-[#8A8F98] uppercase tracking-wider">
+                Target Format / Segmen Konten:
+              </span>
+              <span className="text-[11px] text-amber-400 font-mono">
+                {SEGMENT_OPTIONS.find((s) => s.key === selectedSegment)?.shortBadge}
+              </span>
+            </div>
+            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-2">
+              {SEGMENT_OPTIONS.map((seg) => {
+                const isSelected = selectedSegment === seg.key;
+                return (
+                  <button
+                    key={seg.key}
+                    type="button"
+                    onClick={() => handleSelectSegment(seg.key)}
+                    className={`flex items-center gap-2 px-3 py-2 rounded-xl text-xs font-medium transition-all text-left border ${
+                      isSelected
+                        ? 'bg-amber-500/10 text-amber-200 border-amber-500/40 shadow-sm shadow-amber-500/10'
+                        : 'bg-[#0E1013] text-[#8A8F98] border-white/[0.06] hover:text-white hover:border-white/[0.12]'
+                    }`}
+                  >
+                    <span className="text-sm">{seg.icon}</span>
+                    <span className="truncate">{seg.label}</span>
+                  </button>
+                );
+              })}
+            </div>
           </div>
+
+          {/* Form Controls */}
+          {activeTab === 'brief' && selectedSegment === 'commerce_ugc' ? (
+            <div className="space-y-3 bg-[#0B0C0E] border border-white/[0.06] p-4 rounded-xl">
+              <div className="grid grid-cols-1 md:grid-cols-4 gap-3">
+                <div className="md:col-span-1">
+                  <label className="text-[11px] font-mono text-[#8A8F98] block mb-1">NAMA PRODUK</label>
+                  <input
+                    type="text"
+                    value={productForm.productName}
+                    onChange={(e) => setProductForm({ ...productForm, productName: e.target.value })}
+                    className="w-full bg-[#121316] border border-white/[0.08] focus:border-amber-400/50 rounded-lg px-3 py-2 text-xs text-white outline-none"
+                    placeholder="misal: Tas Obermain / Serum Retinol..."
+                  />
+                </div>
+                <div>
+                  <label className="text-[11px] font-mono text-[#8A8F98] block mb-1">NICHE / KATEGORI</label>
+                  <select
+                    value={productForm.category}
+                    onChange={(e) => setProductForm({ ...productForm, category: e.target.value as any })}
+                    className="w-full bg-[#121316] border border-white/[0.08] focus:border-amber-400/50 rounded-lg px-3 py-2 text-xs text-white outline-none cursor-pointer"
+                  >
+                    <option value="fashion_apparel">Fashion & Apparel</option>
+                    <option value="beauty_skincare">Beauty & Skincare</option>
+                    <option value="gadget_tech">Gadget & Tech</option>
+                    <option value="fnb_culinary">Food & Beverage</option>
+                    <option value="home_living">Home & Living</option>
+                    <option value="general">General / Other</option>
+                  </select>
+                </div>
+                <div>
+                  <label className="text-[11px] font-mono text-[#8A8F98] block mb-1">VOICE PERSONA CREATOR</label>
+                  <select
+                    value={productForm.voicePersona || 'auto'}
+                    onChange={(e) => setProductForm({ ...productForm, voicePersona: e.target.value as any })}
+                    className="w-full bg-[#121316] border border-white/[0.08] focus:border-amber-400/50 rounded-lg px-3 py-2 text-xs text-amber-300 outline-none cursor-pointer"
+                  >
+                    <option value="auto">Auto-Detect (Cewek untuk Beauty/Tas Cewek)</option>
+                    <option value="female_creator">👩 Suara Cewek (Aoede - Hangat & Natural)</option>
+                    <option value="male_creator">👨 Suara Cowok (Puck - Enerjik & Santai)</option>
+                  </select>
+                </div>
+                <div>
+                  <label className="text-[11px] font-mono text-[#8A8F98] block mb-1">PENAWARAN / HARGA PROMO</label>
+                  <input
+                    type="text"
+                    value={productForm.offerPrice || ''}
+                    onChange={(e) => setProductForm({ ...productForm, offerPrice: e.target.value })}
+                    className="w-full bg-[#121316] border border-white/[0.08] focus:border-amber-400/50 rounded-lg px-3 py-2 text-xs text-white outline-none"
+                    placeholder="misal: Diskon 45% + Gratis Ongkir..."
+                  />
+                </div>
+              </div>
+
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+                <div>
+                  <label className="text-[11px] font-mono text-[#8A8F98] block mb-1">MASALAH UTAMA KONSUMEN (PAIN POINT)</label>
+                  <input
+                    type="text"
+                    value={productForm.painPoint}
+                    onChange={(e) => setProductForm({ ...productForm, painPoint: e.target.value })}
+                    className="w-full bg-[#121316] border border-white/[0.08] focus:border-amber-400/50 rounded-lg px-3 py-2 text-xs text-white outline-none"
+                    placeholder="misal: Bekas jerawat hitam gak hilang meski udah facial jutaan..."
+                  />
+                </div>
+                <div>
+                  <label className="text-[11px] font-mono text-[#8A8F98] block mb-1">SOLUSI UNIK / BENEFIT (USP)</label>
+                  <input
+                    type="text"
+                    value={productForm.uspBenefit}
+                    onChange={(e) => setProductForm({ ...productForm, uspBenefit: e.target.value })}
+                    className="w-full bg-[#121316] border border-white/[0.08] focus:border-amber-400/50 rounded-lg px-3 py-2 text-xs text-white outline-none"
+                    placeholder="misal: Retinol encapsulated slow-release aman tanpa purging..."
+                  />
+                </div>
+              </div>
+
+              <div className="flex justify-end pt-2">
+                <button
+                  onClick={handleGenerate}
+                  disabled={loading}
+                  className="bg-[#F7F8F8] hover:bg-white text-[#08090A] font-semibold text-xs px-6 py-2.5 rounded-xl transition-all active:scale-[0.98] shadow-sm flex items-center gap-2 disabled:opacity-50"
+                >
+                  {loading ? (
+                    <>
+                      <span className="w-3.5 h-3.5 border-2 border-black/30 border-t-black rounded-full animate-spin"></span>
+                      <span>Mensintesis 3 Hook UGC...</span>
+                    </>
+                  ) : (
+                    <>
+                      <span>⚡</span>
+                      <span>Formulasikan 3 Hook UGC</span>
+                    </>
+                  )}
+                </button>
+              </div>
+            </div>
+          ) : (
+            <div className="flex flex-col md:flex-row gap-3">
+              {activeTab === 'benchmark' && (
+                <div className="flex-1 bg-[#0E1013] border border-white/[0.07] focus-within:border-white/[0.2] rounded-xl px-3 py-2 flex items-center transition-colors">
+                  <select
+                    value={selectedCaseId}
+                    onChange={(e) => setSelectedCaseId(e.target.value)}
+                    className="bg-transparent text-xs text-[#F7F8F8] outline-none w-full cursor-pointer"
+                  >
+                    {benchmarkCases.map((b) => (
+                      <option key={b.caseId} value={b.caseId} className="bg-[#121316] text-[#F7F8F8]">
+                        {b.title} (Benchmark HSI: {b.benchmarkHSI})
+                      </option>
+                    ))}
+                  </select>
+                </div>
+              )}
+
+              {activeTab === 'url' && (
+                <div className="flex-1 bg-[#0E1013] border border-white/[0.07] focus-within:border-white/[0.2] rounded-xl px-3.5 py-2 flex items-center transition-colors">
+                  <input
+                    type="url"
+                    placeholder={
+                      selectedSegment === 'commerce_ugc'
+                        ? 'Paste Link Produk (Shopee / TikTok Shop / Tokopedia / Web)...'
+                        : 'Paste URL artikel investigasi / berita (misal: kumparan.com / radar)...'
+                    }
+                    value={sourceUrl}
+                    onChange={(e) => setSourceUrl(e.target.value)}
+                    className="bg-transparent text-xs text-[#F7F8F8] placeholder:text-[#62666D] outline-none w-full"
+                  />
+                </div>
+              )}
+
+              {activeTab === 'brief' && (
+                <div className="flex-1 bg-[#0E1013] border border-white/[0.07] focus-within:border-white/[0.2] rounded-xl px-3.5 py-2 flex items-center transition-colors">
+                  <input
+                    type="text"
+                    placeholder="Tuliskan pokok konflik atau barang bukti kunci perkara..."
+                    value={rawBrief}
+                    onChange={(e) => setRawBrief(e.target.value)}
+                    className="bg-transparent text-xs text-[#F7F8F8] placeholder:text-[#62666D] outline-none w-full"
+                  />
+                </div>
+              )}
+
+              <button
+                onClick={handleGenerate}
+                disabled={loading}
+                className="bg-[#F7F8F8] hover:bg-white text-[#08090A] font-semibold text-xs px-5 py-2 rounded-xl transition-all active:scale-[0.98] shadow-sm flex items-center justify-center gap-2 disabled:opacity-50"
+              >
+                {loading ? (
+                  <>
+                    <span className="w-3.5 h-3.5 border-2 border-black/30 border-t-black rounded-full animate-spin"></span>
+                    <span>Mensintesis 3 Opsi...</span>
+                  </>
+                ) : (
+                  <>
+                    <span>⚡</span>
+                    <span>Formulasikan 3 Hook</span>
+                  </>
+                )}
+              </button>
+            </div>
+          )}
         </section>
 
         {/* 3-Column Candidates Grid */}
@@ -280,7 +458,11 @@ export default function HookEnginePage() {
               <div className="flex items-center gap-3 font-mono text-[11px]">
                 <span>3 Opsi Siap Putar</span>
                 <span>•</span>
-                <span className="text-amber-300">Format 1080x1920 Vertikal</span>
+                <span className="text-amber-300">
+                  {session.dossier.segment
+                    ? SEGMENT_OPTIONS.find((s) => s.key === session.dossier.segment)?.label || 'Format 1080x1920 Vertikal'
+                    : 'Format 1080x1920 Vertikal'}
+                </span>
               </div>
             </div>
 
@@ -347,7 +529,9 @@ export default function HookEnginePage() {
                             <span className="text-2xl mb-1">🎬</span>
                             <span className="text-[11px] font-semibold text-white uppercase tracking-wider">Video Cuplikan 5s</span>
                             <p className="text-[10px] text-[#8A8F98] mt-1 max-w-[150px]">
-                              Neo-Noir Graphic Novel + Charon Klenik EQ
+                              {session?.dossier.segment === 'commerce_ugc'
+                                ? 'Native TikTok 9:16 + Creator Voice'
+                                : 'Neo-Noir Graphic Novel + Charon Klenik EQ'}
                             </p>
                             <button
                               onClick={() => handleSynthesizeMedia(c)}

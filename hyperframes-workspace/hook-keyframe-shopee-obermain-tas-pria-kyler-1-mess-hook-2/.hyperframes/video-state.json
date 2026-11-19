@@ -1,0 +1,55 @@
+{
+  "version": 1,
+  "historyId": "dfa8b3b8-9345-4cdd-af44-8c9df1482c9f",
+  "currentRevision": null,
+  "pendingChanges": false,
+  "files": {
+    "artwork-noir.jpg": {
+      "hash": "db42fb9ff5cd34a582a8c3df1639ceb204a2a6c27531a8d1ea993b7564413950",
+      "content": "/Users/beny/.cache/hyperframes/history/dfa8b3b8-9345-4cdd-af44-8c9df1482c9f/blobs/db/db42fb9ff5cd34a582a8c3df1639ceb204a2a6c27531a8d1ea993b7564413950"
+    },
+    "hyperframes.json": {
+      "hash": "12bb941b1e4060ce7418673e6ecf96e5aec4b3032a6640b3842a7f519534b7a2",
+      "content": "/Users/beny/.cache/hyperframes/history/dfa8b3b8-9345-4cdd-af44-8c9df1482c9f/blobs/12/12bb941b1e4060ce7418673e6ecf96e5aec4b3032a6640b3842a7f519534b7a2"
+    },
+    "index.html": {
+      "hash": "a3afa60e0753afbf6bff5c1b2dc421094cd9295d9386aa7525c106747775dc3f",
+      "content": "/Users/beny/.cache/hyperframes/history/dfa8b3b8-9345-4cdd-af44-8c9df1482c9f/blobs/a3/a3afa60e0753afbf6bff5c1b2dc421094cd9295d9386aa7525c106747775dc3f"
+    }
+  },
+  "revisions": {},
+  "checks": {
+    "latest": null,
+    "revisions": {},
+    "unversioned": []
+  },
+  "snapshots": {
+    "latest": {
+      "revision": null,
+      "id": "a46e2761-a2e4-490a-934e-910c5d647893-0"
+    },
+    "revisions": {},
+    "unversioned": [
+      {
+        "scope": "full",
+        "id": "a46e2761-a2e4-490a-934e-910c5d647893-0",
+        "image": "/Users/beny/Documents/Project-self/Content-automation/hyperframes-workspace/hook-keyframe-shopee-obermain-tas-pria-kyler-1-mess-hook-2/snapshots/frame-00-at-1s.png",
+        "time": 1,
+        "metadata": {
+          "width": 1080,
+          "height": 1920,
+          "zoomScale": 1,
+          "browserGpuMode": "auto",
+          "warnings": [],
+          "partial": false
+        },
+        "createdAt": 1795071318026,
+        "contentHash": "799ba42b01f954cdf04e0d788685fbf11d808eb437727422f72fc2933ce09d89",
+        "revision": null,
+        "inputFingerprint": "0acaa710b5292dc5993a3837185f5527402a896bdf419bf438eb0006d57c606b",
+        "inputScope": "local-project-files",
+        "attribution": "inputs-changed"
+      }
+    ]
+  }
+}

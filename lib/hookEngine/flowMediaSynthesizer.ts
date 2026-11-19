@@ -51,16 +51,45 @@ export async function synthesizeHookMedia(
   console.log(`🎙️ [Flow MCP] Mensintesis audio hook ${candidate.id} (${candidate.archetypeName})...`);
   let audioDurationSec = 6.0;
 
-  // Try multi-tier TTS: Gemini TTS pool (Charon voice) -> ElevenLabs fallback
+  // Voice Persona & Acoustic Equalizer selection
+  let voiceName = 'Charon';
+  let eqFilter = 'volume=-1.5dB,highpass=f=75,equalizer=f=110:width_type=o:width=1.8:g=4.0,equalizer=f=3000:width_type=o:width=1.2:g=2.2,lowpass=f=7800,loudnorm=I=-16:TP=-1.5:LRA=11';
+
+  if (dossier.segment === 'commerce_ugc') {
+    const explicitVoice = dossier.productData?.voicePersona;
+    const textCorpus = `${dossier.title} ${dossier.victim} ${dossier.rawBrief || ''} ${dossier.productData?.targetPersona || ''} ${dossier.productData?.productName || ''}`.toLowerCase();
+
+    const isExplicitFemale = explicitVoice === 'female_creator';
+    const isExplicitMale = explicitVoice === 'male_creator';
+
+    // Check if the product is female oriented (tas cewek, wanita, skincare, beauty, dress, hijab, dll)
+    const isFemaleProduct =
+      /(tas cewek|tas wanita|tas sling|tote|handbag|cewek|wanita|skincare|serum|retinol|beauty|flek|jerawat|glowing|dress|hijab|shoulder|clutch|makeup|lipstik|cushion|blouse|gamis)/i.test(
+        textCorpus
+      ) || dossier.productData?.category === 'beauty_skincare';
+
+    const useFemaleVoice = isExplicitFemale || (!isExplicitMale && isFemaleProduct);
+
+    if (useFemaleVoice) {
+      voiceName = 'Aoede'; // Natural warm & friendly female creator voice
+      eqFilter = 'volume=-1.5dB,highpass=f=80,equalizer=f=220:width_type=o:width=1.5:g=1.5,equalizer=f=4500:width_type=o:width=1.2:g=1.8,lowpass=f=8500,loudnorm=I=-16:TP=-1.5:LRA=11';
+    } else {
+      voiceName = 'Puck'; // Energetic & friendly male creator voice
+      eqFilter = 'volume=-1.5dB,highpass=f=80,equalizer=f=180:width_type=o:width=1.5:g=1.5,equalizer=f=3200:width_type=o:width=1.2:g=1.2,lowpass=f=8200,loudnorm=I=-16:TP=-1.5:LRA=11';
+    }
+    console.log(`🎙️ [UGC Audio Engine] Menggunakan vokal Natural Creator: ${voiceName} (${useFemaleVoice ? 'Female Creator (Aoede)' : 'Male Creator (Puck)'})`);
+  }
+
+  // Try multi-tier TTS: Gemini TTS pool -> ElevenLabs fallback
   const key = process.env.GEMINI_API_KEY;
   let rawPcm: Buffer | undefined;
 
   if (key) {
     const ttsModels = [
-      'gemini-3.8-flash-tts',
-      'gemini-3.8-flash-lite-tts',
-      'gemini-2.5-flash-preview-tts',
       'gemini-3.1-flash-tts-preview',
+      'gemini-2.5-flash-preview-tts',
+      'gemini-3.8-flash-lite-tts',
+      'gemini-3.8-flash-tts',
     ];
 
     for (const model of ttsModels) {
@@ -76,7 +105,7 @@ export async function synthesizeHookMedia(
                 responseModalities: ['AUDIO'],
                 speechConfig: {
                   voiceConfig: {
-                    prebuiltVoiceConfig: { voiceName: 'Charon' },
+                    prebuiltVoiceConfig: { voiceName },
                   },
                 },
               },
@@ -89,7 +118,7 @@ export async function synthesizeHookMedia(
           const b64 = data.candidates?.[0]?.content?.parts?.[0]?.inlineData?.data;
           if (b64) {
             rawPcm = Buffer.from(b64, 'base64');
-            console.log(`✅ [Gemini TTS] Sukses mensintesis vokal Charon dengan model: ${model}`);
+            console.log(`✅ [Gemini TTS] Sukses mensintesis vokal ${voiceName} dengan model: ${model}`);
             break;
           }
         }
@@ -99,7 +128,7 @@ export async function synthesizeHookMedia(
     }
   }
 
-  // If Gemini TTS succeeded, convert PCM to 48kHz Stereo WAV with Klenik Low-End Warmth EQ
+  // If Gemini TTS succeeded, convert PCM to 48kHz Stereo WAV with tailored EQ
   if (rawPcm) {
     const tempPcm = path.join(outDir, `.temp-charon-${candidate.id}.pcm`);
     fs.writeFileSync(tempPcm, rawPcm);
@@ -114,7 +143,7 @@ export async function synthesizeHookMedia(
       '-i',
       tempPcm,
       '-af',
-      'equalizer=f=110:width_type=o:width=1.8:g=4.0,equalizer=f=3000:width_type=o:width=1.2:g=2.2,highpass=f=75,lowpass=f=7800',
+      eqFilter,
       '-ar',
       '48000',
       '-ac',

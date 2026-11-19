@@ -1,0 +1,55 @@
+{
+  "version": 1,
+  "historyId": "77798cc9-be5c-41fe-ad86-64e1803176b5",
+  "currentRevision": null,
+  "pendingChanges": false,
+  "files": {
+    "artwork-noir.jpg": {
+      "hash": "db42fb9ff5cd34a582a8c3df1639ceb204a2a6c27531a8d1ea993b7564413950",
+      "content": "/Users/beny/.cache/hyperframes/history/77798cc9-be5c-41fe-ad86-64e1803176b5/blobs/db/db42fb9ff5cd34a582a8c3df1639ceb204a2a6c27531a8d1ea993b7564413950"
+    },
+    "hyperframes.json": {
+      "hash": "12bb941b1e4060ce7418673e6ecf96e5aec4b3032a6640b3842a7f519534b7a2",
+      "content": "/Users/beny/.cache/hyperframes/history/77798cc9-be5c-41fe-ad86-64e1803176b5/blobs/12/12bb941b1e4060ce7418673e6ecf96e5aec4b3032a6640b3842a7f519534b7a2"
+    },
+    "index.html": {
+      "hash": "c60a0efbea6c883cab98f045c9a9a0cbe241c29e10c7fe67c298fece87c0c104",
+      "content": "/Users/beny/.cache/hyperframes/history/77798cc9-be5c-41fe-ad86-64e1803176b5/blobs/c6/c60a0efbea6c883cab98f045c9a9a0cbe241c29e10c7fe67c298fece87c0c104"
+    }
+  },
+  "revisions": {},
+  "checks": {
+    "latest": null,
+    "revisions": {},
+    "unversioned": []
+  },
+  "snapshots": {
+    "latest": {
+      "revision": null,
+      "id": "a39c4a9f-5538-45b2-99b9-d58082f08f3c-0"
+    },
+    "revisions": {},
+    "unversioned": [
+      {
+        "scope": "full",
+        "id": "a39c4a9f-5538-45b2-99b9-d58082f08f3c-0",
+        "image": "/Users/beny/Documents/Project-self/Content-automation/hyperframes-workspace/hook-keyframe-shopee-obermain-tas-pria-kyler-1-mess-hook-3/snapshots/frame-00-at-1s.png",
+        "time": 1,
+        "metadata": {
+          "width": 1080,
+          "height": 1920,
+          "zoomScale": 1,
+          "browserGpuMode": "auto",
+          "warnings": [],
+          "partial": false
+        },
+        "createdAt": 1795071345715,
+        "contentHash": "7ab8fe1a23bbca6fe51d2982694fff0c7d85cde99d93edaef6daa5288d9be642",
+        "revision": null,
+        "inputFingerprint": "44187985af499d4da72c800f2ce77dbdf4a1068c25537f4f695f948f98b9ef9e",
+        "inputScope": "local-project-files",
+        "attribution": "inputs-changed"
+      }
+    ]
+  }
+}
